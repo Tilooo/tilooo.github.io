@@ -284,7 +284,41 @@
                 padding: 30px 20px;
             }
         }
-        /* Animacija tituliniame laukelyje */
+        /* Scroll Animations and head animation*/
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Adjust existing media queries if needed */
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+        }
         .typing-text {
             overflow: hidden;
             white-space: nowrap;
@@ -339,6 +373,7 @@
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Figma</span>
                             <span class="skill-tag">Responsive Design</span>
                         </div>
                     </div>
@@ -425,5 +460,20 @@
     <footer>
         <p>&copy; 2023 Tilo. All rights reserved.</p>
     </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('section');
+        hiddenElements.forEach((el) => {
+            el.classList.add('hidden');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
