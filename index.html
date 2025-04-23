@@ -132,66 +132,20 @@
             font-size: 0.9rem;
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .project-card {
-            background-color: var(--light-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .project-img {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-info {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin: 10px 0;
-        }
-
-        .project-tag {
+        .projects-button {
+            display: inline-block;
             background-color: var(--primary-color);
             color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        .project-links {
-            margin-top: 15px;
-        }
-
-        .project-links a {
-            display: inline-block;
-            margin-right: 15px;
-            color: var(--secondary-color);
+            padding: 12px 25px;
+            border-radius: 5px;
             text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .projects-button:hover {
+            background-color: var(--secondary-color);
         }
 
         .contact-form {
@@ -350,7 +304,7 @@
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -377,54 +331,8 @@
                             <span class="skill-tag">Responsive Design</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p>Here are some of the projects I've worked on. Each represents a unique challenge and learning experience.</p>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-code fa-3x" style="color: #888;"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Voice Assistant</h3>
-                        <p>A modern web-based voice assistant that responds to voice commands and provides helpful information through a clean, intuitive interface.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Eel</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projects/voice-assistant/index.html" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="https://github.com/Tilooo/personalAssistant" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-mobile-alt fa-3x" style="color: #888;"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Project 2</h3>
-                        <p>A description of your second project. What makes it special? What did you learn while building it?</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
+                    
+                    <a href="projects.html" class="projects-button">View My Projects <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
