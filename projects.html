@@ -86,104 +86,117 @@
             padding: 0 20px;
         }
 
-        section {
-            margin-bottom: 60px;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .projects-grid {
+        /* New Project Grid Styling */
+        .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin-top: 30px;
         }
 
         .project-card {
-            background-color: var(--light-color);
-            border-radius: 8px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        .project-img {
-            height: 200px;
-            background-color: #ddd;
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .project-info {
-            padding: 20px;
+            flex-direction: column;
         }
 
         .project-title {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
             color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: auto;
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
-            margin: 10px 0;
+            gap: 8px;
+            margin: 15px 0;
         }
 
         .project-tag {
             background-color: var(--primary-color);
             color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .project-links {
-            margin-top: 15px;
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            position: relative;
+            z-index: 2;
         }
 
-        .project-links a {
-            display: inline-block;
-            margin-right: 15px;
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             color: var(--secondary-color);
             text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
         }
 
-        .back-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
+        .project-link:hover {
+            color: var(--primary-color);
         }
 
-        .back-button:hover {
-            background-color: var(--accent-color);
+        .project-link i {
+            font-size: 1.1rem;
         }
 
         footer {
-            background-color: var(--secondary-color);
+            background-color: #95f725;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+            padding: 30px 1px;
+            margin-top: 0;
+            width: 100%;
         }
 
         /* Scroll Animations */
@@ -216,8 +229,8 @@
                 margin: 5px 0;
             }
 
-            section {
-                padding: 30px 20px;
+            .projects-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -240,55 +253,80 @@
     </header>
 
     <main>
-        <section>
-            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
-            
-            <h2>My Projects</h2>
-            <p>Here are some of the projects I've worked on. Each represents a unique challenge and learning experience.</p>
-
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-code fa-3x" style="color: #888;"></i>
+        <div class="projects-container">
+            <div class="project-card hidden" onclick="window.location.href='projects/voice-assistant/index.html'">
+                <div class="project-content">
+                    <h2 class="project-title">Voice Assistant</h2>
+                    <p class="project-description">A modern web-based voice assistant that responds to voice commands and provides helpful information through a clean, intuitive interface.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Eel</span>
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Voice Assistant</h3>
-                        <p>A modern web-based voice assistant that responds to voice commands and provides helpful information through a clean, intuitive interface.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Eel</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projects/voice-assistant/index.html"><i class="fas fa-external-link-alt"></i> View Project</a>
-                            <a href="https://github.com/Tilooo/personalAssistant" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                    <div class="project-links">
+                        <a href="projects/voice-assistant/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="https://github.com/Tilooo/personalAssistant" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
                     </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-mobile-alt fa-3x" style="color: #888;"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Project 2</h3>
-                        <p>A description of second project. What makes it special? What did I learn while building it?</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="projects/project2/index.html"><i class="fas fa-external-link-alt"></i> View Project</a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
+                    <p class="project-date">Created on 2023-05-15</p>
                 </div>
             </div>
-        </section>
+
+            <div class="project-card hidden" onclick="window.location.href='index.html'">
+                <div class="project-content">
+                    <h2 class="project-title">Portfolio Website</h2>
+                    <p class="project-description">A responsive portfolio website built with HTML, CSS, and JavaScript to showcase my projects and skills.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">Responsive</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="https://github.com/Tilooo/tilooo.github.io" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                    <p class="project-date">Created on 2023-10-01</p>
+                </div>
+            </div>
+
+            <div class="project-card hidden" onclick="window.location.href='#'">
+                <div class="project-content">
+                    <h2 class="project-title">Data Analysis Tool</h2>
+                    <p class="project-description">A Python-based data analysis tool that processes large datasets and generates insightful visualizations for business intelligence.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">Matplotlib</span>
+                        <span class="project-tag">Data Science</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="#" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                    <p class="project-date">Created on 2023-08-12</p>
+                </div>
+            </div>
+
+            <div class="project-card hidden" onclick="window.location.href='#'">
+                <div class="project-content">
+                    <h2 class="project-title">E-commerce Platform</h2>
+                    <p class="project-description">A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment processing capabilities.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">React</span>
+                        <span class="project-tag">Node.js</span>
+                        <span class="project-tag">MongoDB</span>
+                        <span class="project-tag">Express</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="#" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                    <p class="project-date">Created on 2023-07-20</p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -303,9 +341,8 @@
             });
         });
 
-        const hiddenElements = document.querySelectorAll('section');
+        const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => {
-            el.classList.add('hidden');
             observer.observe(el);
         });
     </script>
