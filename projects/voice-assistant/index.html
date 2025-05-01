@@ -29,13 +29,16 @@
         }
 
         .slideshow-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100%;
-            z-index: -1;
+            height: 500px;  /* Increased height to show more of the image */
+            z-index: 1;
             overflow: hidden;
+            margin-top: 60px;  /* Increased top margin */
+            margin-bottom: 60px; /* Added bottom margin */
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            clear: both;
         }
 
         .slideshow-image {
@@ -44,8 +47,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
+            background-size: contain;  /* Changed from cover to contain */
             background-position: center;
+            background-repeat: no-repeat;  /* Added to prevent repeating */
+            background-color: #000;  /* Added background color */
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
@@ -55,13 +60,13 @@
         }
 
         .overlay {
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 2;
         }
 
         .container {
@@ -297,11 +302,6 @@
     </style>
 </head>
 <body>
-    <div class="slideshow-container" id="slideshow">
-        <!-- Slideshow images will be added here via JavaScript -->
-    </div>
-    <div class="overlay"></div>
-    
     <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
     
     <div class="container">
@@ -329,6 +329,15 @@
                 <button class="control-button" id="clear-button">Clear Chat</button>
                 <button class="control-button" id="commands-button">Show Commands</button>
             </div>
+        </div>
+        
+        <!-- Add a spacer div to ensure proper separation -->
+        <div style="height: 60px;"></div>
+        
+        <!-- Slideshow container moved inside the main container -->
+        <div class="slideshow-container" id="slideshow">
+            <!-- Slideshow images will be added here via JavaScript -->
+            <div class="overlay"></div>
         </div>
     </div>
 
