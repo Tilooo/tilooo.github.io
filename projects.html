@@ -190,6 +190,18 @@
             font-size: 1.1rem;
         }
 
+        /* Project card with background image */
+        .project-card-with-bg {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .project-card-with-bg .project-content {
+            background-color: rgba(255, 255, 255, 0.9);
+            height: 100%;
+        }
+
         footer {
             background-color: #95f725;
             color: white;
@@ -233,6 +245,23 @@
                 grid-template-columns: 1fr;
             }
         }
+        /* Project Image Styling */
+        .project-image {
+            width: 100%;
+            height: 180px;  /* Reduced from 200px to 180px */
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -254,7 +283,10 @@
 
     <main>
         <div class="projects-container">
-            <div class="project-card hidden" onclick="window.location.href='projects/voice-assistant/index.html'">
+            <div class="project-card hidden">
+                <div class="project-image">
+                    <img src="projects/voice-assistant/images/voice-assistant-welcome.jpg" alt="Voice Assistant">
+                </div>
                 <div class="project-content">
                     <h2 class="project-title">Voice Assistant</h2>
                     <p class="project-description">A modern web-based voice assistant that responds to voice commands and provides helpful information through a clean, intuitive interface.</p>

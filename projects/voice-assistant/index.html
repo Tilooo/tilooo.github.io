@@ -31,11 +31,11 @@
         .slideshow-container {
             position: relative;
             width: 100%;
-            height: 500px;  /* Increased height to show more of the image */
+            height: 600px;  /* Reduced from 1000px to 600px */
             z-index: 1;
             overflow: hidden;
-            margin-top: 60px;  /* Increased top margin */
-            margin-bottom: 60px; /* Added bottom margin */
+            margin-top: 20px;  /* Changed from -91px to 20px for proper spacing */
+            margin-bottom: 40px; /* Reduced from 60px to 40px */
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
             clear: both;
@@ -72,7 +72,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0px;
             position: relative;
             z-index: 1;
         }
@@ -124,7 +124,7 @@
 
         .assistant-display {
             height: 300px;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(#180d38, #030005);
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -134,7 +134,7 @@
 
         .assistant-message {
             padding: 12px 18px;
-            background: linear-gradient(to right, #00cc00, #33cc33);
+            background: linear-gradient(to right, #00cc00, #33cc33, #7902f7);
             color: white;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -144,7 +144,7 @@
 
         .user-message {
             padding: 12px 18px;
-            background: linear-gradient(to right, #9900cc, #cc00cc);
+            background: linear-gradient(to right, #9900cc, #cc00cc, #1dc902);
             color: white;
             border-radius: 10px;
             margin-bottom: 15px;
@@ -199,7 +199,7 @@
         }
 
         .send-button {
-            background-color: var(--secondary-color);
+            background: linear-gradient(to right, #180d38, #5813ba, #1dc902);
             color: white;
             border: none;
             padding: 15px 25px;
@@ -312,7 +312,7 @@
             </div>
             
             <div class="assistant-display" id="chat-display">
-                <div class="assistant-message">Hello! I'm your voice assistant. How can I help you today?</div>
+                <div class="assistant-message">Hello! I'm Assistant, your personal voice assistant. How can I help you today?</div>
             </div>
             
             <div class="assistant-controls">
@@ -330,11 +330,9 @@
                 <button class="control-button" id="commands-button">Show Commands</button>
             </div>
         </div>
+
         
-        <!-- Add a spacer div to ensure proper separation -->
-        <div style="height: 60px;"></div>
-        
-        <!-- Slideshow container moved inside the main container -->
+        <!-- Slideshow container -->
         <div class="slideshow-container" id="slideshow">
             <!-- Slideshow images will be added here via JavaScript -->
             <div class="overlay"></div>
@@ -348,7 +346,7 @@
             const images = [
                 'images/voice-assistant-welcome.jpg',
                 'images/voice-assistant-conversation.jpg'
-                // Add more images as you create them
+                // Will add more images
             ];
             
             // Create image elements
