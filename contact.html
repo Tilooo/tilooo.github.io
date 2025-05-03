@@ -239,14 +239,15 @@
     </header>
 
     <main>
-        <section>
-            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Home</a>
-            
+        <section id="contact" class="hidden">
             <h2>Contact Me</h2>
-            <p>Feel free to reach out if you have any questions or would like to collaborate on a project.</p>
-
             <div class="contact-form">
-                <form action="https://formspree.io/f/your-form-id" method="POST">
+                <form id="contactForm" action="https://formsubmit.co/moonaviad@gmail.com" method="POST">
+                    <!-- FormSubmit customization options -->
+                    <input type="hidden" name="_next" value="https://tilooo.github.io/thanks.html">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I've received your message and will get back to you as soon as possible.">
+                    
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -256,15 +257,18 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
                     <button type="submit">Send Message</button>
+                    <div id="formStatus" style="margin-top: 15px;"></div>
                 </form>
             </div>
-
             <div class="social-links">
-                <a href="mailto:moonaviad@gmail.com"><i class="fas fa-envelope"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
@@ -288,6 +292,13 @@
         hiddenElements.forEach((el) => {
             el.classList.add('hidden');
             observer.observe(el);
+        });
+        
+        // Contact form functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const formStatus = document.getElementById('formStatus');
+            formStatus.textContent = "Sending your message...";
+            formStatus.style.color = "#166088";
         });
     </script>
 </body>
