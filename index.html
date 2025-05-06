@@ -24,17 +24,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 100px 20px;
+            padding: 200px 20px 50px; /* center the name and tagline */
             position: relative;
         }
 
@@ -44,20 +44,16 @@
         }
 
         header h1 {
-            font-size: 3rem;
-            margin-bottom: 100px;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
         }
 
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-        }
-
+        /* Integrated navigation in header */
         nav {
-            background-color: #95f725;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            left: 0;
             z-index: 100;
         }
 
@@ -70,7 +66,7 @@
 
         nav a {
             text-decoration: none;
-            color: var(--text-color);
+            color: white;
             font-weight: 600;
             padding: 10px 20px;
             margin: 0 10px;
@@ -78,77 +74,108 @@
             transition: all 0.3s ease;
         }
 
-        nav a:hover {
-            background-color: var(--accent-color);
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
         }
 
         main {
             flex: 1;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 0;
             margin: 0;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
         }
 
         footer {
-            background-color: #95f725;
             color: white;
             text-align: center;
             padding: 30px 1px;
-            margin-top: 0;
+            margin-top: auto;
             width: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
-        @media (max-width: 768px) {
-            header {
-                padding: 60px 20px;
-            }
-
-            header h1 {
-                font-size: 2.2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                margin: 5px 0;
-            }
-        }
-        /* Scroll Animations and head animation*/
-        .hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1s ease;
+        /* Animated Background */
+        .animated-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
         }
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
+        .animated-background span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
         }
 
-        /* Adjust existing media queries if needed */
-        @media (max-width: 768px) {
-            header {
-                padding: 60px 20px;
-            }
+        .animated-background span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            animation-duration: 15s;
+        }
 
-            header h1 {
-                font-size: 2.2rem;
-            }
+        .animated-background span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
 
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
+        .animated-background span:nth-child(3) {
+            left: 70%;
+            width: 30px;
+            height: 30px;
+            animation-delay: 4s;
+            animation-duration: 18s;
+        }
 
-            nav a {
-                margin: 5px 0;
+        .animated-background span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 20s;
+        }
+
+        .animated-background span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            animation-duration: 15s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
             }
         }
+
+        /* Typing animation */
         .typing-text {
             overflow: hidden;
             white-space: nowrap;
@@ -167,19 +194,46 @@
             from, to { border-color: transparent }
             50% { border-color: var(--primary-color) }
         }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 20px 40px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                margin: 5px;
+                padding: 8px 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="animated-background">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 
     <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
         <div class="header-content">
             <h1>Tilo</h1>
             <p class="typing-text">Software Developer | Web Enthusiast | Data Science | Problem Solver</p>
@@ -187,11 +241,13 @@
     </header>
 
     <main>
+        <!-- Content section removed as requested -->
     </main>
 
     <footer>
         <p>&copy; 2023 Tilo. All rights reserved.</p>
     </footer>
+    
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
