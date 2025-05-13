@@ -300,6 +300,23 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        /* Animated GIF Section Styling */
+        .animated-section {
+            margin-top: 40px;
+            margin-bottom: 60px;
+            text-align: center;
+            background: transparent;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        
+        .animated-gif {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            filter: hue-rotate(120deg) brightness(1.2); /* Shifts colors toward green */
+        }
+        
         @keyframes typing {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
@@ -345,6 +362,11 @@
         <!-- Installation Guide Image -->
         <div class="installation-guide">
             <img src="images/voice-assistant-installation.jpg" alt="Voice Assistant Installation Guide" class="full-width-image">
+        </div>
+        
+        <!-- Animated GIF Section -->
+        <div class="animated-section">
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/4bf00d70953817.5be000bd4190f.gif" alt="Voice Assistant Animation" class="animated-gif">
         </div>
     </div>
 
