@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINGS E-commerce Showcase</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Custom styles for the feather background */
+        body {
+            background-image: url('images/pieva.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+        }
+        
+        /* Ensures all content is above the background */
+        .container, .jumbotron, section, footer {
+            position: relative;
+        }
+        
+        /* Top banner styling */
+        .top-banner {
+            background-color: #95f725;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: 500;
+        }
+        
+        /* Style for the jumbotron with greenish background for readability */
+        .jumbotron {
+            background-color: rgba(149, 247, 37, 0.5);
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Sections and cards with greenish backgrounds */
+        section.container {
+            background-color: rgba(149, 247, 37, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            color: #333;
+        }
+        
+        .card {
+            background-color: rgba(149, 247, 37, 0.7);
+            color: #333;
+            border: 1px solid rgba(22, 96, 136, 0.3);
+        }
+        
+        .card-body {
+            color: #333;
+        }
+        
+        .bg-light {
+            background-color: rgba(149, 247, 37, 0.6) !important;
+            color: #333 !important;
+        }
+        
+        /* Footer styling */
+        footer div {
+            background-color: rgba(149, 247, 37, 0.6) !important;
+            color: #333 !important;
+        }
+        
+        footer a, footer h5, footer p, footer li {
+            color: #333 !important;
+        }
+        
+        .text-dark {
+            color: #333 !important;
+        }
+        
+        /* Navigation styling */
+        .navbar {
+            background-color: rgba(149, 247, 37, 0.7) !important;
+        }
+        
+        .navbar-light .navbar-brand, 
+        .navbar-light .navbar-nav .nav-link {
+            color: #333 !important;
+        }
+        
+        /* Button styling to match theme */
+        .btn-outline-primary {
+            color: #166088;
+            border-color: #166088;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: #166088;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <div class="container">
+            <p class="m-0">💌 Sending Smiles, One Postcard at a Time: Your Online Oasis for Sweet Moments! 💌</p>
+        </div>
+    </div>
+
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container mr-auto">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search products..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Logo -->
+            <a class="navbar-brand mx-auto" href="#">
+                <img src="images/wings-logo.jpg" alt="WINGS Logo" height="80">
+            </a>
+            
+            <!-- Navigation Links -->
+            <div class="ml-auto">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-toggle="dropdown">
+                            PRODUCTS
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Postcards</a>
+                            <a class="dropdown-item" href="#">Notebooks</a>
+                            <a class="dropdown-item" href="#">Tote Bags</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Cart <span class="badge badge-pill badge-success">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-toggle="dropdown">
+                            ACCOUNT
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Sign In</a>
+                            <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item" href="#">My Orders</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="jumbotron text-center feather-bg position-relative" style="border-radius: 0;">
+        <h1 class="display-3">Spread your <span style="font-family: cursive;">Wings</span>!</h1>
+        <p class="lead">Explore our curated collection and find your moment inspiration!</p>
+        <hr class="my-4">
+        <p class="mb-4">♡🤍♡</p>
+        <a class="btn btn-primary btn-lg" href="#products" role="button"
+           style="background-color: #37210b; border-color: #37210b; position: relative; z-index: 2;">Explore Now</a>
+    </div>
+
+    <!-- Product Showcase -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Winter Mug -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/winter-mug.jpg" class="card-img-top" alt="Winter Mug">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Winter Magic Mug</h5>
+                        <p class="card-text">$7.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Colorful Notebook -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/sunny-notebook.jpg" class="card-img-top" alt="Colorful Notebook">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sunny Notebook</h5>
+                        <p class="card-text">$12.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Keychain -->
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="images/house-kc.jpg" class="card-img-top" alt="House Key Chain">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Key Chain</h5>
+                        <p class="card-text">$4.99</p>
+                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="products" class="container my-5">
+        <h2 class="text-center mb-4">Featured Products</h2>
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Colorful Postcard Set</h5>
+                        <p class="card-text">A beautiful set of handcrafted postcards for special occasions.</p>
+                        <p class="card-text"><strong>$12.99</strong></p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Nature Inspired Cards</h5>
+                        <p class="card-text">Elegant cards featuring beautiful nature scenes and patterns.</p>
+                        <p class="card-text"><strong>$9.99</strong></p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Custom Message Cards</h5>
+                        <p class="card-text">Personalized cards with your own message and design elements.</p>
+                        <p class="card-text"><strong>$14.99</strong></p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>About WINGS</h2>
+                    <p>WINGS is an e-commerce platform specializing in beautiful, handcrafted postcards and greeting cards. Our mission is to help people connect through meaningful, tangible messages in an increasingly digital world.</p>
+                    <p>This showcase demonstrates the design and user interface of our Django-powered e-commerce application.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Project Features</h3>
+                    <ul>
+                        <li>Responsive product catalog</li>
+                        <li>User account management</li>
+                        <li>Shopping cart functionality</li>
+                        <li>Secure checkout process</li>
+                        <li>Order history and tracking</li>
+                        <li>Admin dashboard for inventory management</li>
+                    </ul>
+                    <p><strong>Note:</strong> This is a static showcase. The interactive features are simulated for demonstration purposes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <div class="container-fluid py-5 mt-4" style="background-color: #95f725;">
+        <div class="container text-center">
+            <h2 class="display-4 text-white" style="font-family: 'Brush Script MT', cursive;">Spread your <span style="font-weight: bold;">Wings!</span></h2>
+            <p class="lead text-white">Explore our curated collection and find your moment inspiration!</p>
+            <hr class="my-4 bg-white">
+            <a class="btn btn-warning btn-lg rounded-pill px-5" href="#" role="button">Explore Now</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About WINGS</h5>
+                    <p>Bringing joy and inspiration through beautiful, artistic products.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Home</a></li>
+                        <li><a href="#" class="text-white">Products</a></li>
+                        <li><a href="#" class="text-white">About Us</a></li>
+                        <li><a href="#" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2023 WINGS. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
