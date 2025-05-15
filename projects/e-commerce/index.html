@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Custom styles for the feather background */
+        /* Custom styles for the pieva background */
         body {
             background-image: url('images/pieva.jpg');
             background-size: cover;
@@ -94,17 +94,53 @@
             background-color: #166088;
             color: white;
         }
+        
+        /* Carousel styling */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .carousel-indicators {
+            bottom: -40px;
+        }
+        
+        .carousel-indicators li {
+            background-color: #166088;
+            opacity: 0.5;
+        }
+        
+        .carousel-indicators li.active {
+            opacity: 1;
+        }
+        
+        /* Add some spacing for the carousel controls */
+        #productShowcaseCarousel {
+            padding-bottom: 50px;
+        }
+        
+        /* Make carousel controls more visible against green background */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            padding: 10px;
+        }
     </style>
 </head>
 <body>
     <!-- Top Banner -->
     <div class="top-banner">
         <div class="container">
-            <p class="m-0">💌 Sending Smiles, One Postcard at a Time: Your Online Oasis for Sweet Moments! 💌</p>
+            <p class="m-0"> Sending Smiles, One Postcard at a Time: Your Online Oasis for Sweet Moments! </p>
         </div>
     </div>
 
-    
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
@@ -120,7 +156,7 @@
             
             <!-- Logo -->
             <a class="navbar-brand mx-auto" href="#">
-                <img src="images/wings-logo.jpg" alt="WINGS Logo" height="80">
+                <img src="images/wings-logo.jpg" alt="WINGS Logo" height="100">
             </a>
             
             <!-- Navigation Links -->
@@ -134,6 +170,8 @@
                             <a class="dropdown-item" href="#">Postcards</a>
                             <a class="dropdown-item" href="#">Notebooks</a>
                             <a class="dropdown-item" href="#">Tote Bags</a>
+                            <a class="dropdown-item" href="#">Keychain</a>
+                            <a class="dropdown-item" href="#">Mugs</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -156,7 +194,143 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Product Showcase with Carousel -->
+    <div class="container mt-4">
+        <!-- <h2 class="text-center mb-4">Our Products</h2> -->
+        <div id="productShowcaseCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#productShowcaseCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#productShowcaseCarousel" data-slide-to="1"></li>
+                <li data-target="#productShowcaseCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <!-- First Slide -->
+                <div class="carousel-item active">
+                    <div class="row">
+                        <!-- Winter Mug -->
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/winter-mug.jpg" class="card-img-top" alt="Winter Mug">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Winter Magic Mug</h5>
+                                    <p class="card-text">$7.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Colorful Notebook -->
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/sunny-notebook.jpg" class="card-img-top" alt="Colorful Notebook">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Sunny Notebook</h5>
+                                    <p class="card-text">$12.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Keychain -->
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/house-kc.jpg" class="card-img-top" alt="House Key Chain">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Key Chain</h5>
+                                    <p class="card-text">$4.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Second Slide -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product1.jpg" class="card-img-top" alt="Postcard Set">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Spring Postcard Set</h5>
+                                    <p class="card-text">$9.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Tote Bag">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Canvas Tote Bag</h5>
+                                    <p class="card-text">$15.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product3.jpg" class="card-img-top" alt="Gift Set">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Gift Set Bundle</h5>
+                                    <p class="card-text">$24.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Third Slide -->
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product1.jpg" class="card-img-top" alt="Greeting Cards">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Birthday Cards Pack</h5>
+                                    <p class="card-text">$11.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product2.jpg" class="card-img-top" alt="Sticker Set">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Nature Sticker Set</h5>
+                                    <p class="card-text">$6.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img src="images/product3.jpg" class="card-img-top" alt="Bookmark Set">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Artistic Bookmarks</h5>
+                                    <p class="card-text">$8.99</p>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#productShowcaseCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#productShowcaseCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Hero Section (MOVED BELOW PRODUCT SHOWCASE) -->
     <div class="jumbotron text-center feather-bg position-relative" style="border-radius: 0;">
         <h1 class="display-3">Spread your <span style="font-family: cursive;">Wings</span>!</h1>
         <p class="lead">Explore our curated collection and find your moment inspiration!</p>
@@ -165,91 +339,7 @@
         <a class="btn btn-primary btn-lg" href="#products" role="button"
            style="background-color: #37210b; border-color: #37210b; position: relative; z-index: 2;">Explore Now</a>
     </div>
-
-    <!-- Product Showcase -->
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Winter Mug -->
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="images/winter-mug.jpg" class="card-img-top" alt="Winter Mug">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Winter Magic Mug</h5>
-                        <p class="card-text">$7.99</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Colorful Notebook -->
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="images/sunny-notebook.jpg" class="card-img-top" alt="Colorful Notebook">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Sunny Notebook</h5>
-                        <p class="card-text">$12.99</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Keychain -->
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="images/house-kc.jpg" class="card-img-top" alt="House Key Chain">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Key Chain</h5>
-                        <p class="card-text">$4.99</p>
-                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <section id="products" class="container my-5">
-        <h2 class="text-center mb-4">Featured Products</h2>
-        <div class="row">
-            <!-- Product 1 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/product1.jpg" class="card-img-top" alt="Product 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Colorful Postcard Set</h5>
-                        <p class="card-text">A beautiful set of handcrafted postcards for special occasions.</p>
-                        <p class="card-text"><strong>$12.99</strong></p>
-                        <a href="#" class="btn btn-outline-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/product2.jpg" class="card-img-top" alt="Product 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nature Inspired Cards</h5>
-                        <p class="card-text">Elegant cards featuring beautiful nature scenes and patterns.</p>
-                        <p class="card-text"><strong>$9.99</strong></p>
-                        <a href="#" class="btn btn-outline-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="images/product3.jpg" class="card-img-top" alt="Product 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Custom Message Cards</h5>
-                        <p class="card-text">Personalized cards with your own message and design elements.</p>
-                        <p class="card-text"><strong>$14.99</strong></p>
-                        <a href="#" class="btn btn-outline-primary">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- About Section -->
     <section id="about" class="bg-light py-5">
         <div class="container">
@@ -324,6 +414,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>
 </html>
