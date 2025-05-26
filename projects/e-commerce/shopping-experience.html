@@ -1,0 +1,115 @@
+<!-- Shopping Experience Section -->
+<section id="shopping-experience" class="container my-5 py-5">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h2 class="display-4">Complete Shopping Experience</h2>
+            <p class="lead">From cart to confirmation, our e-commerce platform provides a seamless shopping journey</p>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <img src="images/e-commerce-process.jpg" class="img-fluid rounded shadow mb-4" alt="E-commerce Shopping Process" data-toggle="modal" data-target="#shoppingProcessModal">
+            <p class="text-muted">Click on the image to see detailed features</p>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+            <div class="feature-box p-4">
+                <h4><i class="fas fa-shopping-cart mr-2"></i>User-Friendly Cart</h4>
+                <p>Intuitive product management with real-time updates and easy quantity adjustments.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box p-4">
+                <h4><i class="fas fa-lock mr-2"></i>Secure Checkout</h4>
+                <p>Encrypted payment processing with multiple payment options and address verification.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="feature-box p-4">
+                <h4><i class="fas fa-check-circle mr-2"></i>Order Confirmation</h4>
+                <p>Clear visual feedback with order details and automated email notifications.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Shopping Process Modal -->
+<div class="modal fade" id="shoppingProcessModal" tabindex="-1" aria-labelledby="shoppingProcessModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shoppingProcessModalLabel">E-commerce Shopping Experience</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src="images/e-commerce-process.jpg" class="img-fluid mb-4" alt="E-commerce Shopping Process">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Key Features Demonstrated:</h4>
+                        <ul class="feature-list">
+                            <li><strong>Shopping Cart:</strong> Product listing with images, quantities, and pricing</li>
+                            <li><strong>Payment Processing:</strong> Secure transaction with visual confirmation</li>
+                            <li><strong>Shipping Information:</strong> Address collection and delivery options</li>
+                            <li><strong>Order Summary:</strong> Detailed breakdown of purchased items</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Technical Implementation:</h4>
+                        <ul class="feature-list">
+                            <li><strong>Responsive Design:</strong> Optimized for all device sizes</li>
+                            <li><strong>Secure Checkout:</strong> Encrypted payment processing</li>
+                            <li><strong>User Experience:</strong> Intuitive flow with visual feedback</li>
+                            <li><strong>Order Management:</strong> Backend integration with inventory system</li>
+                            <li><strong>Email Notifications:</strong> Automated confirmations sent to customers</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <h4>Project Highlights:</h4>
+                    <p>This e-commerce platform was built with a focus on user experience and security. The checkout process was designed to be intuitive while collecting all necessary information in a streamlined manner. The payment confirmation screen provides clear feedback to users about their successful transaction.</p>
+                    <p>The mobile-responsive design ensures that customers can complete purchases from any device, with the interface automatically adapting to different screen sizes as shown in the image.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CSS Styles for Shopping Experience -->
+<style>
+    .feature-box {
+        border-radius: 10px;
+        border: 1px solid #eee;
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    
+    .feature-box:hover {
+        background-color: rgba(149, 247, 37, 0.2);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-list li {
+        margin-bottom: 10px;
+    }
+    
+    #shopping-experience img {
+        transition: transform 0.3s ease;
+        max-height: 600px;
+        object-fit: contain;
+    }
+    
+    #shopping-experience img:hover {
+        transform: scale(1.02);
+    }
+</style>
