@@ -34,13 +34,6 @@
             overflow-x: hidden;
         }
         
-        /* To ensure text remains readable against the colorful background */
-        .container, header, main, footer, nav a {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* You might want to add a subtle overlay to improve text readability */
         body::before {
             content: '';
             position: absolute;
@@ -69,20 +62,27 @@
             margin-bottom: 30px;
         }
 
-        /* Integrated navigation in header */
+        /* Updated Navigation with Glassmorphism */
         nav {
-            position: absolute;
+            position: fixed; /* Changed from absolute to fixed */
             top: 20px;
             width: 100%;
             left: 0;
             z-index: 100;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 10px;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border-radius: 50px; /* Rounded corners */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
         }
 
         nav a {
@@ -90,16 +90,44 @@
             color: white;
             font-weight: 600;
             padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
+            margin: 0 5px;
+            border-radius: 30px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         nav a:hover, nav a.active {
             background-color: rgba(255, 255, 255, 0.2);
             color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
+        
+        /* Added a light button for theme switching */
+        .theme-toggle {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
         main {
             flex: 1;
             padding: 0;
@@ -253,6 +281,9 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <button class="theme-toggle" aria-label="Toggle light/dark mode">
+                <i class="fas fa-sun"></i>
+            </button>
         </nav>
         
         <div class="header-content">
@@ -262,7 +293,6 @@
     </header>
 
     <main>
-        <!-- Content section removed as requested -->
     </main>
 
     <footer>
