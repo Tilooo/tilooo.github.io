@@ -24,7 +24,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-image: url('images/colorful-leaves.jpg');
+            background-image: url('images/colorful-leaves.jpg'); /* Default background */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,6 +32,12 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
+            transition: all 0.5s ease; /* Smooth transition for theme change */
+        }
+        
+        body.light-theme {
+            background-image: url('images/colorful-leaves2.jpg'); /* Light theme background */
+            color: #333;
         }
         
         body::before {
@@ -43,6 +49,11 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.2); /* Subtle dark overlay */
             z-index: 0;
+            transition: background-color 0.5s ease;
+        }
+        
+        body.light-theme::before {
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter overlay for light theme */
         }
         
         header {
@@ -300,6 +311,7 @@
     </footer>
     
     <script>
+        // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -311,6 +323,33 @@
         const hiddenElements = document.querySelectorAll('.hidden');
         hiddenElements.forEach((el) => {
             observer.observe(el);
+        });
+        
+        // Theme Toggle Functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.className = 'fas fa-moon';
+        }
+        
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            // Toggle light-theme class on body
+            body.classList.toggle('light-theme');
+            
+            // Update icon based on current theme
+            if (body.classList.contains('light-theme')) {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
         });
     </script>
 </body>
