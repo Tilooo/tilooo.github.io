@@ -20,18 +20,40 @@
             box-sizing: border-box;
         }
 
+        /* Theme support */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--light-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.5s ease;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            z-index: 0;
+            transition: background-color 0.5s ease;
+        }
+        
+        body.light-theme::before {
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter overlay for light theme */
         }
 
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 100px 20px 60px; /* Increase top padding from 60px to 100px */
             position: relative;
         }
 
@@ -51,35 +73,69 @@
         }
 
         nav {
-            background-color: #95f725;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
+            position: fixed; /* Changed from sticky to fixed */
+            top: 20px;
+            width: 100%;
+            left: 0;
             z-index: 100;
+            display: flex;
+            justify-content: center;
         }
 
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
-            padding: 10px;
+            padding: 15px 25px;
+            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            border-radius: 50px; /* Rounded corners */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-color);
+            color: white;
             font-weight: 600;
             padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 5px;
+            margin: 0 5px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Theme toggle button styles */
+        .theme-toggle {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-
-        nav a:hover {
-            background-color: var(--accent-color);
-            color: white;
+        
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-
         main {
             max-width: 1200px;
             margin: 40px auto;
@@ -102,8 +158,25 @@
         }
 
         .contact-form {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%; /* Ensure section takes full width of its container */
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%; /* Ensure main takes full width with padding */
+            box-sizing: border-box;
         }
 
         .form-group {
@@ -229,6 +302,9 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
+        <button class="theme-toggle" aria-label="Toggle light/dark mode">
+            <i class="fas fa-sun"></i>
+        </button>
     </nav>
 
     <header>
@@ -299,6 +375,33 @@
             const formStatus = document.getElementById('formStatus');
             formStatus.textContent = "Sending your message...";
             formStatus.style.color = "#166088";
+        });
+        
+        // Theme Toggle Functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeIcon.className = 'fas fa-moon';
+        }
+        
+        // Theme toggle event listener
+        themeToggle.addEventListener('click', () => {
+            // Toggle light-theme class on body
+            body.classList.toggle('light-theme');
+            
+            // Update icon based on current theme
+            if (body.classList.contains('light-theme')) {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
         });
     </script>
 </body>
