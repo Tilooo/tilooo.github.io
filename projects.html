@@ -20,7 +20,6 @@
             box-sizing: border-box;
         }
 
-        /* Add theme support */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
@@ -53,7 +52,7 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 100px 20px 60px;
             position: relative;
         }
 
@@ -72,7 +71,6 @@
             margin-bottom: 30px;
         }
 
-        /* Replace the existing nav styles with these */
         nav {
             position: fixed; /* Changed from sticky to fixed */
             top: 20px;
@@ -114,7 +112,7 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
-        /* Add theme toggle button styles */
+        /* Theme toggle button styles */
         .theme-toggle {
             background-color: rgba(255, 255, 255, 0.1);
             border: none;
@@ -338,6 +336,51 @@
 
     <main>
         <div class="projects-container">
+            <div class="project-card hidden" onclick="window.location.href='projects/e-commerce/index.html'">
+                <div class="project-image">
+                    <img src="projects/e-commerce/images/wings-logo.jpg" alt="WINGS E-commerce">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">E-commerce Site</h2>
+                    <p class="project-description">A fully responsive e-commerce website with product catalog, shopping cart, and secure checkout functionality.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">jQuery</span>
+                        <span class="project-tag">Bootstrap</span>
+                        <span class="project-tag">Responsive</span>
+                        <span class="project-tag">E-commerce</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/e-commerce/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="https://github.com/Tilooo/ecommerce-site" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card hidden" onclick="window.location.href='projects/esme/index.html'">
+                <div class="project-image">
+                    <img src="projects/esme/images/esme-hero.jpg" alt="Esme Project">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">Esme</h2>
+                    <p class="project-description">An interactive map application built with Python and Flutter that allows users to explore geographic data with a smooth, intuitive interface.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Python</span>
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Maps</span>
+                        <span class="project-tag">Interactive</span>
+                        <span class="project-tag">Geospatial</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/esme/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="https://github.com/Tilooo/esme" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Existing project cards below -->
             <div class="project-card hidden" onclick="window.location.href='projects/voice-assistant/index.html'">
                 <div class="project-image">
                     <img src="projects/voice-assistant/images/voice-assistant-welcome.jpg" alt="Voice Assistant">
@@ -379,27 +422,6 @@
                 </div>
             </div>
 
-            <div class="project-card hidden" onclick="window.location.href='projects/e-commerce/index.html'">
-                <div class="project-image">
-                    <img src="projects/e-commerce/images/wings-logo.jpg" alt="WINGS E-commerce">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">E-commerce Site</h2>
-                    <p class="project-description">A fully responsive e-commerce website with product catalog, shopping cart, and secure checkout functionality.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">Responsive</span>
-                        <span class="project-tag">E-commerce</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/e-commerce/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        <a href="https://github.com/Tilooo/ecommerce-site" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
             <div class="project-card hidden" onclick="window.location.href='#'">
                 <div class="project-content">
                     <h2 class="project-title">Data Analysis Tool</h2>
@@ -417,22 +439,7 @@
                 </div>
             </div>
 
-            <div class="project-card hidden" onclick="window.location.href='#'">
-                <div class="project-content">
-                    <h2 class="project-title">E-commerce Platform</h2>
-                    <p class="project-description">A full-stack e-commerce platform with user authentication, product catalog, shopping cart, and payment processing capabilities.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">React</span>
-                        <span class="project-tag">Node.js</span>
-                        <span class="project-tag">MongoDB</span>
-                        <span class="project-tag">Express</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        <a href="#" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
+            <!-- Remove the E-commerce Platform card that was here -->
         </div>
     </main>
 
@@ -458,7 +465,7 @@
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
         
-        // Check for saved theme preference or default to 'dark'
+        // Checks for saved theme preference or default to 'dark'
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
@@ -470,7 +477,7 @@
             // Toggle light-theme class on body
             body.classList.toggle('light-theme');
             
-            // Update icon based on current theme
+            // Icon based on current theme
             if (body.classList.contains('light-theme')) {
                 themeIcon.className = 'fas fa-moon';
                 localStorage.setItem('theme', 'light');
