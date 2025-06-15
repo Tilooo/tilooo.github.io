@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AuraBloom - Portfolio Showcase</title>
+
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="aurabloom-theme">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    AuraBloom
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Shop All</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownCategories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownCategories">
+                                <li><a class="dropdown-item" href="#">Essential Oils</a></li>
+                                <li><a class="dropdown-item" href="#">Gourmand Diffusers</a></li>
+                                <li><a class="dropdown-item" href="#">Handmade Soaps</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">All Products</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sustainability</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                Cart <span class="badge bg-secondary rounded-pill ms-1">0</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+        <!-- HERO SECTION -->
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1 class="hero-title display-3 mb-3">Discover Your Sanctuary</h1>
+                <p class="hero-subtitle lead mb-4">
+                    Immerse yourself in high-quality essential oils & gourmand diffusers. <br class="d-none d-md-block">
+                    Mindfully crafted, sustainably packaged.
+                </p>
+                <a href="#" class="btn btn-lg btn-accent-cta">Explore The Collection</a>
+            </div>
+        </section>
+
+        <!-- MAIN CONTENT AREA for other sections -->
+        <div class="container page-content-container py-5">
+
+            <!-- FEATURED PRODUCTS SECTION -->
+            <section class="featured-products-section mb-5">
+                <h2 class="section-title text-center mb-5"><span>Featured Elixirs</span></h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                    <!-- Example Product Card 1 -->
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="#">
+                                <img src="images/product_lavender_oil.jpg" class="card-img-top" alt="Lavender Dream Oil"> 
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <p class="product-category text-uppercase small"><a href="#">Essential Oils</a></p>
+                                <h5 class="card-title mb-2">
+                                    <a href="#">Lavender Dream Oil</a>
+                                </h5>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <p class="product-price mb-0">$12.99</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Example Product Card 2 -->
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="#">
+                                <img src="images/product_olive_soap.jpg" class="card-img-top" alt="Olive Oil Soap">
+                            </a>
+                            <div class="card-body d-flex flex-column">
+                                <p class="product-category text-uppercase small"><a href="#">Handmade Soaps</a></p>
+                                <h5 class="card-title mb-2">
+                                    <a href="#">Artisan Olive Soap</a>
+                                </h5>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <p class="product-price mb-0">$8.50</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Example Product Card 3 -->
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="#"><img src="images/product_vanilla_diffuser.jpg" class="card-img-top" alt="Vanilla Diffuser"></a>
+                            <div class="card-body d-flex flex-column">
+                                <p class="product-category text-uppercase small"><a href="#">Gourmand Diffusers</a></p>
+                                <h5 class="card-title mb-2"><a href="#">Vanilla Bean Diffuser</a></h5>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <p class="product-price mb-0">$22.00</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Example Product Card 4 -->
+                    <div class="col">
+                        <div class="card product-card h-100">
+                            <a href="#"><img src="images/product_citrus_oil.jpg" class="card-img-top" alt="Citrus Oil"></a>
+                            <div class="card-body d-flex flex-column">
+                                <p class="product-category text-uppercase small"><a href="#">Essential Oils</a></p>
+                                <h5 class="card-title mb-2"><a href="#">Uplifting Citrus Blend</a></h5>
+                                <div class="mt-auto d-flex justify-content-between align-items-center">
+                                    <p class="product-price mb-0">$14.00</p>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-outline-primary">View All Products</a>
+                </div>
+            </section>
+
+            <!-- SHOP BY CATEGORY SECTION -->
+            <section class="shop-by-category-section mb-5">
+                <h2 class="section-title text-center mb-5"><span>Explore by Scent Journey</span></h2>
+                <div class="row">
+                    <!-- Example Category Card 1 -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="category-card-link">
+                            <div class="card category-card text-center">
+                                <img src="images/category_essential_oils.jpg" class="card-img-top category-card-img" alt="Essential Oils"> {/* Replace with actual image path */}
+                                <div class="card-body category-card-body">
+                                    <h5 class="category-card-title">Essential Oils</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Example Category Card 2 -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="category-card-link">
+                            <div class="card category-card text-center">
+                                <img src="images/category_diffusers.jpg" class="card-img-top category-card-img" alt="Gourmand Diffusers">
+                                <div class="card-body category-card-body">
+                                    <h5 class="category-card-title">Gourmand Diffusers</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Example Category Card 3 -->
+                    <div class="col-md-4 mb-4">
+                        <a href="#" class="category-card-link">
+                            <div class="card category-card text-center">
+                                <img src="images/category_handmade_soaps.jpg" class="card-img-top category-card-img" alt="Handmade Soaps">
+                                <div class="card-body category-card-body">
+                                    <h5 class="category-card-title">Handmade Soaps</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SUSTAINABILITY COMMITMENT SECTION -->
+            <section class="sustainability-commitment-section p-5 rounded mb-5">
+                <div class="container">
+                     <img src="images/eco-leaf-icon.png" alt="Eco Friendly" width="60" class="mb-3">
+                    <h2 class="section-title mb-3"><span>Rooted in Responsibility</span></h2>
+                    <p class="lead mb-4 col-md-8 mx-auto">
+                        AuraBloom is devoted to the planet's well-being. Our ingredients are ethically sourced, and our packaging is designed with sustainability at its core, helping to reduce our environmental footprint.
+                    </p>
+                    <a href="#" class="btn btn-secondary">Our Eco Promise</a>
+                </div>
+            </section>
+
+            <!-- ABOUT US SNIPPET -->
+            <section class="about-us-snippet-section mb-5">
+                <div class="row align-items-center">
+                    <div class="col-md-5 text-center mb-4 mb-md-0">
+                        <img src="images/about_us.png" class="img-fluid rounded-circle shadow-lg" alt="About AuraBloom" style="max-width: 300px;">
+                    </div>
+                    <div class="col-md-7">
+                        <h3 class="mb-3">The Essence of AuraBloom</h3>
+                        <p>We believe in the transformative power of scent to create moments of peace, joy, and connection. AuraBloom was born from a passion for pure, high-quality botanicals and a desire to bring mindful luxury into everyday life, all while honoring our commitment to the Earth.</p>
+                        <a href="#" class="btn btn-outline-secondary">Discover Our Story</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <span>© <span id="currentYear"></span> AuraBloom. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        // Simple script to set the current year in the footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
