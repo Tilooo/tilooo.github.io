@@ -1,3 +1,5 @@
+<!-- tilooo.github.io/projects/vasara/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,14 +14,49 @@
     <meta property="og:url" content="https://tilooo.github.io/projects/vasara/index.html">
     <title>Vasara - Flashcard Learning Application</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- * CSS FOR THE BACK BUTTON * -->
+    <style>
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100; /* High z-index to appear over other content */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            color: white;
+        }
+    </style>
     <!-- favicon -->
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <!-- * HTML FOR THE BACK BUTTON * -->
+    <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+    </a>
+
     <nav>
         <div class="nav-container">
-            <a href="../../index.html" class="logo">Vasara</a>
+            <a href="#" class="logo">Vasara</a>   <!-- * brings to projects page too * -->
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#flashcards">Flashcards</a></li>
@@ -235,7 +272,6 @@
                 <h3>Vasara</h3>
                 <p>Language learning made simple</p>
             </div>
-            <!-- Add visitor stats section -->
             <div class="visitor-stats">
                 <div class="real-time-clock">
                     <i class="fas fa-clock"></i>
@@ -246,7 +282,6 @@
                     <span id="visitor-count">0</span> visitors
                 </div>
             </div>
-            <!-- End visitor stats section -->
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>Project</h4>
@@ -268,17 +303,16 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Vasara App <span style="color: #ffc107;">❤</span>. All rights reserved.</p>
+            <p>© 2023 Vasara App <span style="color: #ffc107;">❤</span>. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Back to top button -->
     <button id="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Mobile Menu Toggle
+        // Your existing JavaScript remains unchanged...
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -286,81 +320,59 @@
             navLinks.classList.toggle('active');
         });
 
-        // Flashcard navigation functionality
         const flashcards = document.querySelectorAll('.flashcard');
         const prevButton = document.getElementById('prev-card');
         const nextButton = document.getElementById('next-card');
         const cardIndicator = document.querySelector('.card-indicator');
         let currentCardIndex = 0;
         const totalCards = flashcards.length;
-    
-        // Initialize first card
+
         updateCardDisplay();
-    
-        // Flashcard flip functionality (updated for multiple cards)
+
         flashcards.forEach(card => {
             card.addEventListener('click', () => {
                 const innerCard = card.querySelector('.flashcard-inner');
-                innerCard.style.transform = 
-                    innerCard.style.transform === 'rotateY(180deg)' ? 
+                innerCard.style.transform =
+                    innerCard.style.transform === 'rotateY(180deg)' ?
                     'rotateY(0deg)' : 'rotateY(180deg)';
             });
         });
-    
-        // Previous button functionality
+
         prevButton.addEventListener('click', () => {
-            // Reset current card rotation
             const currentInnerCard = flashcards[currentCardIndex].querySelector('.flashcard-inner');
             currentInnerCard.style.transform = 'rotateY(0deg)';
-            
-            // Go to previous card
             currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
             updateCardDisplay();
         });
-    
-        // Next button functionality
+
         nextButton.addEventListener('click', () => {
-            // Reset current card rotation
             const currentInnerCard = flashcards[currentCardIndex].querySelector('.flashcard-inner');
             currentInnerCard.style.transform = 'rotateY(0deg)';
-            
-            // Go to next card
             currentCardIndex = (currentCardIndex + 1) % totalCards;
             updateCardDisplay();
         });
-    
-        // Update which card is displayed
+
         function updateCardDisplay() {
-            // Hide all cards
             flashcards.forEach(card => {
                 card.style.display = 'none';
             });
-            
-            // Show current card
             flashcards[currentCardIndex].style.display = 'block';
-            
-            // Update indicator
             cardIndicator.textContent = `Card ${currentCardIndex + 1} of ${totalCards}`;
         }
 
-        // Quiz option selection
         const quizOptions = document.querySelectorAll('.quiz-option');
         quizOptions.forEach(option => {
             option.addEventListener('click', () => {
-                // Remove selected class from all options
                 quizOptions.forEach(opt => opt.classList.remove('selected'));
-                // Add selected class to clicked option
                 option.classList.add('selected');
             });
         });
 
-        // Quiz submit button
         const quizSubmit = document.querySelector('.quiz-submit');
         if (quizSubmit) {
             quizSubmit.addEventListener('click', () => {
                 const selectedOption = document.querySelector('.quiz-option.selected');
                 if (selectedOption) {
-                    // Check if answer is correct (first option in this demo)
                     if (selectedOption === quizOptions[0]) {
                         alert('Correct! Great job!');
                     } else {
@@ -372,7 +384,6 @@
             });
         }
 
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -382,7 +393,6 @@
             });
         });
 
-        // Back to top button functionality
         const backToTopButton = document.getElementById('back-to-top');
         
         window.addEventListener('scroll', () => {
