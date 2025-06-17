@@ -1,3 +1,5 @@
+<!-- tilooo.github.io/projects/e-commerce/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +9,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- * CSS FOR THE BACK BUTTON * -->
+    <style>
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2000; /* High z-index to appear over nav and modals */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            color: white;
+        }
+    </style>
+    <!-- * the end of css for the back button * -->
 </head>
 <body>
-    <!-- Top Banner -->
+
+    <!-- * HTML FOR THE BACK BUTTON * -->
+    <!-- The link goes up two directories (../..) to find projects.html -->
+    <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
+        <!-- Using an inline SVG for the arrow icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+    </a>
+    <!-- * the end of html for the back button * -->
+
+    <!-- Top Banner (Simplified) -->
     <div class="top-banner">
-        <div class="container-fluid d-flex align-items-center position-relative px-0">
-            <a href="../../../projects.html" class="text-dark position-absolute back-link"><i class="fas fa-arrow-left"></i> Back to Projects</a>
-            <div class="w-100 d-flex justify-content-center">
-                <p class="m-0">Sending Smiles, One Postcard at a Time: Your Online Oasis for Sweet Moments!</p>
-            </div>
+        <div class="container-fluid">
+            <p class="m-0">Sending Smiles, One Postcard at a Time: Your Online Oasis for Sweet Moments!</p>
         </div>
     </div>
 
@@ -186,7 +224,7 @@
                 </div>
                 <p class="lead text-muted col-lg-8 mx-auto">Connecting people through beautiful, handcrafted postcards and greeting cards in an increasingly digital world.</p>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="card h-100 border-0 shadow-sm">
@@ -203,7 +241,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-6">
                     <div class="card h-100 border-0 shadow-sm">
                         <div class="card-body p-4">
@@ -419,10 +457,6 @@
             font-weight: 500;
         }
 
-        .back-link {
-            left: 15px;
-        }
-
         /* Style for the jumbotron with greenish background for readability */
         .jumbotron {
             background-color: rgba(149, 247, 37, 0.5);
@@ -521,7 +555,7 @@
             opacity: 1;
         }
 
-        /* Adds some spacing for the carousel controls */
+        /* Some spacing for the carousel controls */
         #productShowcaseCarousel {
             padding-bottom: 50px;
         }
@@ -587,4 +621,3 @@
     </script>
 </body>
 </html>
-
