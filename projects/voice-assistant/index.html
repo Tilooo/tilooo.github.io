@@ -1,3 +1,5 @@
+<!-- tilooo.github.io/projects/voice-assistant/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,32 @@
             --text-color: #333;
             --light-color: #f8f9fa;
         }
+
+        /* CSS FOR THE BACK BUTTON */
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2000; /* High z-index to appear over all content */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            color: white;
+        }
+        /* the end of css for the back button */
 
         * {
             margin: 0;
@@ -49,8 +77,8 @@
             height: 100%;
             background-size: contain;
             background-position: center;
-            background-repeat: no-repeat;  /* Added to prevent repeating */
-            background-color: #000;  /* Added background color */
+            background-repeat: no-repeat;
+            background-color: #000;
             opacity: 0;
             transition: opacity 2s ease-in-out;
         }
@@ -77,23 +105,7 @@
             z-index: 1;
         }
 
-        .back-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 15px;
-            border-radius: 50px;
-            z-index: 100;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-button:hover {
-            background-color: rgba(149, 247, 37, 0.7);
-        }
+        /* OLD back-button CSS has been removed */
 
         .voice-assistant-interface {
             max-width: 1100px;
@@ -238,20 +250,9 @@
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(149, 247, 37, 0.7);
-            }
-            
-            70% {
-                transform: scale(1.1);
-                box-shadow: 0 0 0 10px rgba(149, 247, 37, 0);
-            }
-            
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(149, 247, 37, 0);
-            }
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(149, 247, 37, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(149, 247, 37, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(149, 247, 37, 0); }
         }
 
         @keyframes fadeIn {
@@ -279,28 +280,21 @@
             animation: typing 1s infinite;
         }
 
-        .typing-indicator span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing-indicator span:nth-child(3) {
-            animation-delay: 0.4s;
-            margin-right: 0;
-        }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
 
         .installation-guide {
             margin-top: 40px;
             margin-bottom: 40px;
             text-align: center;
         }
-        
+
         .full-width-image {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Animated GIF Section Styling */
+
         .animated-section {
             margin-top: 40px;
             margin-bottom: 60px;
@@ -309,14 +303,14 @@
             padding: 30px;
             border-radius: 15px;
         }
-        
+
         .animated-gif {
             max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            filter: hue-rotate(120deg) brightness(1.2); /* Shifts colors toward green */
+            filter: hue-rotate(120deg) brightness(1.2);
         }
-        
+
         @keyframes typing {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
@@ -324,18 +318,26 @@
     </style>
 </head>
 <body>
-    <a href="../../index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-    
+    <!-- * HTML FOR THE BACK BUTTON * -->
+    <!-- The link goes up two directories (../..) to find projects.html -->
+    <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
+        <!-- Using an inline SVG for the arrow icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+    </a>
+    <!-- * the end of html of the back button * -->
+
     <div class="container">
         <div class="voice-assistant-interface">
             <div class="assistant-header">
                 <h1>Voice Assistant</h1>
             </div>
-            
+
             <div class="assistant-display" id="chat-display">
                 <div class="assistant-message">Hello! I'm Assistant, your personal voice assistant. How can I help you today?</div>
             </div>
-            
+
             <div class="assistant-controls">
                 <input type="text" class="assistant-input" id="user-input" placeholder="Type a command or question...">
                 <button class="mic-button" id="mic-button">
@@ -343,27 +345,25 @@
                 </button>
                 <button class="send-button" id="send-button">Send</button>
             </div>
-            
+
             <div class="assistant-status" id="status">Ready to assist</div>
-            
+
             <div class="control-buttons">
                 <button class="control-button" id="clear-button">Clear Chat</button>
                 <button class="control-button" id="commands-button">Show Commands</button>
             </div>
         </div>
 
-        
         <!-- Slideshow container -->
         <div class="slideshow-container" id="slideshow">
-            <!-- Slideshow images will be added here via JavaScript -->
             <div class="overlay"></div>
         </div>
-        
+
         <!-- Installation Guide Image -->
         <div class="installation-guide">
             <img src="images/voice-assistant-installation.jpg" alt="Voice Assistant Installation Guide" class="full-width-image">
         </div>
-        
+
         <!-- Animated GIF Section -->
         <div class="animated-section">
             <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/4bf00d70953817.5be000bd4190f.gif" alt="Voice Assistant Animation" class="animated-gif">
@@ -379,10 +379,8 @@
                 'images/voice-assistant-conversation.jpg',
                 'images/voice-assistant-definitions.jpg',
                 'images/voice-assistant-horoscope.jpg'
-                // Will add more images
             ];
-            
-            // Create image elements
+
             images.forEach((src, index) => {
                 const imgDiv = document.createElement('div');
                 imgDiv.className = 'slideshow-image';
@@ -390,20 +388,18 @@
                 if (index === 0) imgDiv.classList.add('active');
                 slideshowContainer.appendChild(imgDiv);
             });
-            
-            // Slideshow animation
+
             const slides = document.querySelectorAll('.slideshow-image');
             let currentSlide = 0;
-            
+
             function nextSlide() {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
             }
-            
-            // Change slide every 7 seconds
+
             setInterval(nextSlide, 7000);
-            
+
             // Chat functionality
             const chatDisplay = document.getElementById('chat-display');
             const userInput = document.getElementById('user-input');
@@ -412,8 +408,7 @@
             const statusElement = document.getElementById('status');
             const clearButton = document.getElementById('clear-button');
             const commandsButton = document.getElementById('commands-button');
-            
-            // Sample responses for the demo
+
             const responses = {
                 "hello": "Hello! How can I help you today?",
                 "hi": "Hi there! What can I do for you?",
@@ -427,8 +422,7 @@
                 "thank you": "You're welcome! Is there anything else you need help with?",
                 "thanks": "You're welcome! Is there anything else you need help with?"
             }
-            
-            // Function to add a message to the chat display
+
             function addMessage(text, isUser = false) {
                 const messageDiv = document.createElement('div');
                 messageDiv.className = isUser ? 'user-message' : 'assistant-message';
@@ -436,8 +430,7 @@
                 chatDisplay.appendChild(messageDiv);
                 chatDisplay.scrollTop = chatDisplay.scrollHeight;
             }
-            
-            // Function to show typing indicator
+
             function showTypingIndicator() {
                 const indicator = document.createElement('div');
                 indicator.className = 'typing-indicator';
@@ -446,28 +439,19 @@
                 chatDisplay.appendChild(indicator);
                 chatDisplay.scrollTop = chatDisplay.scrollHeight;
             }
-            
-            // Function to remove typing indicator
+
             function removeTypingIndicator() {
                 const indicator = document.getElementById('typing-indicator');
-                if (indicator) {
-                    indicator.remove();
-                }
+                if (indicator) indicator.remove();
             }
-            
-            // Function to process user input and generate a response
+
             function processInput(text) {
                 addMessage(text, true);
                 showTypingIndicator();
-                
-                // Simulate processing delay
+
                 setTimeout(() => {
                     removeTypingIndicator();
-                    
-                    // Generate response based on input
                     let response = "I'm not sure how to respond to that yet. Can you try another question?";
-                    
-                    // Check for keywords in the input
                     const lowerText = text.toLowerCase();
                     for (const keyword in responses) {
                         if (lowerText.includes(keyword)) {
@@ -475,13 +459,11 @@
                             break;
                         }
                     }
-                    
                     addMessage(response);
                     statusElement.textContent = "Ready to assist";
                 }, 1500);
             }
-            
-            // Event listener for send button
+
             sendButton.addEventListener('click', () => {
                 const text = userInput.value.trim();
                 if (text) {
@@ -489,53 +471,34 @@
                     userInput.value = '';
                 }
             });
-            
-            // Event listener for Enter key
+
             userInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-                    const text = userInput.value.trim();
-                    if (text) {
-                        processInput(text);
-                        userInput.value = '';
-                    }
+                    sendButton.click();
                 }
             });
-            
-            // Simulate voice recognition with the mic button
+
             micButton.addEventListener('click', () => {
                 micButton.classList.add('listening');
                 statusElement.textContent = "Listening...";
-                
-                // Simulate listening for 2 seconds
+
                 setTimeout(() => {
                     micButton.classList.remove('listening');
                     statusElement.textContent = "Processing...";
-                    
-                    // Randomly select a demo command
-                    const demoCommands = [
-                        "What's the weather like today?",
-                        "What time is it?",
-                        "Set a timer for 5 minutes",
-                        "Play some music"
-                    ];
+                    const demoCommands = ["What's the weather like today?", "What time is it?", "Set a timer for 5 minutes", "Play some music"];
                     const randomCommand = demoCommands[Math.floor(Math.random() * demoCommands.length)];
-                    
-                    // Process the random command
                     setTimeout(() => {
                         processInput(randomCommand);
                     }, 500);
                 }, 2000);
             });
-            
-            // Clear chat button
+
             clearButton.addEventListener('click', () => {
-                // Keep only the first welcome message
                 while (chatDisplay.childNodes.length > 1) {
                     chatDisplay.removeChild(chatDisplay.lastChild);
                 }
             });
-            
-            // Show commands button
+
             commandsButton.addEventListener('click', () => {
                 addMessage("Here are some commands you can try:\n- \"What's the weather like?\"\n- \"What time is it?\"\n- \"Set a timer\"\n- \"Play music\"\n- \"Open Chrome\"");
             });
