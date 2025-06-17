@@ -1,3 +1,5 @@
+<!-- tilooo.github.io/projects.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #95f725, #6017ff, #f7ff17;
+            --primary-color-1: #95f725; /* Green */
+            --primary-color-2: #6017ff; /* Purple */
+            --primary-color-3: #f7ff17; /* Yellow */
             --secondary-color: #166088;
             --accent-color: #4fc3dc;
             --text-color: #333;
@@ -31,7 +35,7 @@
             transition: background-color 0.5s ease;
             position: relative;
         }
-        
+
         body::before {
             content: '';
             position: absolute;
@@ -43,13 +47,13 @@
             z-index: 0;
             transition: background-color 0.5s ease;
         }
-        
+
         body.light-theme::before {
             background-color: rgba(255, 255, 255, 0.1); /* Lighter overlay for light theme */
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color-1), var(--secondary-color));
             color: white;
             text-align: center;
             padding: 100px 20px 60px;
@@ -72,7 +76,7 @@
         }
 
         nav {
-            position: fixed; /* Changed from sticky to fixed */
+            position: fixed;
             top: 20px;
             width: 100%;
             left: 0;
@@ -86,11 +90,11 @@
             justify-content: center;
             list-style: none;
             padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            border-radius: 50px; /* Rounded corners */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         nav a {
@@ -111,8 +115,7 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Theme toggle button styles */
+
         .theme-toggle {
             background-color: rgba(255, 255, 255, 0.1);
             border: none;
@@ -129,7 +132,7 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .theme-toggle:hover {
             background-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
@@ -140,9 +143,9 @@
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
+            width: 100%;
         }
 
-        /* New Project Grid Styling */
         .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -167,15 +170,22 @@
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
-        
-        .project-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .project-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .project-image img {
             width: 100%;
             height: 100%;
-            z-index: 1;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
         }
 
         .project-content {
@@ -206,7 +216,7 @@
         }
 
         .project-tag {
-            background-color: var(--primary-color);
+            background-color: var(--primary-color-1);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -233,32 +243,19 @@
         }
 
         .project-link:hover {
-            color: var(--primary-color);
+            color: var(--primary-color-1);
         }
 
         .project-link i {
             font-size: 1.1rem;
         }
 
-        /* Project card with background image */
-        .project-card-with-bg {
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-
-        .project-card-with-bg .project-content {
-            background-color: rgba(255, 255, 255, 0.9);
-            height: 100%;
-        }
-
         footer {
-            background-color: #95f725;
+            background-color: var(--primary-color-1);
             color: white;
             text-align: center;
-            padding: 30px 1px;
-            margin-top: 0;
-            width: 100%;
+            padding: 30px 20px;
+            margin-top: auto; /* Helps stick footer to bottom on short pages */
         }
 
         /* Scroll Animations */
@@ -277,40 +274,19 @@
             header {
                 padding: 40px 20px;
             }
-
             header h1 {
                 font-size: 2rem;
             }
-
             nav ul {
                 flex-direction: column;
                 align-items: center;
             }
-
             nav a {
                 margin: 5px 0;
             }
-
             .projects-container {
                 grid-template-columns: 1fr;
             }
-        }
-        /* Project Image Styling */
-        .project-image {
-            width: 100%;
-            height: 180px;  /* Reduced from 200px to 180px */
-            overflow: hidden;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -335,8 +311,9 @@
     </header>
 
     <main>
-        <!-- E-commerce Site Project Card -->
+        <!-- All project cards are direct children of this single container -->
         <div class="projects-container">
+
             <div class="project-card hidden" onclick="window.location.href='projects/e-commerce/index.html'">
                 <div class="project-image">
                     <img src="projects/e-commerce/images/wings-logo.jpg" alt="WINGS E-commerce">
@@ -351,7 +328,6 @@
                         <span class="project-tag">jQuery</span>
                         <span class="project-tag">Bootstrap</span>
                         <span class="project-tag">Responsive</span>
-                        <span class="project-tag">E-commerce</span>
                     </div>
                     <div class="project-links">
                         <a href="projects/e-commerce/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
@@ -360,7 +336,27 @@
                 </div>
             </div>
 
-            <!-- Voice Assistant Project Card -->
+            <div class="project-card hidden" onclick="window.location.href='projects/aurabloom/index.html'">
+                <div class="project-image">
+                    <img src="projects/aurabloom/images/aurabloom.jpg" alt="AuraBloom Project">
+                </div>
+                <div class="project-content">
+                    <h2 class="project-title">AuraBloom</h2>
+                    <p class="project-description">A stylish and responsive e-commerce site for a fictional wellness brand, featuring dynamically loaded product modals.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">HTML</span>
+                        <span class="project-tag">CSS</span>
+                        <span class="project-tag">JavaScript</span>
+                        <span class="project-tag">jQuery</span>
+                        <span class="project-tag">Bootstrap 5</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/aurabloom/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="https://github.com/Tilooo/aurabloom" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card hidden" onclick="window.location.href='projects/voice-assistant/index.html'">
                 <div class="project-image">
                     <img src="projects/voice-assistant/images/voice-assistant-welcome.jpg" alt="Voice Assistant">
@@ -376,13 +372,12 @@
                         <span class="project-tag">CSS</span>
                     </div>
                     <div class="project-links">
-                        <a href="projects/voice assistant/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+                        <a href="projects/voice-assistant/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
                         <a href="https://github.com/Tilooo/personalAssistant" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Esme Project Card -->
             <div class="project-card hidden" onclick="window.location.href='projects/esme/index.html'">
                 <div class="project-image">
                     <img src="projects/esme/images/esme-hero.jpg" alt="Esme Project">
@@ -403,8 +398,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Vasara Project Card -->
+
             <div class="project-card hidden" onclick="window.location.href='projects/vasara/index.html'">
                 <div class="project-image">
                     <img src="projects/vasara/images/vasara-hero.jpg" alt="Vasara Project">
@@ -426,32 +420,6 @@
                 </div>
             </div>
 
-            <!-- AuraBloom Project Card -->
-        <div class="projects-container">
-            <div class="project-card hidden" onclick="window.location.href='projects/aurabloom/index.html'">
-                <div class="project-image">
-                    <img src="projects/aurabloom/images/aurabloom.jpg" alt="WINGS E-commerce">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">AuraBloom</h2>
-                    <p class="project-description">A fully responsive e-commerce website with product catalog, shopping cart, and secure checkout functionality.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">HTML</span>
-                        <span class="project-tag">CSS</span>
-                        <span class="project-tag">JavaScript</span>
-                        <span class="project-tag">jQuery</span>
-                        <span class="project-tag">Bootstrap5</span>
-                        <span class="project-tag">Responsive</span>
-                        <span class="project-tag">E-commerce</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/aurabloom/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        <a href="https://github.com/Tilooo/aurabloom" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Portfolio Project Card -->
             <div class="project-card hidden" onclick="window.location.href='#'">
                 <div class="project-image">
                     <img src="images/portfolio-website.jpg" alt="Portfolio Website">
@@ -472,7 +440,6 @@
                 </div>
             </div>
 
-            <!-- Data Analysis Tool Project Card -->
             <div class="project-card hidden" onclick="window.location.href='#'">
                 <div class="project-content">
                     <h2 class="project-title">Data Analysis Tool</h2>
@@ -489,14 +456,14 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        </div>
+        </div> <!-- The end of the single projects-container -->
     </main>
 
     <footer>
-        <p>&copy; 2023 Tilo. All rights reserved.</p>
+        <p>© 2023 Tilo. All rights reserved.</p>
     </footer>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -510,32 +477,26 @@
         hiddenElements.forEach((el) => {
             observer.observe(el);
         });
-        
+
         // Theme Toggle Functionality
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
-        
+
         // Checks for saved theme preference or default to 'dark'
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
             themeIcon.className = 'fas fa-moon';
+        } else {
+            themeIcon.className = 'fas fa-sun';
         }
-        
-        // Theme toggle event listener
+
+        // --- More Concise Theme Toggle Event Listener ---
         themeToggle.addEventListener('click', () => {
-            // Toggle light-theme class on body
-            body.classList.toggle('light-theme');
-            
-            // Icon based on current theme
-            if (body.classList.contains('light-theme')) {
-                themeIcon.className = 'fas fa-moon';
-                localStorage.setItem('theme', 'light');
-            } else {
-                themeIcon.className = 'fas fa-sun';
-                localStorage.setItem('theme', 'dark');
-            }
+            const isLightTheme = body.classList.toggle('light-theme');
+            themeIcon.className = isLightTheme ? 'fas fa-moon' : 'fas fa-sun';
+            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
         });
     </script>
 </body>
