@@ -70,16 +70,16 @@
 
     <main role="main">
         <!-- HERO SECTION -->
-<section class="hero-section text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/hero-background.jpg');">
-    <div class="container">
-        <h1 class="hero-title display-3 mb-3">Discover Your Sanctuary</h1>
-        <p class="hero-subtitle lead mb-4">
-            Immerse yourself in high-quality essential oils & gourmand diffusers. <br class="d-none d-md-block">
-            Mindfully crafted, sustainably packaged.
-        </p>
-        <a href="products.html" class="btn btn-lg btn-accent-cta">Explore The Collection</a>
-    </div>
-</section>
+        <section class="hero-section text-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('images/hero-background.jpg');">
+            <div class="container">
+                <h1 class="hero-title display-3 mb-3">Discover Your Sanctuary</h1>
+                <p class="hero-subtitle lead mb-4">
+                    Immerse yourself in high-quality essential oils & gourmand diffusers. <br class="d-none d-md-block">
+                    Mindfully crafted, sustainably packaged.
+                </p>
+                <a href="products.html" class="btn btn-lg btn-accent-cta">Explore The Collection</a>
+            </div>
+        </section>
 
         <!-- MAIN CONTENT AREA for other sections -->
         <div class="container page-content-container py-5">
@@ -88,11 +88,11 @@
             <section class="featured-products-section mb-5">
                 <h2 class="section-title text-center mb-5"><span>Featured Elixirs</span></h2>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-                    <!-- Example Product Card 1 -->
+                    <!-- Product Card 1: Lavender Oil -->
                     <div class="col">
                         <div class="card product-card h-100">
-                            <a href="#">
-                                <img src="images/product_lavender_oil.jpg" class="card-img-top" alt="Lavender Dream Oil"> 
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#lavenderOilModal">
+                                <img src="images/product_lavender_oil.jpg" class="card-img-top" alt="Lavender Dream Oil">
                             </a>
                             <div class="card-body d-flex flex-column">
                                 <p class="product-category text-uppercase small"><a href="#">Essential Oils</a></p>
@@ -101,15 +101,16 @@
                                 </h5>
                                 <div class="mt-auto d-flex justify-content-between align-items-center">
                                     <p class="product-price mb-0">$12.99</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                       data-bs-toggle="modal" data-bs-target="#lavenderOilModal">Details</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Example Product Card 2 -->
+                    <!-- Product Card 2: Olive Soap -->
                     <div class="col">
                         <div class="card product-card h-100">
-                            <a href="#">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#oliveSoapModal">
                                 <img src="images/product_olive_soap.jpg" class="card-img-top" alt="Olive Oil Soap">
                             </a>
                             <div class="card-body d-flex flex-column">
@@ -119,35 +120,42 @@
                                 </h5>
                                 <div class="mt-auto d-flex justify-content-between align-items-center">
                                     <p class="product-price mb-0">$8.50</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                       data-bs-toggle="modal" data-bs-target="#oliveSoapModal">Details</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Example Product Card 3 -->
+                    <!-- Product Card 3: Vanilla Diffuser -->
                     <div class="col">
                         <div class="card product-card h-100">
-                            <a href="#"><img src="images/product_vanilla_diffuser.jpg" class="card-img-top" alt="Vanilla Diffuser"></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#vanillaDiffuserModal">
+                                <img src="images/product_vanilla_diffuser.jpg" class="card-img-top" alt="Vanilla Diffuser">
+                            </a>
                             <div class="card-body d-flex flex-column">
                                 <p class="product-category text-uppercase small"><a href="#">Gourmand Diffusers</a></p>
                                 <h5 class="card-title mb-2"><a href="#">Vanilla Bean Diffuser</a></h5>
                                 <div class="mt-auto d-flex justify-content-between align-items-center">
                                     <p class="product-price mb-0">$22.00</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                       data-bs-toggle="modal" data-bs-target="#vanillaDiffuserModal">Details</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Example Product Card 4 -->
+                    <!-- Product Card 4: Citrus Oil -->
                     <div class="col">
                         <div class="card product-card h-100">
-                            <a href="#"><img src="images/product_citrus_oil.jpg" class="card-img-top" alt="Citrus Oil"></a>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#citrusOilModal">
+                               <img src="images/product_citrus_oil.jpg" class="card-img-top" alt="Citrus Oil">
+                            </a>
                             <div class="card-body d-flex flex-column">
                                 <p class="product-category text-uppercase small"><a href="#">Essential Oils</a></p>
                                 <h5 class="card-title mb-2"><a href="#">Uplifting Citrus Blend</a></h5>
                                 <div class="mt-auto d-flex justify-content-between align-items-center">
                                     <p class="product-price mb-0">$14.00</p>
-                                    <a href="#" class="btn btn-sm btn-outline-primary">Details</a>
+                                    <button type="button" class="btn btn-sm btn-outline-primary"
+                                       data-bs-toggle="modal" data-bs-target="#citrusOilModal">Details</button>
                                 </div>
                             </div>
                         </div>
@@ -160,9 +168,8 @@
 
             <!-- SHOP BY CATEGORY SECTION -->
             <section class="shop-by-category-section mb-5">
-                <h2 class="section-title text-center mb-5"><span>Explore by Scent Journey</span></h2>
+                 <h2 class="section-title text-center mb-5"><span>Explore by Scent Journey</span></h2>
                 <div class="row">
-                    <!-- Example Category Card 1 -->
                     <div class="col-md-4 mb-4">
                         <a href="#" class="category-card-link">
                             <div class="card category-card text-center">
@@ -173,7 +180,6 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Example Category Card 2 -->
                     <div class="col-md-4 mb-4">
                         <a href="#" class="category-card-link">
                             <div class="card category-card text-center">
@@ -184,7 +190,6 @@
                             </div>
                         </a>
                     </div>
-                    <!-- Example Category Card 3 -->
                     <div class="col-md-4 mb-4">
                         <a href="#" class="category-card-link">
                             <div class="card category-card text-center">
@@ -223,8 +228,11 @@
                     </div>
                 </div>
             </section>
+        </div> <!-- End .page-content-container -->
 
-        </div>
+        <!-- This div will hold the fetched modal HTML structures -->
+        <div id="modal-container-all" style="display: none;"></div>
+
     </main>
 
     <footer class="footer">
@@ -233,11 +241,41 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script>
-        // Simple script to set the current year in the footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-    </script>
+    <!-- jQuery FIRST -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- Then Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<!-- Custom script LAST -->
+<script>
+    // Simple script to set the current year in the footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Load modals and append them to the body
+    $(document).ready(function() {
+        // The container is just a temporary holder for the .load() function
+        $("#modal-container-all").load("product-modal.html", function(response, status, xhr) {
+            if (status == "error") {
+                console.error("Error loading product-modal.html: " + xhr.status + " " + xhr.statusText);
+                // Display an error message if loading fails
+                $(this).html('<p class="text-danger text-center">Error: Product details could not be loaded.</p>').show();
+            } else {
+                console.log("product-modal.html fetched successfully.");
+
+                // **THE FIX IS HERE:**
+                // 1. Find the loaded modal divs inside the container.
+                const modals = $(this).children();
+
+                // 2. Move them from the hidden container to the main <body>.
+                $("body").append(modals);
+
+                // 3. Remove the now-empty container div.
+                $(this).remove();
+
+                console.log("All modals moved to <body> and are ready to use.");
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
