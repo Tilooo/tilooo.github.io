@@ -17,7 +17,7 @@
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
 
-    <!-- * CSS FOR THE BACK BUTTON * -->
+    <!-- CSS FOR THE BACK BUTTON -->
     <style>
         .back-to-portfolio {
             position: fixed;
@@ -47,7 +47,7 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- * HTML FOR THE BACK BUTTON * -->
+    <!-- HTML FOR THE BACK BUTTON -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
@@ -56,7 +56,7 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Vasara</a>   <!-- * brings to projects page too * -->
+            <a href="#" class="logo">Vasara</a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#flashcards">Flashcards</a></li>
@@ -85,202 +85,198 @@
         </div>
     </header>
 
-    <section id="features" class="features">
-        <div class="section-header">
-            <h2>Features</h2>
-            <p>Discover what makes Vasara a powerful learning tool</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-layer-group"></i>
-                </div>
-                <h3>Flashcard System</h3>
-                <p>Organize your learning with Sets, Boxes, and Flashcards with support for multiple languages and images.</p>
+    <main>
+        <section id="features" class="features">
+            <div class="section-header">
+                <h2>Why Vasara Works</h2>
+                <p>Discover the features that make Vasara a powerful learning tool.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-question-circle"></i>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Flashcard System</h3>
+                    <p>Organize your learning with Sets, Boxes, and Flashcards with support for multiple languages and images.</p>
                 </div>
-                <h3>Quiz System</h3>
-                <p>Test your knowledge with our Spanish to Lithuanian translation quiz "¡Hola, Caracola!" with random questions and scoring.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-user-shield"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Quiz System</h3>
+                    <p>Test your knowledge with our Spanish to Lithuanian translation quiz "¡Hola, Caracola!" with random questions and scoring.</p>
                 </div>
-                <h3>User Authentication</h3>
-                <p>Secure login/logout functionality with a complete registration system to track your progress.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-desktop"></i>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>User Authentication</h3>
+                    <p>Secure login/logout functionality with a complete registration system to track your progress.</p>
                 </div>
-                <h3>Intuitive Interface</h3>
-                <p>Clean, modern UI designed for efficiency and ease of use, making language learning enjoyable.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3>Intuitive Interface</h3>
+                    <p>Clean, modern UI designed for efficiency and ease of use, making language learning enjoyable.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="flashcards" class="flashcard-demo">
-        <div class="section-header">
-            <h2>Interactive Flashcards</h2>
-            <p>Flip through our flashcards to see how Vasara helps you learn</p>
-        </div>
-        <div class="flashcard-container">
-            <div class="flashcard">
-                <div class="flashcard-inner" id="flashcard-0">
-                    <div class="flashcard-front">
-                        <p class="flashcard-text">¡Hola!</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p class="flashcard-text">Sveiki! / Labas!</p>
+        <section id="flashcards" class="flashcard-demo">
+            <div class="section-header">
+                <h2>Interactive Flashcards</h2>
+                <p>Flip through our flashcards to see how Vasara helps you learn. Click a card to flip it!</p>
+            </div>
+            <div class="flashcard-container">
+                <div class="flashcard">
+                    <div class="flashcard-inner" id="flashcard-0">
+                        <div class="flashcard-front">
+                            <p class="flashcard-text">¡Hola!</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p class="flashcard-text">Sveiki! / Labas!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flashcard" style="display: none;">
-                <div class="flashcard-inner" id="flashcard-1">
-                    <div class="flashcard-front">
-                        <p class="flashcard-text">Buenos días</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p class="flashcard-text">Labas rytas</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard" style="display: none;">
-                <div class="flashcard-inner" id="flashcard-2">
-                    <div class="flashcard-front">
-                        <p class="flashcard-text">Gracias</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p class="flashcard-text">Ačiū</p>
+                <div class="flashcard" style="display: none;">
+                    <div class="flashcard-inner" id="flashcard-1">
+                        <div class="flashcard-front">
+                            <p class="flashcard-text">Buenos días</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p class="flashcard-text">Labas rytas</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="flashcard" style="display: none;">
-                <div class="flashcard-inner" id="flashcard-3">
-                    <div class="flashcard-front">
-                        <p class="flashcard-text">¿Cómo estás?</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p class="flashcard-text">Kaip sekasi?</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flashcard" style="display: none;">
-                <div class="flashcard-inner" id="flashcard-4">
-                    <div class="flashcard-front">
-                        <p class="flashcard-text">Adiós</p>
-                    </div>
-                    <div class="flashcard-back">
-                        <p class="flashcard-text">Viso gero</p>
+                <div class="flashcard" style="display: none;">
+                    <div class="flashcard-inner" id="flashcard-2">
+                        <div class="flashcard-front">
+                            <p class="flashcard-text">Gracias</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p class="flashcard-text">Ačiū</p>
+                        </div>
                     </div>
                 </div>
+                <div class="flashcard" style="display: none;">
+                    <div class="flashcard-inner" id="flashcard-3">
+                        <div class="flashcard-front">
+                            <p class="flashcard-text">¿Cómo estás?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p class="flashcard-text">Kaip sekasi?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flashcard" style="display: none;">
+                    <div class="flashcard-inner" id="flashcard-4">
+                        <div class="flashcard-front">
+                            <p class="flashcard-text">Adiós</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <p class="flashcard-text">Viso gero</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flashcard-controls">
+                    <button class="flashcard-button" id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
+                    <div class="card-indicator">Card 1 of 5</div>
+                    <button class="flashcard-button" id="next-card">Next <i class="fas fa-arrow-right"></i></button>
+                </div>
             </div>
-            <div class="flashcard-controls">
-                <button class="flashcard-button" id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
-                <div class="card-indicator">Card 1 of 5</div>
-                <button class="flashcard-button" id="next-card">Next <i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="quiz" class="quiz-section">
-        <div class="section-header">
-            <h2>Test Your Knowledge</h2>
-            <p>Try our Spanish to Lithuanian quiz system</p>
-        </div>
-        <div class="quiz-container">
-            <div class="quiz-question">
-                <p>Translate: "Buenos días"</p>
+        <section id="quiz" class="quiz-section">
+            <div class="section-header">
+                <h2>Test Your Knowledge</h2>
+                <p>Try our Spanish to Lithuanian quiz system. Select an answer and see if you're right!</p>
             </div>
-            <div class="quiz-options">
-                <div class="quiz-option">Labas rytas</div>
-                <div class="quiz-option">Labanakt</div>
-                <div class="quiz-option">Viso gero</div>
-                <div class="quiz-option">Iki pasimatymo</div>
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <p>Translate: "Buenos días"</p>
+                </div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="true">Labas rytas</div>
+                    <div class="quiz-option">Labanakt</div>
+                    <div class="quiz-option">Viso gero</div>
+                    <div class="quiz-option">Iki pasimatymo</div>
+                </div>
+                <div class="quiz-footer">
+                    <div class="quiz-progress">Question 1 of 10</div>
+                    <button class="quiz-submit">Submit Answer</button>
+                </div>
             </div>
-            <div class="quiz-footer">
-                <div class="quiz-progress">Question 1 of 10</div>
-                <button class="quiz-submit">Submit Answer</button>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="about" class="about">
-        <div class="about-image">
-            <img src="images/about-vasara.jpg" alt="About Vasara">
-        </div>
-        <div class="about-content">
-            <h2>About Vasara</h2>
-            <p>Vasara is a Django-based flashcard learning application designed to make language learning efficient and enjoyable.</p>
-            <p>Built with a focus on user experience and effective learning methods, Vasara helps you organize your study materials and test your knowledge through interactive quizzes.</p>
-            <div class="stats">
-                <div class="stat">
-                    <h3>Django</h3>
-                    <p>Web Framework</p>
-                </div>
-                <div class="stat">
-                    <h3>Python</h3>
-                    <p>Backend Language</p>
-                </div>
-                <div class="stat">
-                    <h3>UI/UX</h3>
-                    <p>Intuitive Design</p>
+        <section id="about" class="about">
+            <div class="about-content">
+                <h2>About The Project</h2>
+                <p>Vasara is a Django-based flashcard learning application designed to make language learning efficient and enjoyable. The name "Vasara" means "Summer" in Lithuanian, evoking a feeling of warmth and enjoyable learning.</p>
+                <p>Built with a focus on user experience and effective learning methods, Vasara helps you organize your study materials and test your knowledge through interactive quizzes.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>Django</h3>
+                        <p>Web Framework</p>
+                    </div>
+                    <div class="stat">
+                        <h3>Python</h3>
+                        <p>Backend Language</p>
+                    </div>
+                    <div class="stat">
+                        <h3>UI/UX</h3>
+                        <p>Intuitive Design</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <div class="about-image">
+                <img src="images/about-vasara.jpg" alt="About Vasara">
+            </div>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="contact-form">
-            <h2>Get in Touch</h2>
-            <p>Have questions about Vasara? We're here to help.</p>
-            <form>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your message"></textarea>
-                </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
-        </div>
-        <div class="contact-info">
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <p>contact@example.com</p>
+        <section id="contact" class="contact">
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <p>Have questions about Vasara? I'd love to hear from you.</p>
+                <form action="https://formspree.io/f/your_form_id" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Your message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/Tilooo/vasara" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>contact.tilooo@email.com</p> <!-- Replace with your actual email -->
+                </div>
+                 <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Based in Europe</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Tilooo/vasara" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" class="social-link" title="Twitter (Coming Soon)"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link" title="LinkedIn (Coming Soon)"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
                 <h3>Vasara</h3>
                 <p>Language learning made simple</p>
-            </div>
-            <div class="visitor-stats">
-                <div class="real-time-clock">
-                    <i class="fas fa-clock"></i>
-                    <span id="current-time">00:00:00</span>
-                </div>
-                <div class="visitor-counter">
-                    <i class="fas fa-user-friends"></i>
-                    <span id="visitor-count">0</span> visitors
-                </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -301,9 +297,19 @@
                     </ul>
                 </div>
             </div>
+             <div class="visitor-stats">
+                <div class="real-time-clock">
+                    <i class="fas fa-clock"></i>
+                    <span id="current-time">00:00:00</span>
+                </div>
+                <div class="visitor-counter">
+                    <i class="fas fa-user-friends"></i>
+                    <span id="visitor-count">0</span> visitors
+                </div>
+            </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2023 Vasara App <span style="color: #ffc107;">❤</span>. All rights reserved.</p>
+            <p>© 2023 Vasara by Tilooo <span style="color: #ffc107;">❤</span>. All rights reserved.</p>
         </div>
     </footer>
 
@@ -312,14 +318,27 @@
     </button>
 
     <script>
-        // Your existing JavaScript remains unchanged...
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Not prevent default for external links or non-anchor links
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
+        // Flashcard functionality
         const flashcards = document.querySelectorAll('.flashcard');
         const prevButton = document.getElementById('prev-card');
         const nextButton = document.getElementById('next-card');
@@ -327,39 +346,38 @@
         let currentCardIndex = 0;
         const totalCards = flashcards.length;
 
-        updateCardDisplay();
+        function updateCardDisplay() {
+            flashcards.forEach((card, index) => {
+                card.style.display = index === currentCardIndex ? 'block' : 'none';
+                const innerCard = card.querySelector('.flashcard-inner');
+                // Reset flip state when changing cards
+                if (innerCard.style.transform === 'rotateY(180deg)') {
+                   innerCard.style.transform = 'rotateY(0deg)';
+                }
+            });
+            cardIndicator.textContent = `Card ${currentCardIndex + 1} of ${totalCards}`;
+        }
 
         flashcards.forEach(card => {
             card.addEventListener('click', () => {
                 const innerCard = card.querySelector('.flashcard-inner');
-                innerCard.style.transform =
-                    innerCard.style.transform === 'rotateY(180deg)' ?
-                    'rotateY(0deg)' : 'rotateY(180deg)';
+                innerCard.style.transform = innerCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
             });
         });
 
         prevButton.addEventListener('click', () => {
-            const currentInnerCard = flashcards[currentCardIndex].querySelector('.flashcard-inner');
-            currentInnerCard.style.transform = 'rotateY(0deg)';
             currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
             updateCardDisplay();
         });
 
         nextButton.addEventListener('click', () => {
-            const currentInnerCard = flashcards[currentCardIndex].querySelector('.flashcard-inner');
-            currentInnerCard.style.transform = 'rotateY(0deg)';
             currentCardIndex = (currentCardIndex + 1) % totalCards;
             updateCardDisplay();
         });
 
-        function updateCardDisplay() {
-            flashcards.forEach(card => {
-                card.style.display = 'none';
-            });
-            flashcards[currentCardIndex].style.display = 'block';
-            cardIndicator.textContent = `Card ${currentCardIndex + 1} of ${totalCards}`;
-        }
+        updateCardDisplay(); // Initial display setup
 
+        // Simple Quiz Logic
         const quizOptions = document.querySelectorAll('.quiz-option');
         quizOptions.forEach(option => {
             option.addEventListener('click', () => {
@@ -369,46 +387,54 @@
         });
 
         const quizSubmit = document.querySelector('.quiz-submit');
-        if (quizSubmit) {
-            quizSubmit.addEventListener('click', () => {
-                const selectedOption = document.querySelector('.quiz-option.selected');
-                if (selectedOption) {
-                    if (selectedOption === quizOptions[0]) {
-                        alert('Correct! Great job!');
-                    } else {
-                        alert('Not quite right. The correct answer is "Labas rytas".');
-                    }
+        quizSubmit.addEventListener('click', () => {
+            const selectedOption = document.querySelector('.quiz-option.selected');
+            if (selectedOption) {
+                if (selectedOption.dataset.correct === 'true') {
+                    alert('Correct! Great job! "Buenos días" means "Labas rytas".');
                 } else {
-                    alert('Please select an answer before submitting.');
+                    alert('Not quite right. The correct answer is "Labas rytas".');
                 }
-            });
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+            } else {
+                alert('Please select an answer before submitting.');
+            }
         });
 
+        // Back to top button
         const backToTopButton = document.getElementById('back-to-top');
-        
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'block';
+                backToTopButton.style.display = 'flex';
             } else {
                 backToTopButton.style.display = 'none';
             }
         });
-        
         backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Real-time Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toTimeString().split(' ')[0];
+            document.getElementById('current-time').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Visitor Counter (Simple localStorage version)
+        function updateVisitorCount() {
+            let count = localStorage.getItem('vasaraVisitorCount');
+            count = count ? parseInt(count) : 0;
+            // For a real demo, you might only increment once per session
+            if (!sessionStorage.getItem('vasaraVisited')) {
+                count++;
+                localStorage.setItem('vasaraVisitorCount', count);
+                sessionStorage.setItem('vasaraVisited', 'true');
+            }
+            document.getElementById('visitor-count').textContent = count;
+        }
+        updateVisitorCount();
     </script>
 </body>
 </html>
