@@ -1,0 +1,37 @@
+[
+  {
+    "front": "¡Hola!",
+    "back": "Sveiki! / Labas!",
+    "image": null
+  },
+  {
+    "front": "El perro",
+    "back": "Šuo",
+    "image": "images/dog.jpg"
+  },
+  {
+    "front": "El gato",
+    "back": "Katė",
+    "image": "images/cat.jpg"
+  },
+  {
+    "front": "Buenos días",
+    "back": "Labas rytas",
+    "image": null
+  },
+  {
+    "front": "Gracias",
+    "back": "Ačiū",
+    "image": null
+  },
+  {
+    "front": "Por favor",
+    "back": "Prašau",
+    "image": null
+  },
+  {
+    "front": "Te amo",
+    "back": "Aš tave myliu",
+    "image": null
+  }
+]

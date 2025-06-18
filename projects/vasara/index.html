@@ -129,59 +129,12 @@
                 <p>Flip through our flashcards to see how Vasara helps you learn. Click a card to flip it!</p>
             </div>
             <div class="flashcard-container">
-                <div class="flashcard">
-                    <div class="flashcard-inner" id="flashcard-0">
-                        <div class="flashcard-front">
-                            <p class="flashcard-text">¡Hola!</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p class="flashcard-text">Sveiki! / Labas!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" style="display: none;">
-                    <div class="flashcard-inner" id="flashcard-1">
-                        <div class="flashcard-front">
-                            <p class="flashcard-text">Buenos días</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p class="flashcard-text">Labas rytas</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" style="display: none;">
-                    <div class="flashcard-inner" id="flashcard-2">
-                        <div class="flashcard-front">
-                            <p class="flashcard-text">Gracias</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p class="flashcard-text">Ačiū</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" style="display: none;">
-                    <div class="flashcard-inner" id="flashcard-3">
-                        <div class="flashcard-front">
-                            <p class="flashcard-text">¿Cómo estás?</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p class="flashcard-text">Kaip sekasi?</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flashcard" style="display: none;">
-                    <div class="flashcard-inner" id="flashcard-4">
-                        <div class="flashcard-front">
-                            <p class="flashcard-text">Adiós</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p class="flashcard-text">Viso gero</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Flashcards will be loaded here by JavaScript -->
+                <div id="flashcard-deck"></div>
+
                 <div class="flashcard-controls">
                     <button class="flashcard-button" id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
-                    <div class="card-indicator">Card 1 of 5</div>
+                    <div class="card-indicator">Loading cards...</div>
                     <button class="flashcard-button" id="next-card">Next <i class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
@@ -321,7 +274,6 @@
         // Smooth scroll for nav links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Not prevent default for external links or non-anchor links
                 if (this.getAttribute('href').startsWith('#')) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
@@ -338,19 +290,45 @@
             navLinks.classList.toggle('active');
         });
 
-        // Flashcard functionality
-        const flashcards = document.querySelectorAll('.flashcard');
+        // --- DYNAMIC FLASHCARD LOADER ---
+        const flashcardDeck = document.getElementById('flashcard-deck');
         const prevButton = document.getElementById('prev-card');
         const nextButton = document.getElementById('next-card');
         const cardIndicator = document.querySelector('.card-indicator');
+        let flashcards = []; // This will hold the actual DOM elements
         let currentCardIndex = 0;
-        const totalCards = flashcards.length;
+        let totalCards = 0;
+
+        // Function to set up the flashcard logic
+        function initializeFlashcards() {
+            flashcards = document.querySelectorAll('.flashcard');
+            totalCards = flashcards.length;
+
+            flashcards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const innerCard = card.querySelector('.flashcard-inner');
+                    innerCard.style.transform = innerCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+                });
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+                updateCardDisplay();
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentCardIndex = (currentCardIndex + 1) % totalCards;
+                updateCardDisplay();
+            });
+
+            updateCardDisplay();
+        }
 
         function updateCardDisplay() {
+            if (flashcards.length === 0) return;
             flashcards.forEach((card, index) => {
                 card.style.display = index === currentCardIndex ? 'block' : 'none';
                 const innerCard = card.querySelector('.flashcard-inner');
-                // Reset flip state when changing cards
                 if (innerCard.style.transform === 'rotateY(180deg)') {
                    innerCard.style.transform = 'rotateY(0deg)';
                 }
@@ -358,24 +336,37 @@
             cardIndicator.textContent = `Card ${currentCardIndex + 1} of ${totalCards}`;
         }
 
-        flashcards.forEach(card => {
-            card.addEventListener('click', () => {
-                const innerCard = card.querySelector('.flashcard-inner');
-                innerCard.style.transform = innerCard.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+        fetch('flashcards.json')
+            .then(response => response.json())
+            .then(data => {
+                let cardsHTML = '';
+                data.forEach((cardData, index) => {
+                    let imageHTML = '';
+                    if (cardData.image) {
+                        imageHTML = `<img src="${cardData.image}" alt="Flashcard image for ${cardData.front}" class="flashcard-image">`;
+                    }
+
+                    cardsHTML += `
+                        <div class="flashcard" style="display: none;">
+                            <div class="flashcard-inner" id="flashcard-${index}">
+                                <div class="flashcard-front">
+                                    ${imageHTML}
+                                    <p class="flashcard-text">${cardData.front}</p>
+                                </div>
+                                <div class="flashcard-back">
+                                    <p class="flashcard-text">${cardData.back}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                flashcardDeck.innerHTML = cardsHTML;
+                initializeFlashcards();
+            })
+            .catch(error => {
+                console.error('Error loading flashcards:', error);
+                cardIndicator.textContent = 'Could not load cards.';
             });
-        });
-
-        prevButton.addEventListener('click', () => {
-            currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-            updateCardDisplay();
-        });
-
-        nextButton.addEventListener('click', () => {
-            currentCardIndex = (currentCardIndex + 1) % totalCards;
-            updateCardDisplay();
-        });
-
-        updateCardDisplay(); // Initial display setup
 
         // Simple Quiz Logic
         const quizOptions = document.querySelectorAll('.quiz-option');
@@ -426,7 +417,6 @@
         function updateVisitorCount() {
             let count = localStorage.getItem('vasaraVisitorCount');
             count = count ? parseInt(count) : 0;
-            // For a real demo, you might only increment once per session
             if (!sessionStorage.getItem('vasaraVisited')) {
                 count++;
                 localStorage.setItem('vasaraVisitorCount', count);
