@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Translate: \"Buenos días\"",
+        "options": [
+            "Labas rytas",
+            "Labanakt",
+            "Viso gero",
+            "Iki pasimatymo"
+        ],
+        "answer": "Labas rytas"
+    },
+    {
+        "question": "What is \"Thank you\" in Lithuanian?",
+        "options": [
+            "Atsiprašau",
+            "Ačiū",
+            "Prašom",
+            "Sveiki"
+        ],
+        "answer": "Ačiū"
+    },
+    {
+        "question": "How do you say \"Goodbye\" in Spanish?",
+        "options": [
+            "Hola",
+            "Gracias",
+            "Adiós",
+            "Por favor"
+        ],
+        "answer": "Adiós"
+    },
+    {
+        "question": "Translate: \"Agua\"",
+        "options": [
+            "Pienas",
+            "Duona",
+            "Vanduo",
+            "Sultys"
+        ],
+        "answer": "Vanduo"
+    },
+    {
+        "question": "What is \"Taip\" in English?",
+        "options": [
+            "No",
+            "Maybe",
+            "Hello",
+            "Yes"
+        ],
+        "answer": "Yes"
+    }
+]

@@ -143,22 +143,20 @@
         <section id="quiz" class="quiz-section">
             <div class="section-header">
                 <h2>Test Your Knowledge</h2>
-                <p>Try our Spanish to Lithuanian quiz system. Select an answer and see if you're right!</p>
+                <p>Try our interactive quiz system. Select an answer and see if you're right!</p>
             </div>
             <div class="quiz-container">
                 <div class="quiz-question">
-                    <p>Translate: "Buenos días"</p>
+                    <p>Loading question...</p>
                 </div>
                 <div class="quiz-options">
-                    <div class="quiz-option" data-correct="true">Labas rytas</div>
-                    <div class="quiz-option">Labanakt</div>
-                    <div class="quiz-option">Viso gero</div>
-                    <div class="quiz-option">Iki pasimatymo</div>
+                    <!-- Options will be loaded by quiz.js -->
                 </div>
                 <div class="quiz-footer">
-                    <div class="quiz-progress">Question 1 of 10</div>
-                    <button class="quiz-submit">Submit Answer</button>
+                    <div class="quiz-progress">Question 1 of X</div>
+                    <button class="quiz-submit" disabled>Submit Answer</button>
                 </div>
+                <!-- Results will be injected here by quiz.js -->
             </div>
         </section>
 
@@ -210,7 +208,7 @@
             <div class="contact-info">
                 <div class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <p>contact.tilooo@email.com</p> <!-- Replace with your actual email -->
+                    <p></p>
                 </div>
                  <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -299,10 +297,10 @@
         let currentCardIndex = 0;
         let totalCards = 0;
 
-        // Function to set up the flashcard logic
         function initializeFlashcards() {
             flashcards = document.querySelectorAll('.flashcard');
             totalCards = flashcards.length;
+            if (totalCards === 0) return;
 
             flashcards.forEach(card => {
                 card.addEventListener('click', () => {
@@ -368,29 +366,6 @@
                 cardIndicator.textContent = 'Could not load cards.';
             });
 
-        // Simple Quiz Logic
-        const quizOptions = document.querySelectorAll('.quiz-option');
-        quizOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                quizOptions.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-            });
-        });
-
-        const quizSubmit = document.querySelector('.quiz-submit');
-        quizSubmit.addEventListener('click', () => {
-            const selectedOption = document.querySelector('.quiz-option.selected');
-            if (selectedOption) {
-                if (selectedOption.dataset.correct === 'true') {
-                    alert('Correct! Great job! "Buenos días" means "Labas rytas".');
-                } else {
-                    alert('Not quite right. The correct answer is "Labas rytas".');
-                }
-            } else {
-                alert('Please select an answer before submitting.');
-            }
-        });
-
         // Back to top button
         const backToTopButton = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
@@ -426,5 +401,8 @@
         }
         updateVisitorCount();
     </script>
+
+    <!-- LOADS THE QUIZ SCRIPT -->
+    <script src="quiz.js" defer></script>
 </body>
 </html>
