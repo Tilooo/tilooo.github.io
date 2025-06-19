@@ -1,3 +1,5 @@
+<!-- tilooo.github.io/contact.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,7 +55,7 @@
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-align: center;
-            padding: 100px 20px 60px; /* Increase top padding from 60px to 100px */
+            padding: 100px 20px 60px;
             position: relative;
         }
 
@@ -168,14 +170,14 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            width: 100%; /* Ensure section takes full width of its container */
+            width: 100%; /* Section takes full width of its container */
         }
 
         main {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
-            width: 100%; /* Ensure main takes full width with padding */
+            width: 100%; /* Main takes full width with padding */
             box-sizing: border-box;
         }
 
@@ -202,7 +204,7 @@
             min-height: 150px;
         }
 
-        button {
+        button[type="submit"] {
             background-color: var(--primary-color);
             color: white;
             border: none;
@@ -211,10 +213,33 @@
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        button:hover {
+        button[type="submit"]:hover:not(:disabled) {
             background-color: var(--secondary-color);
+        }
+
+        button[type="submit"]:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Spinner styles for submit button */
+        .spinner {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .social-links {
@@ -234,28 +259,12 @@
             color: var(--accent-color);
         }
 
-        .back-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-bottom: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        .back-button:hover {
-            background-color: var(--accent-color);
-        }
-
         footer {
             background-color: #95f725;
             color: white;
             text-align: center;
             padding: 30px 1px;
-            margin-top: 0;
-            width: 100%;
+            margin-top: auto; /* Pushes footer to the bottom */
         }
 
         /* Scroll Animations */
@@ -323,7 +332,7 @@
                     <input type="hidden" name="_next" value="https://tilooo.github.io/thanks.html">
                     <input type="hidden" name="_captcha" value="true">
                     <input type="hidden" name="_autoresponse" value="Thank you for contacting me! I've received your message and will get back to you as soon as possible.">
-                    
+
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -340,8 +349,11 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit">Send Message</button>
-                    <div id="formStatus" style="margin-top: 15px;"></div>
+                    <!-- Button has a span for text and a div for the spinner -->
+                    <button type="submit" id="submitButton">
+                        <span id="buttonText">Send Message</span>
+                        <div class="spinner" id="buttonSpinner" style="display: none;"></div>
+                    </button>
                 </form>
             </div>
             <div class="social-links">
@@ -353,7 +365,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Tilo. All rights reserved.</p>
+        <p>© 2023 Tilo. All rights reserved.</p>
     </footer>
     <script>
         const observer = new IntersectionObserver((entries) => {
@@ -369,12 +381,19 @@
             el.classList.add('hidden');
             observer.observe(el);
         });
-        
-        // Contact form functionality
+
+        // Contact form functionality with spinner
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            const formStatus = document.getElementById('formStatus');
-            formStatus.textContent = "Sending your message...";
-            formStatus.style.color = "#166088";
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonSpinner = document.getElementById('buttonSpinner');
+
+            // Disables the button to prevent multiple clicks
+            submitButton.disabled = true;
+
+            // Shows the spinner and change text
+            buttonText.textContent = 'Sending...';
+            buttonSpinner.style.display = 'block';
         });
         
         // Theme Toggle Functionality
@@ -382,7 +401,7 @@
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
         
-        // Check for saved theme preference or default to 'dark'
+        // Saved theme preference/default to 'dark'
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
@@ -394,7 +413,7 @@
             // Toggle light-theme class on body
             body.classList.toggle('light-theme');
             
-            // Update icon based on current theme
+            // Updated icon based on current theme
             if (body.classList.contains('light-theme')) {
                 themeIcon.className = 'fas fa-moon';
                 localStorage.setItem('theme', 'light');
