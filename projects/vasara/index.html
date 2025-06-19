@@ -189,7 +189,7 @@
             <div class="contact-form">
                 <h2>Get in Touch</h2>
                 <p>Have questions about Vasara? I'd love to hear from you.</p>
-                <form action="https://formspree.io/f/your_form_id" method="POST">
+                <form action="https://formspree.io/f/mldnlqjg" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -206,10 +206,10 @@
                 </form>
             </div>
             <div class="contact-info">
-                <div class="info-item">
+                <a href="https://tilooo.github.io/contact.html" class="info-item">
                     <i class="fas fa-envelope"></i>
-                    <p></p>
-                </div>
+                    <p>Get in touch</p>
+                </a>
                  <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
                     <p>Based in Europe</p>
@@ -248,19 +248,13 @@
                     </ul>
                 </div>
             </div>
-             <div class="visitor-stats">
-                <div class="real-time-clock">
-                    <i class="fas fa-clock"></i>
-                    <span id="current-time">00:00:00</span>
-                </div>
-                <div class="visitor-counter">
-                    <i class="fas fa-user-friends"></i>
-                    <span id="visitor-count">0</span> visitors
-                </div>
-            </div>
         </div>
         <div class="footer-bottom">
             <p>© 2023 Vasara by Tilooo <span style="color: #ffc107;">❤</span>. All rights reserved.</p>
+            <div class="real-time-clock">
+                <i class="fas fa-clock"></i>
+                <span id="current-time">00:00:00</span>
+            </div>
         </div>
     </footer>
 
@@ -388,21 +382,9 @@
         setInterval(updateClock, 1000);
         updateClock();
 
-        // Visitor Counter (Simple localStorage version)
-        function updateVisitorCount() {
-            let count = localStorage.getItem('vasaraVisitorCount');
-            count = count ? parseInt(count) : 0;
-            if (!sessionStorage.getItem('vasaraVisited')) {
-                count++;
-                localStorage.setItem('vasaraVisitorCount', count);
-                sessionStorage.setItem('vasaraVisited', 'true');
-            }
-            document.getElementById('visitor-count').textContent = count;
-        }
-        updateVisitorCount();
     </script>
 
-    <!-- LOADS THE QUIZ SCRIPT -->
+    <!-- THE QUIZ SCRIPT -->
     <script src="quiz.js" defer></script>
 </body>
 </html>

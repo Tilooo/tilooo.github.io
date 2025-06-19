@@ -365,7 +365,7 @@ nav {
 }
 
 .flashcard-image {
-    max-height: 150px; /* Adjusted size */
+    max-height: 150px;
     max-width: 90%;
     margin-bottom: 1rem;
     border-radius: var(--border-radius);
@@ -418,7 +418,7 @@ nav {
     margin: 0 0.5rem;
 }
 
-/* QUIZ STYLES */
+/* --- QUIZ STYLES --- */
 .quiz-section {
     background-color: var(--secondary-color);
 }
@@ -472,7 +472,7 @@ nav {
 
 /* Styles for correct/incorrect states */
 .quiz-options.answered .quiz-option {
-    pointer-events: none; /* Disable clicks after answer */
+    pointer-events: none; /* Disables clicks after answer */
     cursor: not-allowed;
 }
 
@@ -585,7 +585,7 @@ nav {
     transform: scale(1.05);
 }
 
-/* The end of quiz styles */
+/* --- END OF QUIZ STYLES --- */
 
 /* About Section */
 .about {
@@ -729,13 +729,26 @@ nav {
     align-items: center;
     gap: 1.5rem;
     font-size: 1.1rem;
+    color: var(--text-color); /* Ensures the text is the default color */
 }
+
+/* STYLES for the clickable info-item */
+.contact-info a.info-item {
+    color: var(--text-color); /* Overrides the default orange link color */
+}
+
+.contact-info a.info-item:hover,
+.contact-info a.info-item:hover i {
+    color: var(--primary-color); /* Changes color of text and icon on hover */
+}
+
 
 .info-item i {
     font-size: 1.8rem;
     color: var(--primary-color);
     width: 30px;
     text-align: center;
+    transition: var(--transition); /* Adds transition for smooth color change */
 }
 
 .social-links {
@@ -769,7 +782,6 @@ footer {
     background-color: var(--dark-bg);
     color: #ccc;
     padding: 4rem 5% 2rem;
-    text-align: center;
     font-size: 14px;
 }
 
@@ -822,10 +834,12 @@ footer {
     padding-left: 5px;
 }
 
-.visitor-stats { flex: 1; min-width: 200px; }
-
 .footer-bottom {
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
     padding-top: 2rem;
     color: #aaa;
     max-width: 1200px;
@@ -833,26 +847,15 @@ footer {
     border-top: 1px solid #444;
 }
 
-/* Visitor Stats Styles */
-.visitor-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1.5rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: var(--border-radius);
-}
-
-.real-time-clock,
-.visitor-counter {
+/* Clock Styles */
+.real-time-clock {
     display: flex;
     align-items: center;
     gap: 0.8rem;
     font-size: 0.9rem;
 }
 
-.real-time-clock i,
-.visitor-counter i {
+.real-time-clock i {
     color: var(--primary-color);
     font-size: 1.2rem;
 }
@@ -863,13 +866,6 @@ footer {
     letter-spacing: 1px;
     color: #fff;
 }
-
-#visitor-count {
-    font-weight: bold;
-    color: var(--accent-color);
-    font-size: 1.1em;
-}
-
 
 /* Back to Top Button */
 #back-to-top {
@@ -929,7 +925,7 @@ footer {
 
     .nav-links {
         position: fixed;
-        top: 70px; /* Adjust to match nav height */
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: var(--primary-color);
@@ -950,6 +946,11 @@ footer {
     .features-grid { grid-template-columns: 1fr; }
     .contact { flex-direction: column; }
     .contact-info { padding-left: 0; }
+
+    .footer-bottom {
+        justify-content: center;
+        text-align: center;
+    }
 
     #flashcard-deck, .flashcard { height: 250px; }
     .flashcard-text { font-size: 1.5rem; }
