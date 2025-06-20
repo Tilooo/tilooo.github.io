@@ -5,49 +5,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esme - Interactive Map</title>
+    <title>Esme - Interactive Map Project</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet">
-
-    <!-- * NEW: CSS FOR THE BACK BUTTON * -->
-    <style>
-        .back-to-portfolio {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1100; /* High z-index to appear over other content */
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .back-to-portfolio:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-            color: white;
-        }
-    </style>
-    <!-- * the end of css for the back button * -->
 </head>
 <body>
-     <!-- * HTML FOR THE BACK BUTTON * -->
-    <!-- The link goes up two directories (../..) to find projects.html -->
+    <!-- Back to Portfolio Button -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
-        <!-- Using an inline SVG for the arrow icon - no extra libraries needed! -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
     </a>
-    <!-- * the end of html for the back button * -->
+
     <nav>
         <div class="nav-container">
             <a href="../../index.html" class="logo">Esme</a>
@@ -57,7 +35,7 @@
                 <li><a href="#demo">Demo</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="https://github.com/Tilooo/esme" target="_blank" class="cta-button">GitHub</a>
+            <a href="https://github.com/Tilooo/esme" target="_blank" class="cta-button">View on GitHub</a>
             <div class="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
@@ -67,131 +45,123 @@
     <header class="hero">
         <div class="hero-content">
             <h1>Explore the World with <span class="highlight">Esme</span></h1>
-            <p>An interactive map application built with Python and Flutter that brings geographic data to life.</p>
+            <p>An interactive map application built with a Python backend and Flutter frontend, bringing geographic data to life.</p>
             <div class="hero-buttons">
-                <a href="#features" class="primary-button">Explore Features</a>
-                <a href="#about" class="secondary-button">Learn More</a>
+                <a href="#demo" class="primary-button">See Demo</a>
+                <a href="#features" class="secondary-button">Explore Features</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/esme-hero.jpg" alt="Esme Interactive Map">
+            <!-- I will replace it with a real screenshot of app later!!!!!!! -->
+            <img src="images/esme-hero.jpg" alt="Esme Interactive Map Application">
         </div>
     </header>
 
-    <section id="features" class="features">
+    <section id="features" class="features fade-in">
         <div class="section-header">
-            <h2>Features</h2>
-            <p>Discover what makes Esme a powerful mapping tool</p>
+            <h2>Core Features</h2>
+            <p>Discover what makes Esme a powerful and versatile mapping tool.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-map-marked-alt"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
                 <h3>Interactive Mapping</h3>
                 <p>Smooth, responsive maps with intuitive controls for panning, zooming, and exploring.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-layer-group"></i>
-                </div>
-                <h3>Custom Layers</h3>
-                <p>Add and toggle between different data layers to visualize various types of geographic information.</p>
+                <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                <h3>Custom Data Layers</h3>
+                <p>Easily add and toggle different data layers to visualize various types of geographic information.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-search-location"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-search-location"></i></div>
                 <h3>Advanced Search</h3>
-                <p>Quickly find locations and points of interest with our powerful search functionality.</p>
+                <p>Quickly find specific locations, addresses, and points of interest with powerful search functionality.</p>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-mobile-alt"></i>
-                </div>
+                <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
                 <h3>Cross-Platform</h3>
-                <p>Built with Flutter for a consistent experience across mobile, web, and desktop platforms.</p>
+                <p>Built with Flutter for a seamless, native experience across mobile, web, and desktop platforms.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="about fade-in">
         <div class="about-image">
-            <img src="images/about-esme.jpg" alt="About Esme">
+             <!-- IMPORTANT!!! will replace with real screenshot or an architecture diagram later!!!!!! -->
+            <img src="images/about-esme.jpg" alt="About Esme Project">
         </div>
         <div class="about-content">
-            <h2>About Esme</h2>
-            <p>Esme is an interactive mapping application that combines the power of Python for backend data processing with Flutter for a beautiful, responsive frontend interface.</p>
-            <p>The project was created to make geographic data more accessible and engaging, allowing users to explore maps with rich information layers and interactive elements.</p>
+            <h2>About The Project</h2>
+            <p>Esme is an interactive mapping application that combines the power of Python for backend data processing and API services with Flutter for a beautiful, high-performance frontend interface.</p>
+            <p>This project was developed to explore full-stack application architecture and to make geographic data more accessible and engaging for users.</p>
             <div class="stats">
                 <div class="stat">
                     <h3>Python</h3>
-                    <p>Backend Processing</p>
+                    <p>Backend & Data Processing</p>
                 </div>
                 <div class="stat">
                     <h3>Flutter</h3>
-                    <p>UI Framework</p>
+                    <p>Cross-Platform UI</p>
                 </div>
                 <div class="stat">
-                    <h3>Maps</h3>
-                    <p>Interactive Visualization</p>
+                    <h3>Leaflet</h3>
+                    <p>Map Rendering</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- will replace testimonials section with demo section -->
-    <section id="demo" class="demo">
+    <section id="demo" class="demo fade-in">
         <div class="section-header">
             <h2>See Esme in Action</h2>
-            <p>Watch how Esme brings maps to life with interactive features</p>
+            <p>Watch a short demonstration of Esme's key features.</p>
         </div>
         <div class="demo-container">
             <div class="demo-video">
-                <!-- Placeholder for demo video or interactive demo -->
-                <img src="images/esme-demo.jpg" alt="Esme Demo" class="demo-placeholder">
-                <div class="play-button">
-                    <i class="fas fa-play"></i>
-                </div>
+                <!--
+                  IMPORTANT!!! going replace this with a real video later!!!!
+                  The 'autoplay loop muted playsinline' attributes make it act like a GIF.
+                -->
+                <video src="images/esme-demo.mp4" autoplay loop muted playsinline></video>
             </div>
             <div class="demo-features">
                 <div class="demo-feature">
                     <i class="fas fa-check-circle"></i>
-                    <p>Smooth map navigation with intuitive controls</p>
+                    <p>Smooth map navigation with intuitive gesture controls.</p>
                 </div>
                 <div class="demo-feature">
                     <i class="fas fa-check-circle"></i>
-                    <p>Toggle between different data layers</p>
+                    <p>Instantly toggle between different data layers.</p>
                 </div>
                 <div class="demo-feature">
                     <i class="fas fa-check-circle"></i>
-                    <p>Search for locations and points of interest</p>
+                    <p>Search for locations and points of interest in real-time.</p>
                 </div>
                 <div class="demo-feature">
                     <i class="fas fa-check-circle"></i>
-                    <p>Save and share map views</p>
+                    <p>Responsive design works beautifully on any screen size.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- The contact section with minor updates -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact fade-in">
         <div class="contact-form">
             <h2>Get in Touch</h2>
-            <p>Have questions about Esme? We're here to help.</p>
-            <form>
+            <p>Have questions or feedback about Esme? I'd love to hear from you.</p>
+            <form action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your name">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your email">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your message"></textarea>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                 </div>
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
@@ -201,10 +171,14 @@
                 <i class="fas fa-envelope"></i>
                 <p>contact@example.com</p>
             </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Based in Planet Earth</p>
+            </div>
             <div class="social-links">
-                <a href="https://github.com/Tilooo/esme" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Tilooo/esme" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </section>
@@ -213,60 +187,85 @@
         <div class="footer-content">
             <div class="footer-logo">
                 <h3>Esme</h3>
-                <p>Interactive mapping made simple</p>
+                <p>Interactive mapping made simple.</p>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
-                    <h4>Project</h4>
+                    <h4>Navigate</h4>
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#demo">Demo</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://github.com/Tilooo/esme" target="_blank">GitHub</a></li>
+                        <li><a href="https://github.com/Tilooo/esme" target="_blank">GitHub Repository</a></li>
                         <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API</a></li>
+                        <li><a href="#">Style Guide</a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Esme. All rights reserved.</p>
+            <p>© 2023 Esme Project. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        // --- All JavaScript in one place ---
+
         // Mobile Menu Toggle
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Demo video play button
-        const playButton = document.querySelector('.play-button');
-        const demoPlaceholder = document.querySelector('.demo-placeholder');
-        
-        if (playButton && demoPlaceholder) {
-            playButton.addEventListener('click', () => {
-                // This would normally launch a video player
-                alert('Video demo would play here in a complete implementation');
+        if(menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
             });
         }
 
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if(targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu on link click
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
             });
+        });
+
+        // Fade-in sections on scroll
+        const fadeInElements = document.querySelectorAll('.fade-in');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        fadeInElements.forEach(el => {
+            if(el) {
+                observer.observe(el);
+            }
         });
     </script>
 </body>
