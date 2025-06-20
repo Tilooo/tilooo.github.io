@@ -6,41 +6,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Assistant Project - Tilo's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #95f725;
-            --secondary-color: #166088;
-            --accent-color: #4fc3dc;
-            --text-color: #333;
-            --light-color: #f8f9fa;
-        }
+            /* --- Page Theme Colors --- */
+            --bg-color: #0d1117;
+            --primary-container-color: #161b22;
+            --border-color: #30363d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --accent-blue: #58a6ff;
 
-        /* CSS FOR THE BACK BUTTON */
-        .back-to-portfolio {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 2000; /* High z-index to appear over all content */
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
+            /* --- Original Project Colors (for Demo) --- */
+            --demo-primary: #95f725;
+            --demo-secondary: #166088;
+            --demo-accent: #4fc3dc;
 
-        .back-to-portfolio:hover {
-            background-color: rgba(0, 0, 0, 0.9);
-            transform: scale(1.1);
-            color: white;
+            --font-family: 'Poppins', sans-serif;
         }
-        /* the end of css for the back button */
 
         * {
             margin: 0;
@@ -49,67 +35,91 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: white;
-            background-color: #000;
+            font-family: var(--font-family);
+            line-height: 1.7;
+            color: var(--text-primary);
+            background-color: var(--bg-color);
             overflow-x: hidden;
         }
 
-        .slideshow-container {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            z-index: 1;
-            overflow: hidden;
-            margin-top: 20px;
-            margin-bottom: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-            clear: both;
+        /* --- Back to Portfolio Button --- */
+        .back-to-portfolio {
+            position: fixed;
+            top: 25px;
+            left: 25px;
+            z-index: 2000;
+            background-color: rgba(33, 38, 45, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .slideshow-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #000;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
+        .back-to-portfolio:hover {
+            background-color: var(--primary-container-color);
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 6px 20px rgba(88, 166, 255, 0.2);
+            color: var(--accent-blue);
         }
 
-        .slideshow-image.active {
-            opacity: 1;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.0);
-            z-index: 2;
-        }
-
+        /* --- Main Container and Layout --- */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0px;
-            position: relative;
-            z-index: 1;
+            padding: 40px 20px;
         }
 
-        /* OLD back-button CSS has been removed */
+        .project-header {
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 50px;
+        }
 
+        .project-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .project-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+
+        .section {
+            background-color: var(--primary-container-color);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ---  DEMO STYLES --- */
         .voice-assistant-interface {
-            max-width: 1100px;
-            margin: 40px auto 0;
             background-color: rgba(0, 0, 0, 0.1);
             background-image: url('images/pirmas.jpg');
             background-size: cover;
@@ -122,11 +132,6 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
-        .assistant-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
         .assistant-display {
             height: 250px;
             background: linear-gradient(#180d38, #030005);
@@ -137,25 +142,23 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .assistant-message {
+        .assistant-message, .user-message {
             padding: 12px 18px;
-            background: linear-gradient(to right, #00cc00, #33cc33, #7902f7);
             color: white;
             border-radius: 10px;
             margin-bottom: 15px;
             max-width: 80%;
             animation: fadeIn 0.5s ease;
+            line-height: 1.5;
+        }
+
+        .assistant-message {
+            background: linear-gradient(to right, #00cc00, #33cc33, #7902f7);
         }
 
         .user-message {
-            padding: 12px 18px;
             background: linear-gradient(to right, #9900cc, #cc00cc, #1dc902);
-            color: white;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            max-width: 80%;
             margin-left: auto;
-            animation: fadeIn 0.5s ease;
         }
 
         .assistant-controls {
@@ -178,9 +181,13 @@
         .assistant-input::placeholder {
             color: rgba(255, 255, 255, 0.5);
         }
+        .assistant-input:focus { /* Added for better usability */
+             box-shadow: 0 0 0 3px rgba(149, 247, 37, 0.4);
+             outline: none;
+        }
 
         .mic-button {
-            background-color: var(--primary-color);
+            background-color: var(--demo-primary);
             color: #333;
             border: none;
             width: 60px;
@@ -195,12 +202,12 @@
         }
 
         .mic-button:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--demo-secondary);
             color: white;
         }
 
         .mic-button.listening {
-            animation: pulse 1.5s infinite;
+            animation: pulse-demo 1.5s infinite;
         }
 
         .send-button {
@@ -216,7 +223,7 @@
         }
 
         .send-button:hover {
-            background-color: var(--accent-color);
+            background-color: var(--demo-accent);
         }
 
         .assistant-status {
@@ -245,11 +252,55 @@
         }
 
         .control-button:hover {
-            background-color: var(--primary-color);
+            background-color: var(--demo-primary);
             color: #333;
         }
+        /* --- END OF DEMO STYLES --- */
 
-        @keyframes pulse {
+        /* --- Slideshow / Gallery --- */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .slideshow-image {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .slideshow-image.active {
+            opacity: 1;
+        }
+
+        /* --- Image & GIF Styling --- */
+        .content-image {
+            width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .animated-gif-container {
+            text-align: center;
+        }
+
+        .animated-gif {
+            max-width: 100%;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- Keyframes --- */
+        @keyframes pulse-demo {
             0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(149, 247, 37, 0.7); }
             70% { transform: scale(1.1); box-shadow: 0 0 0 10px rgba(149, 247, 37, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(149, 247, 37, 0); }
@@ -272,102 +323,103 @@
 
         .typing-indicator span {
             display: inline-block;
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background-color: white;
             border-radius: 50%;
             margin-right: 5px;
-            animation: typing 1s infinite;
+            animation: typing-demo 1s infinite;
         }
 
         .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
         .typing-indicator span:nth-child(3) { animation-delay: 0.4s; margin-right: 0; }
 
-        .installation-guide {
-            margin-top: 40px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .full-width-image {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .animated-section {
-            margin-top: 40px;
-            margin-bottom: 60px;
-            text-align: center;
-            background: transparent;
-            padding: 30px;
-            border-radius: 15px;
-        }
-
-        .animated-gif {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            filter: hue-rotate(120deg) brightness(1.2);
-        }
-
-        @keyframes typing {
+        @keyframes typing-demo {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-5px); }
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2.5rem;
+            }
+            .section {
+                padding: 20px;
+            }
+            .assistant-controls {
+                flex-wrap: wrap;
+            }
+            .assistant-input {
+                flex-basis: 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- * HTML FOR THE BACK BUTTON * -->
-    <!-- The link goes up two directories (../..) to find projects.html -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
-        <!-- Using an inline SVG for the arrow icon -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
     </a>
-    <!-- * the end of html of the back button * -->
 
     <div class="container">
-        <div class="voice-assistant-interface">
-            <div class="assistant-header">
-                <h1>Voice Assistant</h1>
-            </div>
+        <header class="project-header">
+            <h1>Voice Assistant</h1>
+            <p>A Python-based personal voice assistant designed to streamline daily tasks through intuitive voice commands. It can handle queries, open applications, set timers, and more.</p>
+        </header>
 
-            <div class="assistant-display" id="chat-display">
-                <div class="assistant-message">Hello! I'm Assistant, your personal voice assistant. How can I help you today?</div>
-            </div>
+        <main>
+            <!-- Interactive Demo Section -->
+            <section class="section" id="interactive-demo">
+                <h2 class="section-title">Interactive Demo</h2>
+                 <div class="voice-assistant-interface">
+                    <div class="assistant-header">
+                        <!-- Header can be empty or have a title -->
+                    </div>
 
-            <div class="assistant-controls">
-                <input type="text" class="assistant-input" id="user-input" placeholder="Type a command or question...">
-                <button class="mic-button" id="mic-button">
-                    <i class="fas fa-microphone"></i>
-                </button>
-                <button class="send-button" id="send-button">Send</button>
-            </div>
+                    <div class="assistant-display" id="chat-display">
+                        <div class="assistant-message">Hello! I'm Assistant, your personal voice assistant. How can I help you today?</div>
+                    </div>
 
-            <div class="assistant-status" id="status">Ready to assist</div>
+                    <div class="assistant-controls">
+                        <input type="text" class="assistant-input" id="user-input" placeholder="Type a command or question...">
+                        <button class="mic-button" id="mic-button" title="Use Voice Command">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="send-button" id="send-button">Send</button>
+                    </div>
 
-            <div class="control-buttons">
-                <button class="control-button" id="clear-button">Clear Chat</button>
-                <button class="control-button" id="commands-button">Show Commands</button>
-            </div>
-        </div>
+                    <div class="assistant-status" id="status">Ready to assist</div>
 
-        <!-- Slideshow container -->
-        <div class="slideshow-container" id="slideshow">
-            <div class="overlay"></div>
-        </div>
+                    <div class="control-buttons">
+                        <button class="control-button" id="clear-button">Clear Chat</button>
+                        <button class="control-button" id="commands-button">Show Commands</button>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Installation Guide Image -->
-        <div class="installation-guide">
-            <img src="images/voice-assistant-installation.jpg" alt="Voice Assistant Installation Guide" class="full-width-image">
-        </div>
+            <!-- Gallery Section -->
+            <section class="section" id="gallery">
+                <h2 class="section-title">Project Gallery</h2>
+                <div class="slideshow-container" id="slideshow">
+                    <!-- Slideshow images will be generated by JS -->
+                </div>
+            </section>
 
-        <!-- Animated GIF Section -->
-        <div class="animated-section">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/4bf00d70953817.5be000bd4190f.gif" alt="Voice Assistant Animation" class="animated-gif">
-        </div>
+            <!-- Installation Section -->
+            <section class="section" id="installation">
+                <h2 class="section-title">Installation Guide</h2>
+                <img src="images/voice-assistant-installation.jpg" alt="Voice Assistant Installation Guide" class="content-image">
+            </section>
+
+            <!-- In Action Section -->
+            <section class="section" id="in-action">
+                <h2 class="section-title">Assistant in Action</h2>
+                <div class="animated-gif-container">
+                    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/source/4bf00d70953817.5be000bd4190f.gif" alt="Voice Assistant Animation" class="animated-gif">
+                </div>
+            </section>
+        </main>
     </div>
 
     <script>
@@ -393,6 +445,7 @@
             let currentSlide = 0;
 
             function nextSlide() {
+                if(slides.length === 0) return;
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
@@ -414,14 +467,14 @@
                 "hi": "Hi there! What can I do for you?",
                 "how are you": "I'm doing well, thank you for asking! How can I assist you?",
                 "weather": "Currently it's 72°F and sunny in your location. The forecast shows clear skies for the rest of the day.",
-                "time": "The current time is " + new Date().toLocaleTimeString() + ".",
-                "date": "Today is " + new Date().toLocaleDateString() + ".",
+                "time": "The current time is " + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + ".",
+                "date": "Today is " + new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) + ".",
                 "play music": "Opening your favorite music playlist on YouTube...",
                 "open chrome": "Opening Google Chrome browser...",
                 "set timer": "Timer set for 5 minutes. I'll notify you when it's done.",
                 "thank you": "You're welcome! Is there anything else you need help with?",
                 "thanks": "You're welcome! Is there anything else you need help with?"
-            }
+            };
 
             function addMessage(text, isUser = false) {
                 const messageDiv = document.createElement('div');
@@ -452,7 +505,7 @@
                 setTimeout(() => {
                     removeTypingIndicator();
                     let response = "I'm not sure how to respond to that yet. Can you try another question?";
-                    const lowerText = text.toLowerCase();
+                    const lowerText = text.toLowerCase().trim();
                     for (const keyword in responses) {
                         if (lowerText.includes(keyword)) {
                             response = responses[keyword];
@@ -474,6 +527,7 @@
 
             userInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
+                    e.preventDefault();
                     sendButton.click();
                 }
             });
@@ -482,10 +536,11 @@
                 micButton.classList.add('listening');
                 statusElement.textContent = "Listening...";
 
+                // Simulate voice recognition and processing
                 setTimeout(() => {
                     micButton.classList.remove('listening');
                     statusElement.textContent = "Processing...";
-                    const demoCommands = ["What's the weather like today?", "What time is it?", "Set a timer for 5 minutes", "Play some music"];
+                    const demoCommands = ["What's the weather like today?", "What time is it?", "Set a timer for 5 minutes", "Play music"];
                     const randomCommand = demoCommands[Math.floor(Math.random() * demoCommands.length)];
                     setTimeout(() => {
                         processInput(randomCommand);
@@ -494,13 +549,15 @@
             });
 
             clearButton.addEventListener('click', () => {
+                // Keep the first message
                 while (chatDisplay.childNodes.length > 1) {
                     chatDisplay.removeChild(chatDisplay.lastChild);
                 }
             });
 
             commandsButton.addEventListener('click', () => {
-                addMessage("Here are some commands you can try:\n- \"What's the weather like?\"\n- \"What time is it?\"\n- \"Set a timer\"\n- \"Play music\"\n- \"Open Chrome\"");
+                const commandsList = "Here are some commands you can try:\n- \"What's the weather like?\"\n- \"What time is it?\"\n- \"Set a timer\"\n- \"Play music\"\n- \"Open Chrome\"";
+                addMessage(commandsList);
             });
         });
     </script>
