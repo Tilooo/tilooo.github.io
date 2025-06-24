@@ -12,10 +12,10 @@
     --text-color-light: #555;
     --light-text: #fff;
     --dark-bg: #1a1a2e;
-    --light-bg: #fdfcff; /* Slightly off-white for a softer look */
-    --border-radius: 12px; /* A bit more rounded */
-    --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Softer shadow */
-    --box-shadow-hover: 0 12px 30px rgba(107, 92, 231, 0.15); /* More prominent hover shadow */
+    --light-bg: #fdfcff;
+    --border-radius: 12px;
+    --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 12px 30px rgba(107, 92, 231, 0.15);
     --transition: all 0.3s ease-in-out;
 }
 
@@ -78,7 +78,7 @@ nav {
     z-index: 1000;
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: var(--transition);
 }
@@ -247,7 +247,7 @@ nav {
 }
 
 /* Sections General */
-.features, .about, .demo, .contact {
+.features, .about, .demo {
     padding: 6rem 5%;
 }
 
@@ -296,15 +296,16 @@ nav {
 
 .feature-icon {
     font-size: 2.5rem;
-    color: var(--primary-color);
     margin-bottom: 1.5rem;
-    background-color: var(--secondary-color);
     width: 70px;
     height: 70px;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    background-image: linear-gradient(45deg, #8c7eff, var(--primary-color));
+    color: var(--light-text);
+    box-shadow: 0 4px 10px rgba(107, 92, 231, 0.3);
 }
 
 .feature-card h3 {
@@ -417,118 +418,6 @@ nav {
     line-height: 1.6;
 }
 
-/* Contact Section */
-.contact {
-    display: flex;
-    gap: 4rem;
-    background-color: var(--secondary-color);
-}
-
-.contact-form {
-    flex: 1.2;
-    max-width: 600px;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-
-.contact p {
-    margin-bottom: 2rem;
-    color: var(--text-color-light);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    font-family: inherit;
-    font-size: 1rem;
-    transition: var(--transition);
-}
-input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(107, 92, 231, 0.2);
-}
-
-
-textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.submit-button {
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.submit-button:hover {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-2px);
-}
-
-.contact-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 5%;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.social-link {
-    background-color: var(--primary-color);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.social-link:hover {
-    background-color: var(--primary-color-dark);
-    transform: translateY(-3px) scale(1.1);
-}
 
 /* Footer */
 footer {
@@ -623,7 +512,7 @@ footer {
 
 /* Responsive Styles */
 @media (max-width: 992px) {
-    .hero, .about, .contact {
+    .hero, .about {
         flex-direction: column;
         gap: 3rem;
         text-align: center;
@@ -641,12 +530,8 @@ footer {
     .about-image {
         order: -1;
     }
-    .about-content, .contact-form, .contact-info {
+    .about-content {
         max-width: 100%;
-    }
-    .contact-info {
-        padding-left: 0;
-        align-items: center;
     }
     .footer-content, .footer-links {
         flex-direction: column;

@@ -379,25 +379,25 @@
             </div>
 
             <div class="project-card hidden" onclick="window.location.href='projects/esme/index.html'">
-                <div class="project-image">
-                    <img src="projects/esme/images/esme-hero.jpg" alt="Esme Project">
-                </div>
-                <div class="project-content">
-                    <h2 class="project-title">Esme</h2>
-                    <p class="project-description">An interactive map application built with Python and Flutter that allows users to explore geographic data with a smooth, intuitive interface.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Flutter</span>
-                        <span class="project-tag">Maps</span>
-                        <span class="project-tag">Interactive</span>
-                        <span class="project-tag">Geospatial</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="projects/esme/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
-                        <a href="https://github.com/Tilooo/esme" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
+    <div class="project-image">
+        <img src="projects/esme/images/esme-hero.jpg" alt="Esme Project">
+    </div>
+    <div class="project-content">
+        <h2 class="project-title">Esme</h2>
+        <p class="project-description">An advanced interactive map application featuring live on-map routing, dynamic search, reverse geocoding, and multiple map styles.</p>
+        <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Routing</span>
+            <span class="project-tag">Interactive</span>
+            <span class="project-tag">Geospatial</span>
+        </div>
+        <div class="project-links">
+            <a href="projects/esme/index.html" class="project-link" onclick="event.stopPropagation();"><i class="fas fa-external-link-alt"></i> View Project</a>
+            <a href="https://github.com/Tilooo/esme" target="_blank" class="project-link" onclick="event.stopPropagation();"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </div>
+</div>
 
             <div class="project-card hidden" onclick="window.location.href='projects/vasara/index.html'">
                 <div class="project-image">
@@ -482,8 +482,6 @@
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
-
-        // Checks for saved theme preference or default to 'dark'
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
@@ -492,7 +490,7 @@
             themeIcon.className = 'fas fa-sun';
         }
 
-        // --- More Concise Theme Toggle Event Listener ---
+        // --- Theme Toggle Event Listener ---
         themeToggle.addEventListener('click', () => {
             const isLightTheme = body.classList.toggle('light-theme');
             themeIcon.className = isLightTheme ? 'fas fa-moon' : 'fas fa-sun';
