@@ -5,201 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me - Tilo's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #95f725;
-            --secondary-color: #166088;
-            --accent-color: #4fc3dc;
-            --text-color: #333;
-            --light-color: #f8f9fa;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- LINKING TO THE CENTRAL STYLESHEET -->
+    <link rel="stylesheet" href="main.css">
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 100px 20px 60px;
-            position: relative;
-        }
-
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        nav {
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            left: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav a:hover, nav a.active {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a:hover {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        nav a.active {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        section {
-            margin-bottom: 60px;
-            padding: 40px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        section h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-color);
-        }
-
-        .about-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .skills {
-            margin-top: 30px;
-        }
-
-        .skills h3 {
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .skill-tag {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-
-        footer {
-            background-color: #95f725;
-            color: white;
-            text-align: center;
-            padding: 30px 1px;
-            margin-top: 0;
-            width: 100%;
-        }
-
-        /* Scroll Animations */
-        .hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1s ease;
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 40px 20px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav a {
-                margin: 5px 0;
-            }
-
-            section {
-                padding: 30px 20px;
-            }
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -212,32 +21,50 @@
     </nav>
 
     <header>
-        <div class="header-content">
-            <h1>About Me</h1>
-        </div>
+        <h1>About Me</h1>
+        <p>A little bit about my journey and the skills I bring to the table.</p>
     </header>
 
     <main>
         <section id="about" class="hidden">
-            <h2>My Background</h2>
-            <div class="about-content">
+            <div class="about-section">
+                <div class="about-image">
+                    <img src="images/profile.jpg" alt="A photo of Tilo">
+                </div>
                 <div class="about-text">
-                    <p>Hello! I'm Tilo, a passionate Software Developer with a focus on creating efficient and user-friendly applications. I enjoy solving complex problems and turning ideas into reality through code.</p>
-                    <p>With a background in development, I bring a unique perspective to every project I work on. I'm constantly learning and exploring new technologies to stay at the forefront of the industry.</p>
-                    <p>Throughout my career, I've worked on a variety of projects ranging from web applications to data analysis tools. My approach combines technical expertise with creative problem-solving to deliver solutions that exceed expectations.</p>
+                    <h2>My Journey</h2>
+                    <p>Hello! I'm Tilo, a passionate <span class="highlight">Full-Stack Developer</span> with a love for creating efficient, user-friendly, and visually engaging applications. I thrive on the challenge of solving complex problems and turning ambitious ideas into polished, real-world products.</p>
+                    <p>Alongside building applications, I have a strong passion for uncovering insights from data through <span class="highlight">web scraping, analysis, and machine learning</span>. My approach combines deep technical expertise with a creative, data-driven mindset to build solutions that are not only powerful but also a joy to use.</p>
 
                     <div class="skills">
-                        <h3>My Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Responsive Design</span>
+                        <h3>My Technical Skills</h3>
+                        <div class="skill-group">
+                            <h4>Full-Stack & Web Development</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag python">Python</span>
+                                <span class="skill-tag flutter">Flutter</span>
+                                <span class="skill-tag django">Django</span>
+                                <span class="skill-tag javascript">JavaScript</span>
+                                <span class="skill-tag html">HTML5</span>
+                                <span class="skill-tag css">CSS3</span>
+                                <span class="skill-tag sql">SQL</span>
+                                <span class="skill-tag api">REST APIs</span>
+                                <span class="skill-tag git">Git</span>
+                                <span class="skill-tag design">Figma</span>
+                                <span class="skill-tag">Responsive Design</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-group">
+                            <h4>Data Science & Automation</h4>
+                            <div class="skill-tags">
+                                <span class="skill-tag machine-learning">Machine Learning</span>
+                                <span class="skill-tag data-science">Pandas</span>
+                                <span class="skill-tag data-science">Matplotlib</span>
+                                <span class="skill-tag data-science">Seaborn</span>
+                                <span class="skill-tag web-scraping">BeautifulSoup</span>
+                                <span class="skill-tag web-scraping">Web Scraping</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,25 +72,37 @@
         </section>
 
         <section id="experience" class="hidden">
-            <h2>Experience</h2>
-            <div class="about-text">
-                <p>I have several years of experience working in software development, with a focus on web technologies and data science. My professional journey has equipped me with both technical skills and the ability to collaborate effectively in team environments.</p>
-                <p>I'm particularly passionate about creating intuitive user interfaces and optimizing application performance. My goal is always to build software that not only works well but also provides an excellent user experience.</p>
-            </div>
-        </section>
-
-        <section id="education" class="hidden">
-            <h2>Education</h2>
-            <div class="about-text">
-                <p>I hold a degree in Computer Science, which provided me with a strong foundation in programming principles, algorithms, and software design. Beyond formal education, I'm committed to continuous learning through online courses, workshops, and industry conferences.</p>
-                <p>I believe that staying current with emerging technologies and best practices is essential in the rapidly evolving field of software development.</p>
+            <h2>My Path</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline-content">
+                        <h4>Full-Stack Development</h4>
+                        <p>Currently focusing on building complete applications from the ground up, integrating Python backends with dynamic Flutter frontends to create seamless user experiences like the Esme Maps project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-database"></i></div>
+                    <div class="timeline-content">
+                        <h4>Data & Automation</h4>
+                        <p>Developing tools and scripts for data collection via web scraping and leveraging libraries like Pandas and Matplotlib to analyze and visualize information.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="timeline-content">
+                        <h4>Foundation in Computer Science</h4>
+                        <p>My academic background provided a strong foundation in programming, algorithms, and software design principles, which I apply to every project I undertake.</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 Tilo. All rights reserved.</p>
+        <p>© 2023 Tilo. All rights reserved.</p>
     </footer>
+
     <script>
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -271,12 +110,10 @@
                     entry.target.classList.add('show');
                 }
             });
-        });
+        }, { threshold: 0.1 });
 
         const hiddenElements = document.querySelectorAll('.hidden');
-        hiddenElements.forEach((el) => {
-            observer.observe(el);
-        });
+        hiddenElements.forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
