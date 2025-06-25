@@ -356,12 +356,28 @@ nav {
 
 .stats {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 1px solid transparent; /* Base border */
+}
+
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .stat h3 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: var(--primary-color);
     font-weight: 700;
 }
@@ -371,6 +387,27 @@ nav {
     color: var(--text-color-light);
     margin-bottom: 0;
 }
+
+.stat.python {
+    border-color: #4568dc;
+}
+.stat.python h3 {
+    color: transparent; /* Transparent text */
+    background-image: linear-gradient(to right, #4568dc, #b06ab3); /* Python gradient */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text;
+}
+
+.stat.flutter {
+    border-color: #00c6ff;
+}
+.stat.flutter h3 {
+    color: transparent; /* Makes text transparent */
+    background-image: linear-gradient(to right, #00c6ff, #0072ff); /* Flutter gradient */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text;
+}
+
 
 /* Demo Section */
 .demo {
@@ -417,7 +454,6 @@ nav {
     color: var(--text-color-light);
     line-height: 1.6;
 }
-
 
 /* Footer */
 footer {
