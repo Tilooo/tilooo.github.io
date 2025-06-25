@@ -138,7 +138,7 @@ section h2 {
 
 /* About Page Specific */
 .about-section { display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
-.about-image { width: 100%; max-width: 300px; justify-self: center; }
+.about-image { width: 100%; height: auto; max-width: 300px; justify-self: center; }
 .about-image img { width: 100%; border-radius: 50%; box-shadow: 0 10px 30px rgba(96, 23, 255, 0.2); border: 5px solid white; }
 .about-text p { margin-bottom: 1.5rem; font-size: 1.1rem; color: #555; }
 .about-text .highlight { font-weight: 600; color: var(--primary-color); }
