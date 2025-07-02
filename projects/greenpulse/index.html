@@ -51,15 +51,45 @@
             font-weight: 700;
             margin-bottom: 2rem;
         }
+
+        /* --- CSS FOR THE CUSTOM BACK BUTTON --- */
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100; /* High z-index to appear over other content */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            transform: scale(1.1);
+            color: white;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Simple Navigation -->
+    <!-- HTML FOR THE CUSTOM BACK BUTTON -->
+    <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+    </a>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="#"> GreenPulse</a>
-            <a class="btn btn-outline-dark" href="/tilooo.github.io/projects.html">← Back to All Projects</a>
         </div>
     </nav>
 
@@ -67,7 +97,7 @@
     <header class="hero">
         <div class="container">
             <h1 class="display-3 fw-bold">AI-Powered Urban Green Space Analyzer</h1>
-            <p class="lead my-4">A full-stack Django application that uses Google's Gemini AI to provide deep, comparative insights into the green spaces of cities worldwide.</p>
+            <p class="lead my-4">A full-stack Django application that uses Google's AI to provide deep, comparative insights into the green spaces of cities worldwide.</p>
             <a href="https://github.com/Tilooo/GreenPulse" target="_blank" class="btn btn-light btn-lg me-2"><i class="bi bi-github"></i> View on GitHub</a>
             <a href="#demo" class="btn btn-outline-light btn-lg">See Screenshot</a>
         </div>
@@ -115,7 +145,7 @@
             <h2 class="text-center section-title">Application in Action</h2>
             <div class="text-center">
                 <img src="https://placehold.co/1200x750/2a9d8f/ffffff?text=GreenPulse+Screenshot" class="img-fluid rounded shadow-lg" alt="GreenPulse Application Screenshot">
-                <p class="mt-3 text-muted">Let's Get In Touch!</p>
+                <p class="mt-3 text-muted">Let's Get In Touch!!</p>
             </div>
         </section>
     </main>
