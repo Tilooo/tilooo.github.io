@@ -6,59 +6,69 @@
     <title>Project: GreenPulse AI Analyzer</title>
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Styles for landing page -->
     <style>
+
+           /* ROOT & GLOBAL STYLES */
         :root {
             --primary-green: #2a9d8f;
-            --text-dark: #264653;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
-        }
-        .navbar-brand, .footer a {
-            color: var(--primary-green);
-            font-weight: 600;
-        }
-        .hero {
-            background: linear-gradient(to right, #2a9d8f, #264653);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        .btn-primary {
-            background-color: var(--primary-green);
-            border-color: var(--primary-green);
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-        }
-        .btn-secondary {
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-green);
-        }
-        .section-title {
-            color: var(--text-dark);
-            font-weight: 700;
-            margin-bottom: 2rem;
+            --secondary-dark: #264653;
+            --accent-orange: #e76f51;
+            --background-light: #f7f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #5a6a78;
+            --border-color: #eef2f5;
+            --shadow-color: rgba(38, 70, 83, 0.1);
         }
 
-        /* --- CSS FOR THE CUSTOM BACK BUTTON --- */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* ANIMATIONS & UTILITIES */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* NAVIGATION & BACK BUTTON */
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-brand {
+            color: var(--primary-green) !important;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
         .back-to-portfolio {
             position: fixed;
             top: 20px;
             left: 20px;
-            z-index: 1100; /* High z-index to appear over other content */
-            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1100;
+            background-color: rgba(0, 0, 0, 0.5);
             color: white;
             width: 50px;
             height: 50px;
@@ -67,93 +77,347 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
         .back-to-portfolio:hover {
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: var(--secondary-dark);
             transform: scale(1.1);
             color: white;
         }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--primary-green) 100%);
+            background-color: var(--secondary-dark);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-weight: 700;
+        }
+
+        .hero p.lead {
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* BUTTONS */
+        .btn {
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-light {
+            color: var(--secondary-dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* SECTIONS & CARDS */
+        .section-title {
+            color: var(--secondary-dark);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 25px var(--shadow-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+
+        .feature-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(42, 157, 143, 0.1);
+            color: var(--primary-green);
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The paragraph text in feature cards for readability */
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem; /* Slightly smaller text for better hierarchy */
+        }
+
+        /* TECHNOLOGY STACK */
+        .tech-stack-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            background-color: #fff;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px var(--shadow-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: scale(1.05);
+            border-color: var(--primary-green);
+        }
+
+        .tech-item i {
+            font-size: 1.75rem;
+            color: var(--primary-green);
+        }
+
+        /* DEMO/SCREENSHOT */
+        .browser-mockup {
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            box-shadow: 0 20px 50px -10px var(--shadow-color);
+            overflow: hidden;
+        }
+
+        .browser-header {
+            background-color: #eef2f5;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .browser-mockup img {
+            width: 100%;
+            display: block;
+        }
+
+        /* CALL TO ACTION & FOOTER */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green), var(--secondary-dark));
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .footer {
+            background-color: var(--secondary-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 3rem 0;
+        }
+
+        .footer .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-links a:hover {
+            color: var(--primary-green);
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- HTML FOR THE CUSTOM BACK BUTTON -->
+    <!-- Back to Portfolio Button -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-        </svg>
+        <i class="bi bi-arrow-left fs-4"></i>
     </a>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#"> GreenPulse</a>
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-wind"></i> GreenPulse
+            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <header class="hero">
-        <div class="container">
-            <h1 class="display-3 fw-bold">AI-Powered Urban Green Space Analyzer</h1>
-            <p class="lead my-4">A full-stack Django application that uses Google's AI to provide deep, comparative insights into the green spaces of cities worldwide.</p>
-            <a href="https://github.com/Tilooo/GreenPulse" target="_blank" class="btn btn-light btn-lg me-2"><i class="bi bi-github"></i> View on GitHub</a>
-            <a href="#demo" class="btn btn-outline-light btn-lg">See Screenshot</a>
+        <div class="container reveal">
+            <h1 class="display-3">AI-Powered Urban Green Space Analyzer</h1>
+            <p class="lead my-4">A full-stack Django application using Google's AI to provide deep, comparative insights into the green spaces of cities worldwide.</p>
+            <a href="https://github.com/Tilooo/GreenPulse" target="_blank" class="btn btn-light me-2"><i class="bi bi-github"></i> View on GitHub</a>
+            <a href="#demo" class="btn btn-outline-light">See it in Action</a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container my-5">
-        <!-- Features Section -->
-        <section class="py-5">
-            <h2 class="text-center section-title">Key Features</h2>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <i class="bi bi-robot feature-icon mb-3"></i>
-                    <h4>Generative AI Core</h4>
-                    <p>Uses Google's Gemini AI to generate rich, narrative analysis, overcoming the limitations of traditional web scraping.</p>
+    <main class="container my-5 py-5">
+        <!-- Key Features Section -->
+        <section class="py-5 text-center">
+            <h2 class="text-center section-title reveal">Key Features</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Card 1 -->
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch reveal" data-delay="100">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon-wrapper"><i class="bi bi-robot"></i></div>
+                        <h4>Generative AI Core</h4>
+                        <p>Uses Google's AI to generate rich, narrative analysis, overcoming the limitations of traditional web scraping.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="bi bi-columns-gap feature-icon mb-3"></i>
-                    <h4>Dual City Comparison</h4>
-                    <p>Provides a direct, side-by-side comparison of two cities, highlighting key metrics for easy analysis.</p>
+                <!-- Card 2 -->
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch reveal" data-delay="200">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon-wrapper"><i class="bi bi-columns-gap"></i></div>
+                        <h4>Dual City Comparison</h4>
+                        <p>Provides a direct, side-by-side comparison of two cities, highlighting key metrics for easy analysis.</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <i class="bi bi-map-fill feature-icon mb-3"></i>
-                    <h4>Interactive Geospatial Data</h4>
-                    <p>Fetches live data from OpenStreetMap to calculate total city area and render interactive maps with Folium.</p>
+                <!-- Card 3 -->
+                <div class="col-md-6 col-lg-4 d-flex align-items-stretch reveal" data-delay="300">
+                    <div class="feature-card text-center">
+                        <div class="feature-icon-wrapper"><i class="bi bi-map-fill"></i></div>
+                        <h4>Interactive Geospatial Data</h4>
+                        <p>Fetches live data from OpenStreetMap to calculate city area and render interactive maps with Folium.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Technology Stack Section -->
-        <section class="py-5 bg-white rounded-3">
-            <h2 class="text-center section-title">Technology Stack</h2>
-            <div class="text-center">
-                <span class="badge fs-6 m-1 bg-primary-subtle text-primary-emphasis">Python</span>
-                <span class="badge fs-6 m-1 bg-dark-subtle text-dark-emphasis">Django</span>
-                <span class="badge fs-6 m-1 bg-success-subtle text-success-emphasis">Generative AI</span>
-                <span class="badge fs-6 m-1 bg-info-subtle text-info-emphasis">OSMnx</span>
-                <span class="badge fs-6 m-1 bg-warning-subtle text-warning-emphasis">Folium</span>
-                <span class="badge fs-6 m-1 bg-danger-subtle text-danger-emphasis">Bootstrap 5</span>
+        <section class="py-5">
+            <h2 class="text-center section-title reveal">Technology Stack</h2>
+            <div class="tech-stack-container reveal">
+                <div class="tech-item"><i class="bi bi-filetype-py" style="color:#3776AB;"></i> Python</div>
+                <div class="tech-item"><i class="bi bi-filetype-html" style="color:#092E20;"></i> Django</div>
+                <div class="tech-item"><i class="bi bi-cpu-fill" style="color:#4285F4;"></i> Generative AI</div>
+                <div class="tech-item"><i class="bi bi-geo-alt-fill" style="color:#7FC335;"></i> OSMnx</div>
+                <div class="tech-item"><i class="bi bi-pin-map-fill" style="color:#34A853;"></i> Folium</div>
+                <div class="tech-item"><i class="bi bi-bootstrap-fill" style="color:#7952B3;"></i> Bootstrap 5</div>
             </div>
         </section>
 
         <!-- Screenshot/Demo Section -->
         <section id="demo" class="py-5">
-            <h2 class="text-center section-title">Application in Action</h2>
-            <div class="text-center">
-                <img src="https://placehold.co/1200x750/2a9d8f/ffffff?text=GreenPulse+Screenshot" class="img-fluid rounded shadow-lg" alt="GreenPulse Application Screenshot">
-                <p class="mt-3 text-muted">Let's Get In Touch!!</p>
+            <h2 class="text-center section-title reveal">Application in Action</h2>
+            <div class="browser-mockup mx-auto reveal" style="max-width: 1000px;">
+                <div class="browser-header">
+                    <div class="browser-dot dot-red"></div>
+                    <div class="browser-dot dot-yellow"></div>
+                    <div class="browser-dot dot-green"></div>
+                </div>
+                <!-- IMAGE -->
+                <img src="https://placehold.co/1200x750/f7f9fa/264653?text=GreenPulse+Application+Screenshot" alt="GreenPulse Application Screenshot">
+            </div>
+        </section>
+
+        <!-- Calls to Action (CTA) Section -->
+        <section class="py-5">
+            <div class="container reveal">
+                <div class="cta-section text-center">
+                    <h2 class="mb-4">Interested in the code?</h2>
+                    <p class="lead mb-4" style="max-width: 600px; margin: 0 auto;">Dive into the source code to see how the AI integration and data visualization were built.</p>
+                    <a href="https://github.com/Tilooo/GreenPulse" target="_blank" class="btn btn-light btn-lg"><i class="bi bi-github"></i> Explore on GitHub</a>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-4 border-top">
-        <p>© 2025 Tilo | <a href="https://github.com/Tilooo/GreenPulse" target="_blank">View Project on GitHub</a></p>
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="social-links mb-3">
+                <!-- Profile links -->
+                <a href="https://github.com/Tilooo" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="https://tilooo.github.io/contact.html" target="_blank" title="Portfolio"><i class="bi bi-briefcase-fill"></i></a>
+            </div>
+            <p class="mb-0">© 2025 Tilo | Coded with passion & pixels.</p>
+        </div>
     </footer>
 
+    <!-- JavaScript for reveal-on-scroll animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll(".reveal");
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.dataset.delay || 0;
+
+                        setTimeout(() => {
+                            entry.target.classList.add("active");
+                        }, delay);
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            revealElements.forEach(elem => {
+                revealObserver.observe(elem);
+            });
+        });
+    </script>
 </body>
 </html>
