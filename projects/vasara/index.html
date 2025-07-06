@@ -23,7 +23,7 @@
             position: fixed;
             top: 20px;
             left: 20px;
-            z-index: 1100; /* High z-index to appear over other content */
+            z-index: 1100;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
             width: 50px;
@@ -47,7 +47,6 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <!-- HTML FOR THE BACK BUTTON -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
@@ -86,7 +85,7 @@
     </header>
 
     <main>
-        <section id="features" class="features">
+        <section id="features" class="features section-striped">
             <div class="section-header">
                 <h2>Why Vasara Works</h2>
                 <p>Discover the features that make Vasara a powerful learning tool.</p>
@@ -123,15 +122,14 @@
             </div>
         </section>
 
+        <!-- The white background -->
         <section id="flashcards" class="flashcard-demo">
             <div class="section-header">
                 <h2>Interactive Flashcards</h2>
                 <p>Flip through our flashcards to see how Vasara helps you learn. Click a card to flip it!</p>
             </div>
             <div class="flashcard-container">
-                <!-- Flashcards will be loaded here by JavaScript -->
                 <div id="flashcard-deck"></div>
-
                 <div class="flashcard-controls">
                     <button class="flashcard-button" id="prev-card"><i class="fas fa-arrow-left"></i> Previous</button>
                     <div class="card-indicator">Loading cards...</div>
@@ -140,7 +138,8 @@
             </div>
         </section>
 
-        <section id="quiz" class="quiz-section">
+        <!-- The light grey background -->
+        <section id="quiz" class="quiz-section section-striped">
             <div class="section-header">
                 <h2>Test Your Knowledge</h2>
                 <p>Try our interactive quiz system. Select an answer and see if you're right!</p>
@@ -149,17 +148,15 @@
                 <div class="quiz-question">
                     <p>Loading question...</p>
                 </div>
-                <div class="quiz-options">
-                    <!-- Options will be loaded by quiz.js -->
-                </div>
+                <div class="quiz-options"></div>
                 <div class="quiz-footer">
                     <div class="quiz-progress">Question 1 of X</div>
                     <button class="quiz-submit" disabled>Submit Answer</button>
                 </div>
-                <!-- Results will be injected here by quiz.js -->
             </div>
         </section>
 
+        <!-- The white background -->
         <section id="about" class="about">
             <div class="about-content">
                 <h2>About The Project</h2>
@@ -185,7 +182,7 @@
             </div>
         </section>
 
-        <section id="contact" class="contact">
+        <section id="contact" class="contact section-striped">
             <div class="contact-form">
                 <h2>Get in Touch</h2>
                 <p>Have questions about Vasara? I'd love to hear from you.</p>
@@ -287,7 +284,7 @@
         const prevButton = document.getElementById('prev-card');
         const nextButton = document.getElementById('next-card');
         const cardIndicator = document.querySelector('.card-indicator');
-        let flashcards = []; // This will hold the actual DOM elements
+        let flashcards = [];
         let currentCardIndex = 0;
         let totalCards = 0;
 
@@ -320,8 +317,8 @@
             if (flashcards.length === 0) return;
             flashcards.forEach((card, index) => {
                 card.style.display = index === currentCardIndex ? 'block' : 'none';
-                const innerCard = card.querySelector('.flashcard-inner');
-                if (innerCard.style.transform === 'rotateY(180deg)') {
+                const innerCard = card.querySelector('.flash-inner');
+                if (innerCard && innerCard.style.transform === 'rotateY(180deg)') {
                    innerCard.style.transform = 'rotateY(0deg)';
                 }
             });
@@ -384,7 +381,6 @@
 
     </script>
 
-    <!-- THE QUIZ SCRIPT -->
     <script src="quiz.js" defer></script>
 </body>
 </html>

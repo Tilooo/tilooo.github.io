@@ -1,17 +1,17 @@
 /* Base Styles */
 :root {
-    --primary-color: #ffc107;      /* Yellow from original Vasara */
+    --primary-color: #ffc107;
     --secondary-color: #f8f9fa;    /* A very light grey for section backgrounds */
-    --accent-color: #ff6f00;       /* Orange accent from original */
+    --accent-color: #ff6f00;
     --text-color: #333;
     --light-text: #fff;
-    --dark-bg: #212529;            /* A softer black for the footer */
-    --light-bg: #f0f0f0;           /* CHANGED: Softer page background for the Neomorphism effect */
+    --dark-bg: #212529;
+    --light-bg: #f0f0f0;
     --border-radius: 8px;
     --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     --transition: all 0.3s ease;
-    --correct-color: #28a745;      /* Green for correct answers */
-    --incorrect-color: #dc3545;    /* Red for incorrect answers */
+    --correct-color: #28a745;
+    --incorrect-color: #dc3545;
 }
 
 * {
@@ -25,10 +25,11 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Matching original font */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.7;
     color: var(--text-color);
-    background-color: var(--light-bg);
+    /* The white base to contrast with striped sections */
+    background-color: #fff;
 }
 
 a {
@@ -55,13 +56,19 @@ img {
     color: var(--accent-color);
 }
 
+/* The alternating striped background effect */
+.section-striped {
+    background-color: var(--secondary-color);
+}
+
+
 section {
-    padding: 6rem 5%;
+    padding: 4.5rem 5%;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .section-header h2 {
@@ -88,7 +95,7 @@ nav {
     background-color: var(--primary-color);
     color: var(--text-color);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 7px 0; /* Matching original padding */
+    padding: 7px 0;
 }
 
 .nav-container {
@@ -118,7 +125,7 @@ nav {
     font-weight: 500;
     transition: var(--transition);
     color: white;
-    font-size: 17px; /* Matching original font size */
+    font-size: 17px;
     position: relative;
     padding-bottom: 5px;
 }
@@ -155,7 +162,7 @@ nav {
 }
 
 .cta-button:hover {
-    background-color: #e65100; /* Darker orange on hover */
+    background-color: #e65100;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -172,8 +179,8 @@ nav {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    padding: 8rem 5% 5rem;
-    background-color: var(--light-bg);
+    padding: 7rem 5% 4rem;
+    background-color: #fff; /* The white body background */
     gap: 4rem;
 }
 
@@ -244,10 +251,6 @@ nav {
 }
 
 /* Features Section */
-.features {
-    background-color: var(--secondary-color);
-}
-
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -289,11 +292,6 @@ nav {
 
 
 /* --- FLASHCARD STYLES --- */
-
-.flashcard-demo {
-    background-color: var(--light-bg);
-}
-
 .flashcard-container {
     max-width: 1000px;
     margin: 0 auto;
@@ -302,37 +300,32 @@ nav {
     align-items: center;
 }
 
-/* Pulsing glow animation */
 @keyframes pulseGlow {
     0%, 100% {
-        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1), -7px -7px 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 193, 7, 0.3);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.05), -7px -7px 15px rgba(255, 255, 255, 0.7), 0 0 5px rgba(255, 193, 7, 0.3);
     }
     50% {
-        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1), -7px -7px 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 193, 7, 0.8);
+        box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.08), -7px -7px 15px rgba(255, 255, 255, 0.9), 0 0 25px rgba(255, 193, 7, 0.8);
     }
 }
 
-/* The #flashcard-deck defines the shape and holds the space. */
 #flashcard-deck {
     width: 100%;
     max-width: 500px;
     height: 300px;
     perspective: 1000px;
     margin-bottom: 2rem;
-    position: relative; /* Crucial for positioning cards inside */
-
-    /* The Neomorphism style */
+    position: relative;
     border-radius: 20px;
-    background: var(--light-bg);
+    background: #f0f0f0;
     transition: var(--transition);
     animation: pulseGlow 3s infinite ease-in-out;
 }
 
-/* The individual .flashcard just fills its parent container. */
 .flashcard {
     width: 100%;
     height: 100%;
-    position: absolute; /* This stacks all cards on top of each other */
+    position: absolute;
     top: 0;
     left: 0;
 }
@@ -345,8 +338,8 @@ nav {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     cursor: pointer;
-    background: transparent; /* The background is on the deck */
-    border-radius: 20px; /* Matches the deck's radius */
+    background: transparent;
+    border-radius: 20px;
 }
 
 .flashcard-front, .flashcard-back {
@@ -356,12 +349,12 @@ nav {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     display: flex;
-    flex-direction: column; /* Allows image and text to stack */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    border-radius: 20px; /* Matches the deck's radius */
-    background: transparent; /* The background is now on the deck or the backface */
+    border-radius: 20px;
+    background: transparent;
 }
 
 .flashcard-image {
@@ -419,10 +412,6 @@ nav {
 }
 
 /* --- QUIZ STYLES --- */
-.quiz-section {
-    background-color: var(--secondary-color);
-}
-
 .quiz-container {
     max-width: 800px;
     margin: 0 auto;
@@ -455,7 +444,7 @@ nav {
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
-    position: relative; /* For icon positioning */
+    position: relative;
 }
 
 .quiz-option:hover {
@@ -470,9 +459,8 @@ nav {
     font-weight: 700;
 }
 
-/* Styles for correct/incorrect states */
 .quiz-options.answered .quiz-option {
-    pointer-events: none; /* Disables clicks after answer */
+    pointer-events: none;
     cursor: not-allowed;
 }
 
@@ -502,11 +490,11 @@ nav {
 }
 
 .quiz-option.correct::after {
-    content: '\f00c'; /* fa-check */
+    content: '\f00c';
 }
 
 .quiz-option.incorrect::after {
-    content: '\f00d'; /* fa-times */
+    content: '\f00d';
 }
 
 
@@ -543,9 +531,8 @@ nav {
     cursor: not-allowed;
 }
 
-/* Styles for the results screen */
 .quiz-results {
-    display: none; /* Hidden by default */
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -585,14 +572,11 @@ nav {
     transform: scale(1.05);
 }
 
-/* --- END OF QUIZ STYLES --- */
-
 /* About Section */
 .about {
     display: flex;
     align-items: center;
     gap: 4rem;
-    background-color: var(--light-bg);
 }
 
 .about-image {
@@ -645,7 +629,6 @@ nav {
 .contact {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--secondary-color);
     gap: 3rem;
 }
 
@@ -729,17 +712,16 @@ nav {
     align-items: center;
     gap: 1.5rem;
     font-size: 1.1rem;
-    color: var(--text-color); /* Ensures the text is the default color */
+    color: var(--text-color);
 }
 
-/* STYLES for the clickable info-item */
 .contact-info a.info-item {
-    color: var(--text-color); /* Overrides the default orange link color */
+    color: var(--text-color);
 }
 
 .contact-info a.info-item:hover,
 .contact-info a.info-item:hover i {
-    color: var(--primary-color); /* Changes color of text and icon on hover */
+    color: var(--primary-color);
 }
 
 
@@ -748,7 +730,7 @@ nav {
     color: var(--primary-color);
     width: 30px;
     text-align: center;
-    transition: var(--transition); /* Adds transition for smooth color change */
+    transition: var(--transition);
 }
 
 .social-links {
@@ -847,7 +829,6 @@ footer {
     border-top: 1px solid #444;
 }
 
-/* Clock Styles */
 .real-time-clock {
     display: flex;
     align-items: center;
@@ -867,7 +848,6 @@ footer {
     color: #fff;
 }
 
-/* Back to Top Button */
 #back-to-top {
     position: fixed;
     bottom: 20px;
@@ -878,7 +858,7 @@ footer {
     color: var(--text-color);
     border: none;
     border-radius: 50%;
-    display: none; /* Hidden by default */
+    display: none;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
