@@ -58,7 +58,6 @@ img, video {
     color: var(--primary-color);
 }
 
-/* Scroll Fade-in Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -70,7 +69,6 @@ img, video {
     transform: translateY(0);
 }
 
-/* Navigation */
 nav {
     position: fixed;
     width: 100%;
@@ -158,7 +156,6 @@ nav {
     color: var(--text-color);
 }
 
-/* Hero Section */
 .hero {
     display: flex;
     align-items: center;
@@ -231,9 +228,11 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative; /* For positioning the play button */
 }
 
-.hero-image img {
+.hero-image img,
+.hero-image video {
     max-width: 100%;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
@@ -246,12 +245,10 @@ nav {
 	100% { transform: translateY(0px); }
 }
 
-/* Section backgrounds */
 .section-striped {
     background-color: var(--secondary-color);
 }
 
-/* Sections General */
 .features, .about, .demo {
     padding: 4.5rem 5%;
 }
@@ -275,7 +272,6 @@ nav {
     margin: 0 auto;
 }
 
-/* Features Section */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -323,7 +319,6 @@ nav {
     color: var(--text-color-light);
 }
 
-/* About Section */
 .about {
     display: flex;
     align-items: center;
@@ -412,7 +407,6 @@ nav {
     background-clip: text;
 }
 
-/* Demo Section */
 .demo-container {
     display: flex;
     flex-wrap: wrap;
@@ -454,7 +448,6 @@ nav {
     line-height: 1.6;
 }
 
-/* Footer */
 footer {
     background-color: var(--dark-bg);
     color: white;
@@ -520,7 +513,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Back to Portfolio Button */
 .back-to-portfolio {
     position: fixed;
     top: 20px;
@@ -545,7 +537,80 @@ footer {
     color: white;
 }
 
-/* Responsive Styles */
+/* Styles for the Video Modal and Play Button */
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.video-play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: white;
+}
+
+.video-play-button i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-left: 5px; /* Nudge the play icon to be visually centered */
+}
+
+.video-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1001;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.video-modal.active {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 1100px;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.video-modal-close:hover {
+    color: #ccc;
+}
+
 @media (max-width: 992px) {
     .hero, .about {
         flex-direction: column;

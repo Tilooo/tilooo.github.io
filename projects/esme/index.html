@@ -50,7 +50,14 @@
             </div>
         </div>
         <div class="hero-image">
-            <img src="images/esme-hero.jpg" alt="Esme Interactive Map Application">
+            <video autoplay muted loop playsinline>
+                <source src="images/demo.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+            <!-- The clickable play button overlay -->
+            <div class="video-play-button" id="play-hero-video">
+                <i class="fas fa-play"></i>
+            </div>
         </div>
     </header>
 
@@ -84,7 +91,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (Striped Background) -->
     <section id="about" class="about section-striped fade-in">
         <div class="about-image">
             <img src="images/about-esme.jpg" alt="About Esme Project">
@@ -118,7 +125,7 @@
         </div>
         <div class="demo-container">
             <div class="demo-video">
-                <video src="images/esme-demo.mp4" autoplay loop muted playsinline></video>
+                <img src="images/esme-hero.jpg" alt="Esme Application Interface Screenshot">
             </div>
             <div class="demo-features">
                 <div class="demo-feature">
@@ -171,6 +178,15 @@
         </div>
     </footer>
 
+    <!-- The HTML structure for the Video Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="video-modal-content">
+            <span class="video-modal-close" id="video-modal-close">×</span>
+            <video id="modal-video-player" src="images/demo.mp4" controls></video>
+        </div>
+    </div>
+
+
     <script>
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
@@ -217,6 +233,43 @@
                 observer.observe(el);
             }
         });
+
+        /* --- JavaScript to control the video modal --- */
+        const playButton = document.getElementById('play-hero-video');
+        const modal = document.getElementById('video-modal');
+        const closeButton = document.getElementById('video-modal-close');
+        const modalVideo = document.getElementById('modal-video-player');
+
+        // Function to open the modal
+        function openModal() {
+            modal.classList.add('active');
+            modalVideo.play();
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            modal.classList.remove('active');
+            modalVideo.pause();
+            modalVideo.currentTime = 0; // Reset video to the beginning
+        }
+
+        // Event listeners
+        if (playButton) {
+            playButton.addEventListener('click', openModal);
+        }
+        if (closeButton) {
+            closeButton.addEventListener('click', closeModal);
+        }
+
+        // To close modal by clicking on the background overlay
+        if (modal) {
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        }
+
     </script>
 </body>
 </html>
