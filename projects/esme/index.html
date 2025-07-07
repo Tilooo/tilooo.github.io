@@ -31,7 +31,7 @@
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#demo">Demo</a></li>
+                <li><a href="#screenshot">Screenshot</a></li>
             </ul>
             <a href="https://github.com/Tilooo/esme" target="_blank" class="cta-button">View on GitHub</a>
             <div class="menu-toggle">
@@ -45,8 +45,9 @@
             <h1>Explore the World with <span class="highlight">Esme</span></h1>
             <p>An interactive map application built with a Python backend and Flutter frontend, featuring live on-map routing and dynamic point discovery.</p>
             <div class="hero-buttons">
-                <a href="#demo" class="primary-button">See Demo</a>
-                <a href="#features" class="secondary-button">Explore Features</a>
+                <!-- The video pop-up button -->
+                <button class="primary-button" id="open-video-modal">Watch Demo</button>
+                <a href="https://github.com/Tilooo/esme" target="_blank" class="secondary-button">View Code</a>
             </div>
         </div>
         <div class="hero-image">
@@ -54,8 +55,8 @@
                 <source src="images/demo.mp4" type="video/mp4">
                 Your browser does not support video.
             </video>
-            <!-- The clickable play button overlay -->
-            <div class="video-play-button" id="play-hero-video">
+            <!-- The play button -->
+            <div class="video-play-button" id="hero-play-button" title="Watch Demo">
                 <i class="fas fa-play"></i>
             </div>
         </div>
@@ -91,7 +92,7 @@
         </div>
     </section>
 
-    <!-- About Section (Striped Background) -->
+    <!-- About Section -->
     <section id="about" class="about section-striped fade-in">
         <div class="about-image">
             <img src="images/about-esme.jpg" alt="About Esme Project">
@@ -101,66 +102,42 @@
             <p>Esme is an interactive mapping application that combines the power of Python for backend data processing and API services with Flutter for a beautiful, high-performance frontend interface.</p>
             <p>This project was developed to explore full-stack application architecture and to make geographic data more accessible and engaging for users.</p>
             <div class="stats">
-                <div class="stat python">
-                    <h3>Python</h3>
-                    <p>Backend & Data Processing</p>
-                </div>
-                <div class="stat flutter">
-                    <h3>Flutter</h3>
-                    <p>Cross-Platform UI</p>
-                </div>
-                <div class="stat">
-                    <h3>flutter_map</h3>
-                    <p>Native Map Rendering</p>
-                </div>
+                <div class="stat python"><h3>Python</h3><p>Backend & Data Processing</p></div>
+                <div class="stat flutter"><h3>Flutter</h3><p>Cross-Platform UI</p></div>
+                <div class="stat"><h3>flutter_map</h3><p>Native Map Rendering</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Section (White Background) -->
-    <section id="demo" class="demo fade-in">
+    <!-- Screenshot Section -->
+    <section id="screenshot" class="demo fade-in">
         <div class="section-header">
-            <h2>See Esme in Action</h2>
-            <p>Watch a short demonstration of Esme's key features.</p>
+            <h2>Application Screenshot</h2>
+            <p>An overview of the Esme user interface, showing the interactive map and key controls.</p>
         </div>
         <div class="demo-container">
             <div class="demo-video">
-                <img src="images/esme-hero.jpg" alt="Esme Application Interface Screenshot">
+                <img src="images/esme-screenshot.jpg" alt="Esme Application Interface Screenshot">
             </div>
             <div class="demo-features">
-                <div class="demo-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Calculate and display routes to points of interest in real-time.</p>
-                </div>
-                <div class="demo-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Long-press anywhere on the map to discover its address instantly.</p>
-                </div>
-                <div class="demo-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Visually adjust your search radius with a dynamic circle.</p>
-                </div>
-                <div class="demo-feature">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Intuitive zoom controls and seamless map style switching.</p>
-                </div>
+                <div class="demo-feature"><i class="fas fa-check-circle"></i><p>Calculate and display routes to points of interest in real-time.</p></div>
+                <div class="demo-feature"><i class="fas fa-check-circle"></i><p>Long-press anywhere on the map to discover its address instantly.</p></div>
+                <div class="demo-feature"><i class="fas fa-check-circle"></i><p>Visually adjust your search radius with a dynamic circle.</p></div>
+                <div class="demo-feature"><i class="fas fa-check-circle"></i><p>Intuitive zoom controls and seamless map style switching.</p></div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <h3>Esme</h3>
-                <p>Interactive mapping made simple.</p>
-            </div>
+            <div class="footer-logo"><h3>Esme</h3><p>Interactive mapping made simple.</p></div>
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>Navigate</h4>
                     <ul>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#demo">Demo</a></li>
+                        <li><a href="#screenshot">Screenshot</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -178,16 +155,16 @@
         </div>
     </footer>
 
-    <!-- The HTML structure for the Video Modal -->
+    <!-- The hidden video modal popup controlled by JavaScript -->
     <div class="video-modal" id="video-modal">
         <div class="video-modal-content">
-            <span class="video-modal-close" id="video-modal-close">×</span>
-            <video id="modal-video-player" src="images/demo.mp4" controls></video>
+            <span class="video-modal-close" id="close-video-modal">×</span>
+            <div id="video-player-container"></div>
         </div>
     </div>
 
-
     <script>
+        // Standard menu and scroll scripts
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -202,9 +179,7 @@
                 e.preventDefault();
                 const targetElement = document.querySelector(this.getAttribute('href'));
                 if(targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
                 if (navLinks.classList.contains('active')) {
                     navLinks.classList.remove('active');
@@ -213,63 +188,59 @@
         });
 
         const fadeInElements = document.querySelectorAll('.fade-in');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     observer.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
+        fadeInElements.forEach(el => { if(el) { observer.observe(el); }});
 
-        fadeInElements.forEach(el => {
-            if(el) {
-                observer.observe(el);
-            }
+        // --- THE VIDEO MODAL (control) ---
+        const videoModal = document.getElementById('video-modal');
+        const openModalButtons = [document.getElementById('open-video-modal'), document.getElementById('hero-play-button')];
+        const closeModalButton = document.getElementById('close-video-modal');
+        const videoPlayerContainer = document.getElementById('video-player-container');
+        // The video that will play in the pop-up
+        const videoSrc = 'images/demo.mp4';
+
+        function openModal() {
+            if (!videoModal || !videoPlayerContainer) return;
+            // Creates and inject the video player with controls
+            videoPlayerContainer.innerHTML = `<video src="${videoSrc}" controls autoplay playsinline style="width:100%; height:auto; border-radius: 8px;"></video>`;
+            // Shows the modal
+            videoModal.classList.add('active');
+            // Prevents the page behind from scrolling
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!videoModal || !videoPlayerContainer) return;
+            // Hides the modal
+            videoModal.classList.remove('active');
+            videoPlayerContainer.innerHTML = '';
+            // Allows the page to scroll again
+            document.body.style.overflow = 'auto';
+        }
+
+        // Listeners to all buttons that should open the modal
+        openModalButtons.forEach(button => {
+            if (button) button.addEventListener('click', openModal);
         });
 
-        /* --- JavaScript to control the video modal --- */
-        const playButton = document.getElementById('play-hero-video');
-        const modal = document.getElementById('video-modal');
-        const closeButton = document.getElementById('video-modal-close');
-        const modalVideo = document.getElementById('modal-video-player');
+        // Listener for the close button
+        if (closeModalButton) closeModalButton.addEventListener('click', closeModal);
 
-        // Function to open the modal
-        function openModal() {
-            modal.classList.add('active');
-            modalVideo.play();
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            modal.classList.remove('active');
-            modalVideo.pause();
-            modalVideo.currentTime = 0; // Reset video to the beginning
-        }
-
-        // Event listeners
-        if (playButton) {
-            playButton.addEventListener('click', openModal);
-        }
-        if (closeButton) {
-            closeButton.addEventListener('click', closeModal);
-        }
-
-        // To close modal by clicking on the background overlay
-        if (modal) {
-            modal.addEventListener('click', (event) => {
-                if (event.target === modal) {
+        // Also closes the modal if the user clicks on the dark background
+        if (videoModal) {
+            videoModal.addEventListener('click', (e) => {
+                if (e.target === videoModal) {
                     closeModal();
                 }
             });
         }
-
     </script>
 </body>
 </html>
