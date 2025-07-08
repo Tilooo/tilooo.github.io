@@ -421,6 +421,7 @@ nav {
     padding: 3rem;
     position: relative;
     overflow: hidden;
+    animation: pulseGlow 3s infinite ease-in-out;
 }
 
 .quiz-question {
