@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Echo! - A Global Radio Map</title>
+
+    <!-- Using Tailwind CSS directly from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --glow-color: hsl(142, 71%, 45%); /* Green-400 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B1120; /* A deeper, navy-tinged black */
+            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+            background-size: 25px 25px;
+        }
+
+        /* * Aurora Background Effect * */
+        .aurora-container {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .aurora-container::after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background:
+                radial-gradient(circle at 10% 20%, hsla(142, 71%, 45%, 0.2), transparent 40%),
+                radial-gradient(circle at 90% 30%, hsla(222, 89%, 60%, 0.15), transparent 50%),
+                radial-gradient(circle at 50% 90%, hsla(142, 71%, 45%, 0.1), transparent 50%);
+            filter: blur(80px);
+        }
+
+        /* * Animations * */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            opacity: 0; /* Start hidden */
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        .delay-4 { animation-delay: 0.8s; }
+
+        /* * Subtle Glow Effect for Cards * */
+        .card-glow {
+            background-color: rgba(17, 24, 39, 0.5); /* bg-gray-900/50 */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-glow:hover {
+            border-color: rgba(52, 211, 153, 0.5); /* border-green-400/50 */
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+        }
+    </style>
+</head>
+<body class="text-gray-200 antialiased">
+
+<div class="aurora-container min-h-screen">
+    <div class="container mx-auto px-6 py-12 md:py-20 relative">
+
+        <!-- Faint World Map in Header Background -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-4xl h-auto opacity-5 z-[-1]" aria-hidden="true">
+            <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                <!-- A simplified world map SVG -->
+                <path fill="currentColor" d="M991 250..."></path>
+            </svg>
+        </div>
+
+        <!-- Header Section -->
+        <header class="text-center mb-16 md:mb-24">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-cyan-400 pb-2 fade-in" style="filter: drop-shadow(0 0 1rem hsla(142, 71%, 45%, 0.3));">
+                -Echo-
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto fade-in delay-1">
+                An interactive web application to explore and listen to live internet radio stations from around the world.
+            </p>
+        </header>
+
+        <!-- Main Content Section -->
+        <main>
+            <!-- Project Links -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 md:mb-24 fade-in delay-2">
+                <a href="https://tilooo.github.io/projects/echo" target="_blank" class="flex items-center gap-2 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30 w-full sm:w-auto justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" /><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg>
+                    <span>View Live Project</span>
+                </a>
+                <a href="https://github.com/Tilooo/echo" target="_blank" class="flex items-center gap-2 bg-gray-700/80 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-500/20 w-full sm:w-auto justify-center">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    <span>View Source Code</span>
+                </a>
+            </div>
+
+            <!-- Screenshot/Image of the Project -->
+            <div class="mb-20 md:mb-24 fade-in delay-3">
+                <!-- This creates a subtle gradient border -->
+                <div class="p-1 rounded-xl bg-gradient-to-br from-green-400/50 via-transparent to-cyan-400/30" style="box-shadow: 0 0 40px rgba(52, 211, 153, 0.1);">
+                    <div class="bg-[#0B1120] p-1 rounded-lg">
+                        <img src="https://i.imgur.com/e5m3jYx.png" alt="Screenshot of the Echo! application map" class="rounded-md w-full">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features and Technology Section -->
+            <div class="grid md:grid-cols-2 gap-8 fade-in delay-4">
+
+                <!-- Features Card -->
+                <div class="card-glow rounded-xl p-8">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="p-2 rounded-md bg-green-500/10 border border-green-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                        </span>
+                        Features
+                    </h2>
+                    <ul class="space-y-4 text-gray-300">
+                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
+                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                            <span><strong>Interactive World Map:</strong> Explore stations on a beautiful, dark-themed CartoDB map.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
+                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                            <span><strong>Live Audio Streaming:</strong> Click any custom-styled marker to play live radio directly.</span>
+                        </li>
+                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
+                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                            <span><strong>Real-time Search:</strong> Instantly filter hundreds of stations by name or country.</span>
+                        </li>
+                         <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
+                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                            <span><strong>Automated Data Seeding:</strong> Backend script automatically populates the database from a public API.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Technology Card -->
+                <div class="card-glow rounded-xl p-8">
+                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="p-2 rounded-md bg-cyan-500/10 border border-cyan-500/30">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </span>
+                        Technology Stack
+                    </h2>
+                    <div class="flex flex-wrap gap-3 text-sm">
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Django</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Django Rest Framework</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">React.js</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Vite</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Leaflet</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">React-Leaflet</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
+                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">SQLite</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <footer class="text-center text-gray-500 mt-24 fade-in delay-4">
+            <p>© 2025 Tilo. All Rights Reserved.</p>
+        </footer>
+    </div>
+</div>
+
+</body>
+</html>
