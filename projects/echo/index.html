@@ -8,48 +8,51 @@
     <!-- Using Tailwind CSS directly from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Inter for UI, Outfit for Display Headings -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --glow-color: hsl(142, 71%, 45%); /* Green-400 */
+            --font-sans: 'Inter', sans-serif;
+            --font-display: 'Outfit', sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0B1120; /* A deeper, navy-tinged black */
+            font-family: var(--font-sans);
+            background-color: #0B1120;
             background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
             background-size: 25px 25px;
         }
 
-        /* * Aurora Background Effect * */
+        .font-display {
+            font-family: var(--font-display);
+        }
+
         .aurora-container {
             position: relative;
             isolation: isolate;
         }
 
-        .aurora-container::after {
+        .aurora-container::before {
             content: '';
             position: absolute;
-            z-index: -1;
+            z-index: -2;
             inset: 0;
             background:
-                radial-gradient(circle at 10% 20%, hsla(142, 71%, 45%, 0.2), transparent 40%),
-                radial-gradient(circle at 90% 30%, hsla(222, 89%, 60%, 0.15), transparent 50%),
-                radial-gradient(circle at 50% 90%, hsla(142, 71%, 45%, 0.1), transparent 50%);
-            filter: blur(80px);
+                radial-gradient(circle at 10% 20%, hsla(142, 71%, 45%, 0.15), transparent 40%),
+                radial-gradient(circle at 90% 30%, hsla(222, 89%, 60%, 0.1), transparent 50%),
+                radial-gradient(circle at 50% 95%, hsla(142, 71%, 45%, 0.1), transparent 50%);
+            filter: blur(100px);
         }
 
-        /* * Animations * */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .fade-in {
-            opacity: 0; /* Start hidden */
+            opacity: 0;
             animation: fadeIn 0.8s ease-out forwards;
         }
         .delay-1 { animation-delay: 0.2s; }
@@ -57,115 +60,116 @@
         .delay-3 { animation-delay: 0.6s; }
         .delay-4 { animation-delay: 0.8s; }
 
-        /* * Subtle Glow Effect for Cards * */
         .card-glow {
-            background-color: rgba(17, 24, 39, 0.5); /* bg-gray-900/50 */
-            backdrop-filter: blur(12px);
+            background-color: rgba(23, 31, 49, 0.5);
+            backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
         .card-glow:hover {
-            border-color: rgba(52, 211, 153, 0.5); /* border-green-400/50 */
-            box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
+            border-color: rgba(52, 211, 153, 0.5);
+            box-shadow: 0 0 25px rgba(52, 211, 153, 0.1);
         }
     </style>
 </head>
-<body class="text-gray-200 antialiased">
+<body class="bg-[#0B1120] text-gray-300 antialiased">
 
-<div class="aurora-container min-h-screen">
-    <div class="container mx-auto px-6 py-12 md:py-20 relative">
+    <!-- BACK TO PORTFOLIO BUTTON -->
+    <a href="../../projects.html" title="Back to Projects" class="fixed top-5 left-5 z-[100] flex h-12 w-12 items-center justify-center rounded-full bg-black/50 text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:bg-slate-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+    </a>
 
-        <!-- Faint World Map in Header Background -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/4 w-full max-w-4xl h-auto opacity-5 z-[-1]" aria-hidden="true">
-            <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
-                <!-- A simplified world map SVG -->
-                <path fill="currentColor" d="M991 250..."></path>
+<!-- Sticky Navigation Bar -->
+<nav class="sticky top-0 z-50 bg-slate-900/50 backdrop-blur-lg border-b border-slate-500/30">
+    <div class="container mx-auto flex justify-between items-center p-4 text-white">
+        <a href="#" class="flex items-center gap-2 font-display text-xl font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l6-6m0 0l6 6m-6-6v12a6 6 0 01-12 0v-3m12 0v3a6 6 0 01-6 6m-6-6a6 6 0 016-6v-3m-6 3h12" />
             </svg>
+            Echo<span class="text-green-400">.</span>
+        </a>
+        <div class="hidden sm:flex items-center gap-4 text-sm">
+            <a href="https://tilooo.github.io/projects/echo" target="_blank" class="flex items-center gap-2 font-semibold py-2 px-4 rounded-md hover:bg-white/10 transition-colors">
+                Live Project
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+            <a href="https://github.com/Tilooo/echo" target="_blank" class="flex items-center gap-2 font-semibold bg-white/10 py-2 px-4 rounded-md hover:bg-white/20 transition-colors">
+                Source Code
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+            </a>
         </div>
+    </div>
+</nav>
+
+<div class="aurora-container">
+    <div class="container mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-20 relative">
 
         <!-- Header Section -->
         <header class="text-center mb-16 md:mb-24">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-green-300 to-cyan-400 pb-2 fade-in" style="filter: drop-shadow(0 0 1rem hsla(142, 71%, 45%, 0.3));">
-                -Echo-
+            <h1 class="font-display text-5xl md:text-8xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-gray-400 pb-2 fade-in">
+                Listen to the World<span class="text-green-400">.</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto fade-in delay-1">
-                An interactive web application to explore and listen to live internet radio stations from around the world.
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mt-4 fade-in delay-1">
+                <span class="font-bold text-gray-300">Echo</span> is an interactive web app to explore and tune into live radio stations from across the globe.
             </p>
         </header>
 
         <!-- Main Content Section -->
         <main>
-            <!-- Project Links -->
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-16 md:mb-24 fade-in delay-2">
-                <a href="https://tilooo.github.io/projects/echo" target="_blank" class="flex items-center gap-2 bg-green-500 text-white font-bold py-3 px-6 rounded-full hover:bg-green-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30 w-full sm:w-auto justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" /><path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" /></svg>
-                    <span>View Live Project</span>
-                </a>
-                <a href="https://github.com/Tilooo/echo" target="_blank" class="flex items-center gap-2 bg-gray-700/80 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-2xl hover:shadow-gray-500/20 w-full sm:w-auto justify-center">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    <span>View Source Code</span>
-                </a>
-            </div>
-
-            <!-- Screenshot/Image of the Project -->
-            <div class="mb-20 md:mb-24 fade-in delay-3">
-                <!-- This creates a subtle gradient border -->
-                <div class="p-1 rounded-xl bg-gradient-to-br from-green-400/50 via-transparent to-cyan-400/30" style="box-shadow: 0 0 40px rgba(52, 211, 153, 0.1);">
-                    <div class="bg-[#0B1120] p-1 rounded-lg">
-                        <img src="https://i.imgur.com/e5m3jYx.png" alt="Screenshot of the Echo! application map" class="rounded-md w-full">
+            <!-- Screenshot in Browser Mockup -->
+            <div class="mb-20 md:mb-24 fade-in delay-2">
+                <div class="card-glow rounded-xl p-2" style="box-shadow: 0 0 80px rgba(52, 211, 153, 0.15);">
+                    <div class="bg-slate-800/80 p-3 rounded-t-lg flex items-center gap-2">
+                        <span class="h-3 w-3 rounded-full bg-red-500"></span>
+                        <span class="h-3 w-3 rounded-full bg-yellow-500"></span>
+                        <span class="h-3 w-3 rounded-full bg-green-500"></span>
                     </div>
+                    <!-- Demo VIDEO -->
+                    <video class="rounded-b-lg w-full"
+                           poster="https://i.imgur.com/e5m3jYx.png"
+                           controls autoplay muted loop playsinline>
+                        <source src="images/echo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
 
             <!-- Features and Technology Section -->
-            <div class="grid md:grid-cols-2 gap-8 fade-in delay-4">
+            <div class="grid md:grid-cols-5 gap-8">
 
                 <!-- Features Card -->
-                <div class="card-glow rounded-xl p-8">
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                        <span class="p-2 rounded-md bg-green-500/10 border border-green-500/30">
+                <div class="card-glow rounded-xl p-8 md:col-span-3 fade-in delay-3">
+                    <h2 class="font-display text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="p-2 rounded-lg bg-green-500/10 border border-green-500/30">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
                         </span>
-                        Features
+                        Core Features
                     </h2>
-                    <ul class="space-y-4 text-gray-300">
-                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
-                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                            <span><strong>Interactive World Map:</strong> Explore stations on a beautiful, dark-themed CartoDB map.</span>
-                        </li>
-                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
-                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                            <span><strong>Live Audio Streaming:</strong> Click any custom-styled marker to play live radio directly.</span>
-                        </li>
-                        <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
-                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                            <span><strong>Real-time Search:</strong> Instantly filter hundreds of stations by name or country.</span>
-                        </li>
-                         <li class="flex items-start gap-3 p-3 rounded-lg transition-colors hover:bg-white/5">
-                            <svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                            <span><strong>Automated Data Seeding:</strong> Backend script automatically populates the database from a public API.</span>
-                        </li>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start gap-3 p-2 rounded-lg"><svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Interactive World Map:</strong> Explore stations on a beautiful, dark-themed CartoDB map.</span></li>
+                        <li class="flex items-start gap-3 p-2 rounded-lg"><svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Live Audio Streaming:</strong> Click any custom-styled marker to play live radio directly.</span></li>
+                        <li class="flex items-start gap-3 p-2 rounded-lg"><svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Real-time Search:</strong> Instantly filter hundreds of stations by name or country.</span></li>
+                        <li class="flex items-start gap-3 p-2 rounded-lg"><svg class="w-5 h-5 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg><span><strong>Automated Data Seeding:</strong> Backend script automatically populates the database.</span></li>
                     </ul>
                 </div>
 
                 <!-- Technology Card -->
-                <div class="card-glow rounded-xl p-8">
-                    <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-3">
-                        <span class="p-2 rounded-md bg-cyan-500/10 border border-cyan-500/30">
+                <div class="card-glow rounded-xl p-8 md:col-span-2 fade-in delay-4">
+                    <h2 class="font-display text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                        <span class="p-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </span>
-                        Technology Stack
+                        Tech Stack
                     </h2>
-                    <div class="flex flex-wrap gap-3 text-sm">
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Python</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Django</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Django Rest Framework</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">React.js</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Vite</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Leaflet</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">React-Leaflet</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
-                        <span class="bg-gray-700/80 text-gray-300 font-medium px-3 py-1 rounded-full">SQLite</span>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-yellow-400" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Python</title><path fill="currentColor" d="M23.33.67a.5.5 0 00-.5-.5H.5a.5.5 0 00-.5.5v22a.5.5 0 00.5.5h22.66a.5.5 0 00.5-.5V.67zm-1.83 2.12v10.3h-4.33V6.34h-6.5V2.8h10.83zm-12.67 0v3.54h-6.5v-3.54h6.5zM2.83 14.8v-3.86h6.5v3.86h-6.5zm0 2.12h6.5v3.87h-6.5v-3.87zm8.67 3.87V12.9h4.33v6.88h-4.33z"/></svg><span>Python</span></div>
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-[#61DAFB]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>React</title><path fill="currentColor" d="M12.001 2.002c-5.524 0-10.001 4.476-10.001 10.001s4.477 10.001 10.001 10.001 10.001-4.476 10.001-10.001-4.477-10.001-10.001-10.001zM12 18.25a6.25 6.25 0 110-12.5 6.25 6.25 0 010 12.5zm0-2.5a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z"/><path fill="currentColor" d="M5.01 10.875a.625.625 0 010 1.25H2.5A.625.625 0 011.875 11.5v-2a.625.625 0 011.25 0v.375h1.885zm12.729-1.523a.625.625 0 01.887 0l1.767 1.768a.625.625 0 010 .887l-1.767 1.768a.625.625 0 01-.887-.887l1.323-1.323-1.323-1.323a.625.625 0 010-.887zm-1.07-5.04a.625.625 0 01.623.51l.885 3.535a.625.625 0 01-1.226.307L16.22 8.35a.625.625 0 01.51-.623l3.536-.885a.625.625 0 01.307 1.226l-3.32.833 1.323 1.323a.625.625 0 01-.887.887l-1.768-1.768a.625.625 0 010-.887l.834-3.32a.625.625 0 01.117-.307zm-10.6 5.927a.625.625 0 01.887.887l-1.323 1.323 1.323 1.323a.625.625 0 01-.887.887l-1.768-1.768a.625.625 0 010-.887l1.768-1.768zm-2.03-5.927a.625.625 0 01.307-.217l3.535-.885a.625.625 0 01.623.51l.833 3.32a.625.625 0 01-.887.887l-1.768-1.768a.625.625 0 010-.887l1.323-1.323-3.32.834a.625.625 0 01-.307-1.226zM12 10.75a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z"/></svg><span>React</span></div>
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-[#092E20]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Django</title><path fill="currentColor" d="M15.429 22.114c-2.314 0-4.114-1.371-4.114-4.114V9.829h2.331v7.886c0 1.2 1.029 2.011 2.011 2.011s1.783-.811 1.783-2.011V9.829h2.331v8.171c0 2.743-1.8 4.114-4.342 4.114zm-9.337 0c-2.314 0-4.114-1.371-4.114-4.114V2.137h2.331v15.566c0 1.2 1.029 2.011 2.011 2.011s1.783-.811 1.783-2.011V2.137h2.331v15.863c-.01 2.743-1.8 4.114-4.342 4.114zM10.8 7.691V2.137h2.331v5.554H10.8z"/></svg><span>Django</span></div>
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-[#38BDF8]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Tailwind CSS</title><path fill="currentColor" d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg><span>Tailwind CSS</span></div>
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-[#1E9E7A]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Leaflet</title><path fill="currentColor" d="M11.364 22.627c-.822.42-1.905.42-2.727 0L.636 18.136a1.636 1.636 0 0 1-.636-1.363V7.227a1.636 1.636 0 0 1 .636-1.363L8.636 1.373a1.636 1.636 0 0 1 1.364-.636h4a1.636 1.636 0 0 1 1.364.636l8 4.49a1.636 1.636 0 0 1 .636 1.364v9.546a1.636 1.636 0 0 1-.636 1.364l-8 4.49zm.415-2.074a.49.49 0 0 0 .23-.625l-2.007-5.597a.49.49 0 0 0-.898-.01L6.46 20.375a.49.49 0 0 0 .66.615l4.659-2.437z"/></svg><span>Leaflet</span></div>
+                        <div class="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 transition-colors"><svg class="w-6 h-6 text-[#764ABC]" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vite</title><path fill="currentColor" d="M23.633 6.133a.5.5 0 0 0-.1-.133l-9.5-9.5a.5.5 0 0 0-.7 0l-9.5 9.5a.5.5 0 0 0-.1.133c-.067.133-.1.3-.1.467v10.8a.5.5 0 0 0 .5.5h19a.5.5 0 0 0 .5-.5v-10.8c0-.167-.033-.334-.1-.467ZM12 4.2l6.133 6.133H5.867L12 4.2zM4.7 12h14.6v4.3c-2.233-1.466-4.8-2.2-7.3-2.2s-5.067.734-7.3 2.2V12Z"/></svg><span>Vite</span></div>
                     </div>
                 </div>
 
