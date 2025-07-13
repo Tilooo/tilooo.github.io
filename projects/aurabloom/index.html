@@ -49,9 +49,7 @@
 </head>
 <body class="aurabloom-theme">
 <!-- * HTML FOR THE BACK BUTTON * -->
-    <!-- The link goes up two directories (../..) to find projects.html -->
     <a href="../../projects.html" class="back-to-portfolio" title="Back to Projects">
-        <!-- Using an inline SVG for the arrow icon - no extra libraries needed! -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
@@ -268,9 +266,9 @@
                     </div>
                 </div>
             </section>
-        </div> <!-- End .page-content-container -->
+        </div> <!-- End. page-content-container -->
 
-        <!-- This div will hold the fetched modal HTML structures -->
+        <!-- The fetched modal HTML structures -->
         <div id="modal-container-all" style="display: none;"></div>
 
     </main>
@@ -281,11 +279,11 @@
         </div>
     </footer>
 
-    <!-- jQuery FIRST -->
+    <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <!-- Then Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<!-- Custom script LAST -->
+<!-- Custom script -->
 <script>
     // Simple script to set the current year in the footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -296,19 +294,18 @@
         $("#modal-container-all").load("product-modal.html", function(response, status, xhr) {
             if (status == "error") {
                 console.error("Error loading product-modal.html: " + xhr.status + " " + xhr.statusText);
-                // Display an error message if loading fails
+                // Displays an error message if loading fails
                 $(this).html('<p class="text-danger text-center">Error: Product details could not be loaded.</p>').show();
             } else {
                 console.log("product-modal.html fetched successfully.");
 
-                // **THE FIX IS HERE:**
-                // 1. Find the loaded modal divs inside the container.
+                // Finds the loaded modal divs inside the container.
                 const modals = $(this).children();
 
-                // 2. Move them from the hidden container to the main <body>.
+                // Moves them from the hidden container to the main <body>.
                 $("body").append(modals);
 
-                // 3. Remove the now-empty container div.
+                // Removes the now-empty container div.
                 $(this).remove();
 
                 console.log("All modals moved to <body> and are ready to use.");

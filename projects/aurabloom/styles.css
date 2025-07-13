@@ -1,15 +1,15 @@
 /* tilooo.github.io/projects/aurabloom/styles.css */
 
 /* ==========================================================================
-   1. CSS Variables (Root Custom Properties)
+   CSS Variables (Root Custom Properties)
    ========================================================================== */
 :root {
-    --primary-color: #2c3e50;       /* Dark Slate Blue/Charcoal - Modern & Professional */
-    --secondary-color: #4A6B54;     /* Muted Forest Green - Natural & Calming */
-    --accent-color: #b29a74;        /* Soft Gold/Bronze - High Quality & Mystic Touch */
+    --primary-color: #2c3e50;       /* Dark Slate Blue/Charcoal */
+    --secondary-color: #4A6B54;     /* Muted Forest Green */
+    --accent-color: #b29a74;        /* Soft Gold/Bronze */
     --accent-color-darker: #a18862; /* Darker Gold for hovers */
 
-    --light-bg: #f8f5f0;            /* Warm Off-White - Airy & Clean */
+    --light-bg: #f8f5f0;            /* Warm Off-White */
     --white-color: #ffffff;
     --dark-text: #333333;
     --light-text: #f8f9fa;          /* For text on dark backgrounds */
@@ -29,7 +29,7 @@
 }
 
 /* ==========================================================================
-   2. Base & Reset Styles
+   Base & Reset Styles
    ========================================================================== */
 body {
     font-family: var(--font-body);
@@ -47,11 +47,10 @@ body {
 
 main {
     flex-grow: 1;
-    /* Padding will be added by .container or specific sections */
 }
 
 /* ==========================================================================
-   3. Typography
+   Typography
    ========================================================================== */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
@@ -61,7 +60,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
     line-height: 1.3;
 }
-h1 { font-size: 2.5rem; }   /* To adjust sizes as per design preference */
+h1 { font-size: 2.5rem; }
 h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; }
 h4 { font-size: 1.5rem; }
@@ -108,7 +107,7 @@ a:hover {
 
 
 /* ==========================================================================
-   4. Layout & Helpers (e.g., .container adjustments if needed)
+   Layout & Helpers (...container adjustments if needed)
    ========================================================================== */
 .container-fluid { /* pavyzdelis jei noresiu container-fluid  */
     /* max-width: 1400px; */
@@ -117,7 +116,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   5. Header & Navigation (Navbar)
+   Header & Navigation (Navbar)
    ========================================================================== */
 .navbar {
     background-color: var(--white-color) !important;
@@ -172,7 +171,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   6. Buttons
+   Buttons
    ========================================================================== */
 .btn {
     font-family: var(--font-body);
@@ -231,7 +230,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   7. Forms (Basic styling, can be expanded with Crispy Forms integration)
+   Forms
    ========================================================================== */
 .form-control {
     border-radius: var(--border-radius-sm);
@@ -245,7 +244,7 @@ a:hover {
 
 
 /* ==========================================================================
-   8. Cards (Product Cards, Category Cards...)
+   Cards (Product Cards, Category Cards...)
    ========================================================================== */
 .product-card {
     border: 1px solid var(--border-color);
@@ -304,7 +303,7 @@ a:hover {
     text-decoration: none;
 }
 
-.product-card .card-text.short-description { /* Class for short description if used */
+.product-card .card-text.short-description { /* Class for short description */
     font-size: 0.9rem;
     color: var(--muted-text);
     margin-bottom: 1rem;
@@ -326,7 +325,7 @@ a:hover {
 
 
 /* ==========================================================================
-   9. Page-Specific Styles
+   Page-Specific Styles
    ========================================================================== */
 
 /* --- Homepage Specifics --- */
@@ -337,7 +336,7 @@ a:hover {
 
 .category-card-link {
     text-decoration: none;
-    display: block; /* Made the whole link area clickable */
+    display: block; /* The whole link area clickable */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .category-card-link:hover {
@@ -512,7 +511,7 @@ a:hover {
 
 
 /* ==========================================================================
-   10. Utility & Helper Classes
+   Utility & Helper Classes
    ========================================================================== */
 .eco-badge {
     display: inline-block;
@@ -583,7 +582,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   11. Footer
+   Footer
    ========================================================================== */
 .footer {
     background-color: var(--primary-color);
@@ -605,7 +604,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   12. Responsive Adjustments (Example Media Queries)
+   Responsive Adjustments (Example Media Queries)
    ========================================================================== */
 @media (max-width: 991.98px) { /* Medium devices (tablets, less than 992px) */
     .navbar-nav {
@@ -623,7 +622,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   X. Cart Page Styles (Choose a section number)
+   Cart Page Styles
    ========================================================================== */
 .cart-table {
     font-size: 0.95rem;
@@ -688,7 +687,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   X. Account Page Styles (django-allauth overrides)
+   Account Page Styles (django-allauth overrides)
    ========================================================================== */
 .account-form-card {
     border: 1px solid var(--border-color);
@@ -729,7 +728,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   X. Account Page Styles (Continued) or New Section for Order History
+   Account Page Styles (Continued) or New Section for Order History
    ========================================================================== */
 .account-section-card {
     border: 1px solid var(--border-color);
@@ -761,7 +760,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   X. Account & Form Pages (Choose a section number)
+   Account & Form Pages
    ========================================================================== */
 .form-card {
     border: 1px solid var(--border-color);
@@ -786,4 +785,52 @@ a:hover {
 .form-card .alert { /* For error messages displayed by crispy-forms */
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+    Modal Styles
+   ========================================================================== */
+.modal-content {
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+}
+
+.modal-header .modal-title {
+    font-family: var(--font-headings);
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-product-price {
+    font-family: var(--font-headings);
+    font-size: 1.75rem;
+    color: var(--secondary-color);
+    font-weight: 700;
+}
+
+.modal-footer {
+    background-color: #f8f9fa; /* A light grey footer */
+    border-top: 1px solid var(--border-color);
+}
+
+
+.modal.show {
+    z-index: 9999 !important;
+}
+
+.modal-dialog {
+    opacity: 1 !important;
+    visibility: visible !important;
 }
