@@ -1,4 +1,4 @@
-/*          MAIN PORTFOLIO STYLESHEET            */
+/* MAIN PORTFOLIO STYLESHEET */
 
 :root {
     --primary-color: #6017ff;
@@ -278,6 +278,18 @@ section h2 {
     font-size: 0.9rem;
     font-weight: 500;
     transition: var(--transition);
+}
+.project-tag.vuejs {
+    background-color: #41B883; /* Vue's official green */
+    color: #fff;
+}
+.project-tag.tailwind {
+    background-color: #38BDF8; /* Tailwind's official blue */
+    color: #fff;
+}
+.project-tag.chartjs {
+    background-color: #FF6384; /* Chart.js's official pink/red */
+    color: #fff;
 }
 .project-tag:hover, .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
