@@ -319,6 +319,7 @@ section h2 {
 .project-tag.folium, .project-tag.leaflet { background-color: #3388CC; color: white; }
 .project-tag.osmnx { background-color: #7AC443; color: white; }
 .project-s-tag.jquery { background-color: #0769AD; color: white; }
+.project-s-tag.responsive design { background-color: #0231AD; color: white; }
 .project-tag.eel { background-color: #008080; color: white; }
 .project-tag.dart { background-color: #0175C2; color: white; }
 .project-tag.geospatial { background-image: linear-gradient(to right, #2E7D32, #4CAF50); color: white; }
