@@ -12,8 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons (like the back arrow) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* the font to the whole page */
+        /* Apply the font to the whole page */
         body {
             font-family: 'Inter', sans-serif;
             background-image: url('https://raw.githubusercontent.com/Tilooo/WalletChirp/main/frontend/public/background.jpg');
@@ -33,6 +35,15 @@
     </style>
 </head>
 <body class="bg-slate-900 text-slate-200 bg-cover bg-center bg-fixed">
+
+    <!-- Back to Projects Button -->
+
+    <a href="../../projects.html"
+       class="fixed top-5 left-5 z-50 flex items-center justify-center w-12 h-12 bg-black/40 rounded-full text-white shadow-lg transition-all duration-300 ease-in-out hover:bg-slate-800 hover:scale-110"
+       title="Back to Projects">
+       <i class="fas fa-arrow-left text-xl"></i>
+    </a>
+
     <!-- Dark overlay for readability -->
     <div class="absolute inset-0 bg-slate-900/80 z-0"></div>
 
@@ -70,7 +81,6 @@
         <section class="w-full max-w-7xl mt-16">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Core Features</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature Cards -->
                 <div class="glass-card rounded-xl p-6"><div class="w-12 h-12 bg-lime-500/10 rounded-lg flex items-center justify-center mb-4 border border-lime-500/20"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg></div><h3 class="text-xl font-bold mb-2">Dual Comparison</h3><p class="text-slate-400">Analyze two countries side-by-side with real-time data from the World Bank.</p></div>
                 <div class="glass-card rounded-xl p-6"><div class="w-12 h-12 bg-lime-500/10 rounded-lg flex items-center justify-center mb-4 border border-lime-500/20"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" /></svg></div><h3 class="text-xl font-bold mb-2">AI-Powered Chirps</h3><p class="text-slate-400">Get intelligent summaries on economic health and tax policies from Google's Gemini AI.</p></div>
                 <div class="glass-card rounded-xl p-6"><div class="w-12 h-12 bg-lime-500/10 rounded-lg flex items-center justify-center mb-4 border border-lime-500/20"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" /></svg></div><h3 class="text-xl font-bold mb-2">Interactive Charts</h3><p class="text-slate-400">Visualize data with bar charts for direct comparison and line charts for 20-year historical trends.</p></div>
@@ -82,17 +92,11 @@
         <section class="w-full max-w-7xl mt-24">
             <h2 class="text-4xl font-bold text-center mb-12 text-white">Powered By</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-                <!-- Python -->
                 <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><path d="M64.09 128a64.31 64.31 0 0 1-45.56-18.84A64.31 64.31 0 0 1 0 63.69 64.32 64.32 0 0 1 18.53 18.5a64.3 64.3 0 0 1 89.28 1.83l-19.64 19.92a35.84 35.84 0 0 0-49.92.29 35.83 35.83 0 0 0 .28 50.48 35.83 35.83 0 0 0 50.48-.28 35.85 35.85 0 0 0-.29-49.92L110 15.68a64.32 64.32 0 0 1 1.83 89.28A64.31 64.31 0 0 1 64.09 128Z" fill="#306998"/><path d="M63.82 0a64.31 64.31 0 0 1 45.56 18.84 64.31 64.31 0 0 1 18.84 45.47 64.32 64.32 0 0 1-18.53 45.19 64.3 64.3 0 0 1-89.28-1.83l19.64-19.92a35.84 35.84 0 0 0 49.92-.29 35.83 35.83 0 0 0-.28-50.48 35.83 35.83 0 0 0-50.48.28 35.85 35.85 0 0 0 .29 49.92L17.75 112.32a64.32 64.32 0 0 1-1.83-89.28A64.31 64.31 0 0 1 63.82 0Z" fill="#ffd43b"/><path d="M88.58 48.24a12.15 12.15 0 1 1-24.3 0 12.15 12.15 0 0 1 24.3 0zM39.33 79.76a12.15 12.15 0 1 1-24.3 0 12.15 12.15 0 0 1 24.3 0z" fill="#fff"/></svg><span class="font-bold text-lg">Python</span></div>
-                <!-- Django -->
                 <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 22 26" xmlns="http://www.w3.org/2000/svg" fill="#092E20"><path d="M19.78 6.21h-2.11V23.7h2.11v-5.28h.23c.88 0 1.5-.16 1.86-.46a2.7 2.7 0 0 0 .97-1.3l-.02-.03c.01-.01.01-.02.02-.03l.03-.09c.02-.04.03-.09.04-.13.1-.3.15-.65.15-1.04 0-.4-.05-.75-.15-1.05a2.02 2.02 0 0 0-.22-.64c-.1-.2-.22-.36-.37-.48a2.1 2.1 0 0 0-.55-.33c-.22-.09-.48-.13-.77-.13h-1v-5.28h.23c.88 0 1.5-.16 1.86-.47a2.7 2.7 0 0 0 .97-1.3l-.02-.03c.01-.01.01-.02.02-.03l.03-.09c.02-.04.03-.09.04-.13.1-.3.15-.65.15-1.04 0-.4-.05-.75-.15-1.05a2.02 2.02 0 0 0-.22-.64 1.52 1.52 0 0 0-.37-.48 2.1 2.1 0 0 0-.55-.33c-.22-.09-.48-.13-.77-.13Z M0 23.7h2.11V0H0Z M3.2 0h9.32L3.2 11.23Z M5.4 11.23 15 0h-2.2Z"/></svg><span class="font-bold text-lg">Django</span></div>
-                <!-- Vue.js -->
                 <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 256 221" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><path d="M204.8 0H256L128 220.8 0 0h97.92L128 51.2 157.44 0h47.36z" fill="#41B883"/><path d="M0 0l128 220.8L256 0h-51.2L128 132.48 50.56 0H0z" fill="#41B883"/><path d="M50.56 0L128 133.12 204.8 0h-47.36L128 51.2 97.92 0H50.56z" fill="#35495E"/></svg><span class="font-bold text-lg">Vue.js</span></div>
-                <!-- Tailwind CSS -->
                 <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 68 40" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill="#38BDF8" d="M34.02 20.2C15.22 20.2 0 20.22 0 20.22c.02-.02 15.22-20.22 34.02-20.22 18.8 0 34.02 20.2 34.02 20.22 0 0-15.22.02-34.02.02Z"/><path fill="#0EA5E9" d="M34.02 40C15.22 40 0 39.98 0 39.98c.02.02 15.22-20.22 34.02-20.22 18.8 0 34.02 20.2 34.02 20.22 0 0-15.22.02-34.02.02Z"/></svg><span class="font-bold text-lg">Tailwind CSS</span></div>
-                <!-- Google Gemini -->
-                <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.68182 14.8636L12 22.1818L19.3182 14.8636L12 7.54545L4.68182 14.8636Z" fill="#8E83E4"/><path d="M7.54545 12L12 16.4545L16.4545 12L12 7.54545L7.54545 12Z" fill="#A89DFF"/><path d="M12 1.81818L14.8636 4.68182L12 7.54545L9.13636 4.68182L12 1.81818Z" fill="#A89DFF"/></svg><span class="font-bold text-lg">AI</span></div>
-                <!-- Chart.js -->
+                <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.68182 14.8636L12 22.1818L19.3182 14.8636L12 7.54545L4.68182 14.8636Z" fill="#8E83E4"/><path d="M7.54545 12L12 16.4545L16.4545 12L12 7.54545L7.54545 12Z" fill="#A89DFF"/><path d="M12 1.81818L14.8636 4.68182L12 7.54545L9.13636 4.68182L12 1.81818Z" fill="#A89DFF"/></svg><span class="font-bold text-lg">Gemini AI</span></div>
                 <div class="glass-card rounded-xl p-6 flex flex-col items-center justify-center text-center"><svg class="h-16 w-16 mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 14.5C3 13.12 4.12 12 5.5 12H7V21H5C3.9 21 3 20.1 3 19V14.5Z" fill="#FD627A"/><path d="M17 3H18.5C19.88 3 21 4.12 21 5.5V11H17V3Z" fill="#FD627A"/><path d="M10 8H14V21H10V8Z" fill="#FD627A"/></svg><span class="font-bold text-lg">Chart.js</span></div>
             </div>
         </section>

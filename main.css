@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 /* MAIN PORTFOLIO STYLESHEET */
 
 :root {
@@ -26,7 +28,6 @@ body {
     background-color: var(--light-color);
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* Navigation Bar (Glass Effect) */
 nav {
@@ -279,22 +280,19 @@ section h2 {
     font-weight: 500;
     transition: var(--transition);
 }
-.project-tag.vuejs {
-    background-color: #41B883; /* Vue's official green */
-    color: #fff;
+.project-tag:hover, .skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-.project-tag.tailwind {
-    background-color: #38BDF8; /* Tailwind's official blue */
-    color: #fff;
-}
-.project-tag.chartjs {
-    background-color: #FF6384; /* Chart.js's official pink/red */
-    color: #fff;
-}
-.project-tag:hover, .skill-tag:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 
 /* --- VIBRANT TAG COLORS --- */
-.project-tag, .skill-tag { background-color: #e9ecef; color: #495057; }
+/* Default tag style first */
+.project-tag, .skill-tag {
+    background-color: #e9ecef;
+    color: #495057;
+}
+
+/* Specific Technology Colors (these will override the default) */
 .project-tag.python, .skill-tag.python { background-image: linear-gradient(to right, #4568dc, #b06ab3); color: white; }
 .project-tag.flutter, .skill-tag.flutter { background-image: linear-gradient(to right, #00c6ff, #0072ff); color: white; }
 .project-tag.javascript, .skill-tag.javascript { background-color: #f7df1e; color: black; }
@@ -308,6 +306,27 @@ section h2 {
 .project-tag.sql, .skill-tag.sql { background-color: #00758f; color: white; }
 .project-tag.git, .skill-tag.git { background-color: #f34f29; color: white; }
 .project-tag.graphics, .skill-tag.design { background-image: linear-gradient(to right, #a855f7, #ec4899); color: white; }
+.project-tag.ai { background-image: linear-gradient(to right, #8E83E4, #a399f0); color: white; }
+
+/* WalletChirp Tags */
+.project-tag.vuejs { background-color: #41B883; color: #fff; }
+.project-tag.tailwind, .project-tag.tailwindcss { background-color: #38BDF8; color: #fff; }
+.project-tag.chartjs { background-color: #FF6384; color: #fff; }
+.project-tag.vite { background-image: linear-gradient(120deg, #bd34fe 0%, #47caff 100%); color: white; }
+
+/* Other Project Tags */
+.project-tag.bootstrap { background-color: #7952B3; color: white; }
+.project-tag.folium, .project-tag.leaflet { background-color: #3388CC; color: white; }
+.project-tag.osmnx { background-color: #7AC443; color: white; }
+.project-s-tag.jquery { background-color: #0769AD; color: white; }
+.project-tag.eel { background-color: #008080; color: white; }
+.project-tag.dart { background-color: #0175C2; color: white; }
+.project-tag.geospatial { background-image: linear-gradient(to right, #2E7D32, #4CAF50); color: white; }
+.project-tag.react { background-color: #61DAFB; color: #20232A; }
+.project-tag.sqlite { background-color: #003B57; color: white; }
+.project-tag.pandas { background-color: #130654; color: white; }
+.project-tag.matplotlib { background-color: #8b008b; color: white; }
+
 
 /* Footer */
 footer {
