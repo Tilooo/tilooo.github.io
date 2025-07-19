@@ -1,5 +1,3 @@
-<!-- tilooo.github.io/projects/walletchirp/index.html -->
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -12,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Icons (like the back arrow) -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Apply the font to the whole page */
@@ -37,7 +35,6 @@
 <body class="bg-slate-900 text-slate-200 bg-cover bg-center bg-fixed">
 
     <!-- Back to Projects Button -->
-
     <a href="../../projects.html"
        class="fixed top-5 left-5 z-50 flex items-center justify-center w-12 h-12 bg-black/40 rounded-full text-white shadow-lg transition-all duration-300 ease-in-out hover:bg-slate-800 hover:scale-110"
        title="Back to Projects">
@@ -61,7 +58,7 @@
             <div class="mt-8 flex justify-center gap-4">
                 <a href="#" class="relative group overflow-hidden px-8 py-3 rounded-lg text-white font-bold text-lg transition-all duration-300 transform hover:scale-105">
                     <span class="absolute inset-0 bg-gradient-to-r from-lime-500 to-green-600 group-hover:from-lime-600 group-hover:to-green-700 transition-all duration-300"></span>
-                    <span class="relative">View Live App (Coming Soon!)</span>
+                    <span class="relative">View Live App</span>
                 </a>
                 <a href="https://github.com/Tilooo/WalletChirp" target="_blank" class="px-8 py-3 rounded-lg text-white font-bold text-lg bg-slate-700/50 border border-slate-600 hover:bg-slate-700 transition-colors transform hover:scale-105">
                     GitHub Repo
@@ -70,11 +67,15 @@
         </header>
 
         <!-- Demo Video Section -->
-        <div class="my-16 w-full max-w-6xl">
-            <video autoplay loop muted playsinline class="rounded-xl shadow-2xl border-2 border-slate-700">
+        <div id="video-container" class="my-16 w-full max-w-6xl relative group cursor-pointer rounded-xl">
+            <video id="demo-video" autoplay loop muted playsinline class="rounded-xl shadow-2xl border-2 border-slate-700 w-full">
                 <source src="images//WalletChirp-Demo.mp4" type="video/mp4">
                 Your browser does not support the video tag. Here is a <a href="https://raw.githubusercontent.com/Tilooo/WalletChirp/main/WalletChirp-Screenshot.png">screenshot</a> instead.
             </video>
+            <!-- Fullscreen Icon Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none">
+                 <i class="fas fa-expand text-white text-5xl transform group-hover:scale-110 transition-transform duration-300"></i>
+            </div>
         </div>
 
         <!-- Features Section -->
@@ -108,5 +109,29 @@
         </footer>
 
     </div>
+
+    <!-- Video Fullscreen Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoContainer = document.getElementById('video-container');
+            const video = document.getElementById('demo-video');
+
+            if (videoContainer && video) {
+                videoContainer.addEventListener('click', () => {
+                    // Check if the browser supports the Fullscreen API and which prefix it uses
+                    if (video.requestFullscreen) {
+                        video.requestFullscreen();
+                    } else if (video.mozRequestFullScreen) { // Firefox
+                        video.mozRequestFullScreen();
+                    } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                        video.webkitRequestFullscreen();
+                    } else if (video.msRequestFullscreen) { // IE/Edge
+                        video.msRequestFullscreen();
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
