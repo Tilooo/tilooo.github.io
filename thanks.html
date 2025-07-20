@@ -24,7 +24,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background-attachment: fixed;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -103,9 +104,12 @@
         }
 
         .thank-you-container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.15); /* Semi transparent background */
+            backdrop-filter: blur(12px); /* The blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+            color: var(--light-color); /* Light text for readability on dark background */
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             padding: 40px;
             margin-bottom: 40px;
         }
@@ -127,11 +131,12 @@
             border-radius: 5px;
             text-decoration: none;
             margin-top: 20px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .back-button:hover {
             background-color: var(--accent-color);
+            transform: translateY(-2px);
         }
 
         footer {
@@ -171,7 +176,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Tilo. All rights reserved.</p>
+        <p>© 2023 Tilo. All rights reserved.</p>
     </footer>
 </body>
 </html>
