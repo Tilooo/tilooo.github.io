@@ -354,3 +354,79 @@ footer {
     .timeline-item::before { content: ''; position: absolute; left: -30px; top: 25px; height: calc(100% - 25px); width: 3px; background: #e0e0e0; }
     .timeline-icon { left: -45px; top: 0; width: 40px; height: 40px; font-size: 1.2rem; }
 }
+
+/* CONTACT PAGE (Purple Tint) */
+
+/* a gradient background to the entire page */
+.contact-page body {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+}
+
+/* the main content section */
+.contact-page section#contact {
+    background-color: rgba(96, 23, 255, 0.55);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* headers and borders */
+.contact-page section#contact h2,
+.contact-page .contact-info h3 {
+    color: white;
+    border-bottom-color: var(--primary-color-green);
+}
+
+.contact-page .contact-form label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* all info items and links */
+.contact-page .info-item,
+.contact-page .info-item p,
+.contact-page .info-item a {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.contact-page .info-item a:hover {
+    color: var(--primary-color-green);
+}
+
+.contact-page .social-links a {
+     color: rgba(255, 255, 255, 0.85);
+}
+.contact-page .social-links a:hover {
+    color: var(--primary-color-green);
+    transform: scale(1.1) translateY(-2px);
+}
+
+
+/* the form inputs */
+.contact-page .contact-form input,
+.contact-page .contact-form textarea {
+    background-color: rgba(96, 23, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+.contact-page .contact-form input::placeholder,
+.contact-page .contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.contact-page .contact-form input:focus,
+.contact-page .contact-form textarea:focus {
+    background-color: rgba(96, 23, 255, 0.3);
+    border-color: var(--primary-color-green);
+    box-shadow: 0 0 0 3px rgba(149, 247, 37, 0.3);
+}
+
+/* the right-side info box */
+.contact-page .contact-info {
+    background-color: rgba(96, 23, 255, 0.3);
+    padding: 40px;
+    border-radius: var(--border-radius);
+}
