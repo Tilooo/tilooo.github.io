@@ -430,3 +430,56 @@ footer {
     padding: 40px;
     border-radius: var(--border-radius);
 }
+
+/* ABOUT PAGE */
+
+/* a gradient background to the entire page */
+.about-page body {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+}
+
+/* the glass effect to BOTH sections on the page */
+.about-page section {
+    background-color: rgba(96, 23, 255, 0.55);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* text colors */
+.about-page section h2,
+.about-page section h3,
+.about-page section h4 {
+    color: white;
+}
+
+.about-page section h2 {
+    border-bottom-color: var(--primary-color-green);
+}
+
+.about-page .about-text p,
+.about-page .timeline-content p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.about-page .about-text .highlight {
+    color: var(--primary-color-green);
+    font-weight: 600;
+}
+
+.about-page .timeline {
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.about-page .timeline-icon {
+    box-shadow: 0 0 0 5px rgba(96, 23, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* skill group */
+.about-page .skill-group h4 {
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
