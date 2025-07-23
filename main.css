@@ -483,3 +483,45 @@ footer {
     color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* PROJECTS PAGE (White Glass Cards) */
+
+/* gradient background */
+.projects-page body {
+    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+}
+
+/* the project cards */
+.projects-page .project-card {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* hover effect */
+.projects-page .project-card:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Text colors */
+.projects-page .project-title {
+    color: var(--secondary-color);
+}
+
+.projects-page .project-description {
+    color: #555;
+}
+
+.projects-page .project-link {
+    color: var(--secondary-color);
+}
+
+.projects-page .project-link:hover {
+    color: var(--primary-color);
+}
+
