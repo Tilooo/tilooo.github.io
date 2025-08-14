@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +9,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(-45deg, #f3f4f6, #eef2ff, #f0fdf4, #fff7ed);
@@ -25,17 +27,9 @@
         }
 
         @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .gradient-text {
@@ -44,23 +38,34 @@
             -webkit-text-fill-color: transparent;
         }
 
+        .animate-gradient-text {
+            background-size: 200% 200%;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .fade-in {
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeInAnimation 1s ease-out forwards;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        @keyframes fadeInAnimation {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* glassmorphism */
+        .staggered-fade-in > * {
+            opacity: 0;
+            animation: fadeInAnimation 1s ease-out forwards;
+        }
+        .staggered-fade-in > *:nth-child(1) { animation-delay: 0.2s; }
+        .staggered-fade-in > *:nth-child(2) { animation-delay: 0.4s; }
+        .staggered-fade-in > *:nth-child(3) { animation-delay: 0.6s; }
+
         .card-glass {
             background: rgba(255, 255, 255, 0.6);
             border-radius: 1rem;
@@ -94,92 +99,114 @@
 <body class="antialiased">
 
     <!-- Header -->
-    <header class="py-20 text-center fade-in">
-        <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">
-            Momentum <span class="gradient-text">🚀</span>
-        </h1>
-        <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            A sleek, powerful accounting application designed for freelancers and solopreneurs, built with Python & Django.
-        </p>
-        <div class="mt-10">
+    <header class="relative text-center py-20 px-6 overflow-hidden">
+        <nav class="fixed top-4 left-1/2 -translate-x-1/2 bg-white/50 backdrop-blur-lg border border-white/20 rounded-full px-5 py-2 shadow-lg z-50 flex items-center gap-4 text-sm text-gray-700 font-semibold">
+            <a href="#features" class="hover:text-violet-600 transition-colors px-2">Features</a>
+            <a href="#stack" class="hover:text-violet-600 transition-colors px-2">Tech Stack</a>
             <a href="https://github.com/Tilooo/momentum" target="_blank"
-                class="bg-gray-900 text-white font-semibold py-4 px-8 rounded-full shadow-lg hover:bg-gray-800 transition-transform duration-300 inline-flex items-center">
-                <i class="fab fa-github mr-3"></i> View on GitHub
+               class="bg-gray-800 text-white px-3 py-1.5 rounded-full hover:bg-gray-900 transition-colors flex items-center gap-2">
+                <i class="fab fa-github text-xs"></i> GitHub
             </a>
+        </nav>
+
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute w-[500px] h-[500px] bg-gradient-to-tr from-violet-400 to-lime-300 rounded-full blur-3xl opacity-30 top-[-100px] left-1/2 -translate-x-1/2 animate-pulse" style="animation-duration: 8s;"></div>
+        </div>
+
+        <div class="relative z-10 staggered-fade-in">
+            <!-- Heading -->
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight">
+                Momentum <span class="gradient-text animate-gradient-text">🚀</span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+                The modern accounting app for freelancers and solopreneurs — fast, elegant, and powered by Python & Django.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://github.com/Tilooo/momentum" target="_blank"
+                   class="bg-gray-900 text-white font-semibold py-2.5 px-6 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 hover:-translate-y-1 inline-flex items-center group">
+                    <i class="fab fa-github mr-2.5 transform group-hover:scale-110 transition-transform"></i> View on GitHub
+                </a>
+                <a href="#features"
+                   class="bg-white/80 backdrop-blur-sm border border-white/50 text-gray-800 font-semibold py-2.5 px-6 rounded-full shadow-md hover:bg-white transition-all duration-300 hover:-translate-y-1">
+                    Explore Features
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12 space-y-20">
 
-        <!-- Screenshot -->
         <section class="fade-in">
             <div class="card-glass p-2">
                 <img src="images/demo.png" alt="Momentum Dashboard" class="rounded-lg">
             </div>
         </section>
 
-        <!-- Features -->
-        <section class="text-center fade-in">
-            <h2 class="text-4xl font-bold text-gray-900">Core Features</h2>
-            <p class="mt-4 text-lg text-gray-500">Streamline your finances with a comprehensive, user-friendly toolkit.</p>
+        <!-- Features Section -->
+        <section id="features" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Core Features</h2>
+            <p class="mt-3 text-lg text-gray-500">Streamline your finances with a comprehensive, user-friendly toolkit.</p>
 
-            <div class="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card-glass p-8">
-                    <i class="fas fa-cogs text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">Dynamic CRUD</h3>
-                    <p class="mt-3 text-gray-600">Manage invoices and expenses effortlessly with HTMX for a seamless, single-page application experience.</p>
+            <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-cogs text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">Dynamic CRUD</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Manage invoices and expenses effortlessly with HTMX for a seamless, SPA-like experience.</p>
                 </div>
-                <div class="card-glass p-8">
-                    <i class="fas fa-file-pdf text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">PDF Invoices</h3>
-                    <p class="mt-3 text-gray-600">Generate and dispatch professional PDF invoices in seconds with WeasyPrint.</p>
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-file-pdf text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">PDF Invoices</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Generate and dispatch professional PDF invoices in seconds with WeasyPrint.</p>
                 </div>
-                <div class="card-glass p-8">
-                    <i class="fas fa-receipt text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">Smart Expense Parsing</h3>
-                    <p class="mt-3 text-gray-600">Automate data entry by extracting vendors, dates, and totals from email receipts.</p>
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-receipt text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">Smart Expense Parsing</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Automate data entry by extracting vendors, dates, and totals from email receipts.</p>
                 </div>
-                <div class="card-glass p-8">
-                    <i class="fas fa-chart-line text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">Dashboard Insights</h3>
-                    <p class="mt-3 text-gray-600">Instantly access key financial metrics, tax calculations, and monthly performance charts.</p>
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-chart-line text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">Dashboard Insights</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Instantly access key financial metrics, tax calculations, and monthly performance charts.</p>
                 </div>
-                <div class="card-glass p-8">
-                    <i class="fas fa-search text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">Live Search & Sort</h3>
-                    <p class="mt-3 text-gray-600">Filter and sort your data in real-time with lightning-fast updates for maximum efficiency.</p>
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-search text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">Live Search & Sort</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Filter and sort your data in real-time with lightning-fast updates for maximum efficiency.</p>
                 </div>
-                <div class="card-glass p-8">
-                    <i class="fas fa-paint-brush text-3xl gradient-text mb-4"></i>
-                    <h3 class="text-xl font-bold">Polished UI</h3>
-                    <p class="mt-3 text-gray-600">Experience a beautiful, responsive design featuring elegant gradients and a live clock.</p>
+                <div class="card-glass p-6 text-center">
+                    <i class="fas fa-paint-brush text-2xl gradient-text mb-3"></i>
+                    <h3 class="text-lg font-bold">Polished UI</h3>
+                    <p class="mt-2 text-gray-600 text-sm">Experience a beautiful, responsive design featuring elegant gradients and a live clock.</p>
                 </div>
             </div>
         </section>
 
         <!-- Tech Stack -->
-        <section class="text-center fade-in">
-            <h2 class="text-4xl font-bold text-gray-900">Technology Stack</h2>
-            <p class="mt-4 text-lg text-gray-500">Built with a robust and modern technology stack.</p>
+        <section id="stack" class="text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Technology Stack</h2>
+            <p class="mt-3 text-lg text-gray-500">Built with a robust and modern technology stack.</p>
 
-            <div class="mt-16 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 text-gray-800 font-semibold">
-                <div class="tech-card p-4 flex items-center justify-center"><i class="fab fa-python mr-2"></i>Python</div>
-                <div class="tech-card p-4 flex items-center justify-center"><i class="fas fa-leaf mr-2"></i>Django</div>
-                <div class="tech-card p-4 flex items-center justify-center">HTMX</div>
-                <div class="tech-card p-4 flex items-center justify-center">Tailwind CSS</div>
-                <div class="tech-card p-4 flex items-center justify-center"><i class="fab fa-js-square mr-2"></i>JavaScript</div>
-                <div class="tech-card p-4 flex items-center justify-center">Chart.js</div>
-                <div class="tech-card p-4 flex items-center justify-center">WeasyPrint</div>
-                <div class="tech-card p-4 flex items-center justify-center"><i class="fas fa-database mr-2"></i>SQLite</div>
+            <div class="mt-12 max-w-4xl mx-auto grid grid-cols-3 sm:grid-cols-4 md:grid-cols-4 gap-4 text-gray-800 font-semibold text-sm">
+                <div class="tech-card p-3 flex items-center justify-center"><i class="fab fa-python mr-2"></i>Python</div>
+                <div class="tech-card p-3 flex items-center justify-center"><i class="fas fa-leaf mr-2"></i>Django</div>
+                <div class="tech-card p-3 flex items-center justify-center">HTMX</div>
+                <div class="tech-card p-3 flex items-center justify-center">Tailwind CSS</div>
+                <div class="tech-card p-3 flex items-center justify-center"><i class="fab fa-js-square mr-2"></i>JavaScript</div>
+                <div class="tech-card p-3 flex items-center justify-center">Chart.js</div>
+                <div class="tech-card p-3 flex items-center justify-center">WeasyPrint</div>
+                <div class="tech-card p-3 flex items-center justify-center"><i class="fas fa-database mr-2"></i>SQLite</div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
     <footer class="py-12 text-center fade-in border-t border-gray-200 mt-16">
-        <p class="text-gray-600">
+        <p class="text-gray-600 text-sm">
             A project by <a href="https://github.com/Tilooo" target="_blank"
                 class="font-semibold text-violet-600 hover:underline">Tilooo</a>.
         </p>
