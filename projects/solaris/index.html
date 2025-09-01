@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details: Solaris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111827; /* dark blue */
+            --primary-text: #F9FAFB; /* off white */
+            --secondary-text: #9CA3AF; /* Gray */
+            --accent-gradient: linear-gradient(135deg, #3B82F6, #A855F7);
+            --container-bg: rgba(31, 41, 55, 0.6); /* semi transparent dark */
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Page Layout & Containers */
+        .project-showcase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 20px 60px 20px;
+            box-sizing: border-box;
+        }
+
+        .project-container {
+            max-width: 1100px;
+            width: 100%;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header / Title Section */
+        .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .project-header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .project-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Content Sections & Glassmorphism Cards */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+        }
+
+        .glass-container {
+            background: var(--container-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .glass-container p {
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--container-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--secondary-text);
+        }
+        
+        /* Technology Stack List */
+        .tech-stack ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tech-stack li {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+            color: var(--secondary-text);
+            transition: all 0.3s ease;
+        }
+
+        .tech-stack li:hover {
+             color: var(--primary-text);
+             border-color: #A855F7;
+        }
+        
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--accent-gradient);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2.5rem;
+            }
+            .project-showcase {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="project-showcase">
+        <div class="project-container">
+
+            <header class="project-header">
+                <h1>Project: Solaris</h1>
+                <p>A sleek, modern, and fully responsive website concept for a futuristic solar energy company. This project showcases a dark-mode UI with vibrant gradients and glassmorphism effects.</p>
+                <div class="cta-buttons">
+                    <a href="https://tilooo.github.io/projects/solaris/index.html" class="cta-button" target="_blank">View Live Demo</a>
+                    <!-- <a href="#" class="cta-button" target="_blank">View Source Code</a> -->
+                </div>
+            </header>
+
+            <!-- About the Project Section -->
+            <section class="section">
+                <h2 class="section-title">About The Project</h2>
+                <div class="glass-container">
+                    <p>
+                        The goal of the Solaris project was to create a compelling and professional online presence for a fictional renewable energy provider. The design philosophy centers around a modern, tech-forward aesthetic, utilizing a dark theme to make the content and vibrant accent colors pop. The entire user interface is built with responsiveness in mind, ensuring a seamless experience across all devices, from mobile phones to desktop monitors. Dynamic elements like a full-screen image slider on the homepage and subtle animations on page load create an engaging user experience.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Key Features Section -->
+            <section class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Glassmorphism UI</h3>
+                        <p>Semi-transparent containers with blurred backgrounds create a sense of depth and modernity, a core element of the site's design language.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Fully Responsive Design</h3>
+                        <p>Using flexible grids and media queries, the layout adapts perfectly to any screen size, providing an optimal viewing experience for every user.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Dynamic Animations</h3>
+                        <p>Subtle fade-in and slide-in animations on content blocks and cards guide the user's attention and make the interface feel alive and interactive.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Django Template Structure</h3>
+                        <p>The frontend is built using Django's templating system, with a `base.html` for shared components (header/footer) and content blocks for individual pages.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Technology Stack Section -->
+            <section class="section">
+                <h2 class="section-title">Technology Stack</h2>
+                <div class="glass-container tech-stack">
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3 (Flexbox, Grid)</li>
+                        <li>JavaScript</li>
+                        <li>Django Templating Language</li>
+                        <li>Google Fonts</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+</body>
+</html>
