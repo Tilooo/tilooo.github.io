@@ -6,10 +6,11 @@
     <title>Project Details: Solaris</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
+        /* Core Styles */
         :root {
             --bg-color: #111827; /* dark blue */
             --primary-text: #F9FAFB; /* off white */
-            --secondary-text: #9CA3AF; /* Gray */
+            --secondary-text: #9CA3AF; /* gray */
             --accent-gradient: linear-gradient(135deg, #3B82F6, #A855F7);
             --container-bg: rgba(31, 41, 55, 0.6); /* semi transparent dark */
             --border-color: rgba(255, 255, 255, 0.1);
@@ -50,12 +51,20 @@
         /* Header / Title Section */
         .project-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
+            background: var(--container-bg);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .project-header h1 {
             font-size: 3.5rem;
             font-weight: 800;
+            margin-top: 0;
             margin-bottom: 15px;
             background: var(--accent-gradient);
             -webkit-background-clip: text;
@@ -83,130 +92,108 @@
             border-bottom: 2px solid var(--border-color);
             position: relative;
         }
-        
+
         .section-title::after {
-            content: '';
+            content: ''; display: block; width: 60px; height: 3px;
+            background: var(--accent-gradient); border-radius: 2px;
+            position: absolute; left: 0; bottom: -2px;
+        }
+
+        /* Video Container Styling */
+        .video-container {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            background: #000;
+        }
+
+        .video-container video {
+            width: 100%;
             display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent-gradient);
-            border-radius: 2px;
-            position: absolute;
-            left: 0;
-            bottom: -2px;
         }
 
         .glass-container {
-            background: var(--container-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: var(--container-bg); padding: 40px; border-radius: 20px;
+            border: 1px solid var(--border-color); backdrop-filter: blur(12px);
         }
 
         .glass-container p {
-            line-height: 1.7;
-            font-size: 1.1rem;
-            color: var(--secondary-text);
+            line-height: 1.7; font-size: 1.1rem; color: var(--secondary-text);
         }
 
         /* Feature Grid */
         .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
         .feature-card {
-            background: var(--container-bg);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid var(--border-color);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: var(--container-bg); padding: 30px; border-radius: 15px;
+            border: 1px solid var(--border-color); backdrop-filter: blur(12px);
+            text-align: left; transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 15px;
+            transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.3);
         }
 
-        .feature-card p {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--secondary-text);
+        .feature-card h3 {
+            font-size: 1.4rem; font-weight: 700; margin-top: 0; margin-bottom: 15px;
         }
-        
+
         /* Technology Stack List */
         .tech-stack ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 15px;
         }
 
         .tech-stack li {
-            background: rgba(0,0,0,0.2);
-            padding: 10px 20px;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            font-weight: 500;
-            color: var(--secondary-text);
+            background: rgba(0,0,0,0.2); padding: 10px 20px; border-radius: 20px;
+            border: 1px solid var(--border-color); font-weight: 500; color: var(--secondary-text);
             transition: all 0.3s ease;
         }
 
-        .tech-stack li:hover {
-             color: var(--primary-text);
-             border-color: #A855F7;
-        }
-        
+        .tech-stack li:hover { color: var(--primary-text); border-color: #A855F7; }
+
         /* CTA Buttons */
         .cta-buttons {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 20px;
             margin-top: 40px;
         }
-        
+
         .cta-button {
-            display: inline-block;
-            padding: 15px 35px;
-            background: var(--accent-gradient);
-            color: white;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
+            display: inline-block; padding: 15px 35px; background: var(--accent-gradient);
+            color: white; font-size: 1.1rem; font-weight: bold; text-decoration: none;
+            border: none; border-radius: 30px; cursor: pointer;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .cta-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid;
+            border-image: var(--accent-gradient) 1;
+            padding: 13px 33px;
+        }
+
+        .cta-button.secondary:hover {
+             box-shadow: 0 5px 20px rgba(168, 85, 247, 0.4);
         }
 
         /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .project-header h1 {
-                font-size: 2.5rem;
-            }
-            .project-showcase {
-                padding: 60px 15px;
-            }
+            .project-header { padding: 40px 25px; }
+            .project-header h1 { font-size: 2.5rem; }
+            .project-showcase { padding: 60px 15px; }
         }
     </style>
 </head>
@@ -219,26 +206,37 @@
                 <h1>Project: Solaris</h1>
                 <p>A sleek, modern, and fully responsive website concept for a futuristic solar energy company. This project showcases a dark-mode UI with vibrant gradients and glassmorphism effects.</p>
                 <div class="cta-buttons">
-                    <a href="https://tilooo.github.io/projects/solaris/index.html" class="cta-button" target="_blank">View Live Demo</a>
-                    <!-- <a href="#" class="cta-button" target="_blank">View Source Code</a> -->
+                    <button id="fullscreen-btn" class="cta-button secondary">Watch Fullscreen Demo</button>
+                    <a href="https://github.com/Tilooo/Solaris" class="cta-button secondary" target="_blank">GitHub</a>
                 </div>
             </header>
+
+            <!-- Video Demo Section -->
+            <section class="section">
+                <h2 class="section-title">Live Demonstration</h2>
+                <div class="video-container">
+                    <video id="demo-video" controls muted loop>
+                        <source src="images/solaris_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
 
             <!-- About the Project Section -->
             <section class="section">
                 <h2 class="section-title">About The Project</h2>
                 <div class="glass-container">
                     <p>
-                        The goal of the Solaris project was to create a compelling and professional online presence for a fictional renewable energy provider. The design philosophy centers around a modern, tech-forward aesthetic, utilizing a dark theme to make the content and vibrant accent colors pop. The entire user interface is built with responsiveness in mind, ensuring a seamless experience across all devices, from mobile phones to desktop monitors. Dynamic elements like a full-screen image slider on the homepage and subtle animations on page load create an engaging user experience.
+                        The goal of the Solaris project was to create a compelling and professional online presence for a fictional renewable energy provider. The design philosophy centers around a modern, tech-forward aesthetic, utilizing a dark theme to make the content and vibrant accent colors pop. The entire user interface is built with responsiveness in mind, ensuring a seamless experience across all devices, from mobile phones to desktop monitors.
                     </p>
                 </div>
             </section>
-            
+
             <!-- Key Features Section -->
             <section class="section">
                 <h2 class="section-title">Key Features</h2>
                 <div class="features-grid">
-                    <div class="feature-card">
+                     <div class="feature-card">
                         <h3>Glassmorphism UI</h3>
                         <p>Semi-transparent containers with blurred backgrounds create a sense of depth and modernity, a core element of the site's design language.</p>
                     </div>
@@ -252,11 +250,11 @@
                     </div>
                     <div class="feature-card">
                         <h3>Django Template Structure</h3>
-                        <p>The frontend is built using Django's templating system, with a `base.html` for shared components (header/footer) and content blocks for individual pages.</p>
+                        <p>The frontend is built using Django's templating system, with a `base.html` for shared components and content blocks for individual pages.</p>
                     </div>
                 </div>
             </section>
-            
+
             <!-- Technology Stack Section -->
             <section class="section">
                 <h2 class="section-title">Technology Stack</h2>
@@ -273,6 +271,25 @@
 
         </div>
     </main>
+
+    <!-- JavaScript for Fullscreen Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            const video = document.getElementById('demo-video');
+
+            fullscreenBtn.addEventListener('click', () => {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { /* Safari */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE11 */
+                    video.msRequestFullscreen();
+                }
+                video.play();
+            });
+        });
+    </script>
 
 </body>
 </html>
