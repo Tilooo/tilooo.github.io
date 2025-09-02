@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details: Solaris</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for the back arrow icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Core Styles */
         :root {
@@ -24,6 +26,35 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        /* Back Button Style */
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease-in-out;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #1F2937; /* a dark gray */
+            transform: scale(1.1);
+        }
+
+        .back-button .fas {
+            font-size: 1.25rem;
+        }
+
 
         /* Page Layout & Containers */
         .project-showcase {
@@ -194,10 +225,16 @@
             .project-header { padding: 40px 25px; }
             .project-header h1 { font-size: 2.5rem; }
             .project-showcase { padding: 60px 15px; }
+            .back-button { top: 15px; left: 15px; width: 44px; height: 44px; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Back button -->
+    <a href="https://tilooo.github.io/projects.html" class="back-button" title="Go Back">
+       <i class="fas fa-arrow-left"></i>
+    </a>
 
     <main class="project-showcase">
         <div class="project-container">
