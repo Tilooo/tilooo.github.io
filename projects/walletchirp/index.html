@@ -13,7 +13,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Apply the font to the whole page */
+        /* the font of the whole page */
         body {
             font-family: 'Inter', sans-serif;
             background-image: url('https://raw.githubusercontent.com/Tilooo/WalletChirp/main/frontend/public/background.jpg');
@@ -56,7 +56,7 @@
                 An AI-Powered Economic Analysis & Comparison Tool
             </p>
             <div class="mt-8 flex justify-center gap-4">
-                <a href="#" class="relative group overflow-hidden px-8 py-3 rounded-lg text-white font-bold text-lg transition-all duration-300 transform hover:scale-105">
+                <a href="#" id="view-live-app-btn" class="relative group overflow-hidden px-8 py-3 rounded-lg text-white font-bold text-lg transition-all duration-300 transform hover:scale-105">
                     <span class="absolute inset-0 bg-gradient-to-r from-lime-500 to-green-600 group-hover:from-lime-600 group-hover:to-green-700 transition-all duration-300"></span>
                     <span class="relative">View Live App</span>
                 </a>
@@ -110,28 +110,42 @@
 
     </div>
 
-    <!-- Video Fullscreen Script -->
+    <!-- video fullscreen script -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const videoContainer = document.getElementById('video-container');
             const video = document.getElementById('demo-video');
+            const liveAppButton = document.getElementById('view-live-app-btn'); // get the button
 
+            // helper function to request fullscreen
+            function openVideoInFullscreen(elem) {
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { // Firefox
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE/Edge
+                    elem.msRequestFullscreen();
+                }
+            }
+
+            // listener to the main video container
             if (videoContainer && video) {
                 videoContainer.addEventListener('click', () => {
-                    // Check if the browser supports the Fullscreen API and which prefix it uses
-                    if (video.requestFullscreen) {
-                        video.requestFullscreen();
-                    } else if (video.mozRequestFullScreen) { // Firefox
-                        video.mozRequestFullScreen();
-                    } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
-                        video.webkitRequestFullscreen();
-                    } else if (video.msRequestFullscreen) { // IE/Edge
-                        video.msRequestFullscreen();
-                    }
+                    openVideoInFullscreen(video);
+                });
+            }
+
+            // listener to the "View Live App" button
+            if (liveAppButton && video) {
+                liveAppButton.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    openVideoInFullscreen(video);
                 });
             }
         });
     </script>
 
 </body>
-</html>
+</html>```
