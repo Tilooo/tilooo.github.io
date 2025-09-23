@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find The Flow - Project Showcase</title>
+    <title>Search Aggregator - Project Showcase</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --lime: #ccff00;
-            --yellow: #fff200;
-            --white-glass: rgba(255, 255, 255, 0.55);
-            --border-glass: rgba(255, 255, 255, 0.9);
-            --text-dark: #2a2a00;
-            --shadow-light: rgba(0, 0, 0, 0.1);
-            --shadow-heavy: rgba(0, 0, 0, 0.2);
+            --primary-color: #15ed2e; /* bright green */
+            --secondary-color: #71ff05; /* green */
+            --background-start: #0f172a;
+            --background-end: #1e293b;
+            --text-heading: #06bd1b; /* slate 50 */
+            --text-body: #cbd5e1;    /* slate 300 */
+            --dark-glass: rgba(30, 41, 59, 0.5);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --shadow-light: rgba(0, 0, 0, 0.2);
+            --shadow-heavy: rgba(0, 0, 0, 0.3);
         }
 
         /* Global Styles & Background */
@@ -27,12 +31,12 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            background: linear-gradient(120deg, var(--lime), var(--yellow), #f9ffcc, #e8ff99);
+            background: linear-gradient(135deg, var(--background-start), var(--background-end));
             background-size: 200% 200%;
-            animation: gradientShift 15s ease infinite;
-            color: var(--text-dark);
+            animation: gradientShift 20s ease infinite;
+            color: var(--text-body);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -43,95 +47,114 @@
             100% { background-position: 0% 50%; }
         }
 
-        /*  Layout & Typography */
-        .content-wrapper {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+        /* Back Button Style */
+        .back-button {
+            position: fixed;
+            top: 1.25rem;
+            left: 1.25rem;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px var(--shadow-heavy);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease-in-out;
         }
 
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        .back-button:hover {
+            background-color: var(--background-end);
+            transform: scale(1.1);
+        }
+
+        /* Layout & Typography */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem; /* horizontal padding */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-heading);
+        }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             text-align: center;
             margin-bottom: 2rem;
-            background: linear-gradient(90deg, #99c000, #c3b600);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-color);
         }
 
-        p { line-height: 1.7; font-size: 1.1rem; }
+        p { line-height: 1.6; font-size: 1.05rem; }
 
         /* Header / Hero Section */
         .hero-header {
             text-align: center;
-            padding: 4rem 0 6rem;
+            padding: 2.5rem 1rem 3rem;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
         .project-logo {
-            width: 120px;
+            width: 80px;
             height: auto;
             margin-bottom: 1rem;
         }
 
         .hero-header h1 {
-            font-size: 1.5rem;
-            font-weight: 800;
+            font-size: 2.5rem;
+            font-weight: 700;
             margin: 0;
-            background: linear-gradient(90deg, var(--lime), var(--yellow));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: green;
-            text-shadow: 0 0 15px rgba(255, 255, 200, 0.7);
         }
 
         .tagline {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin: 1rem 0 2rem;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin: 0.75rem 0 1.5rem;
             max-width: 600px;
+            color: var(--text-body);
         }
 
         .cta-buttons { display: flex; gap: 1rem; }
 
         .cta-button {
-            padding: 0.8rem 2rem;
-            border-radius: 12px;
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1rem;
+            font-weight: 500;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow-light);
+            box-shadow: 0 4px 10px var(--shadow-light);
+            border: none;
         }
         .cta-button.primary {
-            background: linear-gradient(135deg, var(--lime), var(--yellow));
-            color: var(--text-dark);
-        }
-        .cta-button.secondary {
-            background: var(--white-glass);
-            color: var(--text-dark);
-            border: 1px solid var(--border-glass);
+            background-color: var(--primary-color);
+            color: var(--background-start);
         }
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--shadow-heavy);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px var(--shadow-heavy), 0 0 15px var(--primary-color);
         }
 
-        /*  Card Style for Sections */
+        /* Card style for Sections */
         .card {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            padding: 3rem;
-            border-radius: 20px;
+            background: var(--dark-glass);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            padding: 2rem;
+            border-radius: 16px;
             border: 1px solid var(--border-glass);
-            box-shadow: 0 12px 40px var(--shadow-light);
-            margin-bottom: 4rem;
-            opacity: 0; /* For scroll animation */
-            transform: translateY(30px); /* For scroll animation */
+            box-shadow: 0 10px 30px var(--shadow-light);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
@@ -143,32 +166,33 @@
         /* Features Section */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
         }
 
         .feature-item {
-            background: rgba(255, 255, 255, 0.6);
-            padding: 2rem;
-            border-radius: 16px;
+            background: rgba(15, 23, 42, 0.5);
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
             border: 1px solid var(--border-glass);
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, background 0.3s;
         }
         .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px var(--shadow-light);
+            transform: translateY(-4px);
+            background: rgba(30, 41, 59, 0.7);
         }
 
         .feature-item svg {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+            width: 40px;
+            height: 40px;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
         }
 
-        .feature-item h3 { margin: 0 0 0.5rem; }
+        .feature-item h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+        .feature-item p { font-size: 0.95rem; line-height: 1.5; }
 
         /* Tech Stack Section */
         .tech-grid {
@@ -176,56 +200,80 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
-        .tech-item { text-align: center; }
+        .tech-item { text-align: center; font-weight: 500; color: var(--text-body); }
         .tech-item img {
-            height: 60px;
+            height: 50px;
             margin-bottom: 0.5rem;
-            transition: transform 0.3s;
-        }
-        .tech-item:hover img { transform: scale(1.1); }
+            transition: transform 0.3s, filter 0.3s;
+            filter: invert(80%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(110%) contrast(90%);
 
-        /* Project Gallery- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
         }
+        .tech-item:hover img {
+            transform: scale(1.1);
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(110%) contrast(100%) drop-shadow(0 0 8px var(--primary-color));
+        }
+
+        /* Project Gallery */
         .gallery-item img {
             width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 8px 25px var(--shadow-heavy);
+            border-radius: 12px;
             border: 1px solid var(--border-glass);
         }
+        .gallery-item figcaption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #94a3b8; /* lighter grey */
+        }
+
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1.5rem;
+            margin-top: 1rem;
         }
         .social-links a {
             margin: 0 1rem;
             text-decoration: none;
-            font-weight: 600;
-            color: var(--text-dark);
+            font-weight: 500;
+            color: var(--text-body);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
         .social-links a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
+        .social-links img {
+            transition: transform 0.3s;
+            filter: invert(80%) sepia(20%) saturate(1000%) hue-rotate(180deg) brightness(110%) contrast(90%);
+        }
+        .social-links a:hover img {
+            transform: scale(1.1);
+        }
+
 
     </style>
 </head>
 <body>
 
+    <!-- Back to Projects Button -->
+    <a href="../../projects.html" class="back-button" title="Back to Projects">
+       <i class="fas fa-arrow-left"></i>
+    </a>
+
     <header class="hero-header">
-        <img src="images/logo.png" alt="Find The Flow Logo" class="project-logo">
-        <h1>Find The Flow</h1>
+        <img src="images/logo.png" alt="Search Aggregator" class="project-logo">
+        <h1>Project: Aggre</h1>
         <p class="tagline">
-            A powerful, personal job listings aggregator built with Python and Django that scrapes, stores, and displays job data from across the web.
+            A personal job listings aggregator that scrapes, stores, and displays job data from across the web.
         </p>
         <div class="cta-buttons">
-            <a href="https://github.com/tilooo/Aggre" target="_blank" rel="noopener noreferrer" class="cta-button secondary">View on GitHub</a>
+            <a href="https://github.com/tilooo/Aggre" target="_blank" rel="noopener noreferrer" class="cta-button primary">View on GitHub</a>
         </div>
     </header>
 
@@ -234,10 +282,10 @@
         <section id="overview" class="card">
             <h2>Project Overview</h2>
             <p>
-                Find The Flow (Aggre) was born from the need to simplify the job search process. Instead of visiting multiple job boards daily, this application automates the task by scraping data from various sources—including complex, JavaScript-driven websites.
+                Search Aggregator born from the need to simplify the job search. Instead of visiting multiple job boards daily, this application automates the task by scraping data from various sources—including complex, JavaScript-driven websites.
             </p>
             <p>
-                The project showcases a full-stack development process, from initial scraping experiments in Jupyter Notebooks to building a robust Django backend, a dynamic front-end with search and pagination, and overcoming real-world challenges like anti-bot measures. It's a practical tool and a comprehensive demonstration of modern web development and data scraping techniques.
+                The project showcases a full-stack development process, from scraping experiments to a robust Django backend and a dynamic front-end. It's a practical tool and a demonstration of modern web development and data scraping techniques.
             </p>
         </section>
 
@@ -247,22 +295,22 @@
                 <div class="feature-item">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-4.5 0V6.75A2.25 2.25 0 0115.75 4.5h1.5a2.25 2.25 0 012.25 2.25v1.5m-4.5 0h4.5m-4.5 0a2.25 2.25 0 01-2.25-2.25V6.75m0 0a2.25 2.25 0 00-2.25-2.25h-1.5A2.25 2.25 0 005.25 6.75v1.5m0 0h4.5" /></svg>
                     <h3>Multi-Source Scraping</h3>
-                    <p>Aggregates data from both static sites (with Requests & BeautifulSoup) and dynamic, JS-heavy sites (with Selenium).</p>
+                    <p>Aggregates data from both static sites (Requests & BeautifulSoup) and dynamic sites (Selenium).</p>
                 </div>
                 <div class="feature-item">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
                     <h3>Dynamic Search & Filter</h3>
-                    <p>A powerful, responsive search bar allows users to instantly filter jobs by keywords in the title or company name.</p>
+                    <p>A powerful search bar allows users to instantly filter jobs by keywords in the title or company.</p>
                 </div>
                 <div class="feature-item">
                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
                     <h3>Database Persistence</h3>
-                    <p>Uses a SQLite database via the Django ORM to store data, preventing duplicates and ensuring data integrity.</p>
+                    <p>Uses a SQLite database via the Django ORM to store data, preventing duplicates and ensuring integrity.</p>
                 </div>
                 <div class="feature-item">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
                     <h3>Polished User Interface</h3>
-                    <p>A stylish, responsive UI with pagination, clean typography, and a modern "glassmorphism" design aesthetic.</p>
+                    <p>A stylish, responsive UI with pagination, clean typography, and a modern "glassmorphism" design.</p>
                 </div>
             </div>
         </section>
@@ -280,21 +328,11 @@
             </div>
         </section>
 
-        <section id="journey" class="card">
-            <h2>The Journey & Challenges</h2>
-            <p>
-                This project was a deep dive into practical problem-solving. The biggest challenge was overcoming the anti-scraping measures on modern websites. Initially, `requests` failed on sites like RemoteOk and Stack Overflow because their content is loaded dynamically with JavaScript.
-            </p>
-            <p>
-                The solution was to pivot to **Selenium**, which automates a real browser. However, this introduced new challenges, including "human verification" (CAPTCHA) checks. By running Selenium in a visible mode, we diagnosed the issue and made the strategic decision to pivot to a more scraper-friendly target (RemoteOk) to keep the project on track. This iterative process of diagnosing, strategizing, and implementing a new solution was the most valuable learning experience of the project.
-            </p>
-        </section>
-
         <section id="gallery" class="card">
             <h2>Project Gallery</h2>
             <div class="gallery-grid">
-                <figure>
-                    <img src="images/screenshot.png" alt="Screenshot of the main job listings page of the Find The Flow app.">
+                <figure class="gallery-item">
+                    <img src="images/screenshot.png" alt="Screenshot of the main job listings page of the Aggre app.">
                     <figcaption>Main job listings page with search and pagination.</figcaption>
                 </figure>
             </div>
@@ -303,16 +341,20 @@
     </main>
 
     <footer class="card">
-        <h2>Get In Touch</h2>
-        <p>Thanks for checking out my project! Feel free to connect with me.</p>
-        <div class="social-links">
-            <a href="https://github.com/tilooo" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <!-- <a href="[LinkedIn URL Here]" target="_blank" rel="noopener noreferrer">LinkedIn</a> -->
-            <a href="https://tilooo.github.io/" target="_blank" rel="noopener noreferrer">Portfolio</a>
-        </div>
-    </footer>
+    <h2>Get In Touch</h2>
+    <p>Thanks for checking out my project! Feel free to connect with me.</p>
+    <div class="social-links">
+        <a href="https://github.com/tilooo" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="24"> GitHub
+        </a>
+        <a href="https://tilooo.github.io/" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Portfolio" width="24"> Portfolio
+        </a>
+    </div>
+</footer>
 
-    <!-- Simple JavaScript for scroll animations -->
+
+    <!-- JavaScript for scroll animations -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver(entries => {
