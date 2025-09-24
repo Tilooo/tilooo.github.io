@@ -11,7 +11,7 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
+        <style>
         :root {
             --primary-color: #15ed2e; /* bright green */
             --secondary-color: #71ff05; /* green */
@@ -124,6 +124,7 @@
 
         .cta-buttons { display: flex; gap: 1rem; }
 
+        /* Button Styles */
         .cta-button {
             padding: 0.7rem 1.8rem;
             border-radius: 8px;
@@ -133,15 +134,24 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px var(--shadow-light);
             border: none;
+            display: inline-flex;  /* aligns icon and text */
+            align-items: center;    /* centers vertically */
+            gap: 0.5rem;            /* space between icon and text */
         }
         .cta-button.primary {
             background-color: var(--primary-color);
             color: var(--background-start);
         }
+        .cta-button.secondary {
+            background-color: var(--dark-glass);
+            color: var(--text-body);
+            border: 1px solid var(--border-glass);
+        }
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 7px 20px var(--shadow-heavy), 0 0 15px var(--primary-color);
         }
+
 
         /* Card style for Sections */
         .card {
@@ -216,7 +226,7 @@
         }
 
         /* Project Gallery */
-        .gallery-item img {
+        .gallery-item video {
             width: 100%;
             border-radius: 12px;
             border: 1px solid var(--border-glass);
@@ -255,8 +265,6 @@
         .social-links a:hover img {
             transform: scale(1.1);
         }
-
-
     </style>
 </head>
 <body>
@@ -266,14 +274,20 @@
        <i class="fas fa-arrow-left"></i>
     </a>
 
-    <header class="hero-header">
+        <header class="hero-header">
         <img src="images/logo.png" alt="Search Aggregator" class="project-logo">
         <h1>Project: Aggre</h1>
         <p class="tagline">
             A personal job listings aggregator that scrapes, stores, and displays job data from across the web.
         </p>
         <div class="cta-buttons">
-            <a href="https://github.com/tilooo/Aggre" target="_blank" rel="noopener noreferrer" class="cta-button primary">View on GitHub</a>
+            <!-- a button that links to the gallery section -->
+            <a href="#gallery" class="cta-button primary">
+                <i class="fas fa-play-circle"></i> Watch Demo
+            </a>
+            <a href="https://github.com/tilooo/Aggre" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
+                <i class="fab fa-github"></i> View on GitHub
+            </a>
         </div>
     </header>
 
