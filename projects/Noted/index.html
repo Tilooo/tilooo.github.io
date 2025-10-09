@@ -37,13 +37,7 @@ body::before {
     content: "";
     position: absolute;
     inset: 0;
-    /* Green–yellow gradient tint overlay */
-    background: linear-gradient(
-        to bottom right,
-        rgba(46, 125, 50, 0.25),   /* soft green */
-        rgba(249, 212, 35, 0.25)   /* soft yellow */
-    ),
-    rgba(255, 255, 255, 0.55); /* subtle white veil for readability */
+    background: rgba(255, 255, 255, 0.65); /* soft overlay for readability */
     backdrop-filter: blur(4px) brightness(1.05);
     -webkit-backdrop-filter: blur(4px) brightness(1.05);
     z-index: -1;
@@ -86,6 +80,27 @@ body::before {
             max-width: 650px;
             margin: 0 auto 40px;
         }
+
+        .hero-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
 
         /* Buttons */
         .btn {
@@ -248,14 +263,17 @@ body::before {
     <div class="container">
 
         <!-- HERO -->
-        <header class="hero" data-animate>
-            <h1 class="logo-text">Noted</h1>
-            <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
-            <div class="btn-wrapper">
-                <a href="https://github.com/tilooo/your-project-repository" class="btn">View on GitHub</a>
-                <a href="https://example.com" class="btn btn-secondary">Live Demo (Hypothetical)</a>
-            </div>
-        </header>
+<header class="hero" data-animate>
+    <div class="hero-logo">
+        <img src="images/logo.png" alt="Noted Logo" class="logo-img">
+        <h1 class="logo-text">Noted</h1>
+    </div>
+    <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
+    <div class="btn-wrapper">
+        <a href="https://github.com/tilooo/your-project-repository" class="btn">View on GitHub</a>
+        <a href="https://example.com" class="btn btn-secondary">Live Demo</a>
+    </div>
+</header>
 
         <!-- ABOUT -->
         <section class="section" data-animate>
