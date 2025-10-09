@@ -1,5 +1,3 @@
-<!-- templates/shop/base.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,85 +11,95 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* Global Styles & Background */
+        /* Global Styles */
+        :root {
+            --green-dark: #174004;
+            --green-light: #2e7d32;
+            --accent-yellow: #f9d423;
+            --bg-light: #fdfdf7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background: #fdfdf7;
-            background-image: radial-gradient(at 20% 20%, hsla(85, 80%, 92%, 1) 0px, transparent 50%),
-                              radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
-                              radial-gradient(at 75% 75%, hsla(60, 100%, 90%, 1) 0px, transparent 50%),
-                              radial-gradient(at 10% 80%, hsla(100, 90%, 95%, 1) 0px, transparent 50%);
+            background: var(--bg-light);
+            background-image:
+                radial-gradient(at 20% 20%, hsla(85, 80%, 92%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 75% 75%, hsla(60, 100%, 90%, 1) 0px, transparent 50%),
+                radial-gradient(at 10% 80%, hsla(100, 90%, 95%, 1) 0px, transparent 50%);
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
+            animation: fadeInBody 1.2s ease forwards;
         }
 
-        /* Layout & Sections */
+        @keyframes fadeInBody {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .container {
-            max-width: 960px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 60px 20px;
         }
 
         .section {
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px 80px;
         }
         .logo-text {
             font-family: 'Dancing Script', cursive;
             font-size: 5rem;
             font-weight: 700;
-            color: #174004;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.6);
+            color: var(--green-dark);
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7);
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
         .hero p {
             font-size: 1.2rem;
             color: #444;
             font-weight: 300;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Glass Card Style (for sections) */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(12px) saturate(150%);
-            -webkit-backdrop-filter: blur(12px) saturate(150%);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 10px 28px rgba(173, 209, 125, 0.25), 0 4px 10px rgba(0, 0, 0, 0.05);
-            padding: 30px;
+            max-width: 650px;
+            margin: 0 auto 40px;
         }
 
         /* Buttons */
         .btn {
-            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 40%, #f9d423 100%);
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 40%, var(--accent-yellow) 100%);
             color: white;
             text-decoration: none;
-            padding: 15px 35px;
+            padding: 14px 38px;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: all 0.35s ease;
             font-weight: 600;
             display: inline-block;
             box-shadow: 0 6px 18px rgba(46, 204, 113, 0.35);
+            letter-spacing: 0.5px;
         }
         .btn:hover {
-            transform: translateY(-3px) scale(1.05);
+            transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 25px rgba(46, 204, 113, 0.45);
         }
         .btn-secondary {
             background: transparent;
-            color: #2e7d32;
-            border: 1px solid #81c784;
+            color: var(--green-light);
+            border: 2px solid #81c784;
+            box-shadow: none;
+        }
+        .btn-secondary:hover {
+            background: rgba(129, 199, 132, 0.15);
         }
         .btn-wrapper {
             display: flex;
@@ -100,63 +108,135 @@
             flex-wrap: wrap;
         }
 
-        /* Section Headings */
-        .section-heading {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #174004;
-            text-align: center;
-            margin-bottom: 40px;
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(14px) saturate(150%);
+            -webkit-backdrop-filter: blur(14px) saturate(150%);
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 30px rgba(173, 209, 125, 0.25), 0 6px 14px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 34px rgba(173, 209, 125, 0.3);
         }
 
-        /* Features & Tech Stack */
+        /* Headings */
+        .section-heading {
+            font-size: 2.6rem;
+            font-weight: 600;
+            color: var(--green-dark);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #81c784, #f9d423);
+            border-radius: 2px;
+        }
+
+        /* Feature Lists */
         .feature-list, .tech-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            list-style-type: none;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            list-style: none;
             padding: 0;
         }
         .feature-item, .tech-item {
             background: rgba(255, 255, 255, 0.6);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 22px;
+            border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+            transition: all 0.3s ease;
+        }
+        .feature-item:hover, .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.08);
         }
         .feature-item strong, .tech-item strong {
-            color: #2e7d32;
+            color: var(--green-light);
             font-weight: 600;
         }
 
         /* Screenshots */
         .screenshots-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .screenshot {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 14px;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.3);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .screenshot:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 34px rgba(0,0,0,0.15);
         }
 
         /* Footer */
         .page-footer {
             text-align: center;
-            padding: 40px 20px;
-            margin-top: 60px;
-            color: #555;
+            padding: 50px 20px;
+            margin-top: 80px;
+            color: #666;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .page-footer a {
+            color: var(--green-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .page-footer a:hover {
+            text-decoration: underline;
         }
 
+        /* Scroll Animations */
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        [data-animate].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
-</head>
-<body>
 
+    <script>
+        // Scroll reveal animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const items = document.querySelectorAll("[data-animate]");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add("visible");
+                });
+            }, { threshold: 0.2 });
+            items.forEach(item => observer.observe(item));
+        });
+    </script>
+</head>
+
+<body>
     <div class="container">
 
-        <!-- HERO SECTION -->
-        <header class="hero">
+        <!-- HERO -->
+        <header class="hero" data-animate>
             <h1 class="logo-text">Noted</h1>
             <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
             <div class="btn-wrapper">
@@ -165,47 +245,47 @@
             </div>
         </header>
 
-        <!-- ABOUT THE PROJECT SECTION -->
-        <section class="section">
+        <!-- ABOUT -->
+        <section class="section" data-animate>
             <div class="glass-card">
                 <h2 class="section-heading">About This Project</h2>
-                <p style="text-align: center;">"Noted" was a comprehensive journey into full-stack web development. The goal was to build a complete, production-ready e-commerce application from scratch, focusing on a beautiful user interface and a robust back-end. The project covers the entire customer journey, from browsing products in a dynamic carousel, to a seamless "slide-out" cart experience, and finally to a secure payment process powered by Stripe. It was built with patience and creativity.</p>
+                <p style="text-align: center;">“Noted” was a comprehensive journey into full-stack web development. The goal was to build a complete, production-ready e-commerce application from scratch, focusing on a beautiful user interface and a robust back-end. The project covers the entire customer journey — from browsing products in a dynamic carousel, to a seamless slide-out cart experience, and finally a secure checkout powered by Stripe.</p>
             </div>
         </section>
 
-        <!-- FEATURES SECTION -->
-        <section class="section">
+        <!-- FEATURES -->
+        <section class="section" data-animate>
             <h2 class="section-heading">Key Features</h2>
             <ul class="feature-list">
-                <li class="feature-item"><strong>Glassmorphism UI:</strong> A stunning "frosted glass" design with a custom yellow-and-green theme.</li>
-                <li class="feature-item"><strong>Full E-commerce Flow:</strong> Includes product listings, detail pages, search, categories, and a full checkout.</li>
-                <li class="feature-item"><strong>Interactive Cart:</strong> A modern slide-out cart drawer for adding, updating, and removing items.</li>
-                <li class="feature-item"><strong>Stripe Payment Integration:</strong> Securely handles credit card payments in a test environment.</li>
-                <li class="feature-item"><strong>Dynamic Homepage:</strong> Features an autoplaying product carousel and "Shop by Category" section.</li>
-                <li class="feature-item"><strong>Django Admin:</strong> A powerful back-end for managing all store data, including products, categories, and orders.</li>
+                <li class="feature-item"><strong>Glassmorphism UI:</strong> A stunning “frosted glass” design with a custom yellow-and-green theme.</li>
+                <li class="feature-item"><strong>Full E-commerce Flow:</strong> Product listings, detail pages, search, categories, and checkout.</li>
+                <li class="feature-item"><strong>Interactive Cart:</strong> A slide-out cart drawer for adding, updating, and removing items.</li>
+                <li class="feature-item"><strong>Stripe Integration:</strong> Securely handles credit card payments in a test environment.</li>
+                <li class="feature-item"><strong>Dynamic Homepage:</strong> Includes an autoplaying product carousel and category showcase.</li>
+                <li class="feature-item"><strong>Django Admin:</strong> A full back-end to manage store data and orders.</li>
             </ul>
         </section>
 
-        <!-- SCREENSHOTS SECTION -->
-        <section class="section">
+        <!-- SCREENSHOTS -->
+        <section class="section" data-animate>
             <h2 class="section-heading">Screenshots</h2>
             <div class="screenshots-grid">
-                <img src="images/screenshot-homepage.jpg" alt="Screenshot of the Noted homepage" class="screenshot">
-                <img src="screenshot-checkout.jpg" alt="Screenshot of the checkout page" class="screenshot">
-                <img src="screenshot-cart.jpg" alt="Screenshot of the slide-out cart" class="screenshot">
+                <img src="images/screenshot-homepage.jpg" alt="Homepage Screenshot" class="screenshot">
+                <img src="screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
+                <img src="screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
             </div>
         </section>
 
-        <!-- TECHNOLOGY STACK SECTION -->
-        <section class="section">
+        <!-- TECHNOLOGY -->
+        <section class="section" data-animate>
             <h2 class="section-heading">Technology Stack</h2>
             <ul class="tech-list">
-                <li class="tech-item"><strong>Python & Django:</strong> For the entire back-end logic, database models, and server-side rendering.</li>
-                <li class="tech-item"><strong>HTML5 & CSS3:</strong> For structure and all the custom styling, animations, and responsive layouts.</li>
-                <li class="tech-item"><strong>JavaScript (ES6):</strong> For client-side interactivity, including the cart drawer and product carousel.</li>
-                <li class="tech-item"><strong>Swiper.js:</strong> A powerful library used to create the beautiful, touch-friendly product slider.</li>
-                <li class="tech-item"><strong>Stripe API:</strong> Integrated for secure and realistic payment processing.</li>
-                <li class="tech-item"><strong>SQLite3:</strong> The development database for storing all application data.</li>
+                <li class="tech-item"><strong>Python & Django:</strong> For back-end logic, models, and rendering.</li>
+                <li class="tech-item"><strong>HTML5 & CSS3:</strong> For structure, layout, and responsive design.</li>
+                <li class="tech-item"><strong>JavaScript (ES6):</strong> For interactivity, cart drawer, and carousel.</li>
+                <li class="tech-item"><strong>Swiper.js:</strong> Used for touch-friendly product sliders.</li>
+                <li class="tech-item"><strong>Stripe API:</strong> Handles secure test payments.</li>
+                <li class="tech-item"><strong>SQLite3:</strong> Development database for data persistence.</li>
             </ul>
         </section>
 
@@ -214,8 +294,6 @@
             <p>Thank you for viewing this project!</p>
             <p><a href="https://tilooo.github.io/">&larr; Back to Main Portfolio</a></p>
         </footer>
-
     </div>
-
 </body>
 </html>
