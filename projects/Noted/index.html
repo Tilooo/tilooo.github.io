@@ -24,19 +24,25 @@
         }
 
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-light);
-            background-image:
-                radial-gradient(at 20% 20%, hsla(85, 80%, 92%, 1) 0px, transparent 50%),
-                radial-gradient(at 80% 25%, hsla(140, 80%, 90%, 1) 0px, transparent 50%),
-                radial-gradient(at 75% 75%, hsla(60, 100%, 90%, 1) 0px, transparent 50%),
-                radial-gradient(at 10% 80%, hsla(100, 90%, 95%, 1) 0px, transparent 50%);
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-            animation: fadeInBody 1.2s ease forwards;
-        }
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: url('images/background.png') center/cover no-repeat fixed;
+    color: #333;
+    line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.65); /* soft overlay for readability */
+    backdrop-filter: blur(4px) brightness(1.05);
+    -webkit-backdrop-filter: blur(4px) brightness(1.05);
+    z-index: -1;
+}
+
 
         @keyframes fadeInBody {
             from { opacity: 0; transform: translateY(10px); }
