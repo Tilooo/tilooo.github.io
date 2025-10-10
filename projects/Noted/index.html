@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <style>
-        /* Global Styles */
+        /* Global Variables */
         :root {
             --green-dark: #174004;
             --green-light: #2e7d32;
@@ -24,29 +24,23 @@
         }
 
         body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    background: url('images/background.png') center/cover no-repeat fixed;
-    color: #333;
-    line-height: 1.6;
-    position: relative;
-}
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: url('images/background.png') center/cover no-repeat fixed;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+        }
 
-body::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.65); /* soft overlay for readability */
-    backdrop-filter: blur(4px) brightness(1.05);
-    -webkit-backdrop-filter: blur(4px) brightness(1.05);
-    z-index: -1;
-}
-
-
-        @keyframes fadeInBody {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(4px) brightness(1.05);
+            -webkit-backdrop-filter: blur(4px) brightness(1.05);
+            z-index: -1;
         }
 
         .container {
@@ -59,48 +53,90 @@ body::before {
             margin-bottom: 80px;
         }
 
-        /* Hero Section */
+        /* * *Hero Section* * */
         .hero {
             text-align: center;
             padding: 100px 20px 80px;
         }
+
+        /* Slide-in animation */
+        @keyframes slideInTogether {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-4px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: slideInTogether 1.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
         .logo-text {
             font-family: 'Dancing Script', cursive;
             font-size: 5rem;
             font-weight: 700;
             color: var(--green-dark);
+            margin: 0;
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7);
-            margin-bottom: 10px;
             letter-spacing: 1px;
+            animation: textGlow 2s ease-out 1.2s forwards;
         }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7); }
+            100% { text-shadow: 0 4px 22px rgba(255, 255, 255, 0.9); }
+        }
+
         .hero p {
             font-size: 1.2rem;
             color: #444;
             font-weight: 300;
             max-width: 650px;
             margin: 0 auto 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.2s ease forwards;
+            animation-delay: 1.3s;
         }
 
-        .hero-logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-    margin-bottom: 20px;
-}
-
-.logo-img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* Buttons */
         .btn {
@@ -115,19 +151,23 @@ body::before {
             box-shadow: 0 6px 18px rgba(46, 204, 113, 0.35);
             letter-spacing: 0.5px;
         }
+
         .btn:hover {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 25px rgba(46, 204, 113, 0.45);
         }
+
         .btn-secondary {
             background: transparent;
             color: var(--green-light);
             border: 2px solid #81c784;
             box-shadow: none;
         }
+
         .btn-secondary:hover {
             background: rgba(129, 199, 132, 0.15);
         }
+
         .btn-wrapper {
             display: flex;
             justify-content: center;
@@ -146,12 +186,13 @@ body::before {
             padding: 40px 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .glass-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 16px 34px rgba(173, 209, 125, 0.3);
         }
 
-        /* Headings */
+        /* Section Headings */
         .section-heading {
             font-size: 2.6rem;
             font-weight: 600;
@@ -160,6 +201,7 @@ body::before {
             margin-bottom: 50px;
             position: relative;
         }
+
         .section-heading::after {
             content: '';
             position: absolute;
@@ -172,7 +214,7 @@ body::before {
             border-radius: 2px;
         }
 
-        /* Feature Lists */
+        /* Lists */
         .feature-list, .tech-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -180,6 +222,7 @@ body::before {
             list-style: none;
             padding: 0;
         }
+
         .feature-item, .tech-item {
             background: rgba(255, 255, 255, 0.6);
             padding: 22px;
@@ -188,10 +231,12 @@ body::before {
             box-shadow: 0 6px 14px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
         }
+
         .feature-item:hover, .tech-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 22px rgba(0,0,0,0.08);
         }
+
         .feature-item strong, .tech-item strong {
             color: var(--green-light);
             font-weight: 600;
@@ -203,6 +248,7 @@ body::before {
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
+
         .screenshot {
             width: 100%;
             border-radius: 14px;
@@ -210,6 +256,7 @@ body::before {
             border: 1px solid rgba(255,255,255,0.3);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
+
         .screenshot:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 34px rgba(0,0,0,0.15);
@@ -224,59 +271,37 @@ body::before {
             font-size: 0.95rem;
             border-top: 1px solid rgba(0,0,0,0.05);
         }
+
         .page-footer a {
             color: var(--green-light);
             text-decoration: none;
             font-weight: 500;
         }
+
         .page-footer a:hover {
             text-decoration: underline;
         }
-
-        /* Scroll Animations */
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        [data-animate].visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
-
-    <script>
-        // Scroll reveal animation
-        document.addEventListener("DOMContentLoaded", () => {
-            const items = document.querySelectorAll("[data-animate]");
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add("visible");
-                });
-            }, { threshold: 0.2 });
-            items.forEach(item => observer.observe(item));
-        });
-    </script>
 </head>
 
 <body>
     <div class="container">
 
         <!-- HERO -->
-<header class="hero" data-animate>
-    <div class="hero-logo">
-        <img src="images/logo.png" alt="Noted Logo" class="logo-img">
-        <h1 class="logo-text">Noted</h1>
-    </div>
-    <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
-    <div class="btn-wrapper">
-        <a href="https://github.com/tilooo/your-project-repository" class="btn">View on GitHub</a>
-        <a href="https://example.com" class="btn btn-secondary">Live Demo</a>
-    </div>
-</header>
+        <header class="hero">
+            <div class="hero-logo">
+                <img src="images/logo.png" alt="Noted Logo" class="logo-img">
+                <h1 class="logo-text">Noted</h1>
+            </div>
+            <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
+            <div class="btn-wrapper">
+                <a href="https://github.com/tilooo/your-project-repository" class="btn">View on GitHub</a>
+                <a href="https://example.com" class="btn btn-secondary">Live Demo (Hypothetical)</a>
+            </div>
+        </header>
 
         <!-- ABOUT -->
-        <section class="section" data-animate>
+        <section class="section">
             <div class="glass-card">
                 <h2 class="section-heading">About This Project</h2>
                 <p style="text-align: center;">“Noted” was a comprehensive journey into full-stack web development. The goal was to build a complete, production-ready e-commerce application from scratch, focusing on a beautiful user interface and a robust back-end. The project covers the entire customer journey — from browsing products in a dynamic carousel, to a seamless slide-out cart experience, and finally a secure checkout powered by Stripe.</p>
@@ -284,7 +309,7 @@ body::before {
         </section>
 
         <!-- FEATURES -->
-        <section class="section" data-animate>
+        <section class="section">
             <h2 class="section-heading">Key Features</h2>
             <ul class="feature-list">
                 <li class="feature-item"><strong>Glassmorphism UI:</strong> A stunning “frosted glass” design with a custom yellow-and-green theme.</li>
@@ -297,17 +322,17 @@ body::before {
         </section>
 
         <!-- SCREENSHOTS -->
-        <section class="section" data-animate>
+        <section class="section">
             <h2 class="section-heading">Screenshots</h2>
             <div class="screenshots-grid">
                 <img src="images/screenshot-homepage.jpg" alt="Homepage Screenshot" class="screenshot">
-                <img src="screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
-                <img src="screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
+                <img src="images/screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
+                <img src="images/screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
             </div>
         </section>
 
         <!-- TECHNOLOGY -->
-        <section class="section" data-animate>
+        <section class="section">
             <h2 class="section-heading">Technology Stack</h2>
             <ul class="tech-list">
                 <li class="tech-item"><strong>Python & Django:</strong> For back-end logic, models, and rendering.</li>
@@ -324,6 +349,7 @@ body::before {
             <p>Thank you for viewing this project!</p>
             <p><a href="https://tilooo.github.io/">&larr; Back to Main Portfolio</a></p>
         </footer>
+
     </div>
 </body>
 </html>
