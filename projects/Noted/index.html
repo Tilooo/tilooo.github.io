@@ -152,9 +152,10 @@
             letter-spacing: 0.5px;
         }
 
-        .btn:hover {
+        .btn:hover, .btn:focus {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 25px rgba(46, 204, 113, 0.45);
+            outline: none;
         }
 
         .btn-secondary {
@@ -164,8 +165,10 @@
             box-shadow: none;
         }
 
-        .btn-secondary:hover {
+        .btn-secondary:hover, .btn-secondary:focus {
             background: rgba(129, 199, 132, 0.15);
+            outline: 2px solid var(--green-light);
+            outline-offset: 2px;
         }
 
         .btn-wrapper {
@@ -190,6 +193,10 @@
         .glass-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 16px 34px rgba(173, 209, 125, 0.3);
+        }
+
+        .text-center {
+            text-align: center;
         }
 
         /* Section Headings */
@@ -278,8 +285,26 @@
             font-weight: 500;
         }
 
-        .page-footer a:hover {
+        .page-footer a:hover, .page-footer a:focus {
             text-decoration: underline;
+            outline: 2px solid var(--green-light);
+            outline-offset: 2px;
+        }
+
+        /* Reduced Motion Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
     </style>
 </head>
@@ -288,61 +313,63 @@
     <div class="container">
 
         <!-- HERO -->
-        <header class="hero">
+        <header class="hero section">
             <div class="hero-logo">
                 <img src="images/logo.png" alt="Noted Logo" class="logo-img">
                 <h1 class="logo-text">Noted</h1>
             </div>
             <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
-            <div class="btn-wrapper">
-                <a href="https://github.com/tilooo/your-project-repository" class="btn">View on GitHub</a>
-                <a href="https://example.com" class="btn btn-secondary">Live Demo (Hypothetical)</a>
-            </div>
+            <nav class="btn-wrapper" aria-label="Project Links">
+                <a href="https://github.com/tilooo/your-project-repository" class="btn" aria-label="View on GitHub">View on GitHub</a>
+                <a href="https://example.com" class="btn btn-secondary" aria-label="View the Live Demo">Live Demo (Hypothetical)</a>
+            </nav>
         </header>
 
-        <!-- ABOUT -->
-        <section class="section">
-            <div class="glass-card">
-                <h2 class="section-heading">About This Project</h2>
-                <p style="text-align: center;">“Noted” was a comprehensive journey into full-stack web development. The goal was to build a complete, production-ready e-commerce application from scratch, focusing on a beautiful user interface and a robust back-end. The project covers the entire customer journey — from browsing products in a dynamic carousel, to a seamless slide-out cart experience, and finally a secure checkout powered by Stripe.</p>
-            </div>
-        </section>
+        <main>
+            <!-- ABOUT -->
+            <section class="section">
+                <div class="glass-card">
+                    <h2 class="section-heading">About This Project</h2>
+                    <p class="text-center">“Noted” was a comprehensive journey into full-stack web development. The goal was to build a complete, production-ready e-commerce application from scratch, focusing on a beautiful user interface and a robust back-end. The project covers the entire customer journey — from browsing products in a dynamic carousel, to a seamless slide-out cart experience, and finally a secure checkout powered by Stripe.</p>
+                </div>
+            </section>
 
-        <!-- FEATURES -->
-        <section class="section">
-            <h2 class="section-heading">Key Features</h2>
-            <ul class="feature-list">
-                <li class="feature-item"><strong>Glassmorphism UI:</strong> A stunning “frosted glass” design with a custom yellow-and-green theme.</li>
-                <li class="feature-item"><strong>Full E-commerce Flow:</strong> Product listings, detail pages, search, categories, and checkout.</li>
-                <li class="feature-item"><strong>Interactive Cart:</strong> A slide-out cart drawer for adding, updating, and removing items.</li>
-                <li class="feature-item"><strong>Stripe Integration:</strong> Securely handles credit card payments in a test environment.</li>
-                <li class="feature-item"><strong>Dynamic Homepage:</strong> Includes an autoplaying product carousel and category showcase.</li>
-                <li class="feature-item"><strong>Django Admin:</strong> A full back-end to manage store data and orders.</li>
-            </ul>
-        </section>
+            <!-- FEATURES -->
+            <section class="section">
+                <h2 class="section-heading">Key Features</h2>
+                <ul class="feature-list" role="list">
+                    <li class="feature-item"><strong>Glassmorphism UI:</strong> A stunning “frosted glass” design with a custom yellow-and-green theme.</li>
+                    <li class="feature-item"><strong>Full E-commerce Flow:</strong> Product listings, detail pages, search, categories, and checkout.</li>
+                    <li class="feature-item"><strong>Interactive Cart:</strong> A slide-out cart drawer for adding, updating, and removing items.</li>
+                    <li class="feature-item"><strong>Stripe Integration:</strong> Securely handles credit card payments in a test environment.</li>
+                    <li class="feature-item"><strong>Dynamic Homepage:</strong> Includes an autoplaying product carousel and category showcase.</li>
+                    <li class="feature-item"><strong>Django Admin:</strong> A full back-end to manage store data and orders.</li>
+                </ul>
+            </section>
 
-        <!-- SCREENSHOTS -->
-        <section class="section">
-            <h2 class="section-heading">Screenshots</h2>
-            <div class="screenshots-grid">
-                <img src="images/screenshot-homepage.jpg" alt="Homepage Screenshot" class="screenshot">
-                <img src="images/screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
-                <img src="images/screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
-            </div>
-        </section>
+            <!-- SCREENSHOTS -->
+            <section class="section">
+                <h2 class="section-heading">Screenshots</h2>
+                <div class="screenshots-grid">
+                    <img src="images/screenshot-homepage.jpg" alt="Homepage Screenshot" class="screenshot">
+                    <img src="images/screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
+                    <img src="images/screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
+                </div>
+            </section>
 
-        <!-- TECHNOLOGY -->
-        <section class="section">
-            <h2 class="section-heading">Technology Stack</h2>
-            <ul class="tech-list">
-                <li class="tech-item"><strong>Python & Django:</strong> For back-end logic, models, and rendering.</li>
-                <li class="tech-item"><strong>HTML5 & CSS3:</strong> For structure, layout, and responsive design.</li>
-                <li class="tech-item"><strong>JavaScript (ES6):</strong> For interactivity, cart drawer, and carousel.</li>
-                <li class="tech-item"><strong>Swiper.js:</strong> Used for touch-friendly product sliders.</li>
-                <li class="tech-item"><strong>Stripe API:</strong> Handles secure test payments.</li>
-                <li class="tech-item"><strong>SQLite3:</strong> Development database for data persistence.</li>
-            </ul>
-        </section>
+            <!-- TECHNOLOGY -->
+            <section class="section">
+                <h2 class="section-heading">Technology Stack</h2>
+                <ul class="tech-list" role="list">
+                    <li class="tech-item"><strong>Python & Django:</strong> For back-end logic, models, and rendering.</li>
+                    <li class="tech-item"><strong>HTML5 & CSS3:</strong> For structure, layout, and responsive design.</li>
+                    <li class="tech-item"><strong>JavaScript (ES6):</strong> For interactivity, cart drawer, and carousel.</li>
+                    <li class="tech-item"><strong>Swiper.js:</strong> Used for touch-friendly product sliders.</li>
+                    <li class="tech-item"><strong>Stripe API:</strong> Handles secure test payments.</li>
+                    <li class="tech-item"><strong>SQLite3:</strong> Development database for data persistence.</li>
+                </ul>
+            </section>
+        </main>
 
         <!-- FOOTER -->
         <footer class="page-footer">
