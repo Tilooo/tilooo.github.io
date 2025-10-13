@@ -56,7 +56,7 @@
         /* * *Hero Section* * */
         .hero {
             text-align: center;
-            padding: 40px 20px 0;
+            padding-top: 0;
         }
 
         /* Slide-in animation */
@@ -81,10 +81,14 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
+            /* initial state for animation */
             opacity: 0;
             transform: translateY(40px);
-            animation: slideInTogether 1.2s ease-out forwards;
-            animation-delay: 0.2s;
+        }
+
+        /* trigger animation when .is-visible class */
+        .hero.is-visible .hero-logo {
+            animation: slideInTogether 1.2s ease-out forwards 0.2s;
         }
 
         .logo-img {
@@ -107,6 +111,9 @@
             margin: 0;
             text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7);
             letter-spacing: 1px;
+        }
+
+        .hero.is-visible .logo-text {
             animation: textGlow 2s ease-out 1.2s forwards;
         }
 
@@ -121,10 +128,13 @@
             font-weight: 300;
             max-width: 650px;
             margin: 0 auto 40px;
+            /* initial state for animation */
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeInUp 1.2s ease forwards;
-            animation-delay: 1.3s;
+        }
+
+        .hero.is-visible p {
+            animation: fadeInUp 1.2s ease forwards 1.3s;
         }
 
         @keyframes fadeInUp {
@@ -313,7 +323,7 @@
     <div class="container">
 
         <!-- HERO -->
-        <header class="hero section">
+        <header id="hero-section" class="hero section">
             <div class="glass-card">
                 <div class="hero-logo">
                     <img src="images/logo.png" alt="Noted Logo" class="logo-img">
@@ -380,5 +390,32 @@
         </footer>
 
     </div>
+
+    <!-- Javascript for scroll triggered animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.querySelector('#hero-section');
+
+            // Options for the intersection observer
+            const options = {
+                root: null, // observes intersections relative to the viewport
+                rootMargin: '0px',
+                threshold: 0.4 // trigger when 40% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // the class to trigger the animation
+                        heroSection.classList.add('is-visible');
+                    } else {
+                        heroSection.classList.remove('is-visible');
+                    }
+                });
+            }, options);
+
+            observer.observe(heroSection);
+        });
+    </script>
 </body>
 </html>
