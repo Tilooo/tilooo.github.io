@@ -10,6 +10,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         /* Global Variables */
         :root {
@@ -41,6 +44,34 @@
             backdrop-filter: blur(4px) brightness(1.05);
             -webkit-backdrop-filter: blur(4px) brightness(1.05);
             z-index: -1;
+        }
+
+        /* Back Button Style */
+        .back-button {
+            position: fixed;
+            top: 1.25rem;
+            left: 1.25rem;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background-color: rgba(46, 125, 50, 0.7); /* green-light with transparency */
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .back-button:hover {
+            background-color: var(--green-dark);
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .container {
@@ -82,12 +113,10 @@
             justify-content: center;
             gap: 10px;
             margin-bottom: 20px;
-            /* Initial state for animation */
             opacity: 0;
             transform: translateY(40px);
         }
 
-        /* Trigger animation when .is-visible class */
         .hero.is-visible .hero-logo {
             animation: slideInTogether 1.2s ease-out forwards 0.2s;
         }
@@ -129,7 +158,6 @@
             font-weight: 300;
             max-width: 650px;
             margin: 0 auto 40px;
-            /* Initial state for animation */
             opacity: 0;
             transform: translateY(20px);
         }
@@ -273,7 +301,7 @@
             box-shadow: 0 10px 28px rgba(0,0,0,0.1);
             border: 1px solid rgba(255,255,255,0.3);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            display: block; /* removes any extra space below the image */
+            display: block;
         }
 
         .screenshot:hover {
@@ -322,8 +350,13 @@
 </head>
 
 <body>
-    <div class="container">
 
+    <!-- Back to Portfolio Button -->
+    <a href="https://tilooo.github.io/" class="back-button" title="Back to Portfolio">
+       <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <div class="container">
         <!-- HERO -->
         <header id="hero-section" class="hero">
             <div class="glass-card">
@@ -392,36 +425,31 @@
         <!-- FOOTER -->
         <footer class="page-footer">
             <p>Thank you for viewing this project!</p>
-            <p><a href="https://tilooo.github.io/">&larr; Back to Main Portfolio</a></p>
         </footer>
 
     </div>
 
-    <!-- JAVASCRIPT FOR SCROLL-TRIGGERED ANIMATION -->
+    <!-- Javascript for scroll triggered animation -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const heroSection = document.querySelector('#hero-section');
 
-            // Options for the Intersection Observer
             const options = {
-                root: null, // observes intersections relative to the viewport
+                root: null,
                 rootMargin: '0px',
-                threshold: 0.4 // trigger when 40% of the element is visible
+                threshold: 0.4
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // the class to trigger the animation
                         heroSection.classList.add('is-visible');
                     } else {
-                        // the class to reset the animation
                         heroSection.classList.remove('is-visible');
                     }
                 });
             }, options);
 
-            // observing the hero section
             observer.observe(heroSection);
         });
     </script>
