@@ -7,7 +7,7 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
@@ -319,18 +319,6 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
-        .page-footer a {
-            color: var(--green-light);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .page-footer a:hover, .page-footer a:focus {
-            text-decoration: underline;
-            outline: 2px solid var(--green-light);
-            outline-offset: 2px;
-        }
-
         /* Reduced motion accessibility */
         @media (prefers-reduced-motion: reduce) {
             html {
@@ -367,7 +355,7 @@
                 <p>A beautiful, full-stack e-commerce store built with Python & Django, featuring a modern glassmorphism design.</p>
                 <nav class="btn-wrapper" aria-label="Project Links">
                     <a href="https://github.com/tilooo/your-project-repository" class="btn" aria-label="View on GitHub">View on GitHub</a>
-                    <a href="https://example.com" class="btn btn-secondary" aria-label="View the Live Demo">Live Demo (Hypothetical)</a>
+                    <a href="#screenshots" class="btn btn-secondary" aria-label="View the Demo Screenshots">View Demo</a>
                 </nav>
             </div>
         </header>
@@ -400,7 +388,7 @@
             </section>
 
             <!-- SCREENSHOTS -->
-            <section class="section">
+            <section id="screenshots" class="section">
                 <h2 class="section-heading">Screenshots</h2>
                 <div class="screenshots-grid">
                     <img src="images/screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
