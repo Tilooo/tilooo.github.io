@@ -7,11 +7,14 @@
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- BasicLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css">
 
     <style>
         /* Global Variables */
@@ -51,13 +54,13 @@
             position: fixed;
             top: 1.25rem;
             left: 1.25rem;
-            z-index: 50;
+            z-index: 1001; /* it's above the lightbox overlay */
             display: flex;
             align-items: center;
             justify-content: center;
             width: 3rem;
             height: 3rem;
-            background-color: rgba(46, 125, 50, 0.7); /* green-light with transparency */
+            background-color: rgba(46, 125, 50, 0.7);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             color: white;
@@ -84,27 +87,17 @@
             margin-bottom: 80px;
         }
 
-        /* * *Hero Section* * */
+        /* Hero Section */
         .hero {
             text-align: center;
             padding-top: 0;
             margin-bottom: 80px;
         }
 
-        /* Slide-in animation */
         @keyframes slideInTogether {
-            0% {
-                opacity: 0;
-                transform: translateY(40px) scale(0.95);
-            }
-            60% {
-                opacity: 1;
-                transform: translateY(-4px) scale(1.02);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+            0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+            60% { opacity: 1; transform: translateY(-4px) scale(1.02); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .hero-logo {
@@ -129,9 +122,7 @@
             transition: transform 0.3s ease;
         }
 
-        .logo-img:hover {
-            transform: scale(1.05);
-        }
+        .logo-img:hover { transform: scale(1.05); }
 
         .logo-text {
             font-family: 'Dancing Script', cursive;
@@ -143,10 +134,7 @@
             letter-spacing: 1px;
         }
 
-        .hero.is-visible .logo-text {
-            animation: textGlow 2s ease-out 1.2s forwards;
-        }
-
+        .hero.is-visible .logo-text { animation: textGlow 2s ease-out 1.2s forwards; }
         @keyframes textGlow {
             0% { text-shadow: 0 2px 10px rgba(255, 255, 255, 0.7); }
             100% { text-shadow: 0 4px 22px rgba(255, 255, 255, 0.9); }
@@ -162,19 +150,10 @@
             transform: translateY(20px);
         }
 
-        .hero.is-visible p {
-            animation: fadeInUp 1.2s ease forwards 1.3s;
-        }
-
+        .hero.is-visible p { animation: fadeInUp 1.2s ease forwards 1.3s; }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Buttons */
@@ -190,32 +169,23 @@
             box-shadow: 0 6px 18px rgba(46, 204, 113, 0.35);
             letter-spacing: 0.5px;
         }
-
         .btn:hover, .btn:focus {
             transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 25px rgba(46, 204, 113, 0.45);
             outline: none;
         }
-
         .btn-secondary {
             background: transparent;
             color: var(--green-light);
             border: 2px solid #81c784;
             box-shadow: none;
         }
-
         .btn-secondary:hover, .btn-secondary:focus {
             background: rgba(129, 199, 132, 0.15);
             outline: 2px solid var(--green-light);
             outline-offset: 2px;
         }
-
-        .btn-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+        .btn-wrapper { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
         /* Glass Card */
         .glass-card {
@@ -228,15 +198,12 @@
             padding: 40px 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .glass-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 16px 34px rgba(173, 209, 125, 0.3);
         }
 
-        .text-center {
-            text-align: center;
-        }
+        .text-center { text-align: center; }
 
         /* Section Headings */
         .section-heading {
@@ -247,7 +214,6 @@
             margin-bottom: 50px;
             position: relative;
         }
-
         .section-heading::after {
             content: '';
             position: absolute;
@@ -268,7 +234,6 @@
             list-style: none;
             padding: 0;
         }
-
         .feature-item, .tech-item {
             background: rgba(255, 255, 255, 0.6);
             padding: 22px;
@@ -277,12 +242,10 @@
             box-shadow: 0 6px 14px rgba(0,0,0,0.04);
             transition: all 0.3s ease;
         }
-
         .feature-item:hover, .tech-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 22px rgba(0,0,0,0.08);
         }
-
         .feature-item strong, .tech-item strong {
             color: var(--green-light);
             font-weight: 600;
@@ -294,7 +257,6 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
-
         .screenshot {
             width: 100%;
             border-radius: 14px;
@@ -303,10 +265,10 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             display: block;
         }
-
         .screenshot:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 34px rgba(0,0,0,0.15);
+            cursor: zoom-in; /* indicates the image is clickable */
         }
 
         /* Footer */
@@ -321,13 +283,8 @@
 
         /* Reduced motion accessibility */
         @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
@@ -393,7 +350,7 @@
                 <div class="screenshots-grid">
                     <img src="images/screenshot-checkout.jpg" alt="Checkout Screenshot" class="screenshot">
                     <img src="images/screenshot-cart.jpg" alt="Cart Screenshot" class="screenshot">
-                    <img src="images/screenshot-thankyou.jpg" alt="Thankyou Screenshot" class="screenshot">
+                    <img src="images/screenshot-thankyou.jpg" alt="Thank You Page Screenshot" class="screenshot">
                 </div>
             </section>
 
@@ -415,21 +372,17 @@
         <footer class="page-footer">
             <p>Thank you for viewing this project!</p>
         </footer>
-
     </div>
 
-    <!-- Javascript for scroll triggered animation -->
+    <!-- BasicLightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Scroll-triggered animation for hero section
             const heroSection = document.querySelector('#hero-section');
-
-            const options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.4
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         heroSection.classList.add('is-visible');
@@ -437,9 +390,18 @@
                         heroSection.classList.remove('is-visible');
                     }
                 });
-            }, options);
-
+            }, { threshold: 0.4 });
             observer.observe(heroSection);
+
+            // Lightbox for all screenshots
+            const screenshots = document.querySelectorAll('.screenshot');
+            screenshots.forEach(img => {
+                img.addEventListener('click', () => {
+                    basicLightbox.create(`
+                        <img src="${img.src}" alt="${img.alt}" style="max-width: 90vw; max-height: 90vh;">
+                    `).show();
+                });
+            });
         });
     </script>
 </body>
