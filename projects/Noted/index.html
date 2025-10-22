@@ -54,7 +54,7 @@
             position: fixed;
             top: 1.25rem;
             left: 1.25rem;
-            z-index: 1001; /* it's above the lightbox overlay */
+            z-index: 1001;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -268,18 +268,29 @@
         .screenshot:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 34px rgba(0,0,0,0.15);
-            cursor: zoom-in; /* indicates the image is clickable */
+            cursor: zoom-in; /* the image is clickable */
         }
 
         /* Footer */
         .page-footer {
             text-align: center;
-            padding: 50px 20px;
-            margin-top: 80px;
+            padding: 50px 20px 40px; /* bottom padding */
+            margin-top: 40px; /* top margin */
             color: #666;
             font-size: 0.95rem;
             border-top: 1px solid rgba(0,0,0,0.05);
         }
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: -1rem;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        .footer-logo:hover {
+            opacity: 1;
+        }
+
 
         /* Reduced motion accessibility */
         @media (prefers-reduced-motion: reduce) {
@@ -370,6 +381,7 @@
 
         <!-- FOOTER -->
         <footer class="page-footer">
+            <img src="images/logo.png" alt="Noted Logo" class="footer-logo">
             <p>Thank you for viewing this project!</p>
         </footer>
     </div>
