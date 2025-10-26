@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Details: Solaris</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for the back arrow icon -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Core Styles */
@@ -55,7 +55,6 @@
             font-size: 1.25rem;
         }
 
-
         /* Page Layout & Containers */
         .project-showcase {
             display: flex;
@@ -90,6 +89,19 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap; /* helps on smaller screens */
+        }
+
+        .project-logo {
+            width: 50px;
+            height: 50px;
         }
 
         .project-header h1 {
@@ -220,6 +232,39 @@
              box-shadow: 0 5px 20px rgba(168, 85, 247, 0.4);
         }
 
+        /* Footer Styles */
+        .page-footer {
+            width: 100%;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--secondary-text);
+            font-size: 1.6rem; /* Slightly larger for better visibility */
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: var(--primary-text);
+            transform: translateY(-3px);
+        }
+
+        .page-footer p {
+            margin: 0;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .project-header { padding: 40px 25px; }
@@ -231,6 +276,16 @@
 </head>
 <body>
 
+    <!-- SVG Gradient Definition for Logo -->
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#3B82F6;" />
+                <stop offset="100%" style="stop-color:#A855F7;" />
+            </linearGradient>
+        </defs>
+    </svg>
+
     <!-- Back button -->
     <a href="https://tilooo.github.io/projects.html" class="back-button" title="Go Back">
        <i class="fas fa-arrow-left"></i>
@@ -240,7 +295,14 @@
         <div class="project-container">
 
             <header class="project-header">
-                <h1>Project: Solaris</h1>
+                <div class="project-title">
+                    <!-- Simple SVG Sun Logo -->
+                    <svg class="project-logo" viewBox="0 0 24 24" fill="url(#logo-gradient)" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C12.5523 2 13 2.44772 13 3V4C13 4.55228 12.5523 5 12 5C11.4477 5 11 4.55228 11 4V3C11 2.44772 11.4477 2 12 2ZM4.92893 4.92893C5.31946 4.53841 5.95262 4.53841 6.34315 4.92893L7.05025 5.63604C7.44077 6.02656 7.44077 6.65973 7.05025 7.05025C6.65973 7.44077 6.02656 7.44077 5.63604 7.05025L4.92893 6.34315C4.53841 5.95262 4.53841 5.31946 4.92893 4.92893ZM2 12C2 11.4477 2.44772 11 3 11H4C4.55228 11 5 11.4477 5 12C5 12.5523 4.55228 13 4 13H3C2.44772 13 2 12.5523 2 12ZM4.92893 19.0711C4.53841 18.6805 4.53841 18.0474 4.92893 17.6569L5.63604 16.9497C6.02656 16.5592 6.65973 16.5592 7.05025 16.9497C7.44077 17.3403 7.44077 17.9734 7.05025 18.364L6.34315 19.0711C5.95262 19.4616 5.31946 19.4616 4.92893 19.0711ZM12 22C12.5523 22 13 21.5523 13 21V20C13 19.4477 12.5523 19 12 19C11.4477 19 11 19.4477 11 20V21C11 21.5523 11.4477 22 12 22ZM19.0711 19.0711C19.4616 18.6805 19.4616 18.0474 19.0711 17.6569L18.364 16.9497C17.9734 16.5592 17.3403 16.5592 16.9497 16.9497C16.5592 17.3403 16.5592 17.9734 16.9497 18.364L17.6569 19.0711C18.0474 19.4616 18.6805 19.4616 19.0711 19.0711ZM22 12C22 12.5523 21.5523 13 21 13H20C19.4477 13 19 12.5523 19 12C19 11.4477 19.4477 11 20 11H21C21.5523 11 22 11.4477 22 12ZM19.0711 4.92893C18.6805 4.53841 18.0474 4.53841 17.6569 4.92893L16.9497 5.63604C16.5592 6.02656 16.5592 6.65973 16.9497 7.05025C17.3403 7.44077 17.9734 7.44077 18.364 7.05025L19.0711 6.34315C19.4616 5.95262 19.4616 5.31946 19.0711 4.92893Z"/>
+                    </svg>
+                    <h1>Project: Solaris</h1>
+                </div>
                 <p>A sleek, modern, and fully responsive website concept for a futuristic solar energy company. This project showcases a dark-mode UI with vibrant gradients and glassmorphism effects.</p>
                 <div class="cta-buttons">
                     <button id="fullscreen-btn" class="cta-button secondary">Watch Fullscreen Demo</button>
@@ -308,6 +370,14 @@
 
         </div>
     </main>
+
+    <!-- Simple Page Footer -->
+    <footer class="page-footer">
+        <div class="footer-socials">
+            <a href="https://github.com/Tilooo" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Tilo. All Rights Reserved.</p>
+    </footer>
 
     <!-- JavaScript for Fullscreen Functionality -->
     <script>
