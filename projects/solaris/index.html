@@ -104,7 +104,7 @@
             top: 50%;
             transform: translateY(-50%);
             right: 100%;
-            margin-right: 20px; /* a gap between the logo and title */
+            margin-right: 20px;
             width: 60px;
             height: 60px;
             object-fit: contain;
@@ -238,7 +238,7 @@
              box-shadow: 0 5px 20px rgba(168, 85, 247, 0.4);
         }
 
-        /* Simple Footer Styles */
+        /* Footer Styles */
         .page-footer {
             width: 100%;
             padding: 40px 20px;
@@ -250,18 +250,18 @@
         .footer-socials {
             display: flex;
             justify-content: center;
-            gap: 25px;
             margin-bottom: 20px;
         }
 
-        .footer-socials a {
-            color: var(--secondary-text);
-            font-size: 1.6rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+        .footer-logo {
+            height: 40px; /* the size of the logo */
+            width: auto;
+            opacity: 0.75;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
-        .footer-socials a:hover {
-            color: var(--primary-text);
+        .footer-socials a:hover .footer-logo {
+            opacity: 1;
             transform: translateY(-3px);
         }
 
@@ -368,7 +368,9 @@
     <!-- Simple Page Footer -->
     <footer class="page-footer">
         <div class="footer-socials">
-            <a href="https://github.com/Tilooo" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+            <a href="https://github.com/Tilooo/Solaris" target="_blank" aria-label="View Project on GitHub">
+                <img src="images/solaris-logo.png" alt="Solaris Logo" class="footer-logo">
+            </a>
         </div>
         <p>&copy; 2025 Tilo. All Rights Reserved.</p>
     </footer>
