@@ -101,9 +101,9 @@
         .project-header .logo {
             max-width: 150px;
             height: auto;
-            margin-bottom: 0px;
+            margin-bottom: -10px;
             margin-top: -90px;
-            border-radius: 10px; /* rounded corners for the logo */
+            animation: spin 5s linear infinite; /* spinning effect */
         }
 
         .section {
@@ -316,6 +316,12 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* New keyframe animation for spinning logo */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .typing-indicator {
