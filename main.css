@@ -913,76 +913,68 @@ body.contact-page header p {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* PROJECTS PAGE (White Glass Cards) */
-
-.projects-page body {
-    background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* PROJECTS PAGE */
+body.projects-page {
+    background-image: url('images/main.png');
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.projects-page header {
+    background: transparent !important;
+    padding: 80px 20px 60px;
+}
+
+.projects-page header h1 {
+    display: none;
+}
+
+.projects-page header p {
+    font-size: 1.5rem;
+    opacity: 1;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Caveat', 'Dancing Script', cursive;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.6;
 }
 
 /* the project cards */
 .projects-page .project-card {
-    background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    background-color: rgba(96, 23, 255, 0.25);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 /* hover effect */
 .projects-page .project-card:hover {
     transform: translateY(-10px);
-    background-color: rgba(255, 255, 255, 0.45);
-    border-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(96, 23, 255, 0.35);
+    border-color: var(--primary-color-green);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 /* Text colors */
 .projects-page .project-title {
-    color: var(--secondary-color);
+    color: white;
 }
 
 .projects-page .project-description {
-    color: #555;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .projects-page .project-link {
-    color: var(--secondary-color);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .projects-page .project-link:hover {
-    color: var(--primary-color);
-}
-
-
-/* Projects Page Header Override */
-.projects-page header {
-    padding: 80px 20px 60px;
-}
-
-.projects-page header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 25px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 40%, #fbbf24 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 30px rgba(251, 191, 36, 0.3);
-    letter-spacing: -0.5px;
-}
-
-.projects-page header p {
-    font-size: 1.50rem;
-    opacity: 1;
-    letter-spacing: 0.5px;
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0;
-    text-align: left;
-    font-family: 'Caveat', 'Dancing Script', cursive;
-    background: linear-gradient(135deg, #a78bfa 0%, #fcfcfa 40%, #fbbf24 80%, #10b981 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    line-height: 1.6;
+    color: var(--primary-color-green);
 }
