@@ -509,7 +509,7 @@ body.about-page .timeline-icon {
     color: #495057;
 }
 
-/* Specific Technology Colors (these will override the default) */
+/* Specific Technology Colors */
 .project-tag.python,
 .skill-tag.python {
     background-image: linear-gradient(to right, #4568dc, #b06ab3);
@@ -597,7 +597,6 @@ body.about-page .timeline-icon {
     background-color: #43B02A;
 }
 
-/* Selenium Green */
 .project-tag.beautifulsoup {
     background-color: #d2a4f4;
 }
@@ -647,7 +646,7 @@ body.about-page .timeline-icon {
     color: white;
 }
 
-.project-s-tag.responsive design {
+.project-s-tag.responsive-design {
     background-color: #0231AD;
     color: white;
 }
@@ -687,17 +686,6 @@ body.about-page .timeline-icon {
     color: white;
 }
 
-.project-tag.selenium {
-    background-color: #43B02A;
-}
-
-/* selenium Green */
-.project-tag.beautifulsoup {
-    background-color: #d2a4f4;
-}
-
-
-
 /* Footer */
 footer {
     background-color: var(--secondary-color);
@@ -719,44 +707,51 @@ footer {
     transform: translateY(0);
 }
 
-/* Responsive Styles */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
     header {
-        padding: 140px 20px 60px;   /* top padding to clear wrapped nav */
+        padding: 120px 20px 60px;
     }
 
     nav {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        top: 0;
-        padding: 10px 0;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        top: 20px;
     }
 
     nav ul {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        /* Flex positioning */
         flex-wrap: wrap;
         justify-content: center;
-        gap: 5px;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        width: 100%;
+        width: auto;
+        max-width: 95%; /* prevent touching edges */
+        padding: 8px 15px; /* compact padding */
     }
 
     nav a {
         padding: 8px 12px;
         font-size: 0.95rem;
         margin: 2px;
-        color: var(--secondary-color);
+        color: white;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.2);
     }
 
     nav a.active,
     nav a:hover {
-        background-color: var(--primary-color);
+        background-color: rgba(255, 255, 255, 0.25);
         color: white;
+        border-radius: 30px;
     }
 
+    /* Layout Adjustments */
     .about-section {
         grid-template-columns: 1fr;
         text-align: center;
@@ -820,6 +815,10 @@ footer {
 
     header p {
         font-size: 1rem;
+    }
+
+    nav ul {
+        width: 98%;
     }
 
     nav a {
