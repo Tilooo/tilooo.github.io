@@ -1,155 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - Tilo's Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #95f725;
-            --secondary-color: #166088;
-            --accent-color: #4fc3dc;
-            --text-color: #333;
-            --light-color: #f8f9fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            background-attachment: fixed;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 100px 20px 60px;
-        }
-
-        .header-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        /* Updated Navigation with Glassmorphism */
-        nav {
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            left: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        nav a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        main {
-            flex: 1;
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .thank-you-container {
-            background-color: rgba(255, 255, 255, 0.15); /* Semi transparent background */
-            backdrop-filter: blur(12px); /* The blur effect */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-            color: var(--light-color); /* Light text for readability on dark background */
-            border-radius: 10px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            padding: 40px;
-            margin-bottom: 40px;
-        }
-
-        .thank-you-container h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .thank-you-container p {
-            margin-bottom: 20px;
-        }
-
-        .back-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .back-button:hover {
-            background-color: var(--accent-color);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background-color: #95f725;
-            color: white;
-            text-align: center;
-            padding: 30px 1px;
-            margin-top: auto;
-            width: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You - Tilo's Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Google Fonts for handwritten style -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap"
+    rel="stylesheet">
+<!-- Link to main stylesheet -->
+<link rel="stylesheet" href="main.css">
 </head>
-<body>
+
+<body class="thanks-page">
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -176,7 +41,8 @@
     </main>
 
     <footer>
-        <p>© 2023 Tilo. All rights reserved.</p>
+        <p>© 2025 Tilo. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
