@@ -58,21 +58,12 @@
             line-height: 1.6;
             position: relative;
             padding-top: 80px;
-            /* Space for navbar */
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Floating Orbs Overlay */
@@ -92,24 +83,12 @@
         }
 
         @keyframes shimmer {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.6;
-            }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
         }
 
         /* Typography */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
+        h1, h2, h3, h4, h5, h6 {
             color: var(--heading-color);
             font-weight: 700;
             letter-spacing: -0.025em;
@@ -139,9 +118,8 @@
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--navbar-border);
             transition: var(--transition);
-            height: 60px;
+            height: 70px; /* for mobile touch targets */
             padding: 0;
-            overflow: visible;
         }
 
         .navbar .container {
@@ -158,12 +136,15 @@
             margin: 0;
             position: relative;
             z-index: 10;
+            display: flex;
+            align-items: center;
         }
 
         .navbar-brand img {
-            height: 150px;
+            height: 120px;
             object-fit: contain;
             position: relative;
+            transition: height 0.3s ease;
         }
 
         /* Cards */
@@ -277,6 +258,54 @@
             backdrop-filter: blur(10px);
             border-top: 1px solid var(--navbar-border);
         }
+
+        /* RESPONSIVE MEDIA QUERIES */
+
+        /* Tablets and smaller */
+        @media (max-width: 991.98px) {
+            .navbar-brand img {
+                height: 80px; /* smaller logo on tablets */
+            }
+            .hero-image-container {
+                margin-top: 2rem; /* space between text and video on mobile stack */
+            }
+        }
+
+        /* Mobile Phones */
+        @media (max-width: 767.98px) {
+            h1.display-4 {
+                font-size: 2.5rem; /* hero text */
+            }
+
+            .navbar {
+                height: 60px;
+            }
+
+            .navbar-brand img {
+                height: 50px; /* small logo for mobile header */
+            }
+
+            .back-button {
+                width: 2.5rem;
+                height: 2.5rem;
+                top: 0.75rem;
+                left: 0.75rem;
+                font-size: 1rem;
+            }
+
+            .navbar .container {
+                padding-left: 3.5rem; /* space for the back button */
+            }
+
+            .btn-lg {
+                padding: 0.6rem 1.2rem;
+                font-size: 1rem;
+            }
+
+            .glass.p-5 {     /* glass containers slightly more compact on mobile */
+                padding: 1.5rem !important;
+            }
+        }
     </style>
 </head>
 
@@ -297,7 +326,7 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto bg-white p-3 rounded-3 mt-2 shadow-sm d-lg-flex bg-lg-transparent shadow-lg-none mt-lg-0 p-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tech">Tech Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/tilooo/LogiDash"
@@ -311,7 +340,7 @@
     <section class="py-5 mt-4">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 mb-5 mb-lg-0">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <span
                         class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill border border-primary border-opacity-25">
                         <i class="bi bi-stars me-1"></i> Supply Chain Intelligence
@@ -322,9 +351,9 @@
                     </h1>
                     <p class="lead text-muted mb-4">
                         LogiDash is a comprehensive supply chain management system designed to streamline inventory,
-                        supplier relationships, and demand forecasting with modern analytics.
+                    supplier relationships, and demand forecasting with modern analytics.
                     </p>
-                    <div class="d-flex gap-3">
+                    <div class="d-flex gap-2 flex-wrap">
                         <a href="https://github.com/tilooo/LogiDash" target="_blank" class="btn btn-primary btn-lg">
                             <i class="bi bi-github me-2"></i> View Code
                         </a>
