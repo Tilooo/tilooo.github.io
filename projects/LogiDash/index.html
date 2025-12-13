@@ -26,24 +26,19 @@
             --text-color: #334155;
             --heading-color: #0f172a;
             --card-bg: #ffffff;
-            --navbar-bg: rgba(255, 255, 255, 0.85);
-            --navbar-border: rgba(226, 232, 240, 0.8);
+            --navbar-bg: transparent;
             --primary-color: #4f46e5;
             --primary-hover: #4338ca;
             --accent-color: #8b5cf6;
-            --nav-link-color: #64748b;
-            --nav-link-hover: #4f46e5;
-            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --border-radius: 1rem;
+            --nav-link-color: #ffffff;   /* white text */
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --text-muted: #64748b;
 
             /* Glassmorphism Variables */
-            --glass-bg: rgba(255, 255, 255, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.5);
-            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            /* very transparent */
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
             --glass-blur: blur(12px);
         }
 
@@ -61,9 +56,17 @@
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Floating Orbs Overlay */
@@ -83,15 +86,34 @@
         }
 
         @keyframes shimmer {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
         }
 
         /* Typography */
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             color: var(--heading-color);
             font-weight: 700;
             letter-spacing: -0.025em;
+        }
+
+        /* text is readable on glass */
+        p,
+        .text-muted {
+            color: #334155;
+            font-weight: 500;
         }
 
         .text-gradient {
@@ -101,7 +123,7 @@
             background-clip: text;
         }
 
-        /* Glassmorphism Utility */
+        /* GLASS STYLE */
         .glass {
             background: var(--glass-bg);
             backdrop-filter: var(--glass-blur);
@@ -111,21 +133,50 @@
             border-radius: var(--border-radius);
         }
 
-        /* Navbar */
+        /* FLOATING NAVBAR */
         .navbar {
-            background-color: var(--navbar-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--navbar-border);
+            background-color: transparent;
+            border-bottom: none;
             transition: var(--transition);
-            height: 70px; /* for mobile touch targets */
+            height: auto;
             padding: 0;
         }
 
         .navbar .container {
-            height: 100%;
             display: flex;
             align-items: center;
+        }
+
+        /* Container for Links */
+        .navbar-nav {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 50px;
+            padding: 5px 10px;
+            margin-top: 0;
+
+            /* Center the items */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--heading-color) !important;
+            font-weight: 600;
+            padding: 8px 20px !important;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            color: var(--primary-color) !important;
         }
 
         .navbar-brand {
@@ -156,9 +207,11 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.25);
+            /* Slightly brighter on hover */
         }
 
         .icon-box {
@@ -170,6 +223,8 @@
             border-radius: 12px;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.4);
+            /* glassy icon box */
         }
 
         /* Buttons */
@@ -180,18 +235,13 @@
             border-radius: 0.75rem;
             font-weight: 600;
             transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
             filter: brightness(1.1);
-        }
-
-        .btn-outline-light {
-            border-radius: 0.75rem;
-            padding: 0.8rem 1.5rem;
-            font-weight: 600;
         }
 
         /* Hero Image Container */
@@ -205,7 +255,7 @@
 
         /* Tech Stack Badges */
         .tech-badge {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.25);
             border: 1px solid var(--glass-border);
             padding: 0.5rem 1rem;
             border-radius: 2rem;
@@ -216,14 +266,16 @@
             align-items: center;
             gap: 0.5rem;
             transition: var(--transition);
+            backdrop-filter: blur(4px);
         }
 
         .tech-badge:hover {
             background: white;
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
-        /* Back Button Style */
+        /* Back Button */
         .back-button {
             position: fixed;
             top: 1.25rem;
@@ -234,55 +286,59 @@
             justify-content: center;
             width: 3rem;
             height: 3rem;
-            background-color: rgba(79, 70, 229, 0.7);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid var(--glass-border);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            color: white;
+            color: var(--heading-color);
             border-radius: 50%;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             font-size: 1.25rem;
             transition: all 0.3s ease-in-out;
         }
 
         .back-button:hover {
-            background-color: var(--primary-hover);
+            background-color: white;
             transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-            color: white;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+            color: var(--primary-color);
         }
 
         /* Footer */
         footer {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.3);
+            /* Transparent footer */
             backdrop-filter: blur(10px);
-            border-top: 1px solid var(--navbar-border);
+            border-top: 1px solid var(--glass-border);
         }
 
         /* RESPONSIVE MEDIA QUERIES */
 
-        /* Tablets and smaller */
         @media (max-width: 991.98px) {
-            .navbar-brand img {
-                height: 80px; /* smaller logo on tablets */
+            .navbar-collapse {
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
             }
+
+            .navbar-brand img {
+                height: 40px;  /* smaller on mobile */
+            }
+
             .hero-image-container {
-                margin-top: 2rem; /* space between text and video on mobile stack */
+                margin-top: 2rem;
             }
         }
 
         /* Mobile Phones */
         @media (max-width: 767.98px) {
             h1.display-4 {
-                font-size: 2.5rem; /* hero text */
-            }
-
-            .navbar {
-                height: 60px;
+                font-size: 2.5rem;
             }
 
             .navbar-brand img {
-                height: 50px; /* small logo for mobile header */
+                height: 100px;
             }
 
             .back-button {
@@ -294,15 +350,22 @@
             }
 
             .navbar .container {
-                padding-left: 3.5rem; /* space for the back button */
+                padding-left: 3.5rem;
             }
 
-            .btn-lg {
-                padding: 0.6rem 1.2rem;
-                font-size: 1rem;
+            .navbar-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+                width: 100%;
             }
 
-            .glass.p-5 {     /* glass containers slightly more compact on mobile */
+            .nav-link {
+                padding: 6px 12px !important;
+                font-size: 0.9rem;
+            }
+
+            .glass.p-5 {
                 padding: 1.5rem !important;
             }
         }
@@ -322,11 +385,12 @@
             <a class="navbar-brand" href="#">
                 <img src="images/logidashlogo.png" alt="LogiDash Logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto bg-white p-3 rounded-3 mt-2 shadow-sm d-lg-flex bg-lg-transparent shadow-lg-none mt-lg-0 p-lg-0">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tech">Tech Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="https://github.com/tilooo/LogiDash"
@@ -341,8 +405,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <span
-                        class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill border border-primary border-opacity-25">
+                    <span class="badge glass text-primary mb-3 px-3 py-2 rounded-pill border-0">
                         <i class="bi bi-stars me-1"></i> Supply Chain Intelligence
                     </span>
                     <h1 class="display-4 fw-bold mb-3">
@@ -351,7 +414,7 @@
                     </h1>
                     <p class="lead text-muted mb-4">
                         LogiDash is a comprehensive supply chain management system designed to streamline inventory,
-                    supplier relationships, and demand forecasting with modern analytics.
+                        supplier relationships, and demand forecasting with modern analytics.
                     </p>
                     <div class="d-flex gap-2 flex-wrap">
                         <a href="https://github.com/tilooo/LogiDash" target="_blank" class="btn btn-primary btn-lg">
@@ -397,7 +460,7 @@
                 <!-- Feature 1 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                        <div class="icon-box text-primary">
                             <i class="bi bi-speedometer2"></i>
                         </div>
                         <h4 class="mb-3">Real-time Dashboard</h4>
@@ -411,7 +474,7 @@
                 <!-- Feature 2 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-success bg-opacity-10 text-success">
+                        <div class="icon-box text-success">
                             <i class="bi bi-graph-up-arrow"></i>
                         </div>
                         <h4 class="mb-3">Demand Forecasting</h4>
@@ -425,7 +488,7 @@
                 <!-- Feature 3 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-warning bg-opacity-10 text-warning">
+                        <div class="icon-box text-warning">
                             <i class="bi bi-geo-alt"></i>
                         </div>
                         <h4 class="mb-3">Interactive Map</h4>
@@ -439,7 +502,7 @@
                 <!-- Feature 4 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-info bg-opacity-10 text-info">
+                        <div class="icon-box text-info">
                             <i class="bi bi-kanban"></i>
                         </div>
                         <h4 class="mb-3">Kanban Board</h4>
@@ -453,7 +516,7 @@
                 <!-- Feature 5 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-danger bg-opacity-10 text-danger">
+                        <div class="icon-box text-danger">
                             <i class="bi bi-file-earmark-spreadsheet"></i>
                         </div>
                         <h4 class="mb-3">Data Import/Export</h4>
@@ -467,7 +530,7 @@
                 <!-- Feature 6 -->
                 <div class="col-md-6 col-lg-4">
                     <div class="glass feature-card p-4">
-                        <div class="icon-box bg-secondary bg-opacity-10 text-secondary">
+                        <div class="icon-box text-secondary">
                             <i class="bi bi-moon-stars"></i>
                         </div>
                         <h4 class="mb-3">Dark Mode</h4>
