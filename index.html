@@ -32,40 +32,43 @@
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            transition: all 0.5s ease; /* Smooth transition for theme change */
+            transition: all 0.5s ease;
         }
-        
+
         body.light-theme {
-            background-image: url('images/colorful-leaves2.jpg'); /* Light theme background */
+            background-image: url('images/colorful-leaves2.jpg');
             color: #333;
         }
-        
+
         body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.2); /* Subtle dark overlay */
+            background-color: rgba(0, 0, 0, 0.2);
             z-index: 0;
             transition: background-color 0.5s ease;
+            pointer-events: none;
         }
-        
+
         body.light-theme::before {
-            background-color: rgba(255, 255, 255, 0.1); /* Lighter overlay for light theme */
+            background-color: rgba(255, 255, 255, 0.1);
         }
-        
+
         header {
             color: white;
             text-align: center;
-            padding: 200px 20px 50px; /* centers the name and tagline */
+            padding: 30vh 20px 50px;
             position: relative;
         }
 
         .header-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         header h1 {
@@ -73,15 +76,16 @@
             margin-bottom: 30px;
         }
 
-        /* Updated Navigation with Glassmorphism */
+        /* Nav Styles */
         nav {
-            position: fixed; /* Changed from absolute to fixed */
+            position: fixed;
             top: 20px;
             width: 100%;
             left: 0;
             z-index: 100;
             display: flex;
             justify-content: center;
+            align-items: center; /* button aligns with menu */
         }
 
         nav ul {
@@ -89,11 +93,12 @@
             justify-content: center;
             list-style: none;
             padding: 15px 25px;
-            background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
-            backdrop-filter: blur(10px); /* Frosted glass effect */
-            border-radius: 50px; /* Rounded corners */
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap; /* allows wrapping on tiny screens */
         }
 
         nav a {
@@ -114,8 +119,7 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Added a light button for theme switching */
+
         .theme-toggle {
             background-color: rgba(255, 255, 255, 0.1);
             border: none;
@@ -132,13 +136,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
-        
+
         .theme-toggle:hover {
             background-color: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        
+
         main {
             flex: 1;
             padding: 0;
@@ -158,11 +162,13 @@
             margin-top: auto;
             width: 100%;
             background-color: rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
         }
 
         /* Animated Background */
         .animated-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -182,60 +188,23 @@
             border-radius: 50%;
         }
 
-        .animated-background span:nth-child(1) {
-            left: 25%;
-            width: 80px;
-            height: 80px;
-            animation-delay: 0s;
-            animation-duration: 15s;
-        }
-
-        .animated-background span:nth-child(2) {
-            left: 10%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 2s;
-            animation-duration: 12s;
-        }
-
-        .animated-background span:nth-child(3) {
-            left: 70%;
-            width: 30px;
-            height: 30px;
-            animation-delay: 4s;
-            animation-duration: 18s;
-        }
-
-        .animated-background span:nth-child(4) {
-            left: 40%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-            animation-duration: 20s;
-        }
-
-        .animated-background span:nth-child(5) {
-            left: 65%;
-            width: 20px;
-            height: 20px;
-            animation-delay: 0s;
-            animation-duration: 15s;
-        }
+        .animated-background span:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 15s; }
+        .animated-background span:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .animated-background span:nth-child(3) { left: 70%; width: 30px; height: 30px; animation-delay: 4s; animation-duration: 18s; }
+        .animated-background span:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 20s; }
+        .animated-background span:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 15s; }
 
         @keyframes animate {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-                border-radius: 0;
-            }
-            100% {
-                transform: translateY(-1000px) rotate(720deg);
-                opacity: 0;
-                border-radius: 50%;
-            }
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+            100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
         }
 
-        /* Typing animation */
+        /* Typing animation container centered */
+        .typing-container {
+            display: inline-block;
+            max-width: 100%;
+        }
+
         .typing-text {
             overflow: hidden;
             white-space: nowrap;
@@ -243,6 +212,7 @@
             width: 0;
             animation: typing 3s steps(40, end) forwards,
                        blink-caret 0.75s step-end infinite;
+            margin: 0 auto; /* center alignment */
         }
 
         @keyframes typing {
@@ -255,22 +225,35 @@
             50% { border-color: var(--primary-color) }
         }
 
+        /*  For Various Screens */
         @media (max-width: 768px) {
             header {
-                padding: 80px 20px 40px;
+                padding-top: 25vh; /* vertical centering for mobile */
             }
 
             header h1 {
                 font-size: 2.2rem;
             }
 
+            .typing-text {
+                font-size: 0.85rem;
+            }
+
+            /* Nav padding for smaller screens */
             nav ul {
-                flex-wrap: wrap;
+                padding: 10px 15px;
             }
 
             nav a {
-                margin: 5px;
-                padding: 8px 15px;
+                padding: 8px 12px;
+                margin: 0 2px;
+                font-size: 0.9rem;
+            }
+
+            .theme-toggle {
+                width: 35px;
+                height: 35px;
+                margin-left: 8px;
             }
         }
     </style>
@@ -296,10 +279,12 @@
                 <i class="fas fa-sun"></i>
             </button>
         </nav>
-        
+
         <div class="header-content">
             <h1>Tilo</h1>
-            <p class="typing-text">Software Developer | Web Enthusiast | Data Science | Problem Solver</p>
+            <div class="typing-container">
+                <p class="typing-text">Software Developer | Web Enthusiast | Data Science | Problem Solver</p>
+            </div>
         </div>
     </header>
 
@@ -307,11 +292,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2023 Tilo. All rights reserved.</p>
+        <p>&copy; 2025 Tilo. All rights reserved.</p>
     </footer>
-    
+
     <script>
-        // Intersection Observer for animations
+        // script
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -324,25 +309,20 @@
         hiddenElements.forEach((el) => {
             observer.observe(el);
         });
-        
-        // Theme Toggle Functionality
+
         const themeToggle = document.querySelector('.theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         const body = document.body;
-        
-        // Check for saved theme preference or default to 'dark'
+
         const currentTheme = localStorage.getItem('theme') || 'dark';
         if (currentTheme === 'light') {
             body.classList.add('light-theme');
             themeIcon.className = 'fas fa-moon';
         }
-        
-        // Theme toggle event listener
+
         themeToggle.addEventListener('click', () => {
-            // Toggle light-theme class on body
             body.classList.toggle('light-theme');
-            
-            // Update icon based on current theme
+
             if (body.classList.contains('light-theme')) {
                 themeIcon.className = 'fas fa-moon';
                 localStorage.setItem('theme', 'light');
