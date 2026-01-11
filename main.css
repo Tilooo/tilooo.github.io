@@ -334,7 +334,7 @@ section h2 {
 
 /* About Page */
 body.about-page {
-    background-image: url('images/main.png');
+    background-image: url('images/main2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -688,10 +688,10 @@ body.about-page .timeline-icon {
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: #aaa;
+    background-color: semi-transparent;
+    color: #faffa3;
     text-align: center;
-    padding: 30px 20px;
+    padding: 10px 20px;
     margin-top: auto;
 }
 
@@ -852,7 +852,7 @@ footer {
 
 /* CONTACT PAGE */
 body.contact-page {
-    background-image: url('images/main.png');
+    background-image: url('images/main2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -993,7 +993,7 @@ body.contact-page header p {
 
 /* PROJECTS PAGE */
 body.projects-page {
-    background-image: url('images/main.png');
+    background-image: url('images/main2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1059,7 +1059,7 @@ body.projects-page {
 
 /* THANKS PAGE */
 body.thanks-page {
-    background-image: url('images/main.png');
+    background-image: url('images/main2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
