@@ -145,6 +145,22 @@
             margin: 0 auto 40px;
         }
 
+        .hero-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 40px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
+            border-bottom: 1px solid rgba(212, 255, 0, 0.1);
+        }
+
         /* Mockup Container */
         .mockup-container {
             position: relative;
@@ -423,7 +439,7 @@
             }
 
             .mockup-container {
-                flex-direction: column;   /* elements vertically on small screens */
+                flex-direction: column;  /* elements vertically on small screens */
                 height: auto;
                 transform: none;
                 padding: 10px;
@@ -444,7 +460,7 @@
             }
 
             .themes-showcase {
-                padding: 30px;  /* padding on small screens */
+                padding: 30px;
             }
 
             .theme-item {
@@ -504,12 +520,14 @@
 
     <section class="hero">
         <div class="hero-content">
-            <div class="badge">Full-Stack Django Project</div>
-            <h1 class="hero-h1">The <span class="serif">Ultimate</span> CV & Cover Letter Builder</h1>
-            <p class="hero-p">A high-performance web application designed for professionals who demand excellence.
-                Crafted with precision, powered by AI, and styled for success.</p>
+            <div class="hero-card">
+                <div class="badge">Full-Stack Django Project</div>
+                <h1 class="hero-h1">The <span class="serif">Ultimate</span> CV & Cover Letter Builder</h1>
+                <p class="hero-p">A high-performance web application designed for professionals who demand excellence.
+                    Crafted with precision, powered by AI, and styled for success.</p>
 
-            <a href="https://github.com/tilooo/CV" target="_blank" class="cta-button">View on GitHub</a>
+                <a href="https://github.com/tilooo/CV" target="_blank" class="cta-button">View on GitHub</a>
+            </div>
 
             <div class="mockup-container">
                 <div class="mockup-side mockup-form">
