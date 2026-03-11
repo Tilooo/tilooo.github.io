@@ -128,20 +128,24 @@
         }
 
         .hero-h1 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.8rem, 7vw, 2.0rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             margin-bottom: 20px;
-            background: linear-gradient(to bottom, #fff 30%, #a3e635 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
             line-height: 1.1;
-            letter-spacing: -2px;
+        }
+
+        .hero-h1 .highlight {
+            color: #a3e635;
+            text-shadow: 0 0 30px rgba(163, 230, 53, 0.4);
         }
 
         .hero-p {
             font-size: 1rem;
             color: #94a3b8;
-            max-width: 650px;
+            max-width: 1700px;
             margin: 0 auto 40px;
         }
 
@@ -250,8 +254,28 @@
         }
 
         .section-title h2 {
-            font-size: 1.7rem;
-            margin-bottom: 10px;
+            font-size: clamp(1.2rem, 5vw, 1.7rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .section-title h2 .highlight {
+            color: #a3e635;
+            text-shadow: 0 0 30px rgba(163, 230, 53, 0.3);
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            font-weight: 400;
         }
 
         .feature-grid {
@@ -698,9 +722,16 @@
         <div class="hero-content">
             <div class="hero-card">
                 <div class="badge">Full-Stack Django Project</div>
-                <h1 class="hero-h1">The <span class="serif">Ultimate</span> CV & Cover Letter Builder</h1>
+                <h1 class="hero-h1">THE <span class="highlight">ULTIMATE</span> CV & COVER LETTER BUILDER</h1>
                 <p class="hero-p">A high-performance web application designed for professionals who demand excellence.
-                    Crafted with precision, powered by AI, and styled for success.</p>
+                    Crafted with precision, powered by AI, and styled for success.
+                    This project introduces a modern tool for creating CVs and cover letters built with the Django
+                    framework. Users can conveniently manage their professional profiles through a central control
+                    panel and choose from a variety of aesthetic design themes. The software features an artificial
+                    intelligence function that automatically improves the style of descriptions and a live preview that
+                    lets you monitor changes in real time. The system supports bilingualism between, making document
+                    localisation extremely easy. The final results can be exported in various formats, including
+                    high-quality PDF and Word files.</p>
 
                 <a href="https://github.com/tilooo/CV" target="_blank" class="cta-button">View on GitHub</a>
             </div>
@@ -730,8 +761,8 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2>Premium Features</h2>
-                <p style="color: #94a3b8">Everything you need to stand out in the job market.</p>
+                <h2>PREMIUM <span class="highlight">FEATURES</span></h2>
+                <p>Everything you need to stand out in the job market.</p>
             </div>
 
             <div class="feature-grid">
@@ -836,7 +867,7 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <h2 style="font-size: 1.7rem;">Core Technologies</h2>
+                <h2>CORE <span class="highlight">TECHNOLOGIES</span></h2>
             </div>
             <div class="tech-tags">
                 <div class="tag">Django 5.2</div>
