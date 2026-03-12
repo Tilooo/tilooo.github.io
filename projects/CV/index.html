@@ -165,81 +165,54 @@
             border-bottom: 1px solid rgba(212, 255, 0, 0.1);
         }
 
-        /* Mockup Container */
-        .mockup-container {
+        /* Video Presentation Container */
+        .video-presentation {
             position: relative;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 60px auto 0;
-            height: 450px;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 24px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
-            display: flex;
-            padding: 20px;
-            gap: 20px;
-            transform: perspective(2000px) rotateX(15deg);
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 255, 0, 0.3);
+            box-shadow: 
+                0 40px 100px -20px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(212, 255, 0, 0.1);
+            overflow: hidden;
+            transform: perspective(2000px) rotateX(8deg);
             transition: var(--transition);
+            z-index: 5;
         }
 
-        .mockup-container:hover {
-            transform: perspective(2000px) rotateX(5deg) translateY(-10px);
-            border-color: rgba(212, 255, 0, 0.3);
+        .video-presentation::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            pointer-events: none;
         }
 
-        .mockup-side {
-            background: #fff;
-            border-radius: 10px;
+        .video-presentation:hover {
+            transform: perspective(2000px) rotateX(0deg) translateY(-15px) scale(1.02);
+            border-color: rgba(212, 255, 0, 0.5);
+            box-shadow: 
+                0 60px 120px -20px rgba(0, 0, 0, 0.9), 
+                0 0 50px rgba(212, 255, 0, 0.15);
+        }
+
+        .cv-video {
+            width: 100%;
             height: 100%;
+            object-fit: contain;
+            display: block;
+            filter: brightness(0.9);
+            transition: var(--transition);
+            background: #000;
         }
 
-        .mockup-form {
-            flex: 1.2;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .mockup-preview {
-            flex: 1;
-            background: #f1f5f9;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .fake-input {
-            height: 12px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            width: 80%;
-        }
-
-        .fake-label {
-            height: 8px;
-            background: #cbd5e1;
-            border-radius: 4px;
-            width: 30%;
-        }
-
-        .fake-area {
-            height: 60px;
-            background: #e2e8f0;
-            border-radius: 4px;
-        }
-
-        .fake-button {
-            width: 100px;
-            height: 30px;
-            background: var(--accent);
-            border-radius: 8px;
-            margin-top: auto;
-            box-shadow: 0 0 20px rgba(212, 255, 0, 0.3);
+        .video-presentation:hover .cv-video {
+            filter: brightness(1);
         }
 
         /* Features Section */
@@ -593,21 +566,15 @@
                 font-size: 1rem;
             }
 
-            .mockup-container {
-                flex-direction: column;
+            .video-presentation {
+                aspect-ratio: 16 / 9;
                 height: auto;
                 transform: none;
-                padding: 10px;
+                margin-top: 40px;
             }
 
-            .mockup-container:hover {
-                transform: none;
-            }
-
-            .mockup-form,
-            .mockup-preview {
-                flex: none;
-                width: 100%;
+            .video-presentation:hover {
+                transform: scale(1.02);
             }
 
             .section-title h2 {
@@ -736,24 +703,11 @@
                 <a href="https://github.com/tilooo/CV" target="_blank" class="cta-button">View on GitHub</a>
             </div>
 
-            <div class="mockup-container">
-                <div class="mockup-side mockup-form">
-                    <div class="fake-label" style="width: 20%"></div>
-                    <div class="fake-input" style="width: 90%"></div>
-                    <div class="fake-label" style="width: 25%"></div>
-                    <div class="fake-input" style="width: 95%"></div>
-                    <div class="fake-label" style="width: 15%"></div>
-                    <div class="fake-area"></div>
-                    <div class="fake-button"></div>
-                </div>
-                <div class="mockup-side mockup-preview">
-                    <div style="height: 20px; background: var(--accent); width: 40%; margin-bottom: 20px;"></div>
-                    <div class="fake-input" style="width: 100%"></div>
-                    <div class="fake-input" style="width: 100%"></div>
-                    <div class="fake-input" style="width: 60%"></div>
-                    <div style="height: 10px; background: #ddd; width: 30%; margin-top: 20px;"></div>
-                    <div class="fake-area" style="height: 100px; background: #f8fafc; border: 1px solid #eee;"></div>
-                </div>
+            <div class="video-presentation">
+                <video autoplay muted loop playsinline class="cv-video">
+                    <source src="images/cv_video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </section>
