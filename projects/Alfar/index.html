@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alfar | Project Representation & Case Study</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #FDFBF7;
@@ -18,6 +20,151 @@
             --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-ui);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* --- Typography --- */
+        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; }
+        i { font-style: italic; }
+
+        /* --- Header / Project Info --- */
+        .project-header {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.02), rgba(0,0,0,0.05));
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .category-tag {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            display: block;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .project-header h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease both;
+        }
+
+        .project-header p {
+            max-width: 700px;
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-light);
+            animation: fadeInUp 1.2s ease both;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 5rem;
+            animation: fadeInUp 1.4s ease both;
+        }
+
+        .stat-item span { display: block; font-family: var(--font-ui); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-light); margin-bottom: 0.5rem; }
+        .stat-item strong { display: block; font-family: var(--font-heading); font-size: 1.8rem; font-weight: 400; }
+
+        /* --- Section Styling --- */
+        section { padding: 10rem 8vw; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+
+        .section-title h2 { font-size: 4rem; margin-bottom: 2rem; position: relative; width: fit-content; }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--lime-green);
+        }
+
+        .section-desc { font-size: 1.15rem; color: var(--text-light); max-width: 500px; margin-bottom: 2.5rem; }
+
+        /* --- Features List --- */
+        .feature-item { margin-bottom: 3rem; position: relative; padding-left: 2rem; transition: var(--transition); }
+        .feature-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--lime-green);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        .feature-item h4 { font-size: 1.5rem; margin-bottom: 0.5rem; font-family: var(--font-heading); }
+        .feature-item p { font-size: 0.95rem; color: var(--text-light); }
+
+        /* --- Mockup Gallery --- */
+        .mockup-container { background: var(--bone-dark); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.05); }
+        .mockup-container img { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
+        .mockup-container:hover img { transform: scale(1.02); }
+
+        /* --- The Brand Identity --- */
+        .brand-demo { background-color: var(--text-color); color: var(--bg-color); text-align: center; }
+        .brand-demo h2 { margin: 0 auto 3rem; }
+        .color-palette { display: flex; justify-content: center; gap: 2rem; margin-top: 4rem; }
+        .color-item { width: 80px; height: 80px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 4rem; }
+            .project-header h1 { font-size: 3.5rem; }
+            .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .section-title h2 { font-size: 3rem; }
+            section { padding: 6rem 5vw; }
+        }
+
+        /* --- Footer --- */
+        .footer { padding: 6rem 8vw; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+        .footer p { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
+        .footer a { color: var(--text-color); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+
+        .btn-lime {
+            display: inline-block;
+            background-color: var(--lime-green);
+            color: var(--text-color);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .btn-lime:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(227, 249, 109, 0.4); }
     </style>
 </head>
 <body>
@@ -42,6 +189,8 @@
                 <strong>Production Ready</strong>
             </div>
         </div>
+    </header>
+
     <!-- Project Vision -->
     <section class="grid-2">
         <div class="section-title reveal">
@@ -101,10 +250,38 @@
         </div>
     </section>
 
+    <!-- Final Call -->
+    <section style="text-align: center;">
+        <div class="reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">View the <i>Live Repository</i></h2>
+            <a href="https://github.com/tilooo/Alfar" class="btn-lime">Github Portfolio</a>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
-        <p>Represented by <a href="https://tilooo.github.io/">Tilooo</a> • Case Study 2026</p>
+        <p>Represented by <a href="https://tilooo.github.io/">Tilooo</a> • Case Study</p>
     </footer>
 
+    <script>
+        // Scroll Reveal Activation
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Trigger once on load
+        revealOnScroll();
+    </script>
 </body>
 </html>
