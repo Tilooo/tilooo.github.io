@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-color: #FDFBF7;
@@ -18,6 +20,37 @@
             --font-heading: 'Cormorant Garamond', serif;
             --font-ui: 'Inter', sans-serif;
             --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* --- Back Button --- */
+        .back-button {
+            position: fixed;
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            background-color: rgba(95, 111, 82, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--accent-color);
+            border: 1px solid rgba(95, 111, 82, 0.2);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .back-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 10px 25px rgba(95, 111, 82, 0.3);
+            border-color: var(--accent-color);
         }
 
         * {
@@ -168,6 +201,11 @@
     </style>
 </head>
 <body>
+
+    <!-- Back to Portfolio Button -->
+    <a href="https://tilooo.github.io/projects.html" class="back-button" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
     <!-- Hero Section -->
     <header class="project-header">
