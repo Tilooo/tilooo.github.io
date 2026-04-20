@@ -205,9 +205,10 @@
         .mockup-container:hover img { transform: scale(1.02); }
 
         /* --- The Brand Identity --- */
-        .brand-demo { background-color: var(--text-color); color: var(--bg-color); text-align: center; }
-        .brand-demo h2 { margin: 0 auto 3rem; }
-        .color-palette { display: flex; justify-content: center; gap: 2rem; margin-top: 4rem; }
+        .brand-demo { background-color: var(--text-color); color: var(--bg-color); text-align: center; padding: 5rem 8vw; }
+        .brand-demo h2 { margin: 0 auto 1.5rem !important; }
+        .brand-demo .section-desc { margin: 0 auto; margin-bottom: 0; }
+        .color-palette { display: flex; justify-content: center; gap: 2rem; margin-top: 2.5rem; }
         .color-item { 
             width: 80px; 
             height: 80px; 
@@ -216,8 +217,12 @@
             position: relative;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
-        .color-item:hover { transform: scale(1.1); }
+        .color-item:hover { 
+            transform: scale(1.1) translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        }
         .color-item::after {
             content: attr(data-label) "\A" attr(data-hex);
             white-space: pre;
@@ -248,7 +253,7 @@
 
         /* --- Footer --- */
         .footer { padding: 6rem 8vw; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-        .footer p { font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--text-light); }
+        .footer p { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
         .footer a { color: var(--text-color); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
 
         .btn-lime {
@@ -342,9 +347,9 @@
 
     <!-- Brand Identity -->
     <section class="brand-demo reveal">
-        <div class="section-title reveal" style="margin: 0 auto;">
-            <h2 style="color: #fff; margin: 0 auto 2rem;">Minimalist <i>Colorway</i></h2>
-            <p class="section-desc" style="color: rgba(255,255,255,0.6); margin: 0 auto;">A curated palette that reflects Earth, Bone, and Fire.</p>
+        <div class="section-title reveal">
+            <h2 style="color: #fff;">Minimalist <i>Colorway</i></h2>
+            <p class="section-desc" style="color: rgba(255,255,255,0.6);">A curated palette that reflects Earth, Bone, and Fire.</p>
         </div>
 
         <div class="color-palette">
