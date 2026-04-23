@@ -201,8 +201,8 @@
 
         /* --- Mockup Gallery --- */
         .mockup-container { background: var(--bone-dark); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.05); }
-        .mockup-container img { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
-        .mockup-container:hover img { transform: scale(1.02); }
+        .mockup-container img, .mockup-container video { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
+        .mockup-container:hover img, .mockup-container:hover video { transform: scale(1.02); }
 
         /* --- The Brand Identity --- */
         .brand-demo { background-color: var(--text-color); color: var(--bg-color); text-align: center; padding: 4rem 8vw; }
@@ -324,7 +324,10 @@
     <!-- Technical Implementation -->
     <section class="grid-2" style="background-color: var(--bone-dark);">
         <div class="mockup-container reveal" style="order: -1;">
-             <img src="images/Hero1.jpg" alt="The Process: Artisanal Engineering">
+             <video autoplay muted loop playsinline poster="images/Hero1.jpg">
+                 <source src="images/AlfarDemo.mp4" type="video/mp4">
+                 Your browser does not support the video tag.
+             </video>
         </div>
         <div class="section-title reveal">
             <h2>The <i>Engineering</i></h2>
