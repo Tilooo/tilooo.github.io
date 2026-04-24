@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alfar | Project Representation & Case Study</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -70,16 +73,40 @@
 
         /* --- Animations --- */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: var(--transition); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* --- Typography --- */
-        h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; line-height: 1.1; }
-        i { font-style: italic; }
+        h1,
+        h2,
+        h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        i {
+            font-style: italic;
+        }
 
         /* ----- Header / Project Info --- */
         .project-header {
@@ -99,7 +126,8 @@
             text-transform: uppercase;
             font-size: 0.75rem;
             letter-spacing: 0.2em;
-            color: #d4e94a; /* A slightly deeper lime for better readability on light mode */
+            color: #d4e94a;
+            /* A slightly deeper lime for better readability on light mode */
             font-weight: 600;
             margin-bottom: 2.5rem;
             display: block;
@@ -167,13 +195,33 @@
             opacity: 0.6;
         }
 
-        .stat-item strong { display: block; font-family: var(--font-heading); font-size: 1.8rem; font-weight: 400; color: var(--text-color); }
+        .stat-item strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
 
         /* --- Section Styling --- */
-        section { padding: 4.5rem 8vw; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        section {
+            padding: 4.5rem 8vw;
+        }
 
-        .section-title h2 { font-size: 4rem; margin-bottom: 2rem; position: relative; width: fit-content; }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-title h2 {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            position: relative;
+            width: fit-content;
+        }
+
         .section-title h2::after {
             content: '';
             position: absolute;
@@ -184,10 +232,21 @@
             background-color: var(--lime-green);
         }
 
-        .section-desc { font-size: 1.15rem; color: var(--text-light); max-width: 500px; margin-bottom: 2.5rem; }
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
 
         /* --- Features List --- */
-        .feature-item { margin-bottom: 2rem; position: relative; padding-left: 2rem; transition: var(--transition); }
+        .feature-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            transition: var(--transition);
+        }
+
         .feature-item::before {
             content: '•';
             position: absolute;
@@ -196,33 +255,147 @@
             font-size: 1.5rem;
             line-height: 1;
         }
-        .feature-item h4 { font-size: 1.5rem; margin-bottom: 0.5rem; font-family: var(--font-heading); }
-        .feature-item p { font-size: 0.95rem; color: var(--text-light); }
+
+        .feature-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
 
         /* --- Mockup Gallery --- */
-        .mockup-container { background: var(--bone-dark); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 100px rgba(0,0,0,0.05); }
-        .mockup-container img, .mockup-container video { width: 100%; height: auto; display: block; transition: transform 0.8s ease; }
-        .mockup-container:hover img, .mockup-container:hover video { transform: scale(1.02); }
+        .mockup-container {
+            background: var(--bone-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+        }
+
+        .mockup-container img,
+        .mockup-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .mockup-container:hover img,
+        .mockup-container:hover video {
+            transform: scale(1.02);
+        }
+
+        /* --- Engineering Section: Video Priority --- */
+        .engineering-section {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            background-color: var(--bone-dark);
+            padding: 6rem 8vw;
+            align-items: center;
+        }
+
+        .video-box {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            background: #000;
+        }
+
+        .video-box video {
+            width: 100%;
+            display: block;
+        }
+
+        .script-box {
+            padding-top: 1rem;
+        }
+
+        .script-box h2 {
+            font-size: 3.2rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .script-box .section-desc {
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .script-box .feature-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        .script-box .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .script-box .feature-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .script-box .feature-item::before {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 1000px) {
+            .engineering-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .script-box {
+                padding-top: 0;
+            }
+        }
 
         /* --- The Brand Identity --- */
-        .brand-demo { background-color: var(--text-color); color: var(--bg-color); text-align: center; padding: 4rem 8vw; }
-        .brand-demo h2 { margin: 0 auto 1.5rem !important; }
-        .brand-demo .section-desc { margin: 0 auto; margin-bottom: 0; }
-        .color-palette { display: flex; justify-content: center; gap: 2rem; margin-top: 2.5rem; }
-        .color-item { 
-            width: 80px; 
-            height: 80px; 
-            border-radius: 50%; 
-            border: 1px solid rgba(255,255,255,0.1); 
+        .brand-demo {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            text-align: center;
+            padding: 4rem 8vw;
+        }
+
+        .brand-demo h2 {
+            margin: 0 auto 1.5rem !important;
+        }
+
+        .brand-demo .section-desc {
+            margin: 0 auto;
+            margin-bottom: 0;
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .color-item {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
         }
-        .color-item:hover { 
-            transform: scale(1.1) translateY(-5px); 
+
+        .color-item:hover {
+            transform: scale(1.1) translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
         }
+
         .color-item::after {
             content: attr(data-label) "\A" attr(data-hex);
             white-space: pre;
@@ -239,22 +412,64 @@
             pointer-events: none;
             text-align: center;
         }
-        .color-item:hover::after { opacity: 1; bottom: -40px; }
+
+        .color-item:hover::after {
+            opacity: 1;
+            bottom: -40px;
+        }
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 4rem; }
-            .project-header h1 { font-size: 3.5rem; }
-            .stats-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .stat-item::after, .stat-item::before { display: none; }
-            .section-title h2 { font-size: 3rem; }
-            section { padding: 6rem 5vw; }
+
+            .grid-2,
+            .engineering-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+
+            .project-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-item::after,
+            .stat-item::before {
+                display: none;
+            }
+
+            .section-title h2 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 6rem 5vw;
+            }
         }
 
         /* --- Footer --- */
-        .footer { padding: 4rem 8vw; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-        .footer p { font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); }
-        .footer a { color: var(--text-color); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+        .footer {
+            padding: 4rem 8vw;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 600;
+        }
 
         .btn-lime {
             display: inline-block;
@@ -269,9 +484,14 @@
             text-decoration: none;
             transition: var(--transition);
         }
-        .btn-lime:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(227, 249, 109, 0.4); }
+
+        .btn-lime:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(227, 249, 109, 0.4);
+        }
     </style>
 </head>
+
 <body>
 
     <!-- Back to Portfolio Button -->
@@ -283,7 +503,8 @@
     <header class="project-header">
         <span class="category-tag">E-Commerce & Branding • 2026</span>
         <h1>Alfar | <i>Estudio</i> <br> de Cerámica</h1>
-        <p>A refined digital sanctuary for handcrafted artifacts. Built with "slow ceramics" philosophy at its core, combining artisanal textures with modern interactive solutions.</p>
+        <p>A refined digital sanctuary for handcrafted artifacts. Built with "slow ceramics" philosophy at its core,
+            combining artisanal textures with modern interactive solutions.</p>
 
         <div class="stats-grid">
             <div class="stat-item">
@@ -305,15 +526,19 @@
     <section class="grid-2">
         <div class="section-title reveal">
             <h2>Artisanal <i>Vision</i></h2>
-            <p class="section-desc">The project mimics the organic forms of clay. Every interaction—from the smooth auto-scrolling product sliders to the custom sidebar navigation—is designed to feel intentional and fluid.</p>
+            <p class="section-desc">The project mimics the organic forms of clay. Every interaction—from the smooth
+                auto-scrolling product sliders to the custom sidebar navigation—is designed to feel intentional and
+                fluid.</p>
 
             <div class="feature-item">
                 <h4>Dynamic Masonry Sliders</h4>
-                <p>Curated selections of Mugs, Vases, and Decor components presented through a seamless, infinite horizontal scroll.</p>
+                <p>Curated selections of Mugs, Vases, and Decor components presented through a seamless, infinite
+                    horizontal scroll.</p>
             </div>
             <div class="feature-item">
                 <h4>Multilingual (i18n)</h4>
-                <p>Fully bilingual architecture (ES/EN) across models and templates, ensuring an international reach for local craft.</p>
+                <p>Fully bilingual architecture (ES/EN) across models and templates, ensuring an international reach for
+                    local craft.</p>
             </div>
         </div>
         <div class="mockup-container reveal">
@@ -321,29 +546,33 @@
         </div>
     </section>
 
-    <!-- Technical Implementation -->
-    <section class="grid-2" style="background-color: var(--bone-dark);">
-        <div class="mockup-container reveal" style="order: -1;">
-             <video autoplay muted loop playsinline poster="images/Hero1.jpg">
-                 <source src="images/AlfarDemo.mp4" type="video/mp4">
-                 Your browser does not support the video tag.
-             </video>
+    <!-- Technical Implementation Section -->
+    <section class="engineering-section reveal">
+        <div class="video-box">
+            <video autoplay muted loop playsinline poster="images/Hero1.jpg">
+                <source src="images/AlfarDemo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <div class="section-title reveal">
-            <h2>The <i>Engineering</i></h2>
-            <p class="section-desc">Beyond aesthetics, Alfar is a robust web application featuring secure transaction states and persistent user experiences.</p>
+
+        <div class="script-box">
+            <div class="section-title">
+                <h2>The <i>Engineering</i></h2>
+                <p class="section-desc">Beyond aesthetics, Alfar is a robust web application featuring secure
+                    transaction states and persistent user experiences.</p>
+            </div>
 
             <div class="feature-item">
-                <h4>Interactive Cart Logic</h4>
-                <p>Optimized UX with +/- quantity management and automated stock updates through protected Django views.</p>
+                <h4>Interactive Cart</h4>
+                <p>Optimized UX with +/- quantity management and automated stock updates.</p>
             </div>
             <div class="feature-item">
-                <h4>Workshop Booking System</h4>
-                <p>A sophisticated class-management portal with real-time seat availability tracking and pricing integration.</p>
+                <h4>Booking System</h4>
+                <p>Sophisticated class-management with real-time seat tracking.</p>
             </div>
             <div class="feature-item">
-                <h4>Sidebar AJAX Auth</h4>
-                <p>Custom login/registration systems integrated into a slide-out drawer, allowing for friction-less conversions.</p>
+                <h4>AJAX Authentication</h4>
+                <p>Custom login/registration integrated into a slide-out drawer.</p>
             </div>
         </div>
     </section>
@@ -352,13 +581,15 @@
     <section class="brand-demo reveal">
         <div class="section-title reveal">
             <h2 style="color: #fff;">Minimalist <i>Colorway</i></h2>
-            <p class="section-desc" style="color: rgba(255,255,255,0.6);">A curated palette that reflects Earth, Bone, and Fire.</p>
+            <p class="section-desc" style="color: rgba(255,255,255,0.6);">A curated palette that reflects Earth, Bone,
+                and Fire.</p>
         </div>
 
         <div class="color-palette">
             <div class="color-item" style="background-color: #FDFBF7;" data-label="Bone White" data-hex="#FDFBF7"></div>
             <div class="color-item" style="background-color: #2F312F;" data-label="Charcoal" data-hex="#2F312F"></div>
-            <div class="color-item" style="background-color: #E3F96D;" data-label="Lime Yellow" data-hex="#E3F96D"></div>
+            <div class="color-item" style="background-color: #E3F96D;" data-label="Lime Yellow" data-hex="#E3F96D">
+            </div>
             <div class="color-item" style="background-color: #5F6F52;" data-label="Sage Moss" data-hex="#5F6F52"></div>
         </div>
     </section>
@@ -397,4 +628,5 @@
         revealOnScroll();
     </script>
 </body>
+
 </html>
