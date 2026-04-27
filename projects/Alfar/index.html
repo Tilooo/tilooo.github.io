@@ -110,7 +110,7 @@
 
         /* ----- Header / Project Info --- */
         .project-header {
-            min-height: 100vh;
+            min-height: 110vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -118,7 +118,7 @@
             text-align: center;
             background: linear-gradient(rgba(253, 251, 247, 0.6), rgba(253, 251, 247, 0.4)), url('images/Hero.jpg') center/cover no-repeat;
             position: relative;
-            padding: 3rem 2rem 8vh;
+            padding: 1rem 2rem 8vh;
             color: var(--text-color);
         }
 
@@ -291,15 +291,17 @@
         /* --- Engineering Section: Video Priority --- */
         .engineering-section {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.1fr 1fr;
             gap: 3rem;
             background-color: var(--bone-dark);
-            padding: 6rem 4vw;
+            padding: 5rem 1.5vw 5rem 5vw;
             align-items: center;
         }
 
         .video-box {
             width: 100%;
+            max-width: 800px;
+            justify-self: center;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
