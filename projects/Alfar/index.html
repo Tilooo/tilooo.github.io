@@ -360,20 +360,57 @@
         }
 
         /* --- The Brand Identity --- */
+        @keyframes ambientGradient {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
         .brand-demo {
-            background-color: var(--text-color);
+            background-color: #2F312F;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(227, 249, 109, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(95, 111, 82, 0.45) 0%, transparent 45%),
+                radial-gradient(circle at 80% 20%, rgba(194, 98, 70, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(253, 251, 247, 0.1) 0%, transparent 45%);
+            background-size: 200% 200%;
+            animation: ambientGradient 20s ease-in-out infinite;
             color: var(--bg-color);
             text-align: center;
-            padding: 5rem 5vw;
+            padding: 7rem 5vw;
+            position: relative;
+        }
+
+        .brand-glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 4.5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            transition: var(--transition);
+        }
+        
+        .brand-glass-card:hover {
+            border-color: rgba(227, 249, 109, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
         }
 
         .brand-demo h2 {
             margin: 0 auto 1.5rem !important;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .brand-demo .section-desc {
             margin: 0 auto;
             margin-bottom: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
         .color-palette {
@@ -593,18 +630,20 @@
 
     <!-- Brand Identity -->
     <section class="brand-demo reveal">
-        <div class="section-title reveal">
-            <h2 style="color: #fff;">Minimalist <i>Colorway</i></h2>
-            <p class="section-desc" style="color: rgba(255,255,255,0.6);">A curated palette that reflects Earth, Bone,
-                and Fire.</p>
-        </div>
-
-        <div class="color-palette">
-            <div class="color-item" style="background-color: #FDFBF7;" data-label="Bone White" data-hex="#FDFBF7"></div>
-            <div class="color-item" style="background-color: #2F312F;" data-label="Charcoal" data-hex="#2F312F"></div>
-            <div class="color-item" style="background-color: #E3F96D;" data-label="Lime Yellow" data-hex="#E3F96D">
+        <div class="brand-glass-card reveal">
+            <div class="section-title">
+                <h2 style="color: #fff;">Minimalist <i>Colorway</i></h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.8);">A curated palette that reflects Earth, Bone,
+                    and Fire.</p>
             </div>
-            <div class="color-item" style="background-color: #5F6F52;" data-label="Sage Moss" data-hex="#5F6F52"></div>
+
+            <div class="color-palette">
+                <div class="color-item" style="background-color: #FDFBF7;" data-label="Bone White" data-hex="#FDFBF7"></div>
+                <div class="color-item" style="background-color: #2F312F;" data-label="Charcoal" data-hex="#2F312F"></div>
+                <div class="color-item" style="background-color: #E3F96D;" data-label="Lime Yellow" data-hex="#E3F96D">
+                </div>
+                <div class="color-item" style="background-color: #5F6F52;" data-label="Sage Moss" data-hex="#5F6F52"></div>
+            </div>
         </div>
     </section>
 
