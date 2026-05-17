@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en-us">
 <script src="https://pygame-web.github.io/cdn/0.9.3/pythons.js" type=module id="site" data-python="python3.12"
     data-LINES=42 data-COLUMNS=132 data-os="vtx,snd,gui" async defer>#<!--
@@ -191,6 +192,7 @@ asyncio.run( custom_site() )
         }
 
         #transfer {
+            display: none !important;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -208,7 +210,7 @@ asyncio.run( custom_site() )
             padding: 8px 16px;
             z-index: 999999;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            display: none;
+            display: none !important;
             pointer-events: none;
         }
 
@@ -246,10 +248,7 @@ asyncio.run( custom_site() )
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: none;
-            background-color: #F7FAF5;
-            background-image: url('images/splash.png');
-            background-size: cover;
-            background-position: center;
+            background-color: transparent;
             overflow: hidden;
         }
 
