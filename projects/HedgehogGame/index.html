@@ -1,408 +1,815 @@
-<html lang="en-us">
-<script src="https://pygame-web.github.io/cdn/0.9.3/pythons.js" type=module id="site" data-python="python3.12"
-    data-LINES=42 data-COLUMNS=132 data-os="vtx,snd,gui" async defer>#<!--
+<!DOCTYPE html>
+<html lang="en">
 
-print("""
-Loading build_src from build_src.apk
-    Pygbag Version : 0.9.3
-    Template Version : 0.9.3
-    Python  : 3.12
-    CDN URL : https://pygame-web.github.io/cdn/0.9.3/
-    Screen  : 1280x720
-    Title   : build_src
-    Folder  : build_src
-    Authors : pgw
-    SPDX-License-Identifier: cookiecutter.spdx
-
-""")
-
-import sys
-import asyncio
-import platform
-import json
-from pathlib import Path
-
-async def custom_site():
-    import embed
-    platform.document.body.style.background = "#7f7f7f"
-
-    platform.window.transfer.hidden = true
-    platform.window.canvas.style.visibility = "visible"
-
-
-    bundle = "build_src"
-
-    appdir = Path(f"/data/data/{bundle}") # /data/data/build_src
-    appdir.mkdir()
-
-
-    # unpacked filesystem from compressed archive into work dir
-    if platform.window.location.host.find('.itch.zone')>0:
-        import zipfile
-        async with platform.fopen("build_src.apk", "rb") as archive:
-            with zipfile.ZipFile(archive) as zip_ref:
-                zip_ref.extractall(appdir.as_posix())
-    else:
-        import tarfile
-        async with platform.fopen("build_src.tar.gz", "rb") as archive:
-            tar = tarfile.open(fileobj=archive, mode="r:gz")
-            tar.extractall(path=appdir.as_posix(), filter='tar')
-            tar.close()
-
-    platform.run_main(PyConfig, loaderhome= appdir / "assets", loadermain=None)
-
-
-    while embed.counter()<0:
-        await asyncio.sleep(.1)
-
-    main = appdir / "assets" / "main.py"
-
-    if not platform.window.MM.UME:
-
-        __import__(__name__).__file__ = main
-
-        msg  = "Ready to start ! Please click/touch page"
-        platform.window.infobox.innerText = msg
-        print("\n"*4, f"    * Waiting for media user engagement. {msg} *" , "\n"*4)
-
-        while not platform.window.MM.UME:
-            await asyncio.sleep(.1)
-
-    await TopLevel_async_handler.start_toplevel(platform.shell, console=window.python.config.debug)
-
-    __import__(__name__).__file__ = main
-
-
-    def ui_callback(pkg):
-        platform.window.infobox.innerText = f"installing {pkg}"
-
-    await shell.source(main, callback=ui_callback)
-
-    platform.window.infobox.style.display = "none"
-    platform.window.config.gui_divider = 1
-    platform.window.window_resize()
-    print("default.tmpl: done")
-
-    shell.interactive()
-
-asyncio.run( custom_site() )
-
-
-
-
-
-
-
-
-
-
-
-# =============================================================================
-# --></script>
-
-<head><!--
-//=============================================================================
-//
-//
-//
-//
-//
-//
-//
-
-    {%- if cookiecutter.comment != "" -%}
-{{cookiecutter.comment}}
-    {% endif %}
-
--->
-    <script type="application/javascript">
-        // END BLOCK
-
-
-
-        // this dict is available under PyConfig.config from __main__
-
-        config = {
-            xtermjs: "1",
-            _sdl2: "canvas",
-            user_canvas: 0,
-            user_canvas_managed: 0,
-            gui_divider: 2,
-            ume_block: 1,
-            can_close: 0,
-            archive: "build_src",
-            gui_debug: 2,
-            cdn: "https://pygame-web.github.io/cdn/0.9.3/",
-            autorun: 0,
-            PYBUILD: "3.12",
-            fb_ar: 1.77,
-            fb_width: "1280",
-            fb_height: "720"
-        }
-
-        function show_infobox() {
-            infobox.style.display = "block";
-
-            // Box measure
-            const w = infobox.offsetWidth;
-            const h = infobox.offsetHeight;
-
-            // Center in viewport
-            const left = (window.innerWidth - w) / 2;
-            const top = (window.innerHeight - h) / 2;
-
-            infobox.style.left = left + "px";
-            infobox.style.top = top + "px";
-        }
-
-    </script>
-
-    <title>build_src</title>
+<head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="height=device-height, initial-scale=1.0">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-
-
-    <link rel="icon" type="image/png" href="favicon1.png" sizes="16x16">
-
+    <title>Hedgehog Apple Catcher | Project Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="prefetch" href="build_src.tar.gz">
+    <link rel="prefetch" href="images/splash.png">
     <style>
-        #status {
-            display: inline-block;
-            vertical-align: top;
-            margin-top: 20px;
-            margin-left: 30px;
-            font-weight: bold;
-            color: rgb(120, 120, 120);
+        :root {
+            --bg-color: #F7FAF5;
+            --text-color: #2A3A24;
+            --text-light: #6E7D68;
+            --accent-color: #5F8C4A;
+            --apple-red: #DC143C;
+            --golden: #F0E68C;
+            --forest-dark: #1E3A14;
+            --meadow: #C8E6A0;
+            --bone-dark: #EAF0E4;
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-ui: 'Inter', sans-serif;
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        #progress {
-            height: 20px;
-            width: 300px;
-        }
-
-        #infobox {
+        /* --- Back Button --- */
+        .back-button {
             position: fixed;
-            background: green;
-            color: blue;
-            font-weight: bold;
-            padding: 12px 24px;
-            z-index: 999999;
-        }
-
-        div.emscripten {
-            text-align: center;
-        }
-
-        div.emscripten_border {
-            border: 1px solid black;
-        }
-
-        div.thick_border {
-            border: 4px solid black;
-        }
-
-        /* average size of droid screen 470dp x 320dp  */
-        canvas.emscripten {
-            border: 0px none;
-            background-color: transparent;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
-
-            padding: 0;
-            margin: 0 auto;
-
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        body {
-            font-family: arial;
-            margin: 0;
-            padding: none;
-            background-color: powderblue;
-        }
-
-        .topright {
-            position: absolute;
-            top: 0px;
-            right: 0px;
-        }
-
-        .bottomright {
-            position: absolute;
-            top: 40%;
-            right: 0px;
-        }
-
-        .center {
+            top: 1.5rem;
+            left: 1.5rem;
+            z-index: 1001;
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 3.2rem;
+            height: 3.2rem;
+            background-color: var(--golden);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--text-color);
+            border: 1px solid rgba(240, 230, 140, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            font-size: 1.25rem;
+            transition: var(--transition);
         }
 
-        .trinfo {
-            position: relative;
-            right: 0px;
-            border: 1px solid black;
+        .back-button:hover {
+            background-color: var(--forest-dark);
+            color: var(--golden);
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 10px 25px rgba(240, 230, 140, 0.4);
+            border-color: var(--forest-dark);
         }
 
-        .framed {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-ui);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        i { font-style: italic; }
+
+        /* --- Hero Section --- */
+        .project-header {
+            min-height: 110vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(247, 250, 245, 0.5), rgba(247, 250, 245, 0.3)),
+                url('images/background.png') center/cover no-repeat;
             position: relative;
-            top: 150px;
-            right: 10px;
-            border: 1px solid black;
+            padding: 1rem 2rem 8vh;
+            color: var(--text-color);
+        }
+
+        .project-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(transparent, var(--bg-color));
+        }
+
+        .category-tag {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            display: block;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .project-header h1 {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease both;
+            text-shadow: 0 10px 40px rgba(255, 255, 255, 0.8);
+        }
+
+        .project-header p {
+            max-width: 850px;
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-light);
+            animation: fadeInUp 1.2s ease both;
+        }
+
+        .hedgehog-hero-emoji {
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+            margin-top: 3.5rem;
+            animation: fadeInUp 1.4s ease both;
+        }
+
+        .stat-item span {
+            display: block;
+            font-family: var(--font-ui);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item {
+            position: relative;
+        }
+
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 5rem;
+            background-color: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .stat-item:last-child::after {
+            display: none;
+        }
+
+        .stat-item:first-child::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 5rem;
+            background-color: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        /* --- Section Styling --- */
+        section {
+            padding: 4.5rem 5vw;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .section-title h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            position: relative;
+            width: fit-content;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--golden);
+        }
+
+        .section-desc {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Feature Items --- */
+        .feature-item {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-item::before {
+            content: '🍎';
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .feature-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* --- Play Section --- */
+        .play-section {
+            background-color: var(--forest-dark);
+            padding: 5rem 5vw;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(95, 140, 74, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(240, 230, 140, 0.15) 0%, transparent 50%);
+        }
+
+        .play-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .play-section h2 {
+            color: #fff;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .play-section .section-desc {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .game-frame-wrapper {
+            max-width: 850px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            background: url('images/splash.png') center/cover no-repeat;
+            aspect-ratio: 16/10;
+        }
+
+        .game-frame-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+        }
+
+        .play-hint {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* --- Mockup / Image Container --- */
+        .mockup-container {
+            background: var(--bone-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
+        }
+
+        .mockup-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.8s ease;
+        }
+
+        .mockup-container:hover img {
+            transform: scale(1.02);
+        }
+
+        /* --- Mechanics Section --- */
+        .mechanics-section {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 3rem;
+            background-color: var(--bone-dark);
+            padding: 5rem 1.5vw 5rem 5vw;
+            align-items: center;
+        }
+
+        .mechanics-visual {
+            width: 100%;
+            max-width: 500px;
+            justify-self: center;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .mechanics-visual img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .script-box {
+            padding-top: 1rem;
+        }
+
+        .script-box h2 {
+            font-size: 3.2rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .script-box .section-desc {
+            font-size: 1.05rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .script-box .feature-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        .script-box .feature-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .script-box .feature-item p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .script-box .feature-item::before {
+            font-size: 1rem;
+        }
+
+        /* --- Tech Palette Section --- */
+        @keyframes ambientGradient {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .tech-demo {
+            background-color: var(--forest-dark);
+            background-image:
+                radial-gradient(circle at 15% 20%, rgba(95, 140, 74, 0.35) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(240, 230, 140, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 80% 20%, rgba(220, 20, 60, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 20% 80%, rgba(200, 230, 160, 0.1) 0%, transparent 45%);
+            background-size: 200% 200%;
+            animation: ambientGradient 20s ease-in-out infinite;
+            color: var(--bg-color);
+            text-align: center;
+            padding: 7rem 5vw;
+            position: relative;
+        }
+
+        .tech-glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 4.5rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .tech-glass-card:hover {
+            border-color: rgba(240, 230, 140, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .tech-demo h2 {
+            margin: 0 auto 1.5rem !important;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .tech-demo .section-desc {
+            margin: 0 auto;
+            margin-bottom: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .tech-stack-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-item {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tech-item:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .tech-item i {
+            font-size: 1.8rem;
+            font-style: normal;
+        }
+
+        .tech-item span {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* --- Buttons --- */
+        .btn-play {
+            display: inline-block;
+            background-color: var(--golden);
+            color: var(--forest-dark);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-play:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(240, 230, 140, 0.4);
+        }
+
+        .btn-github {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #fff;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: var(--transition);
+            margin-left: 1rem;
+        }
+
+        .btn-github:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(95, 140, 74, 0.4);
+            background-color: var(--forest-dark);
+        }
+
+        /* --- Footer --- */
+        .footer {
+            padding: 4rem 5vw;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .footer p {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .footer a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: 600;
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 900px) {
+            .grid-2,
+            .mechanics-section {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
+
+            .project-header h1 {
+                font-size: 3.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stat-item::after,
+            .stat-item::before {
+                display: none;
+            }
+
+            .section-title h2 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 6rem 5vw;
+            }
+
+            .tech-stack-grid {
+                gap: 1.2rem;
+            }
+
+            .tech-item {
+                width: 80px;
+                height: 80px;
+            }
+
+            .mechanics-section {
+                padding: 4rem 5vw !important;
+            }
+
+            .btn-github {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+
+            .game-frame-wrapper {
+                aspect-ratio: 4/3;
+            }
         }
     </style>
-
-    <script>
-        /*
-                if (navigator.serviceWorker)
-                    navigator.serviceWorker.register("https://pygame-web.github.io/cdn/0.9.3/pygbag0.9.3.js")
-                else
-                    console.warn("Service workers not supported")
-        */
-    </script>
-
-    <script src="https://pygame-web.github.io/cdn/0.9.3//browserfs.min.js"></script>
-
 </head>
 
 <body>
 
-    <div id="transfer" align=center>
-        <!--        <div class="spinner" id='spinner'></div> -->
-        <div class="emscripten" id="status">Downloading...</div>
-        <div class="emscripten">
-            <progress value="0" max="100" id="progress"></progress>
-        </div>
-    </div>
+    <!-- Back to Portfolio -->
+    <a href="https://tilooo.github.io/projects.html" class="back-button" title="Back to Portfolio">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
+    <!-- Hero Section -->
+    <header class="project-header">
+        <span class="hedgehog-hero-emoji">🦔</span>
+        <span class="category-tag">Game Development &bull; Python &bull; 2026</span>
+        <h1>Hedgehog <br><i>Apple Catcher</i></h1>
+        <p>A fun and charming arcade game where you control a hedgehog to catch falling apples.
+            Built with Python & Pygame, featuring smooth physics, playful animations, and juicy particle effects.</p>
 
-
-    <canvas class="emscripten" id="canvas" width="1px" height="1px" oncontextmenu="event.preventDefault()" tabindex=1>
-    </canvas>
-
-    <canvas class="emscripten" id="canvas3d" width="1280px" height="720px" oncontextmenu="event.preventDefault()"
-        tabindex=1 hidden>
-    </canvas>
-
-    <div id="infobox">Loading, please wait ...</div>
-
-    <div id=html></div>
-
-    <div id=crt class=bottomright>
-
-        <div id="system" hidden>
-            <div class="button-container">
-                <button id="aiostop" disabled>AIO ⏏︎</button>
-                <button id="aiopaused_true" disabled>AIO ■</button>
-                <button id="aiopaused_false" disabled>AIO ▶</button>
-                <button id="pygame_mixer_music_pause" disabled>Music ■</button>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span>Core Stack</span>
+                <strong>Python & Pygame</strong>
             </div>
-
-            <div class="button-container">
-                <div id=load_min>min</div>
-                <div id=load_avg>avg</div>
-                <div id=load_max>max</div>
-                <button id="load_rst" disabled>RESET</button>
+            <div class="stat-item">
+                <span>Features</span>
+                <strong>Physics, Particles, Levels</strong>
             </div>
-
-            <div id="level">(battery level unknown)</div>
-            <div id="stateBattery">(charging state unknown)</div>
-
+            <div class="stat-item">
+                <span>Platform</span>
+                <strong>Desktop & Web</strong>
+            </div>
         </div>
+    </header>
 
-        <div id=box class="emscripten_border" hidden=true>
+    <!-- Play the Game Section -->
+    <section class="play-section reveal">
+        <h2>Play <i>Now</i></h2>
+        <p class="section-desc">Experience the game right here in your browser. Use the left and right arrow keys to move the hedgehog and catch the falling apples!</p>
 
-            <div id="info" class="trinfo"></div>
-
-            <iframe id="iframe" class="framed" name="iframe" width="470px" height="90%" allowtransparency="true"
-                style="z-index: 10;" style="background: #FFFFFF;" frameborder="1" allowfullscreen="true"
-                webkitallowfullscreen="true" msallowfullscreen="true" mozallowfullscreen="true"
-                sandbox="allow-same-origin allow-top-navigation allow-scripts allow-pointer-lock"
-                allow="autoplay; fullscreen *; geolocation; microphone; camera; midi; monetization; xr-spatial-tracking; gamepad; gyroscope; accelerometer; xr; cross-origin-isolated"
-                src="https://pygame-web.github.io/cdn/0.9.3/empty.html" scrolling="yes">
+        <div class="game-frame-wrapper">
+            <iframe src="game.html" 
+                allow="autoplay; fullscreen; cross-origin-isolated; gamepad; clipboard-read; clipboard-write" 
+                sandbox="allow-same-origin allow-scripts allow-pointer-lock"
+                allowfullscreen>
             </iframe>
         </div>
 
-    </div>
+        <p class="play-hint">⌨️ Arrow Keys to Move &bull; Catch apples to score &bull; Press R to restart</p>
+    </section>
 
+    <!-- Game Mechanics Section -->
+    <section class="mechanics-section reveal">
+        <div class="mechanics-visual">
+            <img src="images/splash.png" alt="Hedgehog Apple Catcher Gameplay">
+        </div>
 
-    <div id="dlg" hidden>
-        <input type="file" id="dlg_multifile" multiple accept="image/*">
-        <label for="dlg_multifile">Select files</label>
-    </div>
+        <div class="script-box">
+            <div class="section-title">
+                <h2>Game <i>Mechanics</i></h2>
+                <p class="section-desc">Every detail—from the hedgehog's waddling walk to the satisfying burst of particles when an apple is caught—is crafted to create a polished, delightful experience.</p>
+            </div>
 
-    <div id="pyconsole">
-        <div id="terminal" tabIndex=1 align="left"></div>
-    </div>
+            <div class="feature-item">
+                <h4>Smooth Physics</h4>
+                <p>Acceleration, friction, and bouncy wall collisions create natural, responsive movement.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Living Animations</h4>
+                <p>The hedgehog waddles when running and breathes when idle. Apples rotate and pulse as they fall.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Juicy Particles</h4>
+                <p>Golden burst on catch, red splash on miss — particles with gravity and fade for satisfying feedback.</p>
+            </div>
+        </div>
+    </section>
 
-    <script type="application/javascript">
+    <!-- Artisanal Vision -->
+    <section class="grid-2">
+        <div class="section-title reveal">
+            <h2>How to <i>Play</i></h2>
+            <p class="section-desc">Simple controls, deep engagement. The game progressively challenges you with faster apples and a new environment as you level up.</p>
 
-        globalThis.__canvas_resized = (self, ecw, ech) => {
-            console.warn("TODO: panda3d canvas monitor", self, ecw, ech)
+            <div class="feature-item">
+                <h4>Catch & Score</h4>
+                <p>Use arrow keys to move the hedgehog left and right. Each caught apple earns 10 points. Miss one and lose a life!</p>
+            </div>
+            <div class="feature-item">
+                <h4>Level Progression</h4>
+                <p>Reach 200 points to unlock Level 2 — a new night environment with faster falling apples and restored lives.</p>
+            </div>
+            <div class="feature-item">
+                <h4>5 Lives System</h4>
+                <p>You start with 5 lives. When they run out, it's game over — but press R to jump right back in!</p>
+            </div>
+        </div>
+        <div class="mockup-container reveal">
+            <img src="images/background3.png" alt="Level 2 Night Environment">
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-demo reveal">
+        <div class="tech-glass-card reveal">
+            <div class="section-title">
+                <h2 style="color: #fff;">Built <i>With</i></h2>
+                <p class="section-desc" style="color: rgba(255,255,255,0.8);">A clean, focused tech stack for smooth gameplay and easy deployment to the web.</p>
+            </div>
+
+            <div class="tech-stack-grid">
+                <div class="tech-item">
+                    <i>🐍</i>
+                    <span>Python</span>
+                </div>
+                <div class="tech-item">
+                    <i>🎮</i>
+                    <span>Pygame</span>
+                </div>
+                <div class="tech-item">
+                    <i>🌐</i>
+                    <span>Pygbag</span>
+                </div>
+                <div class="tech-item">
+                    <i>⚡</i>
+                    <span>WebAssembly</span>
+                </div>
+                <div class="tech-item">
+                    <i>🎨</i>
+                    <span>Custom Art</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section style="text-align: center;">
+        <div class="reveal">
+            <h2 style="font-size: 3rem; margin-bottom: 2rem;">View the <i>Source Code</i></h2>
+            <a href="game.html" class="btn-play">🎮 Play Game</a>
+            <a href="https://github.com/tilooo/HedgehogGame" class="btn-github"><i class="fab fa-github"></i>&nbsp; GitHub</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Represented by <a href="https://tilooo.github.io/">Tilooo</a> &bull; Game Project</p>
+    </footer>
+
+    <script>
+        // Scroll Reveal
+        const reveals = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
         }
 
-        async function custom_onload(debug_hidden) {
-            console.log(__FILE__, "custom_onload")
-
-            pyconsole.hidden = debug_hidden
-            system.hidden = debug_hidden
-            transfer.hidden = debug_hidden
-            info.hidden = debug_hidden
-            box.hidden = debug_hidden
-
-            show_infobox()
-        }
-
-        function custom_prerun() {
-            // no python main and no (MEMFS + VFS) yet.
-            console.log(__FILE__, "custom_prerun")
-
-        }
-
-        function custom_postrun() {
-            // python main and no VFS filesystem yet.
-            console.log(__FILE__, "custom_postrun")
-
-        }
-
-        function debug() {
-            python.config.debug = true
-            custom_onload(false)
-            Module.PyRun_SimpleString("shell.uptime()")
-            window_resize()
-        }
-
-        function info_inline(data) {
-            document.getElementById("info").innerHTML = data
-        }
-
-        function info_online(url) {
-            // APK
-            fetch(url /*, options */)
-                .then((response) => response.text())
-                .then((html) => {
-                    info_inline(html);
-                })
-                .catch((error) => {
-                    console.warn(error);
-                });
-        }
-
-        function frame_online(url) {
-            window.frames["iframe"].location = url;
-        }
-
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
     </script>
-
 </body>
 
 </html>
