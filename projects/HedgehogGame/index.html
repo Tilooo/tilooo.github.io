@@ -377,62 +377,127 @@
         /* --- Mechanics Section --- */
         .mechanics-section {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 3rem;
-            background-color: var(--bone-dark);
-            padding: 5rem 1.5vw 5rem 5vw;
+            grid-template-columns: 1fr 1.2fr; /* Image slightly smaller, text slightly larger area */
+            gap: 2rem; /* gap between columns */
+            background-color: var(--bg-color); /* Light background */
+            padding: 3rem 5vw; /* vertical padding */
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mechanics-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(to bottom right, rgba(240, 230, 140, 0.05), transparent 50%),
+                linear-gradient(to top left, rgba(95, 140, 74, 0.05), transparent 50%);
+            z-index: 1;
         }
 
         .mechanics-visual {
             width: 100%;
-            max-width: 500px;
+            max-width: 480px; /* max-width for image */
             justify-self: center;
-            border-radius: 16px;
+            border-radius: 12px; /* Slightly less rounded */
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Lighter shadow */
             position: relative;
+            z-index: 2;
+            transform: perspective(800px) rotateY(-3deg) rotateX(2deg); /* Subtle 3D tilt */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .mechanics-visual:hover {
+            transform: perspective(800px) rotateY(-1deg) rotateX(0.5deg) scale(1.01);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
         .mechanics-visual img {
             width: 100%;
             display: block;
-            border-radius: 16px;
+            border-radius: 12px;
+            object-fit: cover; /* Ensure image covers the area */
+            height: 350px; /* Fixed height for image */
         }
 
         .script-box {
-            padding-top: 1rem;
+            padding: 0;
+            z-index: 2;
         }
 
-        .script-box h2 {
-            font-size: 3.2rem !important;
-            margin-bottom: 1.5rem !important;
+        .script-box .section-title {
+            margin-bottom: 1.5rem;
+            text-align: left; /* Align title left */
+            width: auto;
+        }
+
+        .script-box .section-title h2 {
+            font-size: 2.8rem !important; /* Smaller title */
+            margin-bottom: 0.8rem !important; /* Tighter heading */
+            color: var(--text-color);
+        }
+
+        .script-box .section-title h2::after {
+            bottom: -10px;
+            left: 0; /* Align with text */
+            width: 60px; /* Shorter underline */
         }
 
         .script-box .section-desc {
-            font-size: 1.05rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            font-size: 0.95rem; /* Smaller description */
+            margin-bottom: 1.8rem;
+            line-height: 1.5;
+            color: var(--text-light);
+            max-width: none; /* Allow it to take full width */
+            text-align: left; /* Align description left */
+        }
+
+        .mechanics-features {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem; /* Very tight spacing for features */
+            padding-left: 0; /* No overall padding */
+            border-left: none; /* no accent border for cleaner look */
+            margin-top: 0; /* No margin from description */
         }
 
         .script-box .feature-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1.8rem;
-        }
-
-        .script-box .feature-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.4rem;
-        }
-
-        .script-box .feature-item p {
-            font-size: 0.9rem;
-            line-height: 1.5;
+            margin-bottom: 0.5rem; /* Small margin between items */
+            padding-left: 1.5rem; /* Only padding for icon alignment */
+            position: relative;
+            display: flex; /* flex for icon and text alignment */
+            align-items: flex-start; /* Align icon and text at the top */
         }
 
         .script-box .feature-item::before {
-            font-size: 1rem;
+            content: '🌿';
+            font-size: 0.9rem; /* Smaller emoji */
+            position: absolute;
+            left: 0;
+            top: 0.2rem; /* Align with text */
+            color: var(--accent-color); /* Match accent color */
+            flex-shrink: 0; /* Prevent emoji from shrinking */
+            margin-right: 0.5rem; /* Space between icon and text */
         }
+
+        .script-box .feature-item h4 {
+            font-size: 1.2rem; /* Smaller feature titles */
+            margin-bottom: 0.2rem; /* Very tight heading */
+            color: var(--forest-dark);
+            line-height: 1.3;
+        }
+
+        .script-box .feature-item p {
+            font-size: 1.0rem; /* Smaller text */
+            line-height: 1.4;
+            color: var(--text-light);
+        }
+
 
         /* --- Tech Palette Section --- */
         @keyframes ambientGradient {
@@ -593,8 +658,7 @@
 
         /* --- Mobile Responsiveness --- */
         @media (max-width: 900px) {
-            .grid-2,
-            .mechanics-section {
+            .grid-2 {
                 grid-template-columns: 1fr !important;
                 gap: 3rem !important;
             }
@@ -630,8 +694,34 @@
                 height: 80px;
             }
 
+            /* Mobile-specific adjustments for mechanics section */
             .mechanics-section {
-                padding: 4rem 5vw !important;
+                grid-template-columns: 1fr; /* Stack vertically */
+                padding: 4rem 5vw !important; /* Adjust padding */
+                gap: 2rem; /* Reduced gap */
+            }
+
+            .mechanics-visual {
+                transform: none; /* Remove 3D tilt on mobile */
+                max-width: 100%; /* Allow image to take full width */
+                height: 250px; /* Adjust height for mobile */
+            }
+
+            .script-box .section-title,
+            .script-box .section-desc,
+            .script-box .feature-item {
+                text-align: center; /* Center align text elements */
+            }
+
+            .script-box .section-title h2::after {
+                left: 50%; /* Center underline */
+                transform: translateX(-50%);
+            }
+
+            .script-box .feature-item::before {
+                position: static; /* Place emoji inline or above */
+                display: block; /* Make it block to center it */
+                margin: 0 auto 0.5rem; /* Center and add space */
             }
 
             .btn-github {
@@ -683,8 +773,8 @@
         <p class="section-desc">Experience the game right here in your browser. Use the left and right arrow keys to move the hedgehog and catch the falling apples!</p>
 
         <div class="game-frame-wrapper">
-            <iframe src="game.html" 
-                allow="autoplay; fullscreen; cross-origin-isolated; gamepad; clipboard-read; clipboard-write" 
+            <iframe src="game.html"
+                allow="autoplay; fullscreen; cross-origin-isolated; gamepad; clipboard-read; clipboard-write"
                 sandbox="allow-same-origin allow-scripts allow-pointer-lock"
                 allowfullscreen>
             </iframe>
@@ -705,17 +795,19 @@
                 <p class="section-desc">Every detail—from the hedgehog's waddling walk to the satisfying burst of particles when an apple is caught—is crafted to create a polished, delightful experience.</p>
             </div>
 
-            <div class="feature-item">
-                <h4>Smooth Physics</h4>
-                <p>Acceleration, friction, and bouncy wall collisions create natural, responsive movement.</p>
-            </div>
-            <div class="feature-item">
-                <h4>Living Animations</h4>
-                <p>The hedgehog waddles when running and breathes when idle. Apples rotate and pulse as they fall.</p>
-            </div>
-            <div class="feature-item">
-                <h4>Juicy Particles</h4>
-                <p>Golden burst on catch, red splash on miss — particles with gravity and fade for satisfying feedback.</p>
+            <div class="mechanics-features"> <!-- Grouping features for tighter control -->
+                <div class="feature-item">
+                    <h4>Smooth Physics</h4>
+                    <p>Acceleration, friction, and bouncy wall collisions create natural, responsive movement.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Living Animations</h4>
+                    <p>The hedgehog waddles when running and breathes when idle. Apples rotate and pulse as they fall.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Juicy Particles</h4>
+                    <p>Golden burst on catch, red splash on miss — particles with gravity and fade for satisfying feedback.</p>
+                </div>
             </div>
         </div>
     </section>
