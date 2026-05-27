@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -142,7 +144,7 @@
             font-size: 0.75rem;
             letter-spacing: 0.2em;
             color: var(--accent-color);
-            font-weight: 600;
+            font-weight: 900;
             margin-bottom: 2.5rem;
             display: block;
             animation: fadeInUp 0.8s ease;
@@ -377,10 +379,10 @@
         /* --- Mechanics Section --- */
         .mechanics-section {
             display: grid;
-            grid-template-columns: 1fr 1.2fr; /* Image slightly smaller, text slightly larger area */
-            gap: 2rem; /* gap between columns */
-            background-color: var(--bg-color); /* Light background */
-            padding: 3rem 5vw; /* vertical padding */
+            grid-template-columns: 0.8fr 1.2fr; /* Image tighter, text wider */
+            gap: 1.5rem; /* gap even further */
+            background-color: var(--bg-color);
+            padding: 4.5rem 5vw;
             align-items: center;
             position: relative;
             overflow: hidden;
@@ -402,32 +404,32 @@
         /* --- Mechanics Visual --- */
         .mechanics-visual {
             width: 100%;
-            max-width: 780px;
-            justify-self: center;
             position: relative;
             z-index: 2;
-            border-radius: 0;
-            overflow: visible;
-            box-shadow: none;
-            background: none;
-            transform: none;
-            transition: none;
-        }
-
-        .mechanics-visual:hover {
-            transform: none;
-            box-shadow: none;
+            overflow: hidden;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: var(--bone-dark); /* a subtle background to the image container itself */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .mechanics-visual img {
             width: 100%;
             display: block;
-            border-radius: 0; /* No border-radius on image */
-            object-fit: contain; /* contain to show full PNG without cropping */
+            object-fit: contain;
             height: auto;
-            max-height: 380px;
+            max-height: 400px;
+            transition: transform 0.3s ease;
         }
 
+        .mechanics-visual:hover img {
+            transform: scale(1.02);
+        }
+
+        /* --- Script Box (Text Side) --- */
         .script-box {
             padding: 0;
             z-index: 2;
@@ -435,69 +437,67 @@
 
         .script-box .section-title {
             margin-bottom: 1.5rem;
-            text-align: left; /* Align title left */
+            text-align: left;
             width: auto;
         }
 
         .script-box .section-title h2 {
-            font-size: 2.8rem !important; /* Smaller title */
-            margin-bottom: 0.8rem !important; /* Tighter heading */
+            font-size: 2.8rem !important;
+            margin-bottom: 0.8rem !important;
             color: var(--text-color);
         }
 
         .script-box .section-title h2::after {
-            bottom: -10px;
-            left: 0; /* Align with text */
-            width: 60px; /* Shorter underline */
+            bottom: -8px;
+            left: 0;
+            width: 60px;
         }
 
         .script-box .section-desc {
-            font-size: 0.95rem; /* Smaller description */
-            margin-bottom: 1.8rem;
-            line-height: 1.5;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
             color: var(--text-light);
-            max-width: none; /* Allow it to take full width */
-            text-align: left; /* Align description left */
+            max-width: none;
+            text-align: left;
         }
 
         .mechanics-features {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem; /* Very tight spacing for features */
-            padding-left: 0; /* No overall padding */
-            border-left: none; /* no accent border for cleaner look */
-            margin-top: 0; /* No margin from description */
+            gap: 1rem;
+            padding-left: 0;
+            margin-top: 0;
         }
 
         .script-box .feature-item {
-            margin-bottom: 0.5rem; /* Small margin between items */
-            padding-left: 1.5rem; /* Only padding for icon alignment */
-            position: relative;
-            display: flex; /* flex for icon and text alignment */
-            align-items: flex-start; /* Align icon and text at the top */
+            margin-bottom: 0;
+            padding-left: 0;
+            display: flex;
+            align-items: flex-start;
         }
 
         .script-box .feature-item::before {
             content: '🌿';
-            font-size: 0.9rem; /* Smaller emoji */
-            position: absolute;
-            left: 0;
-            top: 0.2rem; /* Align with text */
-            color: var(--accent-color); /* Match accent color */
-            flex-shrink: 0; /* Prevent emoji from shrinking */
-            margin-right: 0.5rem; /* Space between icon and text */
+            font-size: 1.2rem;
+            position: static;
+            margin-right: 0.75rem;
+            top: 0;
+            flex-shrink: 0;
+            line-height: 1.3;
+            color: var(--accent-color);
         }
 
         .script-box .feature-item h4 {
-            font-size: 1.2rem; /* Smaller feature titles */
-            margin-bottom: 0.2rem; /* Very tight heading */
+            font-size: 1.25rem;
+            margin-bottom: 0.2rem;
             color: var(--forest-dark);
             line-height: 1.3;
         }
 
         .script-box .feature-item p {
-            font-size: 1.0rem; /* Smaller text */
-            line-height: 1.4;
+            font-size: 0.95rem;
+            line-height: 1.5;
             color: var(--text-light);
         }
 
@@ -706,17 +706,20 @@
 
             .mechanics-visual {
                 transform: none; /* Remove 3D tilt on mobile */
-                max-width: 100%; /* Allow image to take full width */
+                max-width: 100%;
+                padding: 8px; /* Slightly less padding on mobile */
             }
 
             .mechanics-visual img {
-                height: 250px; /* Adjust height for mobile */
+                height: auto;
+                max-height: 250px; /* max-height for mobile */
+                width: 90%;
+                margin: 0 auto;
             }
 
             .script-box .section-title,
-            .script-box .section-desc,
-            .script-box .feature-item {
-                text-align: center; /* Center align text elements */
+            .script-box .section-desc {
+                text-align: center;
             }
 
             .script-box .section-title h2::after {
@@ -724,10 +727,15 @@
                 transform: translateX(-50%);
             }
 
+            .script-box .feature-item {
+                text-align: left; /* feature text left-aligned even on mobile */
+                justify-content: flex-start; /* feature icon/text to start */
+            }
+
             .script-box .feature-item::before {
-                position: static; /* Place emoji inline or above */
-                display: block; /* Make it block to center it */
-                margin: 0 auto 0.5rem; /* Center and add space */
+                position: static;
+                display: block;
+                margin: 0 0.75rem 0 0;
             }
 
             .btn-github {
@@ -752,7 +760,7 @@
     <!-- Hero Section -->
     <header class="project-header">
         <span class="hedgehog-hero-emoji">🦔</span>
-        <span class="category-tag">Game Development &bull; Python &bull; 2026</span>
+        <span class="category-tag">&bull; Game Development &bull; Python &bull;</span>
         <h1>Hedgehog <br><i>Apple Catcher</i></h1>
         <p>A fun and charming arcade game where you control a hedgehog to catch falling apples.
             Built with Python & Pygame, featuring smooth physics, playful animations, and juicy particle effects.</p>
