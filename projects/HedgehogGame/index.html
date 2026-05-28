@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -237,7 +236,7 @@
 
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr; /* Default, will be overridden */
             gap: 3rem;
             align-items: center;
         }
@@ -266,7 +265,7 @@
             margin-bottom: 2.5rem;
         }
 
-        /* --- Feature Items --- */
+        /* --- Feature Items (General) --- */
         .feature-item {
             margin-bottom: 2rem;
             position: relative;
@@ -356,7 +355,7 @@
             text-transform: uppercase;
         }
 
-        /* --- Mockup / Image Container --- */
+        /* --- Mockup / Image Container (General) --- */
         .mockup-container {
             background: var(--bone-dark);
             border-radius: 12px;
@@ -376,11 +375,12 @@
             transform: scale(1.02);
         }
 
-        /* --- Mechanics Section --- */
+
+        /* --- Game Mechanics Section --- */
         .mechanics-section {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr; /* Image tighter, text wider */
-            gap: 1.5rem; /* gap even further */
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 1.5rem;
             background-color: var(--bg-color);
             padding: 4.5rem 5vw;
             align-items: center;
@@ -409,8 +409,8 @@
             overflow: hidden;
             border-radius: 8px;
             padding: 10px;
-            background-color: var(--bone-dark); /* a subtle background to the image container itself */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+            background-color: var(--bone-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -429,7 +429,7 @@
             transform: scale(1.02);
         }
 
-        /* --- Script Box (Text Side) --- */
+        /* --- Script Box (Text Side - for both Mechanics & How to Play) --- */
         .script-box {
             padding: 0;
             z-index: 2;
@@ -499,6 +499,65 @@
             font-size: 0.95rem;
             line-height: 1.5;
             color: var(--text-light);
+        }
+
+
+        /* --- "How to Play" Section Specific Styling --- */
+        .how-to-play-section {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* Text wider, Image tighter */
+            gap: 1.5rem; /* Consistent gap */
+            background-color: var(--bg-color);
+            padding: 4.5rem 5vw;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-to-play-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(to bottom left, rgba(240, 230, 140, 0.05), transparent 50%),
+                linear-gradient(to top right, rgba(95, 140, 74, 0.05), transparent 50%);
+            z-index: 1;
+        }
+
+        .how-to-play-section .mockup-container {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border-radius: 8px;
+            padding: 10px; /* Frame effect */
+            background-color: var(--bone-dark); /* Solid background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+            display: flex; /* Center image */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .how-to-play-section .mockup-container img {
+            width: 100%;
+            display: block;
+            object-fit: contain; /* full image is visible */
+            height: auto;
+            max-height: 400px; /* Consistent max height */
+            transition: transform 0.3s ease;
+        }
+
+        .how-to-play-section .mockup-container:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Adjustments for feature items in "How to Play" */
+        .how-to-play-section .feature-item::before {
+            content: '🍏';
+            color: var(--apple-red);
         }
 
 
@@ -698,21 +757,24 @@
             }
 
             /* Mobile-specific adjustments for mechanics section */
-            .mechanics-section {
+            .mechanics-section,
+            .how-to-play-section {
                 grid-template-columns: 1fr; /* Stack vertically */
-                padding: 4rem 5vw !important; /* Adjust padding */
-                gap: 2rem; /* Reduced gap */
+                padding: 4rem 5vw !important;
+                gap: 2rem;
             }
 
-            .mechanics-visual {
+            .mechanics-visual,
+            .how-to-play-section .mockup-container {
                 transform: none; /* Remove 3D tilt on mobile */
                 max-width: 100%;
                 padding: 8px; /* Slightly less padding on mobile */
             }
 
-            .mechanics-visual img {
+            .mechanics-visual img,
+            .how-to-play-section .mockup-container img {
                 height: auto;
-                max-height: 250px; /* max-height for mobile */
+                max-height: 250px;
                 width: 90%;
                 margin: 0 auto;
             }
@@ -729,7 +791,7 @@
 
             .script-box .feature-item {
                 text-align: left; /* feature text left-aligned even on mobile */
-                justify-content: flex-start; /* feature icon/text to start */
+                justify-content: flex-start;
             }
 
             .script-box .feature-item::before {
@@ -760,7 +822,7 @@
     <!-- Hero Section -->
     <header class="project-header">
         <span class="hedgehog-hero-emoji">🦔</span>
-        <span class="category-tag">&bull; Game Development &bull; Python &bull;</span>
+        <span class="category-tag">Game Development &bull; Python &bull; 2026</span>
         <h1>Hedgehog <br><i>Apple Catcher</i></h1>
         <p>A fun and charming arcade game where you control a hedgehog to catch falling apples.
             Built with Python & Pygame, featuring smooth physics, playful animations, and juicy particle effects.</p>
@@ -826,23 +888,27 @@
         </div>
     </section>
 
-    <!-- Artisanal Vision -->
-    <section class="grid-2">
-        <div class="section-title reveal">
-            <h2>How to <i>Play</i></h2>
-            <p class="section-desc">Simple controls, deep engagement. The game progressively challenges you with faster apples and a new environment as you level up.</p>
+    <!-- How to Play Section -->
+    <section class="how-to-play-section reveal">
+        <div class="script-box">
+            <div class="section-title">
+                <h2>How to <i>Play</i></h2>
+                <p class="section-desc">Simple controls, deep engagement. The game progressively challenges you with faster apples and a new environment as you level up.</p>
+            </div>
 
-            <div class="feature-item">
-                <h4>Catch & Score</h4>
-                <p>Use arrow keys to move the hedgehog left and right. Each caught apple earns 10 points. Miss one and lose a life!</p>
-            </div>
-            <div class="feature-item">
-                <h4>Level Progression</h4>
-                <p>Reach 200 points to unlock Level 2 — a new night environment with faster falling apples and restored lives.</p>
-            </div>
-            <div class="feature-item">
-                <h4>5 Lives System</h4>
-                <p>You start with 5 lives. When they run out, it's game over — but press R to jump right back in!</p>
+            <div class="mechanics-features">
+                <div class="feature-item">
+                    <h4>Catch & Score</h4>
+                    <p>Use arrow keys to move the hedgehog left and right. Each caught apple earns 10 points. Miss one and lose a life!</p>
+                </div>
+                <div class="feature-item">
+                    <h4>Level Progression</h4>
+                    <p>Reach 200 points to unlock Level 2 — a new night environment with faster falling apples and restored lives.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>5 Lives System</h4>
+                    <p>You start with 5 lives. When they run out, it's game over — but press R to jump right back in!</p>
+                </div>
             </div>
         </div>
         <div class="mockup-container reveal">
