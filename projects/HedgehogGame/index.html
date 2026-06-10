@@ -340,6 +340,7 @@
             box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
             background: url('images/splash.png') center/cover no-repeat;
             aspect-ratio: 16/9;
+            position: relative;
         }
 
         .game-frame-wrapper iframe {
@@ -347,6 +348,72 @@
             height: 100%;
             border: none;
             background-color: transparent;
+        }
+
+        /* --- Play Overlay CSS --- */
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 30, 10, 0.65);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .play-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .play-btn {
+            background-color: var(--golden);
+            color: var(--forest-dark);
+            border: none;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(240, 230, 140, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-family: var(--font-ui);
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(240, 230, 140, 0.6);
+            background-color: #ffffff;
+            color: var(--forest-dark);
+        }
+
+        .play-btn i {
+            font-size: 1.1rem;
+            font-style: normal;
+        }
+
+        .play-loading-text {
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 1.2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: var(--font-ui);
         }
 
         .play-hint {
@@ -849,12 +916,13 @@
         <h2>Play <i>Now</i></h2>
         <p class="section-desc">Experience the game right here in your browser. Use the left and right arrow keys to move the hedgehog and catch the falling apples!</p>
 
-        <div class="game-frame-wrapper">
-            <iframe src="game.html"
-                allow="autoplay; fullscreen; cross-origin-isolated; gamepad; clipboard-read; clipboard-write"
-                sandbox="allow-same-origin allow-scripts allow-pointer-lock"
-                allowfullscreen>
-            </iframe>
+        <div class="game-frame-wrapper" id="game-container">
+            <div class="play-overlay" id="play-overlay">
+                <button class="play-btn" onclick="loadGame()">
+                    <i class="fas fa-play"></i> Start Game
+                </button>
+                <div class="play-loading-text">Click to load Pygame WebAssembly runtime (~10MB)</div>
+            </div>
         </div>
 
         <p class="play-hint">⌨️ Arrow Keys to Move &bull; Catch apples to score &bull; Press R to restart</p>
@@ -863,7 +931,7 @@
     <!-- Game Mechanics Section -->
     <section class="mechanics-section reveal">
         <div class="mechanics-visual">
-            <img src="images/eziukas.png" alt="Hedgehog Apple Catcher Gameplay">
+            <img src="images/eziukas.png" alt="Hedgehog Apple Catcher Gameplay" loading="lazy">
         </div>
 
         <div class="script-box">
@@ -913,7 +981,7 @@
             </div>
         </div>
         <div class="mockup-container reveal">
-            <img src="images/background3.png" alt="Level 2 Night Environment">
+            <img src="images/background3.png" alt="Level 2 Night Environment" loading="lazy">
         </div>
     </section>
 
@@ -982,6 +1050,32 @@
 
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
+
+        // Dynamic Game Loader
+        function loadGame() {
+            const container = document.getElementById('game-container');
+            const overlay = document.getElementById('play-overlay');
+            
+            // Fade out overlay
+            overlay.classList.add('hidden');
+            
+            // Create iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = "game.html";
+            iframe.setAttribute('allow', 'autoplay; fullscreen; cross-origin-isolated; gamepad; clipboard-read; clipboard-write');
+            iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-pointer-lock');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.backgroundColor = 'transparent';
+            
+            // Append and clean up overlay
+            setTimeout(() => {
+                container.appendChild(iframe);
+                overlay.remove();
+            }, 400); // 400ms matches transition duration
+        }
     </script>
 </body>
 
